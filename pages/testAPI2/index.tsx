@@ -20,27 +20,19 @@ type Customer = {
     insert_timestamp: string;
     update_timestamp: string;
 }
+type Customers = {
+    customers: Customer[]
+}
 
 
 
-const TestAPI2: NextPageWithLayout<Customer[]> = (customers) => {
+const TestAPI2: NextPageWithLayout<Customers> = ({ customers }) => {
 
     return (
         <>
             <div className='flex-col my-10'>TEST</div>
+            {customers.map((a) => (<p>{a.username}</p>))}
 
-            {customers.length > 0 && (
-                <div className=''>
-                    <div className=''>
-                        {customers.map((customer) => (
-                            <div className=''>
-                                <h3>{customer.username}</h3>
-                            </div>
-                        ))
-                        }
-                    </div>
-                </div>
-            )}
         </>
     );
 
@@ -52,14 +44,17 @@ TestAPI2.getLayout = function getLayout(page: React.ReactElement) {
 }
 export const getStaticProps: GetStaticProps = async (context) => {
     // Fetch data from external API
-    const res = await fetch('https://192.168.0.182:1234/crud/customer')
+    const res = await fetch('http://localhost:1234/crud/customer')
     const customers: Customer[] = await res.json()
-
+    customers.map(a => {
+        console.log(a.username)
+    })
     // Pass data to the page via props
     return {
         props: {
             customers,
-        }, }
+        },
+    }
 }
 
 
