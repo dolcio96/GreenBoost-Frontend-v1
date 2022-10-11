@@ -17,7 +17,7 @@ import {
     Stack,
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
-import FaceIcon from '@mui/icons-material/Face';
+import { useSession, signIn, signOut } from "next-auth/react"
 
 const Links = ['Dashboard', 'Projects', 'Contact Us'];
 
@@ -41,6 +41,7 @@ const Nav = () => {
 
 
     const { isOpen, onOpen, onClose } = useDisclosure();
+    const { data: session } = useSession()
 
     return (
         <>
@@ -75,12 +76,12 @@ const Nav = () => {
                                 <Avatar
                                     size={'sm'}
                                     src={
-                                       ' https://bit.ly/sage-adebayo'
+                                        ' https://bit.ly/sage-adebayo'
                                     }
                                 />
                             </MenuButton>
                             <MenuList>
-                                <MenuItem as="a" href="/auth/login">Login</MenuItem>
+                                {session ? <MenuItem onClick={() => signOut()}>Logout</MenuItem> : <MenuItem onClick={() => signIn()}>Login</MenuItem>}
                                 <MenuItem as="a" href="/auth/signup">Signup</MenuItem>
                                 <MenuItem as="a" href="/profile">Profile</MenuItem>
                                 <MenuItem as="a" href="/aboutus">About us</MenuItem>

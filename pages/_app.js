@@ -7,11 +7,12 @@ function MyApp({
   pageProps: { session, ...pageProps } }) {
   const getLayout = Component.getLayout || ((page) => page)
   return <>
-    <ChakraProvider>
-      <SessionProvider session={session}>
+    <SessionProvider session={session}>
+      <ChakraProvider>
         {getLayout(<Component {...pageProps} />)}
-      </SessionProvider>
-    </ChakraProvider>
+      </ChakraProvider>
+    </SessionProvider>
+
   </>
 }
 
