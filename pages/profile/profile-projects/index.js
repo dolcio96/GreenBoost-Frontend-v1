@@ -2,19 +2,24 @@
 import { ReactElement } from "react"
 import Layout from "@components/layout"
 import Head from "@components/head"
-import ProfileComponet from "@components/profile"
+import ProfileProjectsComponet from "@components/profile/profile-projects"
+import ProfileLayout from "@components/layout/profileLayout"
+import { useRouter } from 'next/router';
 export default function Profile() {
+  const router = useRouter();
+  console.log(router)
   return (
+    
     <>
      <Head
           title="GreenBoost: Profile"
           description="GreenBoost: Profile"
         />
-    <ProfileComponet/>
+    <ProfileProjectsComponet/>
     </>
   )
 }
 
 Profile.getLayout = function getLayout(page) {
-  return <Layout>{page}</Layout>
+  return <ProfileLayout>{page}</ProfileLayout>
 }

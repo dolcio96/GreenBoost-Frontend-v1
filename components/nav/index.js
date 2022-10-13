@@ -38,8 +38,6 @@ const NavLink = ({ children }) => (
 
 
 const Nav = () => {
-
-
     const { isOpen, onOpen, onClose } = useDisclosure();
     const { data: session } = useSession()
 
@@ -55,7 +53,7 @@ const Nav = () => {
                         onClick={isOpen ? onClose : onOpen}
                     />
                     <HStack spacing={8} alignItems={'center'}>
-                        <Box>GreenBoost</Box>
+                        <Box as="a" href="/">GreenBoost</Box>
                         <HStack
                             as={'nav'}
                             spacing={4}
@@ -73,17 +71,22 @@ const Nav = () => {
                                 variant={'link'}
                                 cursor={'pointer'}
                                 minW={0}>
-                                <Avatar
-                                    size={'sm'}
-                                    src={
-                                        ' https://bit.ly/sage-adebayo'
-                                    }
-                                />
+                                {session ?
+                                    <Avatar
+                                        size={'sm'}
+                                        src={
+                                            ' https://bit.ly/sage-adebayo'
+                                        }
+                                    /> : <Avatar
+                                        size={'sm'}
+                                        backgroundColor="green"
+                                    />}
+
                             </MenuButton>
                             <MenuList>
                                 {session ? <MenuItem onClick={() => signOut()}>Logout</MenuItem> : <MenuItem onClick={() => signIn()}>Login</MenuItem>}
                                 <MenuItem as="a" href="/auth/signup">Signup</MenuItem>
-                                <MenuItem as="a" href="/profile">Profile</MenuItem>
+                                <MenuItem as="a" href="/profile/profile-overview">Profile</MenuItem>
                                 <MenuItem as="a" href="/aboutus">About us</MenuItem>
                             </MenuList>
                         </Menu>
