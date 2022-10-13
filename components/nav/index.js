@@ -18,8 +18,11 @@ import {
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { useSession, signIn, signOut } from "next-auth/react"
+import { ChevronDownIcon, ChevronUpIcon } from '@chakra-ui/icons'
 
-const Links = ['Dashboard', 'Projects', 'Contact Us'];
+const Links = ['Buy', 'Sell', 'Dashboard', 'Projects', 'Contact Us', 'About Us'];
+
+const Links2 = {};
 
 const NavLink = ({ children }) => (
     <Link
@@ -30,7 +33,7 @@ const NavLink = ({ children }) => (
             textDecoration: 'none',
             bg: useColorModeValue('gray.200', 'gray.700'),
         }}
-        href={children.toString().replace(/\s/g, '').toLowerCase()}>
+        href={children.toString().replace('&', '').replace(/\s/g, '').toLowerCase()}>
         {children}
     </Link>
 );
@@ -54,14 +57,51 @@ const Nav = () => {
                     />
                     <HStack spacing={8} alignItems={'center'}>
                         <Box as="a" href="/">GreenBoost</Box>
+
                         <HStack
                             as={'nav'}
                             spacing={4}
                             display={{ base: 'none', md: 'flex' }}>
+                            <Menu isOpen={isOpen}>
+                                <MenuButton
+                                    py={1}
+                                    onMouseEnter={onOpen}
+                                    onMouseLeave={onClose}
+                                    as={Button}
+                                    variant={'link'}
+                                    _hover={{
+                                        textDecoration: 'none',
+                                        bg: useColorModeValue('gray.200', 'gray.700'),
+                                    }}
+                                    minW={0}
+                                    cursor={'pointer'}>
+                                    <Link
+                                        px={2}
+                                        py={1}
+                                        rounded={'md'}
+                                        _hover={{
+                                            textDecoration: 'none',
+                                            bg: useColorModeValue('gray.200', 'gray.700'),
+                                        }}
+                                        href='/buy'
+                                        >
+                                        Buy  {isOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}
+                                    </Link>
+                                </MenuButton>
+                                <MenuList onMouseEnter={onOpen} onMouseLeave={onClose}>
+                                    <MenuItem as="a" href="/auth/signup">Buy Random Carbon Credit</MenuItem>
+                                    <MenuItem as="a" href="/auth/signup">Choose Your Carbon Credit</MenuItem>
+                                </MenuList>
+                            </Menu>
+
+
+
                             {Links.map((link) => (
                                 <NavLink key={link}>{link}</NavLink>
                             ))}
                         </HStack>
+
+
                     </HStack>
                     <Flex alignItems={'center'}>
                         <Menu>
