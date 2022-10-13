@@ -47,7 +47,7 @@ function ProfileOverview() {
   const bgProfile = useColorModeValue("hsla(0,0%,100%,.8)", "navy.800");
   const borderProfileColor = useColorModeValue("white", "transparent");
   const emailColor = useColorModeValue("gray.400", "gray.300");
-
+  console.log(ImageArchitect1)
   return (
     <Flex direction='column' pt={{ base: "120px", md: "75px", lg: "100px" }}>
       <Grid templateColumns={{ sm: "1fr", xl: "repeat(2, 1fr)" }} gap='22px'>
@@ -322,7 +322,7 @@ function ProfileOverview() {
             gap='24px'>
             <Flex direction='column'>
               <Box mb='20px' position='relative' borderRadius='15px'>
-                <Image src={'./Images/ImageArchitect1.png'} borderRadius='15px' />
+                <Image src={ImageArchitect1.src} borderRadius='15px' />
                 <Box
                   w='100%'
                   h='100%'
