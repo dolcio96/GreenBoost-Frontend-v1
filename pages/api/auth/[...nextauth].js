@@ -35,7 +35,8 @@ export default NextAuth({
         console.log(response)
         return await response.json()
       }
-    }),GoogleProvider({
+    }),
+    /*GoogleProvider({
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET,
     }),
@@ -46,7 +47,7 @@ export default NextAuth({
       // @ts-ignore
       scope: "read:user",
     }),
-    /*GithubProvider({
+    GithubProvider({
       clientId: process.env.GITHUB_ID,
       clientSecret: process.env.GITHUB_SECRET,
       // https://docs.github.com/en/developers/apps/building-oauth-apps/scopes-for-oauth-apps
@@ -116,7 +117,7 @@ export default NextAuth({
   callbacks: {
     // async signIn({ user, account, profile, email, credentials }) { return true },
     async redirect({ url, baseUrl }) {
-     return baseUrl
+      return baseUrl
     },
     // async session({ session, token, user }) { return session },
     // async jwt({ token, user, account, profile, isNewUser }) { return token }

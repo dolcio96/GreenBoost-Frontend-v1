@@ -19,7 +19,7 @@ import { ReactElement, useState, useEffect } from "react"
 import { getProviders, signIn, useSession } from "next-auth/react"
 import { useRouter } from 'next/router';
 const Signin = (props) => {
-  const [state, setState] = useState({ username: "", password: "" })
+  const [credentials, setCredentials] = useState({ username: "", password: "" })
   return (
     <>
       <Flex
@@ -42,11 +42,11 @@ const Signin = (props) => {
             <Stack spacing={4}>
               <FormControl>
                 <FormLabel>Email address</FormLabel>
-                <Input id="email" type="email" value={state.username} onChange={(e) => { setState({ username: e.target.value }) }} />
+                <Input id="email" type="email" value={credentials.username} onChange={(e) => { setCredentials({ ...credentials, username: e.target.value }) }} />
               </FormControl>
               <FormControl>
                 <FormLabel>Password</FormLabel>
-                <Input id="password" type="password" value={state.password} onChange={(e) => { setState({ password: e.target.value }) }} />
+                <Input id="password" type="password" value={credentials.password} onChange={(e) => { setCredentials({ ...credentials, password: e.target.value }) }} />
               </FormControl>
               <Stack spacing={10}>
                 <Stack
@@ -56,7 +56,7 @@ const Signin = (props) => {
                   <Checkbox>Remember me</Checkbox>
                   <Link color={'blue.400'}>Forgot password?</Link>
                 </Stack>
-                <Button onClick={() => signIn('credentials', { username: state.username, password: state.password })}
+                <Button onClick={() => { signIn('credentials', { username: credentials.username, password: credentials.password }) }}
                   bg={'blue.400'}
                   color={'white'}
                   _hover={{
@@ -64,7 +64,6 @@ const Signin = (props) => {
                   }}>
                   Sign in
                 </Button>
-
                 <Center>
                   <Button onClick={() => signIn("github")}
                     w={'full'}
@@ -76,7 +75,6 @@ const Signin = (props) => {
                     </Center>
                   </Button>
                 </Center>
-
               </Stack>
             </Stack>
           </Box>

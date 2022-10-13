@@ -41,7 +41,7 @@ export default function Login({ providers }) {
         title="GreenBoost: Login"
         description="GreenBoost: Login"
       />
-     <SigninComponet/>
+     <SigninComponet a = "0"/>
     </>
   )
 }

@@ -1,3 +1,5 @@
+import { useSession } from "next-auth/react"
+
 // Chakra imports
 import {
     Avatar,
@@ -26,15 +28,16 @@ import { IoDocumentsSharp } from "react-icons/io5";
 import { useRouter } from 'next/router'
 
 const ProfileNav = () => {
-    
     const { colorMode } = useColorMode();
     const textColor = useColorModeValue("gray.700", "white");
     const bgProfile = useColorModeValue("hsla(0,0%,100%,.8)", "navy.800");
     const borderProfileColor = useColorModeValue("white", "transparent");
     const emailColor = useColorModeValue("gray.400", "gray.300");
     const router = useRouter()
-    console.log(router.pathname)
-    
+    const { data: session, status } = useSession()
+    console.log(status)
+    console.log(session)
+
     return (<>
 
         <Flex direction='column' pt={{ base: "50px", md: "50px", lg: "50px" }}>
@@ -72,13 +75,13 @@ const ProfileNav = () => {
                             color={textColor}
                             fontWeight='bold'
                             ms={{ sm: "8px", md: "0px" }}>
-                            Alec Thompson
+                            {status == 'loading' ? 'loading...' : session.user.name}
                         </Text>
                         <Text
                             fontSize={{ sm: "sm", md: "md" }}
                             color={emailColor}
                             fontWeight='semibold'>
-                            alec@simmmple.com
+                            {status == 'loading' ? 'loading...' : session.user.email}
                         </Text>
                     </Flex>
                 </Flex>
@@ -93,7 +96,7 @@ const ProfileNav = () => {
                             borderRadius='8px'
                             justifyContent='center'
                             py='10px'
-                            boxShadow={router.pathname==="/profile/profile-overview"?'0px 2px 5.5px rgba(0, 0, 0, 0.06)':'none'}
+                            boxShadow={router.pathname === "/profile/profile-overview" ? '0px 2px 5.5px rgba(0, 0, 0, 0.06)' : 'none'}
                             cursor='pointer'>
                             <Icon color={textColor} as={FaCube} me='6px' />
                             <Text fontSize='xs' color={textColor} fontWeight='bold'>
@@ -107,7 +110,7 @@ const ProfileNav = () => {
                             w={{ sm: "100%", lg: "135px" }}
                             borderRadius='8px'
                             justifyContent='center'
-                            boxShadow={router.pathname==="/profile/profile-projects"?'0px 2px 5.5px rgba(0, 0, 0, 0.06)':'none'}
+                            boxShadow={router.pathname === "/profile/profile-projects" ? '0px 2px 5.5px rgba(0, 0, 0, 0.06)' : 'none'}
                             py='10px'
                             cursor='pointer'>
                             <Icon color={textColor} as={FaPenFancy} me='6px' />
