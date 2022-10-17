@@ -1,9 +1,10 @@
 
 import { ReactElement } from "react"
-import Layout from "../components/layout"
-import Hero from "components/hero"
-import Head from "components/head"
-import Testimonial from "components/testimonials"
+import Layout from "@components/layout"
+import Hero from "@components/hero"
+import Head from "@components/head"
+import Testimonial from "@components/testimonials"
+import HomeNav from "@components/homeBuySellCreate"
 export default function Home() {
   return (
     <>
@@ -12,7 +13,9 @@ export default function Home() {
         description="GreenBoost."
       />
       <Hero />
+      <HomeNav/>
       <Testimonial />
+
     </>
   )
 }

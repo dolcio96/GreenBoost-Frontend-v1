@@ -13,6 +13,9 @@
             ],
             "@variables/*": [
                 "variables/*"
+            ],
+            "@public/*": [
+                "public/*"
             ]
         }
     }
