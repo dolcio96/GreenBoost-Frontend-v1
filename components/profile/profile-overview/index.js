@@ -20,13 +20,13 @@ import avatar3 from "@assets/img/avatars/avatar3.png";
 import avatar4 from "@assets/img/avatars/avatar4.png";
 import avatar5 from "@assets/img/avatars/avatar5.png";
 import avatar6 from "@assets/img/avatars/avatar6.png";
-import ImageArchitect1 from "@assets/img/ImageArchitect1.png";
-import ImageArchitect2 from "@assets/img/ImageArchitect2.png";
-import ImageArchitect3 from "@assets/img/ImageArchitect3.png";
+import ImageArchitect1 from "@assets/img/Images/bamboo.jpg";
+import ImageArchitect2 from "@assets/img/Images/foresta.jpg";
+import ImageArchitect3 from "@assets/img/Images/foresta.jpg";
 // Custom components
-import Card from "@components/card/Card";
-import CardBody from "@components/card/CardBody";
-import CardHeader from "@components/card/CardHeader";
+import Card from "@components/card/card";
+import CardBody from "@components/card/cardBody";
+import CardHeader from "@components/card/cardHeader";
 import React from "react";
 import {
   FaCube,
@@ -61,10 +61,8 @@ function ProfileOverview() {
           <CardBody px='5px'>
             <Flex direction='column'>
               <Text fontSize='md' color='gray.400' fontWeight='400' mb='30px'>
-                Hi, I’m Esthera Jackson, Decisions: If you can’t decide, the
-                answer is no. If two equally difficult paths, choose the one
-                more painful in the short term (pain avoidance is creating an
-                illusion of equality).
+                Lorem Ipsum.Lorem Ipsum.Lorem Ipsum.Lorem Ipsum.Lorem Ipsum.Lorem Ipsum.Lorem Ipsum. Lorem Ipsum.Lorem Ipsum.Lorem Ipsum.Lorem Ipsum.
+                Lorem Ipsum.Lorem Ipsum. Lorem Ipsum.Lorem Ipsum. Lorem Ipsum.Lorem Ipsum.Lorem Ipsum.Lorem Ipsum.Lorem Ipsum.Lorem Ipsum.Lorem Ipsum.Lorem Ipsum.
               </Text>
               <Flex align='center' mb='18px'>
                 <Text
@@ -75,7 +73,7 @@ function ProfileOverview() {
                   Full Name:{" "}
                 </Text>
                 <Text fontSize='md' color='gray.400' fontWeight='400'>
-                  Esthera Jackson
+                  Ludovico Dolcini
                 </Text>
               </Flex>
               <Flex align='center' mb='18px'>
@@ -99,7 +97,7 @@ function ProfileOverview() {
                   Email:{" "}
                 </Text>
                 <Text fontSize='md' color='gray.400' fontWeight='400'>
-                  esthera@simmmple.com
+                  ludovico.dolcini@gmail.com
                 </Text>
               </Flex>
               <Flex align='center' mb='18px'>
@@ -115,6 +113,7 @@ function ProfileOverview() {
                 </Text>
               </Flex>
               <Flex align='center' mb='18px'>
+                {/*}
                 <Text
                   fontSize='md'
                   color={textColor}
@@ -148,6 +147,7 @@ function ProfileOverview() {
                     <Icon as={FaTwitter} />
                   </Link>
                 </Flex>
+                */}
               </Flex>
             </Flex>
           </CardBody>
@@ -311,7 +311,7 @@ function ProfileOverview() {
               Projects
             </Text>
             <Text fontSize='sm' color='gray.400' fontWeight='400'>
-              Architects design houses
+              My Projects
             </Text>
           </Flex>
         </CardHeader>
@@ -340,11 +340,10 @@ function ProfileOverview() {
                   color={textColor}
                   fontWeight='bold'
                   mb='10px'>
-                  Modern
+                  West America
                 </Text>
                 <Text fontSize='md' color='gray.400' fontWeight='400' mb='20px'>
-                  As Uber works through a huge amount of internal management
-                  turmoil.
+                Some text...
                 </Text>
                 <Flex justifyContent='space-between'>
                   <Button variant='dark' minW='110px' h='36px'>
@@ -361,7 +360,7 @@ function ProfileOverview() {
             </Flex>
             <Flex direction='column'>
               <Box mb='20px' position='relative' borderRadius='15px'>
-                <Image src={'./Images/ImageArchitect2.png'} borderRadius='15px' />
+                <Image src={ImageArchitect2.src} borderRadius='15px' />
                 <Box
                   w='100%'
                   h='100%'
@@ -379,11 +378,10 @@ function ProfileOverview() {
                   color={textColor}
                   fontWeight='bold'
                   mb='10px'>
-                  Scandinavian
+                  Russia
                 </Text>
                 <Text fontSize='md' color='gray.400' fontWeight='400' mb='20px'>
-                  Music is something that every person has his or her own
-                  specific opinion about.
+                Some text...
                 </Text>
                 <Flex justifyContent='space-between'>
                   <Button variant='dark' minW='110px' h='36px'>
@@ -400,7 +398,7 @@ function ProfileOverview() {
             </Flex>
             <Flex direction='column'>
               <Box mb='20px' position='relative' borderRadius='15px'>
-                <Image src={'./Images/ImageArchitect3.png'} borderRadius='15px' />
+                <Image src={ImageArchitect3.src} borderRadius='15px' />
                 <Box
                   w='100%'
                   h='100%'
@@ -418,11 +416,10 @@ function ProfileOverview() {
                   color={textColor}
                   fontWeight='bold'
                   mb='10px'>
-                  Minimalist
+                  Italy
                 </Text>
                 <Text fontSize='md' color='gray.400' fontWeight='400' mb='20px'>
-                  Different people have different taste, especially various
-                  types of music.
+                  Some text...
                 </Text>
                 <Flex justifyContent='space-between'>
                   <Button variant='dark' minW='110px' h='36px'>

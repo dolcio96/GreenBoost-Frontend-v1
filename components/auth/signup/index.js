@@ -32,7 +32,7 @@ const Signup =()=> {
               Sign up
             </Heading>
             <Text fontSize={'lg'} color={'gray.600'}>
-              to enjoy all of our cool features ✌️
+              to enjoy all of our features 🌲
             </Text>
           </Stack>
           <Box
@@ -74,11 +74,15 @@ const Signup =()=> {
                   </InputRightElement>
                 </InputGroup>
               </FormControl>
+              <FormControl>
+                <FormLabel>Role</FormLabel>
+                <Input id="role" type="role" placeholder='Seller/Buyer' />
+              </FormControl>
               <Stack spacing={10} pt={2}>
                 <Button
                   loadingText="Submitting"
                   size="lg"
-                  bg={'blue.400'}
+                  bg={'green.400'}
                   color={'white'}
                   _hover={{
                     bg: 'blue.500',
@@ -88,7 +92,7 @@ const Signup =()=> {
               </Stack>
               <Stack pt={6}>
                 <Text align={'center'}>
-                  Already a user? <Link color={'blue.400'}>Login</Link>
+                  Already a user? <Link color={'green.400'}>Login</Link>
                 </Text>
               </Stack>
             </Stack>

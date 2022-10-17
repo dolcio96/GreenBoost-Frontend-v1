@@ -31,7 +31,7 @@ const Signin = (props) => {
           <Stack align={'center'}>
             <Heading fontSize={'4xl'}>Sign in to your account</Heading>
             <Text fontSize={'lg'} color={'gray.600'}>
-              to enjoy all of our cool <Link color={'blue.400'}>features</Link> ✌️
+              to enjoy all of our <Link color={'green.400'}>features</Link> 🌲
             </Text>
           </Stack>
           <Box
@@ -54,10 +54,10 @@ const Signin = (props) => {
                   align={'start'}
                   justify={'space-between'}>
                   <Checkbox>Remember me</Checkbox>
-                  <Link color={'blue.400'}>Forgot password?</Link>
+                  <Link color={'green.400'}>Forgot password?</Link>
                 </Stack>
                 <Button onClick={() => { signIn('credentials', { username: credentials.username, password: credentials.password }) }}
-                  bg={'blue.400'}
+                  bg={'green.400'}
                   color={'white'}
                   _hover={{
                     bg: 'blue.500',
@@ -65,7 +65,7 @@ const Signin = (props) => {
                   Sign in
                 </Button>
                 <Center>
-                  <Button onClick={() => signIn("github")}
+                  <Button  onClick={() => signIn("github")}
                     w={'full'}
                     maxW={'md'}
                     variant={'outline'}

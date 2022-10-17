@@ -2,7 +2,7 @@
 import { ReactElement } from "react"
 import Layout from "@components/layout"
 import Head from "@components/head"
-import ProfileComponet from "@components/profile/profile-overview"
+import ProfileComponet from "@components/profile"
 import TestComponent from "@components/test"
 
 import LoginComponent from "@components/auth/signin"

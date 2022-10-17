@@ -32,15 +32,14 @@ const Hero = () => {
             lineHeight={'110%'}
             color={'green.100'}
             >
-            Make money from <br />
+            Future of earth <br />
             <Text as={'span'} color={'green.400'}>
-              your audience
+              starts with you
             </Text>
           </Heading>
           <Text color={'gray.500'}>
-            Monetize your content by charging your most loyal readers and reward
-            them loyalty points. Give back to your loyal readers by granting
-            them access to your pre-releases and sneak-peaks.
+            Create, Trade, Bu and Sell to sustain the planet on the most decentralized carbon credit exchange platform.
+           
           </Text>
           <Stack
             direction={'column'}
@@ -58,7 +57,7 @@ const Hero = () => {
               }}>
               Get Started
             </Button>
-            <Button variant={'link'} colorScheme={'blue'} size={'sm'}>
+            <Button variant={'link'}  size={'sm'}>
               Learn more
             </Button>
             <Box>
