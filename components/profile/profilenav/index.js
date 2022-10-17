@@ -35,8 +35,9 @@ const ProfileNav = () => {
     const emailColor = useColorModeValue("gray.400", "gray.300");
     const router = useRouter()
     const { data: session, status } = useSession()
-    console.log(status)
-    console.log(session)
+//    while (status == 'loading') {}
+    //console.log(status)
+   // console.log(session)
 
     return (<>
 
@@ -75,13 +76,13 @@ const ProfileNav = () => {
                             color={textColor}
                             fontWeight='bold'
                             ms={{ sm: "8px", md: "0px" }}>
-                            {status == 'loading' ? 'loading...' : session.user.name}
+                            {status == 'loading' ? 'loading...' : session.user.company.company_name}
                         </Text>
                         <Text
                             fontSize={{ sm: "sm", md: "md" }}
                             color={emailColor}
                             fontWeight='semibold'>
-                            {status == 'loading' ? 'loading...' : session.user.email}
+                            {status == 'loading' ? 'loading...' : session.user.company.customer.email}
                         </Text>
                     </Flex>
                 </Flex>
