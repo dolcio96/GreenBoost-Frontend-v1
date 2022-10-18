@@ -24,7 +24,6 @@ const Card = (props) => {
     return (<>
 
         <Flex p={5} w="full" alignItems="center" justifyContent="center">
-
             <LinkBox
                 maxW="sm"
                 borderWidth="1px"
@@ -33,7 +32,7 @@ const Card = (props) => {
                 position="relative"
                 href={props.lk}>
                 <LinkOverlay href={props.lk}>
-                    <Image
+                    <Image 
                         src={props.img.src}
                         alt='abc'
                         rounded="xl"
@@ -47,9 +46,6 @@ const Card = (props) => {
             </LinkBox >
 
         </Flex>
-
-
-
     </>)
 
 }
