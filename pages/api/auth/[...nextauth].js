@@ -27,12 +27,13 @@ export default NextAuth({
       async authorize(credentials, req) {
         // Add logic here to look up the user from the credentials supplied
         console.log(credentials)
-        const response = await fetch("http://192.168.0.182:1234/auth/login", {
+        const response = await fetch("http://192.168.0.182:1234/api/auth/login", {
           method: "POST",
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ username: credentials.username, password: credentials.password })
         })
-        console.log(response)
+        //console.log(await response.json())
+        console.log(123)
         return await response.json()
       }
     }),
@@ -115,6 +116,16 @@ export default NextAuth({
   // when an action is performed.
   // https://next-auth.js.org/configuration/callbacks
   callbacks: {
+    async session({ session, token }) {
+      session.user = token.user;
+      return session;
+    },
+    async jwt({ token, user }) {
+      if (user) {
+        token.user = user;
+      }
+      return token;
+    },
     // async signIn({ user, account, profile, email, credentials }) { return true },
     async redirect({ url, baseUrl }) {
       return baseUrl
