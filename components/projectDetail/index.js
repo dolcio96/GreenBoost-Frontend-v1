@@ -17,11 +17,12 @@ import ProjectDetailsComponent from "./projectDetails"
 const ProjectDetail = () => {
 
     return (<>
-
+        <Box 
+        ml="50px" mr="50px">
             <ProjectDetailHeaderComponent />
             <ProjectDetailGalleryComponent />
             <ProjectDetailsComponent />
-
+        </Box>
     </>)
 
 }
