@@ -5,40 +5,43 @@ import {
 } from "@chakra-ui/react";
 import Layout from "@components/layout"
 import Head from "@components/head"
+import ProjectDetailComponent from "@components/projectDetail"
+
 import TableComponet from "@components/table"
 
 
 //To retrieve
 const tableContent = {}
 
-export default function Projects({ data }) {
+export default function Project(props) {
     return (
         <>
             <Head
                 title="GreenBoost: Projects"
                 description="GreenBoost: Projects"
             />
-
-            <TableComponet tableHeader={data} />
+            <ProjectDetailComponent {...props} />
         </>
     )
 }
 
-Projects.getLayout = function getLayout(page) {
+Project.getLayout = function getLayout(page) {
     return <Layout>{page}</Layout>
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps(context) {
     // Fetch data from external API
+    const { pid } = context.query;
+
     const res = await fetch(
-        "http://192.168.0.182:1234/api/crud/project",
+        `http://192.168.0.182:1234/api/crud/project/${pid}`,
         {
             method: "GET",
             headers: { 'Content-Type': 'application/json' }
         }
     )
-    const data = await res.json()
+    const project = await res.json()
 
     // Pass data to the page via props
-    return { props: { data } }
+    return { props: { project } }
 }

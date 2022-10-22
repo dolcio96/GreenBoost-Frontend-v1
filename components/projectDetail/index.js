@@ -14,16 +14,18 @@ import ProjectDetailGalleryComponent from "./galleryComponent"
 import ProjectDetailsComponent from "./projectDetails"
 
 
-const ProjectDetail = () => {
+const ProjectDetail = (props) => {
 
-    return (<>
-        <Box 
-        ml="50px" mr="50px">
-            <ProjectDetailHeaderComponent />
-            <ProjectDetailGalleryComponent />
-            <ProjectDetailsComponent />
-        </Box>
-    </>)
+    return (
+        <>
+            <Box
+                ml="50px" mr="50px">
+                <ProjectDetailHeaderComponent {...props} />
+                <ProjectDetailGalleryComponent />
+                <ProjectDetailsComponent />
+            </Box>
+        </>
+    )
 
 }
 

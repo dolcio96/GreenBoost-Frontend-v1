@@ -70,14 +70,14 @@ function TablesTableRow(props) {
         </Text>
       </Td>
       <Td borderColor={borderColor} borderBottom={isLast ? "none" : null}>
-        <Button p="0px" bg="transparent" variant="no-effects">
+        <Button as='a' href={'/projects/' + name} p="0px" bg="transparent" variant="no-effects">
           <Text
             fontSize="md"
             color="gray.400"
             fontWeight="bold"
             cursor="pointer"
           >
-            Buy
+            details
           </Text>
         </Button>
       </Td>

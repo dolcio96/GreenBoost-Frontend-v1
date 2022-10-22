@@ -21,7 +21,8 @@ import { tablesProjectData, tablesTableData } from "@variables/general";
 function Tables(props) {
     const textColor = useColorModeValue("gray.700", "white");
     const borderColor = useColorModeValue("gray.200", "gray.600");
-    console.log(props);
+    console.log(typeof props);
+
     return (
         <Flex direction="column" pt={{ base: "120px", md: "10px" }}>
             <Card overflowX={{ sm: "scroll", xl: "hidden" }} pb="0px">
@@ -42,16 +43,16 @@ function Tables(props) {
                             </Tr>
                         </Thead>
                         <Tbody>
-                            {tablesTableData.map((row, index, arr) => {
+                            {props.tableHeader.map((row, index, arr) => {
                                 return (
                                     <TablesTableRow
-                                        name={row.name}
+                                        name={row.id}
                                         logo={row.logo}
                                         email={row.email}
                                         subdomain={row.subdomain}
                                         domain={row.domain}
                                         status={row.status}
-                                        date={row.date}
+                                        date={row.insert_timestamp}
                                         isLast={index === arr.length - 1 ? true : false}
                                         key={index}
                                     />

@@ -10,7 +10,7 @@ import ShareIcon from '@mui/icons-material/Share';
 
 
 
-const ProjectDetailHeader = () => {
+const ProjectDetailHeader = (props) => {
 
     return (<>
         <Flex direction='column' pt={{ base: "10px", md: "10px", lg: "10px" }}>
@@ -32,18 +32,18 @@ const ProjectDetailHeader = () => {
                     direction={{ sm: "column", md: "row" }}
                     w={{ sm: "100%" }}
                     textAlign={{ sm: "center", md: "start" }}>
-                   
+
                     <Flex direction='column' maxWidth='100%' my={{ sm: "14px" }}>
                         <Text
                             fontSize={{ sm: "lg", lg: "xl" }}
                             fontWeight='bold'
                             ms={{ sm: "8px", md: "0px" }}>
-                           Project Name
+                            {props.project.id}
                         </Text>
                         <Text
                             fontSize={{ sm: "sm", md: "md" }}
                             fontWeight='semibold'>
-                            Position
+                            {props.project.description}
                         </Text>
                     </Flex>
                 </Flex>
@@ -58,7 +58,7 @@ const ProjectDetailHeader = () => {
                             justifyContent='center'
                             py='10px'
                             cursor='pointer'>
-                            <Icon  as={ShareIcon} me='6px' />
+                            <Icon as={ShareIcon} me='6px' />
                             <Text fontSize='xs' fontWeight='bold'>
                                 SHARE
                             </Text>
