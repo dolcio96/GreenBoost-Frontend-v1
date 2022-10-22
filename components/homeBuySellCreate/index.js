@@ -19,7 +19,7 @@ import Card from "@components/homeBuySellCreate/card";
 const data = [{
     title: "BUY",
     img: imageBuy,
-    lk: "/buy",
+    lk: "/projects",
     desc: "Buy Carbon Credit to reach  sustainability target and help our planet"
 },
 {

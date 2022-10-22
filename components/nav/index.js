@@ -20,7 +20,7 @@ import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { useSession, signIn, signOut } from "next-auth/react"
 import { ChevronDownIcon, ChevronUpIcon } from '@chakra-ui/icons'
 
-const Links = ['Buy', 'Sell', 'Dashboard', 'Projects', 'Contact Us', 'About Us', 'Project Detail'];
+const Links = ['Buy', 'Sell', 'Dashboard', 'Projects', 'Contact Us', 'About Us'];
 
 const Links2 = {};
 
@@ -33,7 +33,7 @@ const NavLink = ({ children }) => (
             textDecoration: 'none',
             bg: useColorModeValue('gray.200', 'gray.700'),
         }}
-        href={children.toString().replace('&', '').replace(/\s/g, '').toLowerCase()}>
+        href={'/' + children.toString().replace('&', '').replace(/\s/g, '').toLowerCase()}>
         {children}
     </Link>
 );
