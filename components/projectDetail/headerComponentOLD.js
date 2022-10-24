@@ -24,7 +24,6 @@ const ProjectDetailHeader = (props) => {
                 p='5px'
                 pl='24px'
                 pr='24px'
-
                 borderRadius='20px'>
                 <Flex
                     align='center'
@@ -38,12 +37,12 @@ const ProjectDetailHeader = (props) => {
                             fontSize={{ sm: "lg", lg: "xl" }}
                             fontWeight='bold'
                             ms={{ sm: "8px", md: "0px" }}>
-                            {props.project.id}
+                            {props.project?.id}
                         </Text>
                         <Text
                             fontSize={{ sm: "sm", md: "md" }}
                             fontWeight='semibold'>
-                            {props.project.description}
+                            {props.project?.description}
                         </Text>
                     </Flex>
                 </Flex>

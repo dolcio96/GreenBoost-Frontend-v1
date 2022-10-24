@@ -9,7 +9,7 @@ import {
     Flex
 } from '@chakra-ui/react';
 
-import ProjectDetailHeaderComponent from "./headerComponent"
+import ProjectDetailHeaderComponent from "./headerComponentOLD"
 import ProjectDetailGalleryComponent from "./galleryComponent"
 import ProjectDetailsComponent from "./projectDetails"
 

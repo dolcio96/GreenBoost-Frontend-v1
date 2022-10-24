@@ -2,10 +2,10 @@ import React from 'react'
 
 
 
-const Test = (props) => {
-    console.log(props);
+const Test = () => {
+    console.log();
       return (<>
-    <p>{props.connection.due}</p>
+    
   </>)
 
 }

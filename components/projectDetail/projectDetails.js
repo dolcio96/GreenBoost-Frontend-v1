@@ -27,14 +27,15 @@ const ProjectDetails = () => {
                 p='5px'
                 pl='24px'
                 pr='24px'
-
                 borderRadius='20px'>
                 <Flex
+                    mt={{ sm: "60px", md: "0px" }}
                     align='center'
                     mb={{ sm: "10px", md: "0px" }}
                     direction={{ sm: "column", md: "row" }}
                     w={{ sm: "100%" }}
                     textAlign={{ sm: "center", md: "start" }}>
+
 
                     <Flex direction='column' maxWidth='100%' my={{ sm: "14px" }}>
                         <Text
@@ -49,6 +50,9 @@ const ProjectDetails = () => {
                             Position
                         </Text>
                     </Flex>
+
+
+
 
                 </Flex>
                 <Flex
@@ -102,7 +106,6 @@ const ProjectDetails = () => {
                                 </Stack>
                                 <Button backgroundColor="green.300">Buy Now</Button>
                             </VStack>
-
                         </Flex>
                     </Box>
                 </Flex>

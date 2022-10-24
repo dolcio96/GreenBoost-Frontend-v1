@@ -6,6 +6,7 @@ import {
     Image,
     AccordionItem,
     useColorModeValue,
+    Text,
     Icon,
     chakra,
     Tooltip,
@@ -24,7 +25,8 @@ import {
     useDisclosure,
     ModalBody
 } from '@chakra-ui/react';
-
+import ForestIcon from '@mui/icons-material/Forest';
+import EmojiNatureIcon from '@mui/icons-material/EmojiNature';
 
 const Card = (props) => {
     const [show, setShow] = useState(false);
@@ -45,6 +47,17 @@ const Card = (props) => {
                 shadow="lg"
                 position="relative">
                 <LinkBox>
+                    <Flex mt="1" justifyContent="center" alignContent="center">
+                        <Box
+                            fontSize="2xl"
+                            fontWeight="semibold"
+                            as="h4"
+                            lineHeight="tight"
+                            isTruncated
+                            mb="3px">
+                           <Text> Project <span style={{color:"green"}}>{props.name} </span></Text>
+                        </Box>
+                    </Flex>
                     <LinkOverlay href={props.href}>
                         <Box>
                             <Box
@@ -53,7 +66,9 @@ const Card = (props) => {
                                 <Image
                                     src={props.imageURL}
                                     alt={`Picture of ${props.name}`}
-                                    roundedTop="lg"
+                                    rounded="lg"
+                                    w="300px"
+                                    h="300px"
                                 />
 
                                 <Box p="6">
@@ -65,7 +80,7 @@ const Card = (props) => {
                                             as="h4"
                                             lineHeight="tight"
                                             isTruncated>
-                                            {props.name}
+                                            <ForestIcon/><EmojiNatureIcon/>
                                         </Box>
                                     </Flex>
 
@@ -83,29 +98,30 @@ const Card = (props) => {
                         </Box>
                     </LinkOverlay>
                 </LinkBox>
-
+                {/*
                 <Flex mt="1" mb="2" justifyContent="center" alignContent="center">
                     <Button colorScheme='teal' variant='outline' onClick={() => handleSizeClick('md')}
                         key={'md'}
                         m={4}>
                         More Info
-                    </Button></Flex>
+    </Button></Flex>*/}
             </Box>
         </Flex>
 
-        <Modal onClose={onClose} size={'md'} isOpen={isOpen}>
+        {/*  <Modal onClose={onClose} size={'md'} isOpen={isOpen}>
             <ModalOverlay />
             <ModalContent>
                 <ModalHeader> {props.name}</ModalHeader>
-                {/*<ModalCloseButton /> */}
+              
                 <ModalBody>
                     {props.moreInfo}
                 </ModalBody>
                 <ModalFooter>
-                    {/*<Button onClick={onClose}>Close</Button> */}
+
                 </ModalFooter>
             </ModalContent>
         </Modal>
+        */ }
     </>)
 
 }
