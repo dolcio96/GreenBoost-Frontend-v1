@@ -9,9 +9,9 @@ import {
     Flex
 } from '@chakra-ui/react';
 
-import ProjectDetailHeaderComponent from "./headerComponentOLD"
-import ProjectDetailGalleryComponent from "./galleryComponent"
-import ProjectDetailsComponent from "./projectDetails"
+import ProjectDetailHeaderComponent from "./headerComponent"
+import ProjectDetailGalleryComponent from "./galleryComponentOLD"
+import ProjectDetailsComponent from "./projectDetailsOLD"
 
 
 const ProjectDetail = (props) => {

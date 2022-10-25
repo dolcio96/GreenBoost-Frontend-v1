@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import {
     Text,
     Flex,
@@ -9,108 +9,123 @@ import {
     Stack,
     Divider
 } from '@chakra-ui/react'
-
-
+import RecommendIcon from '@mui/icons-material/Recommend';
+import ForestIcon from '@mui/icons-material/Forest';
+import EmojiNatureIcon from '@mui/icons-material/EmojiNature';
+import ProjectDetailHeaderComponent from "./headerComponent"
+import ProjectDetailGalleryComponent from "./galleryComponentOLD"
+import ProjectDetailGalleryComponent2 from "./imgGalleryComponent"
+import Modal from "./modal"
 
 
 const ProjectDetails = () => {
 
+    const [selectedImg, setSelectedImg] = useState(null);
+
     return (<>
-        <Flex direction='column' pt={{ base: "10px", md: "10px", lg: "10px" }}>
-            <Flex
-                direction={{ sm: "column", md: "row" }}
-                mb='24px'
-                maxH='330px'
-                justifyContent={{ sm: "center", md: "space-between" }}
-                align='center'
-                boxShadow='0px 2px 5.5px rgba(0, 0, 0, 0.02)'
-                p='5px'
-                pl='24px'
-                pr='24px'
-                borderRadius='20px'>
+        <Box
+            ml="50px" mr="50px">
+            <ProjectDetailHeaderComponent />
+            <ProjectDetailGalleryComponent2 setSelectedImg={setSelectedImg}/>
+            {selectedImg && <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg} />}
+            <Flex direction='column' >
                 <Flex
-                    mt={{ sm: "60px", md: "0px" }}
-                    align='center'
-                    mb={{ sm: "10px", md: "0px" }}
                     direction={{ sm: "column", md: "row" }}
-                    w={{ sm: "100%" }}
-                    textAlign={{ sm: "center", md: "start" }}>
+                    justifyContent={{ sm: "center", md: "space-between" }}
+                    align='center'
+                    boxShadow='0px 2px 5.5px rgba(0, 0, 0, 0.3)'
+                    p="5px"
+                    mt="10px"
+                    mb="10px"
+                    borderRadius={5}
+                >
+                    <Flex
+                        w={{ sm: "100%", md: "65%", lg: "75%" }}
+                        direction="column"
+                        m="5px"
+                        p="5px"
+                        justifyContent={{ sm: "center", md: "space-around" }}
+                        textAlign={{ sm: "center", md: "start" }}
+                    >
 
+                        <Flex direction="row"
+                            justifyContent="space-between"
+                        >
+                            <Flex direction='row' maxWidth='100%' my={{ sm: "14px" }}>
+                                <Text fontSize={{ sm: "lg", lg: "xl" }}
+                                    fontWeight='bold'>Project Manager</Text>
+                            </Flex>
+                            <Flex direction='row' maxWidth='100%' my={{ sm: "14px" }}>
+                                <RecommendIcon style={{ color: 'green' }} /> Certified By: Verra
+                            </Flex>
+                        </Flex>
+                        <Divider borderColor='green' orientation='horizontal' />
+                        <Flex fontSize={{ sm: "lg", lg: "xl" }}
+                            direction="row"
+                            justifyContent="space-between" >
+                            <Flex direction='row' maxWidth='100%' my={{ sm: "14px" }}>
+                                Quantity Available:
+                            </Flex>
+                            <Flex direction='row' maxWidth='100%' my={{ sm: "14px" }}>
+                                10.000 - ton Co2
+                            </Flex>
+                        </Flex>
+                        <Flex
+                            direction={{ sm: "column", md: "row" }}
+                            justifyContent={{ sm: "center", md: "space-between" }}>
+                            <Flex direction='row' maxWidth='100%' my={{ sm: "14px" }}>
+                                The FSCECP hydroelectric complex, located in the Parana region of Brazil, generates renewable energy by harnessing the power of the Jordão River.
+                            </Flex>
+                        </Flex>
+                        <Flex
+                            direction={{ sm: "column", md: "row" }}
+                            justifyContent={{ sm: "center", md: "space-between" }}>
+                            <Flex direction='row' maxWidth='100%' my={{ sm: "14px" }}>
+                                Features and SDG:
+                            </Flex>
+                        </Flex>
+                        <Flex direction={{ sm: "column", md: "row" }} justifyContent={{ sm: "center", md: "space-between" }}>
+                            <Text><ForestIcon style={{ color: 'green' }} /><EmojiNatureIcon style={{ color: 'green' }} /></Text>
+                            <Text>More Info</Text>
+                            <Text>Links</Text>
+                        </Flex>
 
-                    <Flex direction='column' maxWidth='100%' my={{ sm: "14px" }}>
-                        <Text
-                            fontSize={{ sm: "lg", lg: "xl" }}
-                            fontWeight='bold'
-                            ms={{ sm: "8px", md: "0px" }}>
-                            Project Name
-                        </Text>
-                        <Text
-                            fontSize={{ sm: "sm", md: "md" }}
-                            fontWeight='semibold'>
-                            Position
-                        </Text>
                     </Flex>
 
-
-
-
-                </Flex>
-                <Flex
-                    direction={{ sm: "column", lg: "row" }}
-                    w={{ sm: "100%", md: "50%", lg: "auto" }}
+                    <Flex
+                        w={{ sm: "100%", md: "35%", lg: "25%" }}
+                        minH="180px"
+                        direction="column"
+                        m="5px"
+                        p="5px"
+                        justifyContent={{ sm: "center", md: "space-around" }}
+                        textAlign={{ sm: "center", md: "start" }}
+                        boxShadow='0px 2px 5.5px rgba(0, 0, 0, 0.3)'
+                        backgroundColor="#EFEFEF"
+                        borderRadius={5}
                     >
-                    <Box  variant='no-effects' backgroundColor="grey" p="30" borderRadius={10}>
-                        <Flex
-                            align='center'
-                            w={{ sm: "100%", lg: "200px" }}
-                            borderRadius='8px'
-                            justifyContent='center'
-                            py='10px'
-                            cursor='pointer'>
-                            <VStack
-                                spacing={4}
-                                align='stretch'
-                            >
-                                <Stack spacing={8} direction='row' >
-                                    <Box h='40px' bg='yellow.200' w={{ sm: "100%", lg: "100px" }}>
-                                        Price:
-                                    </Box>
-                                    <Box h='40px' bg='yellow.200' w={{ sm: "100%", lg: "100px" }}>
-                                        25 €/ton
-                                    </Box>
-                                </Stack>
-                                <Stack spacing={8} direction='row' >
-                                    <Box h='40px' bg='yellow.200' w={{ sm: "100%", lg: "100px" }}>
-                                        Amount:
-                                    </Box>
-                                    <Box h='40px' bg='yellow.200' w={{ sm: "100%", lg: "100px" }}>
-                                        150 ton
-                                    </Box>
-                                </Stack>
-                                <Stack spacing={8} direction='row' >
-                                    <Box h='40px' bg='yellow.200' w={{ sm: "100%", lg: "100px" }}>
-                                        Costs:
-                                    </Box>
-                                    <Box h='40px' bg='yellow.200' w={{ sm: "100%", lg: "100px" }}>
-                                        x %
-                                    </Box>
-                                </Stack>
-                                <Divider orientation='horizontal' />
-                                <Stack spacing={8} direction='row' >
-                                    <Box h='40px' bg='yellow.200' w={{ sm: "100%", lg: "100px" }}>
-                                        Total:
-                                    </Box>
-                                    <Box h='40px' bg='yellow.200' w={{ sm: "100%", lg: "100px" }}>
-                                        200 €
-                                    </Box>
-                                </Stack>
-                                <Button backgroundColor="green.300">Buy Now</Button>
-                            </VStack>
+                        <Flex direction="row" justifyContent="space-between">
+                            <Text>Price:</Text>
+                            <Text>25€/ ton</Text>
                         </Flex>
-                    </Box>
+                        <Flex direction="row" justifyContent="space-between">
+                            <Text>Amount:</Text>
+                            <Text>150 ton</Text>
+                        </Flex>
+                        <Flex direction="row" justifyContent="space-between">
+                            <Text>Costs:</Text>
+                            <Text>x%</Text>
+                        </Flex>
+                        <Divider />
+                        <Flex direction="row" justifyContent="space-between">
+                            <Text>Total:</Text>
+                            <Text>3750,00€</Text>
+                        </Flex>
+                        <Button backgroundColor="green.300">Buy Now</Button>
+                    </Flex>
                 </Flex>
             </Flex>
-        </Flex>
+        </Box>
     </>)
 
 }

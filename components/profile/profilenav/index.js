@@ -41,7 +41,7 @@ const ProfileNav = () => {
 
     return (<>
 
-        <Flex direction='column' pt={{ base: "50px", md: "50px", lg: "50px" }}>
+        <Flex direction='column' pt={{ base: "20px", md: "20px", lg: "20px" }}>
             <Flex
                 direction={{ sm: "column", md: "row" }}
                 mb='24px'
@@ -76,13 +76,19 @@ const ProfileNav = () => {
                             color={textColor}
                             fontWeight='bold'
                             ms={{ sm: "8px", md: "0px" }}>
-                            {status == 'loading' ? 'loading...' : session.user.company.company_name}
+                            {status == 'loading' ? 'loading...' : session?.user.company.company_name} Ludovico Dolcini S.p.A
+                        </Text>
+                        <Text
+                            fontSize={{ sm: "md", lg: "lg" }}
+                            color={textColor}
+                            fontWeight='bold'>
+                            {status == 'loading' ? 'loading...' : session?.user.company.role} Seller
                         </Text>
                         <Text
                             fontSize={{ sm: "sm", md: "md" }}
                             color={emailColor}
                             fontWeight='semibold'>
-                            {status == 'loading' ? 'loading...' : session.user.company.customer.email}
+                            {status == 'loading' ? 'loading...' : session?.user.company.customer.email} ludovico.dolcini@gmail.com
                         </Text>
                     </Flex>
                 </Flex>
@@ -117,6 +123,21 @@ const ProfileNav = () => {
                             <Icon color={textColor} as={FaPenFancy} me='6px' />
                             <Text fontSize='xs' color={textColor} fontWeight='bold'>
                                 PROJECTS
+                            </Text>
+                        </Flex>
+                    </Button>
+                    <Button p='0px' bg='transparent' variant='no-effects' as="a" href="/profile/profile-info">
+                        <Flex
+                            align='center'
+                            w={{ sm: "100%", lg: "135px" }}
+                            borderRadius='8px'
+                            justifyContent='center'
+                            boxShadow={router.pathname === "/profile/profile-info" ? '0px 2px 5.5px rgba(0, 0, 0, 0.06)' : 'none'}
+                            py='10px'
+                            cursor='pointer'>
+                            <Icon color={textColor} as={FaPenFancy} me='6px' />
+                            <Text fontSize='xs' color={textColor} fontWeight='bold'>
+                                USER INFO
                             </Text>
                         </Flex>
                     </Button>

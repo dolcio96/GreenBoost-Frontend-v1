@@ -109,9 +109,9 @@ const Buy = () => {
 
     return (
         <>
-            <Box px={4}>
-                <Flex h={16} alignItems={'center'} justifyContent={'center'}>
-                    <Flex alignItems={'center'}>
+            <Box px={4} mt={5}>
+                <Flex alignItems={'center'} justifyContent={'center'} direction={{ sm: "column", md: "row" }}>
+                    <Flex alignItems={'center'} justifyContent={'center'} >
                         <Menu>
                             <MenuButton
                                 w={{ sm: "100px", md: "150px", lg: "200px" }}
@@ -128,7 +128,7 @@ const Buy = () => {
                                 ))}
                             </MenuList>
                         </Menu>
-
+                        
                         <Menu>
                             <MenuButton
                                 w={{ sm: "100px", md: "150px", lg: "200px" }}
@@ -145,8 +145,8 @@ const Buy = () => {
                                 ))}
                             </MenuList>
                         </Menu>
-
-                        <Menu>
+                        
+                        <Menu >
                             <MenuButton
                                 w={{ sm: "100px", md: "150px", lg: "200px" }}
                                 as={Button}
@@ -155,7 +155,7 @@ const Buy = () => {
                                 minW={0}>
                                 {FilterOpts[2].title}
                             </MenuButton>
-                            <MenuList>
+                            <MenuList alignItems={'center'} justifyContent={'center'}>
                                 {FilterOpts[2].subtitle}
                                 {FilterOpts[2].opts.map((opt) => (
                                     <MenuItem key={opt}>{opt}</MenuItem>
@@ -164,10 +164,20 @@ const Buy = () => {
                         </Menu>
 
                     </Flex>
+                    <Flex  mb={{ md: "80px" }}>
+                        <Box position={{ sm: "center", md: "absolute" }}
+                            mt={"20px"} ml={{ md: "10%", lg: "10%", xl: "20%" }}
+                           
+                            alignItems={'center'}
+                            justifyContent={'center'}>
+                            <Button backgroundColor={"gold"} _hover={{backgroundColor:"green.400"}}> Fast Buy</Button>
+                        </Box>
+                    </Flex>
+
                 </Flex>
 
                 {isOpen ? (
-                    <Box pb={4} display={{ md: 'none' }}>
+                    <Box pb={4} display={{ md: 'none' }} >
                         <Stack as={'nav'} spacing={4}>
                             {Links.map((link) => (
                                 <NavLink key={link}>{link}</NavLink>
@@ -175,6 +185,8 @@ const Buy = () => {
                         </Stack>
                     </Box>
                 ) : null}
+
+
             </Box>
 
 

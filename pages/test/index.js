@@ -5,7 +5,7 @@ import {
 } from "@chakra-ui/react";
 import Layout from "@components/layout"
 import Head from "@components/head"
-import ProjectDetailComponent from "@components/projectDetail/test.js"
+import ProjectDetailComponent from "@components/projectDetail/projectDetails.js"
 import ChooseVCCComponent from "@components/buy"
 
 //To retrieve
@@ -19,8 +19,8 @@ export default function Projects() {
                 description="GreenBoost: test"
             />
 
-            {/*<ProjectDetailComponent />*/}
-            <ChooseVCCComponent/>
+            <ProjectDetailComponent />
+           {/* <ChooseVCCComponent/>*/}
         </>
     )
 }

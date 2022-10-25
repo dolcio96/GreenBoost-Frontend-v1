@@ -37,12 +37,12 @@ const ProjectDetailHeader = (props) => {
                             fontSize={{ sm: "lg", lg: "xl" }}
                             fontWeight='bold'
                             ms={{ sm: "8px", md: "0px" }}>
-                            {props.project?.id}
+                            {props.project?.id} Ludovico S.p.A.
                         </Text>
                         <Text
                             fontSize={{ sm: "sm", md: "md" }}
                             fontWeight='semibold'>
-                            {props.project?.description}
+                            {props.project?.description} ludovico.dolcini@gmail.com
                         </Text>
                     </Flex>
                 </Flex>

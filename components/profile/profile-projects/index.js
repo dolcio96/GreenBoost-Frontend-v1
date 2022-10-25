@@ -1,7 +1,7 @@
 // Chakra imports
 
 
-function Profile() {
+function ProfileProjects() {
 
 
   return (
@@ -9,4 +9,4 @@ function Profile() {
   );
 }
 
-export default Profile;
+export default ProfileProjects;
