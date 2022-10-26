@@ -6,7 +6,7 @@ import {
 import Layout from "@components/layout"
 import Head from "@components/head"
 import TableComponet from "@components/table"
-import BuyComponent from "@components/buy"
+import BuyComponent from "@components/projects"
 
 
 //To retrieve

@@ -2,7 +2,7 @@
 import { ReactElement } from "react"
 import Layout from "@components/layout"
 import Head from "@components/head"
-import ChooseVCCComponent from "@components/buy/choosevcc"
+import ChooseVCCComponent from "@components/projects/choosevcc"
 export default function ChooseVCC() {
   return (
     <>

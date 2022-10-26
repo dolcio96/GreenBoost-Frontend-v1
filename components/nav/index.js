@@ -20,9 +20,8 @@ import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { useSession, signIn, signOut } from "next-auth/react"
 import { ChevronDownIcon, ChevronUpIcon } from '@chakra-ui/icons'
 
-const Links = ['Buy', 'Sell', 'Dashboard', 'Projects', 'Contact Us', 'About Us'];
+const Links = ['Sell', 'Dashboard', 'Projects', 'Contact Us', 'About Us'];
 
-const Links2 = {};
 
 const NavLink = ({ children }) => (
     <Link
@@ -95,8 +94,8 @@ const Nav = () => {
                                     </Link>
                                 </MenuButton>
                                 <MenuList onMouseEnter={onOpen} onMouseLeave={onClose}>
-                                    <MenuItem as="a" href="/auth/signup">Buy Random Carbon Credit</MenuItem>
-                                    <MenuItem as="a" href="/auth/signup">Choose Your Carbon Credit</MenuItem>
+                                    <MenuItem as="a" href="/fastbuy">Fast Buy</MenuItem>
+                                    <MenuItem as="a" href="/projects">Choose Your Carbon Credit</MenuItem>
                                 </MenuList>
                             </Menu>
 

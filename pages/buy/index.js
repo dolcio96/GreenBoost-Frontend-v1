@@ -2,7 +2,7 @@
 import { ReactElement } from "react"
 import Layout from "@components/layout"
 import Head from "@components/head"
-import BuyComponent from "@components/buy"
+import BuyComponent from "@components/projects"
 export default function Buy() {
   return (
     <>

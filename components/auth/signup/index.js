@@ -28,7 +28,7 @@ const Signup = () => {
       align={'center'}
       justify={'center'}
       bg={useColorModeValue('gray.50', 'gray.800')}>
-      <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
+      <Stack spacing={8} mx={'auto'} maxW={'3lg'} py={12} px={6} w={{md:"50%",lg:"45%",'2xl':"30%"}}>
         <Stack align={'center'}>
           <Heading fontSize={'4xl'} textAlign={'center'}>
             Sign up
@@ -41,22 +41,22 @@ const Signup = () => {
           rounded={'lg'}
           bg={useColorModeValue('white', 'gray.700')}
           boxShadow={'lg'}
-          p={8}>
-          <Stack spacing={4}>
-            <HStack>
+          p={8}
+          w={{md:"100%"}}>
+           
+          <Stack spacing={4}>   
               <Box>
                 <FormControl id="firstName" isRequired>
-                  <FormLabel>First Name</FormLabel>
+                  <FormLabel>Company Name</FormLabel>
                   <Input type="text" />
                 </FormControl>
               </Box>
               <Box>
-                <FormControl id="lastName">
-                  <FormLabel>Last Name</FormLabel>
+                <FormControl id="lastName" isRequired>
+                  <FormLabel>TAX Number</FormLabel>
                   <Input type="text" />
                 </FormControl>
               </Box>
-            </HStack>
             <FormControl id="email" isRequired>
               <FormLabel>Email address</FormLabel>
               <Input taype="emil" />
@@ -99,7 +99,7 @@ const Signup = () => {
             </Stack>
             <Stack pt={6}>
               <Text align={'center'}>
-                Already a user? <Link color={'green.400'}>Login</Link>
+                Already a user? <Link color={'green.400'} href={"signin"}>Login</Link>
               </Text>
             </Stack>
           </Stack>

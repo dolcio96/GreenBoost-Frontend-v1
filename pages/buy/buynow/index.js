@@ -2,7 +2,7 @@
 import { ReactElement } from "react"
 import Layout from "@components/layout"
 import Head from "@components/head"
-import BuyNowComponent from "@components/buy/buynow"
+import BuyNowComponent from "@components/projects/fastbuy"
 export default function BuyNow() {
   return (
     <>
