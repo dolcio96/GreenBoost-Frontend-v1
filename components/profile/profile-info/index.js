@@ -37,7 +37,7 @@ function ProfileInfo() {
                     <Card p='16px' my={{ sm: "24px", md: "0px" }}>
                         <CardHeader p='12px 5px' mb='12px'>
                             <Text fontSize='25px' fontWeight='bold'>
-                                Profile Information
+                                Profile Informations
                             </Text>
                         </CardHeader>
                         <CardBody px='5px'>
@@ -64,7 +64,7 @@ function ProfileInfo() {
                                 </FlexContainerIB>
                                 <FlexContainerIB>
                                     <TextIB>ZIP Code:</TextIB>
-                                    <Input align='center' mb='18px' mr='10px' variant='flushed' placeholder='State' />
+                                    <Input align='center' mb='18px' mr='10px' variant='flushed' placeholder='ZIP code' />
                                 </FlexContainerIB>
 
                                 {/* 
@@ -85,14 +85,15 @@ function ProfileInfo() {
                             </Flex>
                         </CardBody>
                     </Card>
-                    <Card p='16px'>
-                        <Flex direction='column' >
-                            <CardHeader p='12px 5px' mb='12px'>
-                                <Text fontSize='25px' fontWeight='bold'>
-                                    Payment Method
-                                </Text>
-                            </CardHeader>
-                            <Center>
+                    <Card p='16px'  >
+                        <CardHeader p='12px 5px' mb={{ sm: '12px', md: '0px' }}>
+                            <Text fontSize='25px' fontWeight='bold'>
+                                Payment Method
+                            </Text>
+                        </CardHeader>
+                        <Flex direction='column'  >
+                            <Flex direction={{ sm: "column", md: "row" }} justifyContent={'space-between'}>
+
                                 <Card
                                     backgroundImage={
                                         "linear-gradient(180deg, #12a30c 0%, #81db92 100%)"
@@ -103,9 +104,10 @@ function ProfileInfo() {
                                     background='cover'
                                     bgPosition='10%'
                                     p='16px'
-                                    h={{ sm: "220px", md: "50%" }}
-                                    w={{ lg: "50%", xl: "60%" }}
-                                    gridArea={{ md: "1 / 1 / 2 / 3", xl: "1 / 1 / 2 / 3" }}>
+                                    h={{ sm: "220px", md: "100%" }}
+                                    w={{ sm: "220px", md: "50%" }}
+
+                                    mt={{ md: "50px" }}>
                                     <CardBody h='100%' w='100%'>
                                         <Flex
                                             direction='column'
@@ -115,7 +117,7 @@ function ProfileInfo() {
                                             w='100%'>
                                             <Flex justify='space-between' align='center'>
                                                 <Text fontSize='md' fontWeight='bold'>
-                                                    Argon x Chakra
+                                                    Green Boost
                                                 </Text>
                                                 <Icon
                                                     as={RiMastercardFill}
@@ -128,7 +130,7 @@ function ProfileInfo() {
                                             <Flex direction='column'>
                                                 <Box>
                                                     <Text
-                                                        fontSize='2xl'
+                                                        fontSize={{ sm: '2xl', xl: 'xl', '2xl': '2xl' }}
                                                         letterSpacing='2px'
                                                         fontWeight='bold'>
                                                         7812 2139 0823 XXXX
@@ -152,86 +154,56 @@ function ProfileInfo() {
                                         </Flex>
                                     </CardBody>
                                 </Card>
-                            </Center>
-                            <Card p='16px'>
 
 
-                                <CardBody px='5px'>
-                                    <Flex direction='column' w='100%'>
-                                        <Flex justifyContent='space-between' mb='21px'>
-                                            <Flex align='center'>
-
-                                                <Flex direction='column'>
-                                                    <Text fontSize='sm' fontWeight='bold'>
-                                                        Sophie B.{" "}
-                                                    </Text>
-                                                    <Text fontSize='xs' color='gray.400' fontWeight='400'>
-                                                        Hi! I need more information...
-                                                    </Text>
-                                                </Flex>
-                                            </Flex>
-                                            <Button p='0px' bg='transparent' variant='no-effects'>
-                                                <Text
-                                                    fontSize='10px'
-                                                    fontWeight='700'
-
-                                                    alignSelf='center'>
-                                                    REPLY
-                                                </Text>
-                                            </Button>
+                                <Box w={{ sm: "100%", md: "50%", lg: "50%" }} pl={{ md: "20px" }} mt={{ sm: "20px" }}>
+                                    <Flex direction='column'>
+                                        <FlexContainerIB>
+                                            <TextIB>Number:</TextIB>
+                                            <Input align='center' mb='18px' mr='10px' variant='flushed' placeholder='Number' />
+                                        </FlexContainerIB>
+                                        <FlexContainerIB>  <Flex direction='row' >
+                                            <Box w={{ sm: "100%" }}>
+                                                <TextIB>Name:</TextIB>
+                                                <Input align='center' mb='18px' mr='10px' variant='flushed' placeholder='Name' />
+                                            </Box>
+                                            <Box w={{ sm: "100%" }}>
+                                                <TextIB>Surname:</TextIB>
+                                                <Input align='center' mb='18px' mr='10px' ml='10px' variant='flushed' placeholder='Surname' />
+                                            </Box>
                                         </Flex>
-                                        <Flex justifyContent='space-between' mb='21px'>
-                                            <Flex align='center'>
+                                        </FlexContainerIB>
 
-                                                <Flex direction='column'>
-                                                    <Text fontSize='sm' fontWeight='bold'>
-                                                        Sophie B.{" "}
-                                                    </Text>
-                                                    <Text fontSize='xs' color='gray.400' fontWeight='400'>
-                                                        Awesome work, can you change...
-                                                    </Text>
-                                                </Flex>
-                                            </Flex>
-                                            <Button p='0px' bg='transparent' variant='no-effects'>
-                                                <Text
-                                                    fontSize='10px'
-                                                    fontWeight='700'
-
-                                                    alignSelf='center'>
-                                                    REPLY
-                                                </Text>
-                                            </Button>
+                                        <FlexContainerIB>  <Flex direction='row' >
+                                            <Box w={{ sm: "100%" }}>
+                                                <TextIB>Validity:</TextIB>
+                                                <Input align='center' mb='18px' mr='10px' variant='flushed' placeholder='00/00' />
+                                            </Box>
+                                            <Box w={{ sm: "100%" }}>
+                                                <TextIB>CCV:</TextIB>
+                                                <Input align='center' mb='18px' mr='10px' ml='10px' variant='flushed' placeholder='xxx' />
+                                            </Box>
                                         </Flex>
-                                        <Flex justifyContent='space-between' mb='21px'>
-                                            <Flex align='center'>
-
-                                                <Flex direction='column'>
-                                                    <Text fontSize='sm' fontWeight='bold'>
-                                                        Sophie B.{" "}
-                                                    </Text>
-                                                    <Text fontSize='xs' color='gray.400' fontWeight='400'>
-                                                        Have a great afternoon...
-                                                    </Text>
-                                                </Flex>
-                                            </Flex>
-                                            <Button p='0px' bg='transparent' variant='no-effects'>
-                                                <Text
-                                                    fontSize='10px'
-                                                    fontWeight='700'
-
-                                                    alignSelf='center'>
-                                                    REPLY
-                                                </Text>
-                                            </Button>
-                                        </Flex>
+                                        </FlexContainerIB>
 
                                     </Flex>
+                                </Box>
+
+                            </Flex >
+                            <Card px='16px'>
+                                <CardHeader p='12px 5px' mb={{ sm: '12px', md: '0px' }}>
+                                    <Text fontSize='25px' fontWeight='bold'>
+                                       Billing Informations
+                                    </Text>
+                                </CardHeader>
+                                <CardBody>
+                                    abc
                                 </CardBody>
                             </Card>
                             <Button>Save</Button>
                         </Flex>
                     </Card>
-
+                    F
 
                 </Grid>
 
