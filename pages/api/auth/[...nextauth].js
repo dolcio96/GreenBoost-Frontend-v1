@@ -27,7 +27,7 @@ export default NextAuth({
       async authorize(credentials, req) {
         // Add logic here to look up the user from the credentials supplied
         console.log(credentials)
-        const response = await fetch("http://192.168.0.182:1234/api/auth/login", {
+        const response = await fetch(process.env.BACKEND_API_URL + "/api/auth/login", {
           method: "POST",
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ username: credentials.username, password: credentials.password })

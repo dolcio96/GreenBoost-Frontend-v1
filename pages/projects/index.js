@@ -6,6 +6,7 @@ import {
 import Layout from "@components/layout"
 import Head from "@components/head"
 import TableComponet from "@components/table"
+import BuyComponent from "@components/buy"
 
 
 //To retrieve
@@ -19,7 +20,7 @@ export default function Projects({ data }) {
                 description="GreenBoost: Projects"
             />
 
-            <TableComponet tableHeader={data} />
+            <BuyComponent projects={data} />
         </>
     )
 }

@@ -34,7 +34,7 @@ export async function getServerSideProps(context) {
     const { pid } = context.query;
 
     const res = await fetch(
-        `http://192.168.0.182:1234/api/crud/project/${pid}`,
+        process.env.BACKEND_API_URL + `/api/crud/project/${pid}`,
         {
             method: "GET",
             headers: { 'Content-Type': 'application/json' }

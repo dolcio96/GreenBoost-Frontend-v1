@@ -104,9 +104,8 @@ const Filter = () => (
     </Menu>
 );
 
-const Buy = () => {
+const Buy = (props) => {
     const { isOpen, onOpen, onClose } = useDisclosure();
-
     return (
         <>
             <Box px={4} mt={5}>
@@ -192,7 +191,7 @@ const Buy = () => {
 
 
             <SimpleGrid columns={{ base: 3, lg: 3, md: 2, sm: 1 }}>
-                {projects.map(project => <Card {...project} />)}
+                {props.projects.map(project => <Card {...project} />)}
             </SimpleGrid>
 
         </>)

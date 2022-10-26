@@ -1,4 +1,4 @@
-import React, { useEffect,useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
     Text,
     Flex,
@@ -18,16 +18,12 @@ import ProjectDetailGalleryComponent from "./imgGalleryComponent"
 import Modal from "./modal"
 
 
-const ProjectDetails = () => {
+const ProjectDetails = (props) => {
 
-    const [selectedImg, setSelectedImg] = useState(null);
 
     return (<>
         <Box
             ml="50px" mr="50px">
-            <ProjectDetailHeaderComponent />
-            <ProjectDetailGalleryComponent setSelectedImg={setSelectedImg}/>
-            {selectedImg && <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg} />}
             <Flex direction='column' >
                 <Flex
                     direction={{ sm: "column", md: "row" }}
@@ -74,7 +70,7 @@ const ProjectDetails = () => {
                             direction={{ sm: "column", md: "row" }}
                             justifyContent={{ sm: "center", md: "space-between" }}>
                             <Flex direction='row' maxWidth='100%' my={{ sm: "14px" }}>
-                                The FSCECP hydroelectric complex, located in the Parana region of Brazil, generates renewable energy by harnessing the power of the Jordão River.
+                                {props.project?.description}
                             </Flex>
                         </Flex>
                         <Flex

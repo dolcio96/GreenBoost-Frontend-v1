@@ -58,7 +58,7 @@ const ProjectDetailHeader = (props) => {
                             onClick={() =>showInMapClicked("45.4131712","10.2825984")}
                         >
                             <PlaceIcon />
-                            {props.project?.description} Posizione
+                            Posizione
                         </Button>
                     </Flex>
                 </Flex>

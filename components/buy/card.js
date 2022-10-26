@@ -55,17 +55,17 @@ const Card = (props) => {
                             lineHeight="tight"
                             isTruncated
                             mb="3px">
-                           <Text> Project <span style={{color:"green"}}>{props.name} </span></Text>
+                           <Text> Project <span style={{color:"green"}}>{props.id} </span></Text>
                         </Box>
                     </Flex>
-                    <LinkOverlay href={props.href}>
+                    <LinkOverlay href={'/projects/' + props.id}>
                         <Box>
                             <Box
                             >
 
                                 <Image
                                     src={props.imageURL}
-                                    alt={`Picture of ${props.name}`}
+                                    alt={`Picture of ${props.id}`}
                                     rounded="lg"
                                     w="300px"
                                     h="300px"
