@@ -13,8 +13,8 @@ import RecommendIcon from '@mui/icons-material/Recommend';
 import ForestIcon from '@mui/icons-material/Forest';
 import EmojiNatureIcon from '@mui/icons-material/EmojiNature';
 import ProjectDetailHeaderComponent from "./headerComponent"
-import ProjectDetailGalleryComponent from "./galleryComponentOLD"
-import ProjectDetailGalleryComponent2 from "./imgGalleryComponent"
+//import ProjectDetailGalleryComponent from "./galleryComponentOLD"
+import ProjectDetailGalleryComponent from "./imgGalleryComponent"
 import Modal from "./modal"
 
 
@@ -26,7 +26,7 @@ const ProjectDetails = () => {
         <Box
             ml="50px" mr="50px">
             <ProjectDetailHeaderComponent />
-            <ProjectDetailGalleryComponent2 setSelectedImg={setSelectedImg}/>
+            <ProjectDetailGalleryComponent setSelectedImg={setSelectedImg}/>
             {selectedImg && <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg} />}
             <Flex direction='column' >
                 <Flex

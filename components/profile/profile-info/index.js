@@ -85,13 +85,13 @@ function ProfileInfo() {
                             </Flex>
                         </CardBody>
                     </Card>
-                    <Card p='16px'  >
-                        <CardHeader p='12px 5px' mb={{ sm: '12px', md: '0px' }}>
-                            <Text fontSize='25px' fontWeight='bold'>
-                                Payment Method
-                            </Text>
-                        </CardHeader>
+                    <Card p='16px' my={{ sm: "24px", md: "0px" }} >
                         <Flex direction='column'  >
+                            <CardHeader p='12px 5px' mb={{ sm: '12px', md: '0px' }}>
+                                <Text fontSize='25px' fontWeight='bold'>
+                                    Payment Method
+                                </Text>
+                            </CardHeader>
                             <Flex direction={{ sm: "column", md: "row" }} justifyContent={'space-between'}>
 
                                 <Card
@@ -190,20 +190,21 @@ function ProfileInfo() {
                                 </Box>
 
                             </Flex >
-                            <Card px='16px'>
-                                <CardHeader p='12px 5px' mb={{ sm: '12px', md: '0px' }}>
-                                    <Text fontSize='25px' fontWeight='bold'>
-                                       Billing Informations
-                                    </Text>
-                                </CardHeader>
-                                <CardBody>
-                                    abc
-                                </CardBody>
-                            </Card>
+
+                            <CardHeader p='12px 5px' mb={{ sm: '12px', md: '0px' }}>
+                                <Text fontSize='25px' fontWeight='bold'>
+                                    Billing Informations
+                                </Text>
+                            </CardHeader>
+                            <CardBody>
+                                abc
+                            </CardBody>
+
                             <Button>Save</Button>
                         </Flex>
+                        
                     </Card>
-                    F
+
 
                 </Grid>
 

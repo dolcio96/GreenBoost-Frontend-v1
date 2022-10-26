@@ -20,7 +20,7 @@ import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { useSession, signIn, signOut } from "next-auth/react"
 import { ChevronDownIcon, ChevronUpIcon } from '@chakra-ui/icons'
 
-const Links = ['Buy', 'Sell', 'Dashboard', 'Projects', 'Contact Us', 'About Us','test'];
+const Links = ['Buy', 'Sell', 'Dashboard', 'Projects', 'Contact Us', 'About Us'];
 
 const Links2 = {};
 
@@ -54,6 +54,7 @@ const Nav = () => {
                         aria-label={'Open Menu'}
                         display={{ md: 'none' }}
                         onClick={isOpen ? onClose : onOpen}
+                        
                     />
                     <HStack spacing={8} alignItems={'center'}>
                         <Box as="a" href="/">GreenBoost</Box>
@@ -69,6 +70,11 @@ const Nav = () => {
                                     onMouseLeave={onClose}
                                     as={Button}
                                     variant={'link'}
+                                    color="black"
+                                    fontWeight="normal"
+                                    outline= "none"
+                                    textDecoration="none"
+                                    _                                    
                                     _hover={{
                                         textDecoration: 'none',
                                         bg: useColorModeValue('gray.200', 'gray.700'),
