@@ -18,10 +18,10 @@ import React from "react";
 import { tablesProjectData, tablesTableData } from "@variables/general";
 
 
-function Tables(props) {
+function Tables() {
     const textColor = useColorModeValue("gray.700", "white");
     const borderColor = useColorModeValue("gray.200", "gray.600");
-    console.log(typeof props);
+
 
     return (
         <Flex direction="column" pt={{ base: "120px", md: "10px" }}>
@@ -43,7 +43,7 @@ function Tables(props) {
                             </Tr>
                         </Thead>
                         <Tbody>
-                            {props.tableHeader.map((row, index, arr) => {
+                            {tablesTableData.map((row, index, arr) => {
                                 return (
                                     <TablesTableRow
                                         name={row.id}

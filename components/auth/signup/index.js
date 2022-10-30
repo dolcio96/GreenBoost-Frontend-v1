@@ -93,7 +93,7 @@ const Signup = () => {
                 <FormLabel>Role</FormLabel>
                 <Controller
                   render={({ field: { onChange, value } }) => (
-                    <RadioGroup defaultValue='Seller' name='type' onChange={onChange} value={value}>
+                    <RadioGroup name='type' onChange={onChange} value={value}>
                       <HStack spacing='24px' justifyContent={"center"}>
                         <Radio _checked={{ borderColor: "green", borderStyle: "solid", borderWidth: "5px" }} value='seller'>Seller</Radio>
                         <Radio _checked={{ borderColor: "green", borderStyle: "solid", borderWidth: "5px" }} value='buyer'>Buyer</Radio>

@@ -1,7 +1,7 @@
 import '../styles/globals.css'
 import { SessionProvider } from "next-auth/react";
 import { ChakraProvider } from '@chakra-ui/react'
-
+import '../styles/test.scss'
 function MyApp({
   Component,
   pageProps: { session, ...pageProps } }) {
