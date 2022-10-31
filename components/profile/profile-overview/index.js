@@ -59,6 +59,7 @@ function ProfileOverview() {
             </Text>
           </CardHeader>
           <CardBody px='5px'>
+            {/* */}
             <Flex direction='column'>
               <Text fontSize='md' color='gray.400' fontWeight='400' mb='30px'>
                 Lorem Ipsum.Lorem Ipsum.Lorem Ipsum.Lorem Ipsum.Lorem Ipsum.Lorem Ipsum.Lorem Ipsum. Lorem Ipsum.Lorem Ipsum.Lorem Ipsum.Lorem Ipsum.
@@ -113,43 +114,10 @@ function ProfileOverview() {
                 </Text>
               </Flex>
               <Flex align='center' mb='18px'>
-                {/*}
-                <Text
-                  fontSize='md'
-                  color={textColor}
-                  fontWeight='bold'
-                  me='10px'>
-                  Social Media:{" "}
-                </Text>
-                <Flex>
-                  <Link
-                    href='#'
-                    color={iconColor}
-                    fontSize='lg'
-                    me='10px'
-                    _hover={{ color: "blue.500" }}>
-                    <Icon as={FaFacebook} />
-                  </Link>
-                  <Link
-                    href='#'
-                    color={iconColor}
-                    fontSize='lg'
-                    me='10px'
-                    _hover={{ color: "blue.500" }}>
-                    <Icon as={FaInstagram} />
-                  </Link>
-                  <Link
-                    href='#'
-                    color={iconColor}
-                    fontSize='lg'
-                    me='10px'
-                    _hover={{ color: "blue.500" }}>
-                    <Icon as={FaTwitter} />
-                  </Link>
-                </Flex>
-                */}
+            
               </Flex>
             </Flex>
+
           </CardBody>
         </Card>
         <Card p='16px'>
@@ -435,6 +403,8 @@ function ProfileOverview() {
               </Flex>
             </Flex>
             <Button
+            as={"a"}
+            href={"/createproject"}
               p='0px'
               bg='transparent'
               border='1px solid lightgray'

@@ -16,11 +16,19 @@ import {
   RadioGroup,
   Radio,
 } from '@chakra-ui/react';
+
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 import { useForm, Controller } from 'react-hook-form'
 
+
+import { userService, alertService } from 'services';
+
 const Signup = () => {
+
+  const router = useRouter();
+
   const [showPassword, setShowPassword] = useState(false);
 
   const {
@@ -30,12 +38,20 @@ const Signup = () => {
     formState: { errors, isSubmitting },
   } = useForm()
 
-  async function onSubmit(values) {
-    return await fetch("http://localhost:1234/api/auth/signup", {
-      method: "POST",
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(values)
-    })
+  function onSubmit(user) {
+    /*
+    
+        return await fetch("http://localhost:1234/api/auth/signup", {
+          method: "POST",
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(values)
+        })
+        */
+    return userService.register(user)
+     
+      
+
+
   }
 
   return (
