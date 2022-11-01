@@ -11,7 +11,7 @@ import {
     MenuButton,
     MenuList,
     MenuItem,
-    MenuDivider,
+    Image,
     useDisclosure,
     useColorModeValue,
     Stack,
@@ -22,6 +22,7 @@ import { ChevronDownIcon, ChevronUpIcon } from '@chakra-ui/icons'
 
 const Links = ['Sell', 'Dashboard', 'Projects', 'Contact Us', 'About Us'];
 
+import LogoGB from '@public/logoGB.png'
 
 const NavLink = ({ children }) => (
     <Link
@@ -53,10 +54,12 @@ const Nav = () => {
                         aria-label={'Open Menu'}
                         display={{ md: 'none' }}
                         onClick={isOpen ? onClose : onOpen}
-                        
+
                     />
-                    <HStack spacing={8} alignItems={'center'}>
-                        <Box as="a" href="/">GreenBoost</Box>
+                    <HStack spacing={8.} alignItems={'center'}>
+                        <Box w={"200px"} as={"a"} href={"/"}>
+                            <Image w={"100%"} src={LogoGB.src}  />
+                        </Box>
 
                         <HStack
                             as={'nav'}
@@ -71,9 +74,9 @@ const Nav = () => {
                                     variant={'link'}
                                     color="black"
                                     fontWeight="normal"
-                                    outline= "none"
+                                    outline="none"
                                     textDecoration="none"
-                                    _                                    
+                                    _
                                     _hover={{
                                         textDecoration: 'none',
                                         bg: useColorModeValue('gray.200', 'gray.700'),
@@ -89,7 +92,7 @@ const Nav = () => {
                                             bg: useColorModeValue('gray.200', 'gray.700'),
                                         }}
                                         href='/buy'
-                                        >
+                                    >
                                         Buy  {isOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}
                                     </Link>
                                 </MenuButton>
