@@ -24,6 +24,7 @@ import { useForm, Controller } from 'react-hook-form'
 
 
 import { userService, alertService } from 'services';
+import { getProviders, signIn, useSession } from "next-auth/react"
 
 const Signup = () => {
 
@@ -39,18 +40,15 @@ const Signup = () => {
   } = useForm()
 
   function onSubmit(user) {
-    /*
-    
-        return await fetch("http://localhost:1234/api/auth/signup", {
-          method: "POST",
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(values)
-        })
-        */
-    return userService.register(user)
-     
-      
-
+    return userService.register(user).then((response) => {
+      if (response.ok) {
+        signIn('credentials', { username: user.email, password: user.password.padEnd(60, ' ') })
+        router.push('/')
+      }
+      else {
+        alert(response.status)
+      }
+    })
 
   }
 
