@@ -1,21 +1,17 @@
-const baseUrl = "http://localhost:1234"
-
 import { fetchWrapper } from 'helpers';
 
 export const userService = {
-  //  user: userSubject.asObservable(),
+   //  user: userSubject.asObservable(),
    // get userValue () { return userSubject.value },
    // login,
    // logout,
-    register,
+   register,
    // getAll,
-  //  getById,
-  //  update,
+   //  getById,
+   //  update,
    // delete: _delete
 };
 
-
 function register(user) {
-   // return console.log(123);
-    return fetchWrapper.post(`${baseUrl}/api/auth/signup`, user);
+   return fetchWrapper.post(`/backend/auth/signup`, user);
 }
