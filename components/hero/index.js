@@ -14,11 +14,18 @@ import {
   Flex
 } from '@chakra-ui/react';
 
+import BackgroudImage from "@public/Images/heroForest2.jpg"
+
 const Hero = () => {
+
+const BGImage= BackgroudImage.src
+
   return (<>
-    <Flex backgroundImage={
-      './Images/foresta.jpg'
-    }>
+    <Flex backgroundImage={ BGImage}
+     backgroundRepeat={"no-repeat"}
+     backgroundSize={{sm:"100%"}}
+     h={"100vh"}
+    >
       <Container maxW={'3xl'}>
         <Stack
           as={Box}

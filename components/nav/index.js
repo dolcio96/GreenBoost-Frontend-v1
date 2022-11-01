@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import React, { ReactNode, useEffect, useState } from 'react';
 import {
     Box,
     Flex,
@@ -24,6 +24,8 @@ const Links = ['Sell', 'Dashboard', 'Projects', 'Contact Us', 'About Us'];
 
 import LogoGB from '@public/logoGB.png'
 
+
+
 const NavLink = ({ children }) => (
     <Link
         px={2}
@@ -44,21 +46,39 @@ const Nav = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const { data: session } = useSession()
 
+    const [scrolled, setScrolled] = useState(false)
+    useEffect(_ => {
+        const handleScroll = _ => {
+            if (window.pageYOffset > 50) {
+                setScrolled(true)
+            } else {
+                setScrolled(false)
+            }
+        }
+        window.addEventListener('scroll', handleScroll)
+        return _ => {
+            window.removeEventListener('scroll', handleScroll)
+        }
+    }, [])
+
     return (
         <>
-            <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
-                <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
+            <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4} position="fixed" w="100%" zIndex={200} 
+            backgroundColor={!scrolled ? "rgba(232, 232, 232, 0)" : "gray.100"}
+                >
+                <Flex h={16} alignItems={'center'} justifyContent={'space-between'} >
                     <IconButton
                         size={'md'}
                         icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
                         aria-label={'Open Menu'}
                         display={{ md: 'none' }}
                         onClick={isOpen ? onClose : onOpen}
+                        borderStyle={"none"}
 
                     />
                     <HStack spacing={8.} alignItems={'center'}>
                         <Box w={"200px"} as={"a"} href={"/"}>
-                            <Image w={"100%"} src={LogoGB.src}  />
+                            <Image w={"100%"} src={LogoGB.src} />
                         </Box>
 
                         <HStack
