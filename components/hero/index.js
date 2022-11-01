@@ -37,10 +37,10 @@ const BGImage= BackgroudImage.src
             fontWeight={600}
             fontSize={{ base: '2xl', sm: '4xl', md: '6xl' }}
             lineHeight={'110%'}
-            color={'green.100'}
+            color={'green.700'}
             >
             Future of earth <br />
-            <Text as={'span'} color={'green.400'}>
+            <Text as={'span'} color={'green.500'}>
               starts with you
             </Text>
           </Heading>
