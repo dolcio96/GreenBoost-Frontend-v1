@@ -8,35 +8,27 @@ import {
   Grid,
   Icon,
   Image,
-  Link,
-  Switch,
   Text,
   useColorMode,
   useColorModeValue,
 } from "@chakra-ui/react";
-// Assets
-import avatar2 from "@assets/img/avatars/avatar2.png";
-import avatar3 from "@assets/img/avatars/avatar3.png";
-import avatar4 from "@assets/img/avatars/avatar4.png";
-import avatar5 from "@assets/img/avatars/avatar5.png";
-import avatar6 from "@assets/img/avatars/avatar6.png";
-import ImageArchitect1 from "@assets/img/Images/bamboo.jpg";
-import ImageArchitect2 from "@assets/img/Images/foresta.jpg";
-import ImageArchitect3 from "@assets/img/Images/foresta.jpg";
+// public
+import avatar2 from "@public/Images/avatars/avatar2.png";
+import avatar3 from "@public/Images/avatars/avatar3.png";
+import avatar4 from "@public/Images/avatars/avatar4.png";
+import avatar5 from "@public/Images/avatars/avatar5.png";
+import avatar6 from "@public/Images/avatars/avatar6.png";
+import ImageArchitect1 from "@public/Images/bamboo.jpg";
+import ImageArchitect2 from "@public/Images/foresta.jpg";
+import ImageArchitect3 from "@public/Images/foresta.jpg";
 // Custom components
 import Card from "@components/card/card";
 import CardBody from "@components/card/cardBody";
 import CardHeader from "@components/card/cardHeader";
 import React from "react";
 import {
-  FaCube,
-  FaFacebook,
-  FaInstagram,
-  FaPenFancy,
   FaPlus,
-  FaTwitter,
 } from "react-icons/fa";
-import { IoDocumentsSharp } from "react-icons/io5";
 
 function ProfileOverview() {
   const { colorMode } = useColorMode();
@@ -44,10 +36,7 @@ function ProfileOverview() {
   // Chakra color mode
   const textColor = useColorModeValue("gray.700", "white");
   const iconColor = useColorModeValue("blue.500", "white");
-  const bgProfile = useColorModeValue("hsla(0,0%,100%,.8)", "navy.800");
-  const borderProfileColor = useColorModeValue("white", "transparent");
-  const emailColor = useColorModeValue("gray.400", "gray.300");
-  console.log(ImageArchitect1)
+
   return (
     <Flex direction='column' pt={{ base: "120px", md: "75px", lg: "100px" }}>
       <Grid templateColumns={{ sm: "1fr", xl: "repeat(2, 1fr)" }} gap='22px'>
@@ -114,7 +103,7 @@ function ProfileOverview() {
                 </Text>
               </Flex>
               <Flex align='center' mb='18px'>
-            
+
               </Flex>
             </Flex>
 
@@ -311,7 +300,7 @@ function ProfileOverview() {
                   West America
                 </Text>
                 <Text fontSize='md' color='gray.400' fontWeight='400' mb='20px'>
-                Some text...
+                  Some text...
                 </Text>
                 <Flex justifyContent='space-between'>
                   <Button variant='dark' minW='110px' h='36px'>
@@ -349,7 +338,7 @@ function ProfileOverview() {
                   Russia
                 </Text>
                 <Text fontSize='md' color='gray.400' fontWeight='400' mb='20px'>
-                Some text...
+                  Some text...
                 </Text>
                 <Flex justifyContent='space-between'>
                   <Button variant='dark' minW='110px' h='36px'>
@@ -403,8 +392,8 @@ function ProfileOverview() {
               </Flex>
             </Flex>
             <Button
-            as={"a"}
-            href={"/createproject"}
+              as={"a"}
+              href={"/createproject"}
               p='0px'
               bg='transparent'
               border='1px solid lightgray'

@@ -25,16 +25,7 @@ import { useRouter } from 'next/router';
 export default function Login({ providers }) {
   const { data: session} = useSession()
   const router = useRouter();
-  /*useEffect(() => {
-    console.log("123")
-    console.log("session1: "+session)
-    if (session) {
-      console.log("456")
-      router.push('/profile');
-    }
-  }, []);*/
-  //{session?  router.push('/profile'):null}
- 
+  
   return (
     <>
       <Head

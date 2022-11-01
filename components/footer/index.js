@@ -21,8 +21,6 @@ import LogoGB from '@public/logoGB.png'
 import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
 import { BiMailSend } from 'react-icons/bi';
 
-
-
 const SocialButton = ({
   children,
   label,
@@ -43,7 +41,7 @@ const SocialButton = ({
       justifyContent={'center'}
       transition={'background 0.3s ease'}
       color={"#FFFFFF"}
-      _hover={{ 
+      _hover={{
         bg: useColorModeValue('blackAlpha.200', 'whiteAlpha.200'),
         color: bgColor
       }}>
@@ -63,7 +61,7 @@ const ListHeader = ({ children }) => {
 
 const Footer = () => {
   return (<>
-  <Box
+    <Box
       bg={useColorModeValue('gray.50', 'gray.900')}
       color={useColorModeValue('gray.700', 'gray.200')}>
       <Container as={Stack} maxW={'6xl'} py={10}>
@@ -72,7 +70,7 @@ const Footer = () => {
           spacing={8}>
           <Stack spacing={6}>
             <Box w={"70%"} as={"a"} href={"/"}>
-              <Image  src={LogoGB.src } color={useColorModeValue('gray.700', 'white')} />
+              <Image src={LogoGB.src} color={useColorModeValue('gray.700', 'white')} />
             </Box>
             <Text fontSize={'sm'}>
               © 2022 GreenBoost. All rights reserved

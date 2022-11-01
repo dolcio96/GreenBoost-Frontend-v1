@@ -7,7 +7,7 @@ import ProfileLayout from "@components/layout/profileLayout"
 import { useRouter } from 'next/router';
 export default function Profile() {
   const router = useRouter();
-  console.log(router)
+
   return (
     
     <>

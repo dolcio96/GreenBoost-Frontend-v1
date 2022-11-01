@@ -21,10 +21,8 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 import { useForm, Controller } from 'react-hook-form'
-
-
-import { userService, alertService } from 'services';
-import { getProviders, signIn, useSession } from "next-auth/react"
+import { userService } from 'services';
+import { signIn } from "next-auth/react"
 
 const Signup = () => {
 
@@ -44,12 +42,10 @@ const Signup = () => {
       if (response.ok) {
         signIn('credentials', { username: user.email, password: user.password.padEnd(60, ' ') })
         router.push('/')
-      }
-      else {
+      } else {
         alert(response.status)
       }
     })
-
   }
 
   return (

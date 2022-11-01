@@ -17,10 +17,8 @@ import {
     GridItem,
     Flex
 } from '@chakra-ui/react';
-import imageCreate from "@public/Images/imageCreate.jpg"
+
 const Card = (props) => {
-    console.log(props.img.src);
-    console.log(imageCreate.src);
     return (<>
 
         <Flex p={5} w="full" alignItems="center" justifyContent="center">

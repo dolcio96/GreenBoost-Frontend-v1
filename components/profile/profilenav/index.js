@@ -35,9 +35,6 @@ const ProfileNav = () => {
     const emailColor = useColorModeValue("gray.400", "gray.300");
     const router = useRouter()
     const { data: session, status } = useSession()
-//    while (status == 'loading') {}
-    //console.log(status)
-   // console.log(session)
 
     return (<>
 

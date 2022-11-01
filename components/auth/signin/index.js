@@ -15,11 +15,12 @@ import {
 } from '@chakra-ui/react';
 
 import { FcGoogle } from 'react-icons/fc';
-import { ReactElement, useState, useEffect } from "react"
-import { getProviders, signIn, useSession } from "next-auth/react"
-import { useRouter } from 'next/router';
+import { useState } from "react"
+import { signIn } from "next-auth/react"
+
 const Signin = (props) => {
   const [credentials, setCredentials] = useState({ username: "", password: "" })
+
   return (
     <>
       <Flex
@@ -65,7 +66,7 @@ const Signin = (props) => {
                   Sign in
                 </Button>
                 <Center>
-                  <Button  onClick={() => signIn("github")}
+                  <Button onClick={() => signIn("github")}
                     w={'full'}
                     maxW={'md'}
                     variant={'outline'}
@@ -83,6 +84,5 @@ const Signin = (props) => {
     </>
   );
 }
-
 
 export default Signin;

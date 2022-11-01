@@ -35,21 +35,21 @@ const colourOptions = [
 const CreateProject = () => {
 
 
-const  parseAndValidate = async (file) => {
-    const buffer = await readFile(file);
+    const parseAndValidate = async (file) => {
+        const buffer = await readFile(file);
 
-    try {
-      const data = parse(buffer);
+        try {
+            const data = parse(buffer);
 
-      set({ valid: true });
+            set({ valid: true });
 
-      return data;
-    } catch (_) {
-      set({ valid: false });
+            return data;
+        } catch (_) {
+            set({ valid: false });
 
-      return false;
-    }
-  };
+            return false;
+        }
+    };
 
     const importFile = async (file) => {
         const data = await parseAndValidate(file);

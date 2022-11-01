@@ -14,8 +14,6 @@ import PlaceIcon from '@mui/icons-material/Place';
 const ProjectDetailHeader = (props) => {
     const showInMapClicked = (lat,long) => {
      
-        console.log(lat);
-     
             if (typeof window !== undefined) {
                 // browser code
 

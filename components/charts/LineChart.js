@@ -1,7 +1,7 @@
 import React from "react";
 import ReactApexChart from "react-apexcharts";
 import { lineChartData, lineChartOptions } from "variables/charts";
-import dynamic from 'next/dynamic';
+
 class LineChart extends React.Component {
   constructor(props) {
     super(props);
