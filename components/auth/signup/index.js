@@ -40,9 +40,14 @@ const Signup = () => {
   } = useForm()
 
   function onSubmit(user) {
-    return userService.register(user).then((response)=>{
-      signIn('credentials', { username: user.email, password: user.password.padEnd(60, ' ') })
-      router.push('/')
+    return userService.register(user).then((response) => {
+      if (response.ok) {
+        signIn('credentials', { username: user.email, password: user.password.padEnd(60, ' ') })
+        router.push('/')
+      }
+      else {
+        alert(response.status)
+      }
     })
 
   }
