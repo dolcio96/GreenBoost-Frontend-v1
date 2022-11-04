@@ -8,7 +8,7 @@ const Layout = ({ children }) => {
     return (
         <>
             <Nav />
-            <main style={{paddingTop:"64px"}} className="relative">{children}</main>
+            <main className="relative">{children}</main>
             <Footer />
         </>
     )

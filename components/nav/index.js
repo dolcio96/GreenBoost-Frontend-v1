@@ -49,7 +49,7 @@ const Nav = () => {
     const [scrolled, setScrolled] = useState(false)
     useEffect(_ => {
         const handleScroll = _ => {
-            if (window.pageYOffset > 50) {
+            if (window.pageYOffset > 64) {
                 setScrolled(true)
             } else {
                 setScrolled(false)

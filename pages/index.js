@@ -1,6 +1,6 @@
 
 import { ReactElement } from "react"
-import Layout from "@components/layout"
+import HomeLayout from "@components/layout/homeLayout"
 import Hero from "@components/hero"
 import Head from "@components/head"
 import Testimonial from "@components/testimonials"
@@ -21,5 +21,5 @@ export default function Home() {
 }
 
 Home.getLayout = function getLayout(page) {
-  return <Layout>{page}</Layout>
+  return <HomeLayout>{page}</HomeLayout>
 }
