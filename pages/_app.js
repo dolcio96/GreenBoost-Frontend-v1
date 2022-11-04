@@ -2,6 +2,7 @@ import '../styles/globals.css'
 import { SessionProvider } from "next-auth/react";
 import { ChakraProvider } from '@chakra-ui/react'
 import '../styles/test.scss'
+import '../styles/test2.scss'
 function MyApp({
   Component,
   pageProps: { session, ...pageProps } }) {

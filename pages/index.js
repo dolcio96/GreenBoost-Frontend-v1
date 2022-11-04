@@ -5,6 +5,8 @@ import Hero from "@components/hero"
 import Head from "@components/head"
 import Testimonial from "@components/testimonials"
 import HomeNav from "@components/homeBuySellCreate"
+import TeamComponent from "@components/team"
+import DescriptionComponent from "components/description"
 export default function Home() {
   return (
     <>
@@ -13,9 +15,10 @@ export default function Home() {
         description="GreenBoost."
       />
       <Hero />
-      <HomeNav/>
+      <HomeNav />
       <Testimonial />
-
+      <TeamComponent />
+      <DescriptionComponent/>
     </>
   )
 }

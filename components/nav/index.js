@@ -20,7 +20,7 @@ import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { useSession, signIn, signOut } from "next-auth/react"
 import { ChevronDownIcon, ChevronUpIcon } from '@chakra-ui/icons'
 
-const Links = ['Sell', 'Dashboard', 'Projects', 'Contact Us', 'About Us'];
+const Links = [ 'Projects', 'Contact Us', 'About Us'];
 
 import LogoGB from '@public/logoGB.png'
 

@@ -11,42 +11,44 @@ import {
   useColorModeValue,
   createIcon,
   Image,
-  Flex
+  Flex,
+  Center
 } from '@chakra-ui/react';
 
 import BackgroudImage from "@public/Images/heroForest2.jpg"
 
 const Hero = () => {
 
-const BGImage= BackgroudImage.src
+  const BGImage = BackgroudImage.src
 
   return (<>
-    <Flex backgroundImage={ BGImage}
-     backgroundRepeat={"no-repeat"}
-     backgroundSize={{sm:"100%"}}
-     h={"100vh"}
+    <Flex backgroundImage={BGImage}
+      backgroundRepeat={"no-repeat"}
+      backgroundSize={{ xl: "100%" }}
+      h={{ lg: "100vh" }}
     >
+
       <Container maxW={'3xl'}>
         <Stack
           as={Box}
           textAlign={'center'}
           spacing={{ base: 8, md: 14 }}
-          py={{ base: 20, md: 36 }}
+          py={{ base: 40, md: 36 }}
         >
           <Heading
             fontWeight={600}
-            fontSize={{ base: '2xl', sm: '4xl', md: '6xl' }}
+            fontSize={{ base: '3xl', sm: '4xl', md: '6xl' }}
             lineHeight={'110%'}
             color={'green.700'}
-            >
+          >
             Future of earth <br />
             <Text as={'span'} color={'green.500'}>
               starts with you
             </Text>
           </Heading>
-          <Text color={'gray.500'}>
-            Create, Trade, Bu and Sell to sustain the planet on the most decentralized carbon credit exchange platform.
-           
+          <Text borderRadius={"20px"}  color={{base:'white',sm:'white'}} fontSize={{base:"lg",sm:"2xl"}}>
+            Create, Trade, Buy and Sell to sustain the planet on the most decentralized carbon credit exchange platform.
+
           </Text>
           <Stack
             direction={'column'}
@@ -62,15 +64,16 @@ const BGImage= BackgroudImage.src
               _hover={{
                 bg: 'green.500',
               }}>
-              Get Started
+              Stay tuned
             </Button>
-            <Button variant={'link'}  size={'sm'}>
+            {/* 
+            <Button variant={'link'} size={'sm'}>
               Learn more
-            </Button>
+            </Button>*/}
             <Box>
               <Icon
                 as={Arrow}
-                color={useColorModeValue('gray.800', 'gray.300')}
+                color={"white"}
                 w={71}
                 position={'absolute'}
                 right={-71}
@@ -78,12 +81,13 @@ const BGImage= BackgroudImage.src
               />
               <Text
                 fontSize={'lg'}
+                color={"white"}
                 fontFamily={'Caveat'}
                 position={'absolute'}
                 right={'-125px'}
                 top={'-15px'}
                 transform={'rotate(10deg)'}>
-                Starting at $15/mo
+                Subscribe now!
               </Text>
             </Box>
           </Stack>
