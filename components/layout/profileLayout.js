@@ -11,7 +11,7 @@ const Layout = ({ children }) => {
         <>
             <Nav />
             <ProfileNav/>
-            <main className="relative">{children}</main>
+            <main style={{paddingTop:"64px"}} className="relative" >{children}</main>
             <Footer />
         </>
     )

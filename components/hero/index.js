@@ -46,7 +46,7 @@ const Hero = () => {
               starts with you
             </Text>
           </Heading>
-          <Text borderRadius={"20px"} backgroundColor={"rgba(0, 0, 0, 0.3)"} color={{base:'white',sm:'white'}} fontSize={{base:"lg",sm:"2xl"}}>
+          <Text borderRadius={"20px"} backgroundColor={"rgba(0, 0, 0, 0.4)"} color={{base:'white',sm:'white'}} fontSize={{base:"lg",sm:"2xl"}}>
             Create, Trade, Buy and Sell to sustain the planet on the most decentralized carbon credit exchange platform.
 
           </Text>
