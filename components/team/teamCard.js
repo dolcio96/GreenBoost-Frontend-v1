@@ -12,16 +12,23 @@ import {
     useColorModeValue,
 } from '@chakra-ui/react';
 
-import {FaLinkedin} from 'react-icons/fa';
 
-const TeamCard = ({info}) => {
-    console.log(info.img.src);
+import { useRouter } from "next/router"
+import { FaLinkedin } from 'react-icons/fa';
+
+const TeamCard = ({ info }) => {
+
+    const openLinkedin = () => {
+        const newWindow = window.open(info.linkedin, '_blank', 'noopener,noreferrer')
+        if (newWindow) newWindow.opener = null
+    }
+
     return (
-        
+
         <>
             <Center py={6}>
                 <Box
-                    maxW={{base:'270px',sm:"300px", md:"350px"}}
+                    maxW={{ base: '270px', sm: "300px", md: "350px" }}
                     w={'full'}
                     bg={useColorModeValue('white', 'gray.800')}
                     boxShadow={'2xl'}
@@ -55,7 +62,7 @@ const TeamCard = ({info}) => {
                             </Heading>
                             <Text color={'gray.500'}>{info.role}</Text>
                         </Stack>
-
+                        {/* 
                         <Stack direction={'row'} justify={'center'} spacing={6}>
                             <Stack spacing={0} align={'center'}>
                                 <Text fontWeight={600}>23k</Text>
@@ -70,7 +77,7 @@ const TeamCard = ({info}) => {
                                 </Text>
                             </Stack>
                         </Stack>
-
+*/}
                         <Button
                             w={'full'}
                             mt={8}
@@ -81,13 +88,16 @@ const TeamCard = ({info}) => {
                             _hover={{
                                 transform: 'translateY(-2px)',
                                 boxShadow: 'lg',
-                            }}>
+                            }}
+                            onClick={() => openLinkedin()}
+                            
+                            >
                             Follow on Linkedin
                         </Button>
                     </Box>
                 </Box>
             </Center>
-            
+
         </>
     )
 }

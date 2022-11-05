@@ -7,19 +7,20 @@ import TeamCard from './teamCard'
 
 import LudovicoAvatar from "@public/Images/team/ludovico.JPG"
 import GiovanniAvatar from "@public/Images/team/giovanni.JPEG"
-
 import EnricoAvatar from "@public/Images/team/enrico.JPEG"
 import ArturoAvatar from "@public/Images/team/arturo.JPEG"
+import AndreaAvatar from "@public/Images/team/andrea.JPG"
+import TommasoAvatar from "@public/Images/team/tommaso.JPG"
 
 
 import BackgroudImage from "@public/Images/heroForest2.jpg"
 const team = {
-    ludovico: { nome: "Ludovico Dolcini", role: "Frontend Developer", desc: "descrizione", linkedin: "linkedin link", img:  LudovicoAvatar  },
-    giovanni: { nome: "Giovanni Misso", role: "Frontend Developer", desc: "descrizione", linkedin: "linkedin link", img:  GiovanniAvatar },
-    arturo: { nome: "Arturo Sorgato", role: "CEO", desc: "descrizione", linkedin: "linkedin link", img:  ArturoAvatar  },
-    tommaso: { nome: "Tommaso Marinelli", role: "CEO", desc: "descrizione", linkedin: "linkedin link", img: ArturoAvatar  },
-    enrico: { nome: "Enrico Martini", role: "CEO", desc: "descrizione", linkedin: "linkedin link", img:  EnricoAvatar  },
-    andrea: { nome: "Andrea Corini", role: "CEO", desc: "descrizione", linkedin: "linkedin link", img:  ArturoAvatar  },
+    ludovico: { nome: "Ludovico Dolcini", role: "Frontend Developer", desc: "descrizione", linkedin: "https://www.linkedin.com/in/ldolcini/", img:  LudovicoAvatar  },
+    giovanni: { nome: "Giovanni Misso", role: "Frontend Developer", desc: "descrizione", linkedin: "https://www.linkedin.com/in/giovannimisso/", img:  GiovanniAvatar },
+    arturo: { nome: "Arturo Sorgato", role: "CEO", desc: "descrizione", linkedin: "https://www.linkedin.com/in/arturo-sorgato-555b05215/", img:  ArturoAvatar  },
+    tommaso: { nome: "Tommaso Marinelli", role: "CEO", desc: "descrizione", linkedin: "https://www.linkedin.com/in/tommaso-marinelli1/", img: TommasoAvatar  },
+    enrico: { nome: "Enrico Martini", role: "CEO", desc: "descrizione", linkedin: "https://www.linkedin.com/in/enrico-martini-070696/", img:  EnricoAvatar  },
+    andrea: { nome: "Andrea Corini", role: "CEO", desc: "descrizione", linkedin: "https://www.linkedin.com/in/andrea-corini-131634129/", img:  AndreaAvatar  },
 }
 
 const Bubbles = () => {
@@ -41,7 +42,7 @@ const Team = () => {
     return (
         <>
             <Flex direction={"column"}
-                backgroundColor={"#FEFAE0"}
+                backgroundColor={"'gray.800'"}
 
 
 

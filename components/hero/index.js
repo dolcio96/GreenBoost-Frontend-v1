@@ -1,5 +1,5 @@
-import React from 'react'
-
+import React, { useState } from 'react'
+import { useDisclosure } from '@chakra-ui/react'
 import {
   Box,
   Heading,
@@ -12,14 +12,22 @@ import {
   createIcon,
   Image,
   Flex,
-  Center
+  Center,
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalCloseButton,
+  ModalBody,
+  ModalFooter,
+  ModalOverlay,
+  Lorem
 } from '@chakra-ui/react';
 
 import BackgroudImage from "@public/Images/heroForest2.jpg"
-
+import PopUp from "./popup"
 const Hero = () => {
-
   const BGImage = BackgroudImage.src
+  const { isOpen, onOpen, onClose } = useDisclosure()
 
   return (<>
     <Flex backgroundImage={BGImage}
@@ -46,7 +54,7 @@ const Hero = () => {
               starts with you
             </Text>
           </Heading>
-          <Text borderRadius={"20px"} backgroundColor={"rgba(0, 0, 0, 0.4)"} color={{base:'white',sm:'white'}} fontSize={{base:"lg",sm:"2xl"}}>
+          <Text borderRadius={"20px"} backgroundColor={"rgba(0, 0, 0, 0.4)"} color={{ base: 'white', sm: 'white' }} fontSize={{ base: "lg", sm: "2xl" }}>
             Create, Trade, Buy and Sell to sustain the planet on the most decentralized carbon credit exchange platform.
 
           </Text>
@@ -63,8 +71,11 @@ const Hero = () => {
               px={6}
               _hover={{
                 bg: 'green.500',
-              }}>
+              }}
+              onClick={onOpen}
+            >
               Stay tuned
+
             </Button>
             {/* 
             <Button variant={'link'} size={'sm'}>
@@ -93,6 +104,33 @@ const Hero = () => {
           </Stack>
         </Stack>
       </Container>
+
+
+
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Modal Title</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <Lorem count={2} />
+          </ModalBody>
+
+          <ModalFooter>
+            <Button colorScheme='blue' mr={3} onClick={onClose}>
+              Close
+            </Button>
+            <Button variant='ghost'>Secondary Action</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+
+
+
+
+
+
+
     </Flex>
   </>)
 
