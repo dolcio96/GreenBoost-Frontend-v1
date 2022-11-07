@@ -43,9 +43,6 @@ const Team = () => {
         <>
             <Flex direction={"column"}
                 backgroundColor={"'gray.800'"}
-
-
-
             >
 
                 {/*<Bubbles />*/}

@@ -65,7 +65,7 @@ const Nav = () => {
     return (
         <>
             <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4} position="fixed" w="100%" zIndex={200} 
-            backgroundColor={!scrolled ? "rgba(232, 232, 232, 0)" : "gray.100"}
+            backgroundColor={!scrolled ? "rgba(232, 232, 232, 0)" : "tertiary"}
                 >
                 <Flex h={16} alignItems={'center'} justifyContent={'space-between'} >
                     <IconButton
@@ -73,6 +73,9 @@ const Nav = () => {
                         icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
                         aria-label={'Open Menu'}
                         display={{ md: 'none' }}
+                        bg="tertiary"
+                        _hover={{bg:"none"}}
+                        _active={{bg:"none"}}
                         onClick={isOpen ? onClose : onOpen}
                         borderStyle={"none"}
 
@@ -100,7 +103,7 @@ const Nav = () => {
                                     _
                                     _hover={{
                                         textDecoration: 'none',
-                                        bg: useColorModeValue('gray.200', 'gray.700'),
+                                        bg: "useColorModeValue('gray.200', 'gray.700')",
                                     }}
                                     minW={0}
                                     cursor={'pointer'}>

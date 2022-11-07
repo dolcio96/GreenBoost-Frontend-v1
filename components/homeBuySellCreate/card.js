@@ -21,21 +21,25 @@ import {
 const Card = (props) => {
     return (<>
 
-        <Flex p={5} w="full" alignItems="center" justifyContent="center">
+        <Flex p={5} w="full" alignItems="center" justifyContent="center" >
             <LinkBox
                 maxW="sm"
-                borderWidth="1px"
+                
                 rounded="xl"
                 shadow="xl"
                 position="relative"
-                href={props.lk}>
+                href={props.lk}
+                bg="white">
                 <LinkOverlay href={props.lk}>
-                    <Image 
+                    <Image
+                        h={'250px'}
+                        w={'full'}
                         src={props.img.src}
                         alt='abc'
                         rounded="xl"
+                        bg="white"
                     />
-                    <Box m="3" textAlign="center">
+                    <Box p="3" textAlign="center" >
                         <Center>
                             <Text fontSize='xl' color='green.600'>{props.desc}</Text>
                         </Center>

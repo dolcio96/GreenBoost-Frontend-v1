@@ -40,7 +40,7 @@ const data = [{
 const HomeBuySellCreate = () => {
 
     return (<>
-        <Box mt="20px" mb="20px" >
+        <Box py="20px" bg="tertiary">
             <SimpleGrid columns={[1, 1, 1, 3]} gap={10}>
                 {data.map(e => <GridItem>
                     <motion.div
