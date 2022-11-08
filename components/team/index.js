@@ -1,6 +1,6 @@
 import React from "react"
 import {
-    Flex,
+    Stack,
     SimpleGrid,
     Heading,
     Center
@@ -44,22 +44,22 @@ const Team = () => {
     const MotionHeading = motion(Heading)
     return (
         <>
-            <Flex direction={"column"}
+            <Stack
+                direction={"column"}
                 backgroundColor={"white"}
                 py={{ base: "20px", md: "40px" }}
-
             >
                 <MotionHeading pb="20px" color="primary" fontSize={{ base: "3xl", md: "6xl" }}
                     initial={{ opacity: 0, scale: 0.5 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8, delay: 0.5, ease: [0, 0.71, 0.2, 1.01] }}
-                    >
+                >
                     <Center>GreenBoost Team</Center>
                 </MotionHeading>
                 {/*<Bubbles />*/}
 
-                <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} spacing='40px'>
+                <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} spacing={10}>
                     <TeamCard info={team.ludovico} />
                     <TeamCard info={team.giovanni} />
                     <TeamCard info={team.arturo} />
@@ -68,7 +68,7 @@ const Team = () => {
                     <TeamCard info={team.andrea} />
                 </SimpleGrid>
 
-            </Flex>
+            </Stack>
         </>
 
     )

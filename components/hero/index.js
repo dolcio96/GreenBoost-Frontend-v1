@@ -44,7 +44,6 @@ const Hero = () => {
     <Flex backgroundImage={BGImage}
       backgroundRepeat={"no-repeat"}
       backgroundSize={{ xl: "100%" }}
-      h={{ lg: "100vh" }}
     >
 
       <Container maxW={'3xl'}>

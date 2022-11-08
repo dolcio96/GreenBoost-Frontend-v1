@@ -40,22 +40,14 @@ const data = [{
 const HomeBuySellCreate = () => {
 
     return (<>
-        <Box py={{base:"20px",md:"40px"}} >
-            <SimpleGrid columns={[1, 1, 1, 3]} gap={10}>
+        <Box py={{ base: "20px", md: "40px" }}>
+            <SimpleGrid columns={[1, 1, 1, 3]} gap={0}>
                 {data.map(e => <GridItem>
                     <motion.div
-                        whileInView={{ scale: [1.0, 1.1, 1.0] }}
+                        initial={{ opacity: 0, scale: 0.5 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
-                        whileHover={{
-                            scale: 1.1,
-                            transition: { duration: 0.5 },
-                          }}
-                        transition={{
-                            type: "spring",
-                            stiffness: 260,
-                            damping: 20,
-                            duration: 1
-                        }}>
+                        transition={{ duration: 0.8, delay: 0.2, ease: [0, 0.71, 0.2, 1.01] }}>
                         <Center>
                             <Text fontSize='2xl'>{e.title}</Text><Text fontSize='2xl' color='green.400'> .</Text>
                         </Center>

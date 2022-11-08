@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react"
 import {
+    StackDivider,
+    Stack,
     Flex,
     Image,
     Container,
@@ -7,7 +9,7 @@ import {
     Heading,
     Text,
     Box,
-    
+
 } from '@chakra-ui/react';
 import { useAnimation, motion } from "framer-motion"
 
@@ -38,7 +40,7 @@ const ImageRow = (info) => {
     return (<>
         <Box w={{ base: "100%", lg: "50%" }}
 
-            
+
         >
             <Center>
                 <Image
@@ -47,8 +49,8 @@ const ImageRow = (info) => {
                     w="100px"
                     h="100px"
                     objectFit='cover'
-                  
-                    
+
+
                 />
             </Center>
         </Box>
@@ -70,11 +72,11 @@ const BoxRow = (info) => {
 
 const RowBoxLeft = (info) => {
     return (
-        <MotionFlex direction={{ base: "column", lg: "row" }} justifyContent={"space-between"} my={6} 
-        initial={{ opacity: 0, scale: 0.5 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8, delay: 0.5, ease: [0, 0.71, 0.2, 1.01] }}>
+        <MotionFlex direction={{ base: "column", lg: "row" }} justifyContent={"space-around"} my={6}
+            initial={{ opacity: 0, scale: 0.5 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.5, ease: [0, 0.71, 0.2, 1.01] }}>
             <ImageRow {...info} />
             <BoxRow {...info} />
         </MotionFlex>
@@ -84,11 +86,11 @@ const RowBoxLeft = (info) => {
 
 const RowBoxRight = (info) => {
     return (
-        <MotionFlex direction={{ base: "column", lg: "row" }} justifyContent={"space-between"} my={6} 
-        initial={{ opacity: 0, scale: 0.5 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
-        transition={{duration: 0.8, delay: 0.5, ease: [0, 0.71, 0.2, 1.01] }}>
+        <MotionFlex direction={{ base: "column", lg: "row" }} justifyContent={"space-around"} my={6}
+            initial={{ opacity: 0, scale: 0.5 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.5, ease: [0, 0.71, 0.2, 1.01] }}>
             <BoxRow {...info} />
             <ImageRow {...info} />
         </MotionFlex>
@@ -122,13 +124,10 @@ const Description = () => {
     return (
         <>
             <Flex direction={"column"}
-                backgroundColor={"white"
-                }
-                py={{base:"20px",md:"40px"}}
+                backgroundColor={"white"}
+                mx='16px'
             >
-                <Container maxW={"80%"}>
-
-                    <Flex direction={"column"}>
+                    <Stack divider={<StackDivider borderColor="gray.200" />}>
 
                         <RowBoxLeft {...rows.row1} />
                         {dimension ? <RowBoxRight {...rows.row2} /> : <RowBoxLeft {...rows.row2} />}
@@ -138,8 +137,7 @@ const Description = () => {
                         {dimension ? <RowBoxRight {...rows.row6} /> : <RowBoxLeft {...rows.row6} />}
                         <RowBoxLeft {...rows.row7} />
 
-                    </Flex>
-                </Container>
+                    </Stack>
             </Flex>
 
         </>

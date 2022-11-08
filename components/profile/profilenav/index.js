@@ -38,19 +38,13 @@ const ProfileNav = () => {
 
     return (<>
 
-        <Flex direction='column' pt={{ base: "20px", md: "20px", lg: "20px" }}>
+        <Flex direction='column' pt={{ base: "64px", md: "64px", lg: "64px" }}>
             <Flex
                 direction={{ sm: "column", md: "row" }}
-                mb='24px'
-                maxH='330px'
                 justifyContent={{ sm: "center", md: "space-between" }}
                 align='center'
-                backdropFilter='blur(21px)'
-                boxShadow='0px 2px 5.5px rgba(0, 0, 0, 0.02)'
-                border='1.5px solid'
-                borderColor={borderProfileColor}
                 bg={bgProfile}
-                p='24px'
+                p='16px'
                 borderRadius='20px'>
                 <Flex
                     align='center'

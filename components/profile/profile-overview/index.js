@@ -38,7 +38,7 @@ function ProfileOverview() {
   const iconColor = useColorModeValue("blue.500", "white");
 
   return (
-    <Flex direction='column' pt={{ base: "120px", md: "75px", lg: "100px" }}>
+    <Flex direction='column'>
       <Grid templateColumns={{ sm: "1fr", xl: "repeat(2, 1fr)" }} gap='22px'>
 
         <Card p='16px' my={{ sm: "24px", xl: "0px" }}>
@@ -141,7 +141,7 @@ function ProfileOverview() {
                     fontWeight='700'
                     color={iconColor}
                     alignSelf='center'>
-                    REPLY
+                    VISIT
                   </Text>
                 </Button>
               </Flex>
@@ -169,7 +169,7 @@ function ProfileOverview() {
                     fontWeight='700'
                     color={iconColor}
                     alignSelf='center'>
-                    REPLY
+                    VISIT
                   </Text>
                 </Button>
               </Flex>
@@ -197,7 +197,7 @@ function ProfileOverview() {
                     fontWeight='700'
                     color={iconColor}
                     alignSelf='center'>
-                    REPLY
+                    VISIT
                   </Text>
                 </Button>
               </Flex>
@@ -225,7 +225,7 @@ function ProfileOverview() {
                     fontWeight='700'
                     color={iconColor}
                     alignSelf='center'>
-                    REPLY
+                    VISIT
                   </Text>
                 </Button>
               </Flex>
@@ -253,7 +253,7 @@ function ProfileOverview() {
                     fontWeight='700'
                     color={iconColor}
                     alignSelf='center'>
-                    REPLY
+                    VISIT
                   </Text>
                 </Button>
               </Flex>
@@ -261,7 +261,7 @@ function ProfileOverview() {
           </CardBody>
         </Card>
       </Grid>
-      <Card p='16px' my='24px'>
+      <Card p='16px'>
         <CardHeader p='12px 5px' mb='12px'>
           <Flex direction='column'>
             <Text fontSize='lg' color={textColor} fontWeight='bold'>
