@@ -7,12 +7,10 @@ import {
     Heading,
     Text,
     Box,
-    Lorem
+    
 } from '@chakra-ui/react';
+import { useAnimation, motion } from "framer-motion"
 
-import img1 from "@public/Images/imageBuy.jpg"
-import img2 from "@public/Images/imageCreate.jpg"
-import img3 from "@public/Images/imageSell.jpg"
 
 import co2 from "@public/Images/icons/co2.svg"
 import ecology from "@public/Images/icons/ecology.svg"
@@ -23,7 +21,7 @@ import greenIndustry2 from "@public/Images/icons/greenIndustry2.svg"
 import leave from "@public/Images/icons/leave.svg"
 
 
-
+const MotionFlex = motion(Flex)
 const rows = {
     row1: { title: "TITLE 1", description: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum", img: co2 },
     row2: { title: "Title2", description: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum", img: ecology },
@@ -49,7 +47,7 @@ const ImageRow = (info) => {
                     w="100px"
                     h="100px"
                     objectFit='cover'
-                    borderRadius={"5%"}
+                  
                     
                 />
             </Center>
@@ -62,7 +60,7 @@ const BoxRow = (info) => {
     return (
 
         <Box textAlign={"center"} justifyContent={"center"} boxSize={{ base: "100%", lg: "50%" }} mt={{ base: 8, lg: 0 }}>
-            <Center textAlign={"center"}><Heading textAlign={"center"} justifyContent={"center"} pb="5" color="quaternary">{info.title} </Heading></Center>
+            <Center textAlign={"center"}><Heading textAlign={"center"} justifyContent={"center"} pb="5" color="#136213">{info.title} </Heading></Center>
             <Text fontSize={"lg"}>{info.description}
             </Text>
         </Box>
@@ -72,20 +70,28 @@ const BoxRow = (info) => {
 
 const RowBoxLeft = (info) => {
     return (
-        <Flex direction={{ base: "column", lg: "row" }} justifyContent={"space-between"} my={6}>
+        <MotionFlex direction={{ base: "column", lg: "row" }} justifyContent={"space-between"} my={6} 
+        initial={{ opacity: 0, scale: 0.5 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, delay: 0.5, ease: [0, 0.71, 0.2, 1.01] }}>
             <ImageRow {...info} />
             <BoxRow {...info} />
-        </Flex>
+        </MotionFlex>
     );
 
 }
 
 const RowBoxRight = (info) => {
     return (
-        <Flex direction={{ base: "column", lg: "row" }} justifyContent={"space-between"} my={6}>
+        <MotionFlex direction={{ base: "column", lg: "row" }} justifyContent={"space-between"} my={6} 
+        initial={{ opacity: 0, scale: 0.5 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{duration: 0.8, delay: 0.5, ease: [0, 0.71, 0.2, 1.01] }}>
             <BoxRow {...info} />
             <ImageRow {...info} />
-        </Flex>
+        </MotionFlex>
     );
 
 }
@@ -115,11 +121,10 @@ const Description = () => {
 
     return (
         <>
-
             <Flex direction={"column"}
-                backgroundColor={"secondary"
+                backgroundColor={"white"
                 }
-                py="20px"
+                py={{base:"20px",md:"40px"}}
             >
                 <Container maxW={"80%"}>
 

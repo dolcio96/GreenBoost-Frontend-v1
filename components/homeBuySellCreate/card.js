@@ -38,10 +38,11 @@ const Card = (props) => {
                         alt='abc'
                         rounded="xl"
                         bg="white"
+                        opacity={"0.9"}
                     />
                     <Box p="3" textAlign="center" >
                         <Center>
-                            <Text fontSize='xl' color='green.600'>{props.desc}</Text>
+                            <Text fontSize='xl' color='quaternary'>{props.desc}</Text>
                         </Center>
                     </Box>
                 </LinkOverlay>

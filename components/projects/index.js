@@ -169,7 +169,7 @@ const Buy = (props) => {
                            
                             alignItems={'center'}
                             justifyContent={'center'}>
-                            <Button backgroundColor={"gold"} _hover={{backgroundColor:"green.400"}}> Fast Buy</Button>
+                            <Button backgroundColor={"gold"} _hover={{backgroundColor:"green.400"}} as="a" href="/fastbuy"> Fast Buy</Button>
                         </Box>
                     </Flex>
 

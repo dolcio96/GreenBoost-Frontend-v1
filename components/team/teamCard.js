@@ -11,13 +11,17 @@ import {
     Button,
     useColorModeValue,
 } from '@chakra-ui/react';
-
+import { useAnimation, motion } from "framer-motion"
 
 import { useRouter } from "next/router"
 import { FaLinkedin } from 'react-icons/fa';
 
+
+
+
 const TeamCard = ({ info }) => {
 
+    const MotionBox = motion(Box)
     const openLinkedin = () => {
         const newWindow = window.open(info.linkedin, '_blank', 'noopener,noreferrer')
         if (newWindow) newWindow.opener = null
@@ -27,13 +31,18 @@ const TeamCard = ({ info }) => {
 
         <>
             <Center py={6}>
-                <Box
+                <MotionBox
                     maxW={{ base: '270px', sm: "300px", md: "350px" }}
                     w={'full'}
                     bg={useColorModeValue('white', 'gray.800')}
                     boxShadow={'2xl'}
                     rounded={'lg'}
-                    overflow={'hidden'}>
+                    overflow={'hidden'}
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, delay: 0.5, ease: [0, 0.71, 0.2, 1.01] }}
+                >
                     <Image
                         h={'120px'}
                         w={'full'}
@@ -62,26 +71,10 @@ const TeamCard = ({ info }) => {
                             </Heading>
                             <Text color={'gray.500'}>{info.role}</Text>
                         </Stack>
-                        {/* 
-                        <Stack direction={'row'} justify={'center'} spacing={6}>
-                            <Stack spacing={0} align={'center'}>
-                                <Text fontWeight={600}>23k</Text>
-                                <Text fontSize={'sm'} color={'gray.500'}>
-                                    Followers
-                                </Text>
-                            </Stack>
-                            <Stack spacing={0} align={'center'}>
-                                <Text fontWeight={600}>23k</Text>
-                                <Text fontSize={'sm'} color={'gray.500'}>
-                                    Followers
-                                </Text>
-                            </Stack>
-                        </Stack>
-*/}
                         <Button
                             w={'full'}
                             mt={8}
-                            bg={"green.500"}
+                            bg={"primary"}
                             color={'white'}
                             rounded={'md'}
                             rightIcon={<FaLinkedin />}
@@ -90,12 +83,12 @@ const TeamCard = ({ info }) => {
                                 boxShadow: 'lg',
                             }}
                             onClick={() => openLinkedin()}
-                            
-                            >
+
+                        >
                             Follow on Linkedin
                         </Button>
                     </Box>
-                </Box>
+                </MotionBox>
             </Center>
 
         </>

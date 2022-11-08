@@ -8,5 +8,17 @@ export const myTheme = extendTheme({
         quaternary:"#344E41",
         danger:"#EF6F6C",
         warning:"#F2C57C"
-    }
+    },
+
+
+
+    components: {
+        Modal: {
+          baseStyle: (props) => ({
+            dialog: {
+              bg: "#DAD7CD"
+            }
+          })
+        }
+      }
 })

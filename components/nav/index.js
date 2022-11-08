@@ -15,13 +15,13 @@ import {
     useDisclosure,
     useColorModeValue,
     Stack,
-    
+
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { useSession, signIn, signOut } from "next-auth/react"
 import { ChevronDownIcon, ChevronUpIcon } from '@chakra-ui/icons'
 
-const Links = [ 'Projects', 'Contact Us', 'About Us'];
+const Links = ['About Us'];
 
 import LogoGB from '@public/logoGB.png'
 
@@ -34,12 +34,76 @@ const NavLink = ({ children }) => (
         rounded={'md'}
         _hover={{
             textDecoration: 'none',
-            bg: useColorModeValue('gray.200', 'gray.700'),
+            bg: "primary",
+            color: "white"
         }}
         href={'/' + children.toString().replace('&', '').replace(/\s/g, '').toLowerCase()}>
         {children}
     </Link>
 );
+
+const DropDownMenu = () => {
+    const { isOpen, onOpen, onClose } = useDisclosure();
+    return (<>
+        <Menu isOpen={isOpen}>
+            <MenuButton
+                py={1}
+                onMouseEnter={onOpen}
+                onMouseLeave={onClose}
+                as={Button}
+                border="none"
+                borderStyle="none"
+                variant={'link'}
+                color="black"
+                fontWeight="normal"
+                outline="none"
+                textDecoration="none"
+                _hover={{
+                    textDecoration: 'none',
+                    bg: "primary",
+                    color: "white",
+                    outline: "none",
+                    border: "none",
+                    borderStyle: "none"
+                }}
+                _active={{ textDecoration: "none", outline: "none", border: "none", borderStyle: "none" }}
+                _visited={{ textDecoration: 'none', outline: "none", border: "none", borderStyle: "none" }}
+                _after={{ textDecoration: 'none', outline: "none", border: "none", borderStyle: "none" }}
+                minW={0}
+                cursor={'pointer'}>
+                <Link
+                    px={2}
+                    py={1}
+                    rounded={'md'}
+                    _hover={{
+                        bg: "primary",
+                        color: "white",
+                    }}
+
+                    href='/buy'
+                >
+                    Marketplace  {isOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}
+                </Link>
+            </MenuButton>
+            <MenuList onMouseEnter={onOpen} onMouseLeave={onClose} >
+                <MenuItem as="a" href="/projects"
+                    _hover={{
+                        bg: "primary",
+                        color: "white",
+                    }}>Buy</MenuItem>
+                <MenuItem as="a" href="/createproject"
+                    _hover={{
+                        bg: "primary",
+                        color: "white",
+                    }}>Sell</MenuItem>
+            </MenuList>
+        </Menu>
+
+
+
+    </>)
+
+}
 
 
 
@@ -64,18 +128,19 @@ const Nav = () => {
 
     return (
         <>
-            <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4} position="fixed" w="100%" zIndex={200} 
-            backgroundColor={!scrolled ? "rgba(232, 232, 232, 0)" : "tertiary"}
-                >
+            <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4} position="fixed" w="100%" zIndex={200}
+                backgroundColor={!scrolled ? "rgba(232, 232, 232, 0)" : "white"}
+            >
                 <Flex h={16} alignItems={'center'} justifyContent={'space-between'} >
                     <IconButton
                         size={'md'}
+                        color="white"
                         icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
                         aria-label={'Open Menu'}
                         display={{ md: 'none' }}
-                        bg="tertiary"
-                        _hover={{bg:"none"}}
-                        _active={{bg:"none"}}
+                        bg="primary"
+                        _hover={{ bg: "none" }}
+                        _active={{ bg: "none" }}
                         onClick={isOpen ? onClose : onOpen}
                         borderStyle={"none"}
 
@@ -89,42 +154,7 @@ const Nav = () => {
                             as={'nav'}
                             spacing={4}
                             display={{ base: 'none', md: 'flex' }}>
-                            <Menu isOpen={isOpen}>
-                                <MenuButton
-                                    py={1}
-                                    onMouseEnter={onOpen}
-                                    onMouseLeave={onClose}
-                                    as={Button}
-                                    variant={'link'}
-                                    color="black"
-                                    fontWeight="normal"
-                                    outline="none"
-                                    textDecoration="none"
-                                    _
-                                    _hover={{
-                                        textDecoration: 'none',
-                                        bg: "useColorModeValue('gray.200', 'gray.700')",
-                                    }}
-                                    minW={0}
-                                    cursor={'pointer'}>
-                                    <Link
-                                        px={2}
-                                        py={1}
-                                        rounded={'md'}
-                                        _hover={{
-                                            textDecoration: 'none',
-                                            bg: useColorModeValue('gray.200', 'gray.700'),
-                                        }}
-                                        href='/buy'
-                                    >
-                                        Buy  {isOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}
-                                    </Link>
-                                </MenuButton>
-                                <MenuList onMouseEnter={onOpen} onMouseLeave={onClose}>
-                                    <MenuItem as="a" href="/fastbuy">Fast Buy</MenuItem>
-                                    <MenuItem as="a" href="/projects">Choose Your Carbon Credit</MenuItem>
-                                </MenuList>
-                            </Menu>
+                            < DropDownMenu />
 
 
 
@@ -151,7 +181,7 @@ const Nav = () => {
                                         }
                                     /> : <Avatar
                                         size={'sm'}
-                                        backgroundColor="green"
+                                        backgroundColor="primary"
                                     />}
 
                             </MenuButton>
@@ -159,7 +189,6 @@ const Nav = () => {
                                 {session ? <MenuItem onClick={() => signOut()}>Logout</MenuItem> : <MenuItem onClick={() => signIn()}>Login</MenuItem>}
                                 <MenuItem as="a" href="/auth/signup">Signup</MenuItem>
                                 <MenuItem as="a" href="/profile/profile-overview">Profile</MenuItem>
-                                <MenuItem as="a" href="/aboutus">About us</MenuItem>
                             </MenuList>
                         </Menu>
                     </Flex>

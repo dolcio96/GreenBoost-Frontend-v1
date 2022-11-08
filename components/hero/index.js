@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useDisclosure } from '@chakra-ui/react'
+import { useAnimation, motion } from "framer-motion"
 
 import {
   Box,
@@ -35,6 +36,8 @@ const Hero = () => {
   const BGImage = BackgroudImage.src
   const { isOpen, onOpen, onClose } = useDisclosure()
 
+  const MotionText = motion(Text)
+  const MotionStack = motion(Stack)
 
 
   return (<>
@@ -56,24 +59,43 @@ const Hero = () => {
             fontSize={{ base: '3xl', sm: '4xl', md: '6xl' }}
             lineHeight={'110%'}
             color={'quaternary'}
-            
+
           >
-            <Text  color={'quaternary'} textShadow='2px 2px #588157'>
-            Future of earth</Text> 
-            <Text as={'span'} color={'primary'} textShadow='2px 2px #344E41'>
+            <MotionText color={'quaternary'} textShadow='2px 2px #588157'
+              initial={{ opacity: 0, scale: 0.5 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.5, ease: [0, 0.71, 0.2, 1.01] }}
+            >
+              Future of earth</MotionText>
+            <MotionText as={'span'} color={'primary'} textShadow='2px 2px #344E41'
+              initial={{ opacity: 0, scale: 0.5 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 2, delay: 1, ease: [0, 0.71, 0.2, 1.01] }}>
               starts with you
-            </Text>
+            </MotionText>
           </Heading>
-          <Text borderRadius={"20px"} backgroundColor={"rgba(0, 0, 0, 0.4)"} color={{ base: 'white', sm: 'white' }} fontSize={{ base: "lg", sm: "2xl" }}>
+          <MotionText borderRadius={"20px"} backgroundColor={"rgba(0, 0, 0, 0.4)"} color={{ base: 'white', sm: 'white' }} fontSize={{ base: "lg", sm: "2xl" }}
+            initial={{ opacity: 0, scale: 0.5 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 1.5, ease: [0, 0.71, 0.2, 1.01] }}
+          >
             Create, Trade, Buy and Sell to sustain the planet on the most decentralized carbon credit exchange platform.
 
-          </Text>
-          <Stack
+          </MotionText>
+          <MotionStack
             direction={'column'}
             spacing={3}
             align={'center'}
             alignSelf={'center'}
-            position={'relative'}>
+            position={'relative'}
+            initial={{ opacity: 0, scale: 0.5 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 1.5, ease: [0, 0.71, 0.2, 1.01] }}
+          >
             <Button
               color={"quaternary"}
               bg={"tertiary"}
@@ -84,16 +106,12 @@ const Hero = () => {
                 bg: 'quaternary',
               }}
               onClick={onOpen}
-              _focus={{outline:"none"}}
+              _focus={{ outline: "none" }}
+
             >
               Stay tuned
 
             </Button>
-
-
-
-
-
             <Box>
               <Icon
                 as={Arrow}
@@ -114,7 +132,7 @@ const Hero = () => {
                 Subscribe now!
               </Text>
             </Box>
-          </Stack>
+          </MotionStack>
         </Stack>
       </Container>
     </Flex>
@@ -131,7 +149,7 @@ const Hero = () => {
           <Stack direction={'column'} spacing={6}>
             <Text>Send us your email if you are interested in the project</Text>
             <FormControl>
-              <Input placeholder='Email' className="inputFieldNormal"/>
+              <Input placeholder='Email' className="inputFieldNormal" />
             </FormControl>
             <Stack direction='row'>
               <Text>Chose your side</Text>

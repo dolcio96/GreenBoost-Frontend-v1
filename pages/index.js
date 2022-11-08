@@ -16,9 +16,10 @@ export default function Home() {
       />
       <Hero />
       <HomeNav />
-      <Testimonial />
+     {/*  <Testimonial />*/}
+     <DescriptionComponent/>
       <TeamComponent />
-      <DescriptionComponent/>
+    
     </>
   )
 }
