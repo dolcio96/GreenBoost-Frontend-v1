@@ -75,7 +75,7 @@ const CreateProject = () => {
                         p={{ sm: 5, md: 5, lg: 16 }}>
                         <Box mb={{ sm: "10px", lg: "40px" }}>
                             <Center>
-                                <Heading>Create your Projec</Heading>
+                                <Heading>Create your Project</Heading>
                             </Center>
                         </Box>
                         <Flex direction={"column"}>
@@ -86,6 +86,10 @@ const CreateProject = () => {
 
                             <FlexContainerIB>
                                 <TextIB>Project Name:</TextIB>
+                                <Input align='center' mb='18px' mr='10px' variant='flushed' />
+                            </FlexContainerIB>
+                            <FlexContainerIB>
+                                <TextIB>Country:</TextIB>
                                 <Input align='center' mb='18px' mr='10px' variant='flushed' />
                             </FlexContainerIB>
 

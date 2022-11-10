@@ -41,7 +41,7 @@ function ProfileOverview() {
     <Flex direction='column'>
       <Grid templateColumns={{ sm: "1fr", xl: "repeat(2, 1fr)" }} gap='22px'>
 
-        <Card p='16px' my={{ sm: "24px", xl: "0px" }}>
+        <Card p='16px' my={{ sm: "24px", xl: "0px" }} bg="gray.50">
           <CardHeader p='12px 5px' mb='12px'>
             <Text fontSize='lg' color={textColor} fontWeight='bold'>
               Profile Information
@@ -109,7 +109,7 @@ function ProfileOverview() {
 
           </CardBody>
         </Card>
-        <Card p='16px'>
+        <Card p='16px' bg="gray.50">
           <CardHeader p='12px 5px' mb='12px'>
             <Text fontSize='lg' color={textColor} fontWeight='bold'>
               Buyers

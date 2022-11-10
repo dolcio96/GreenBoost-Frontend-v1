@@ -196,8 +196,8 @@ function ProfileInfo() {
                                     Billing Informations
                                 </Text>
                             </CardHeader>
-                            <CardBody>
-                                abc
+                            <CardBody h="173px">
+                                
                             </CardBody>
 
                             <Button>Save</Button>

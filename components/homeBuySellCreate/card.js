@@ -24,7 +24,7 @@ const Card = (props) => {
         <Flex p={5} w="full" alignItems="center" justifyContent="center" >
             <LinkBox
                 maxW="sm"
-                
+
                 rounded="xl"
                 shadow="xl"
                 position="relative"
@@ -40,11 +40,13 @@ const Card = (props) => {
                         bg="white"
                         opacity={"0.9"}
                     />
-                    <Box p="3" textAlign="center" >
-                        <Center>
-                            <Text fontSize='xl' color='quaternary'>{props.desc}</Text>
-                        </Center>
-                    </Box>
+                    <Center h="80px">
+                        <Box p="3" textAlign="center" >
+                            <Center>
+                                <Text fontSize='2xl' color='quaternary'>{props.desc}</Text>
+                            </Center>
+                        </Box>
+                    </Center>
                 </LinkOverlay>
             </LinkBox >
 

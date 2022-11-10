@@ -20,19 +20,19 @@ const data = [{
     title: "BUY",
     img: imageBuy,
     lk: "/projects",
-    desc: "Buy Carbon Credit to reach  sustainability target and help our planet"
+    desc: "One place to find them all"
 },
 {
     title: "SELL",
     img: imageSell,
     lk: "/sell",
-    desc: "Sell your certified carbon credit on our Marketplace"
+    desc: "One place to sell them"
 },
 {
     title: "CREATE",
     img: imageCreate,
     lk: "/create",
-    desc: "Be supported in all phases required to certified your Carbon Credit"
+    desc: "One place to \"rule\" them, with infos and guidelines"
 
 },
 ]
@@ -49,7 +49,7 @@ const HomeBuySellCreate = () => {
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: 0.2, ease: [0, 0.71, 0.2, 1.01] }}>
                         <Center>
-                            <Text fontSize='2xl'>{e.title}</Text><Text fontSize='2xl' color='green.400'> .</Text>
+                            <Text fontSize='3xl'>{e.title}</Text><Text fontSize='2xl' color='green.400'> .</Text>
                         </Center>
                         <Card {...e} />
                     </motion.div>

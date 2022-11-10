@@ -5,6 +5,7 @@ import {
     Flex,
     Image,
     Container,
+    Highlight,
     Center,
     Heading,
     Text,
@@ -25,35 +26,28 @@ import leave from "@public/Images/icons/leave.svg"
 
 const MotionFlex = motion(Flex)
 const rows = {
-    row1: { title: "TITLE 1", description: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum", img: co2 },
-    row2: { title: "Title2", description: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum", img: ecology },
-    row3: { title: "Title3", description: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum", img: footprint },
-    row4: { title: "Title4", description: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum", img: forest },
-    row5: { title: "Title5", description: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum", img: greenIndustry },
-    row6: { title: "Title6", description: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum", img: greenIndustry2 },
-    row7: { title: "Title7", description: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum", img: leave },
+    row1: { title: "Title 1", description: "Access to the marketplace and offset your emissions in 3 easy click. We want to make our Marketplace accessible to everyone, in a very easy and autonomously way, with the will to make voluntary market grow as much as possible.", img: co2 },
+    row2: { title: "Title3", description: "We don’t choose you, you choose us! List your porjects on GreenBoost and become a member of our ecosystem. This will bring to the creation of a market with the greatest selection ever, where you can find every kind of VCC from all over the world.", img: forest },
+    row3: { title: "Title4", description: "And that’s not all! GreenBoost wants to reinvest constantly in the development of new green projects, every year, to reduce Co2 emissions as much as we can. Our community will join us in this adventure, taking part in the choice of future projects and building our new ecosystem, together.", img: footprint },
 }
 
 
 
 const ImageRow = (info) => {
     return (<>
-        <Box w={{ base: "100%", lg: "50%" }}
+        <Center w={{ base: "100%", lg: "50%" }}>
+            <Box >
+                    <Image
+                        src={info.img.src}
+                        alt='Image'
+                        w="100px"
+                        h="100px"
+                        objectFit='cover'
 
 
-        >
-            <Center>
-                <Image
-                    src={info.img.src}
-                    alt='Image'
-                    w="100px"
-                    h="100px"
-                    objectFit='cover'
-
-
-                />
-            </Center>
-        </Box>
+                    />
+            </Box>
+        </Center>
 
     </>);
 }
@@ -61,7 +55,7 @@ const ImageRow = (info) => {
 const BoxRow = (info) => {
     return (
 
-        <Box textAlign={"center"} justifyContent={"center"} boxSize={{ base: "100%", lg: "50%" }} mt={{ base: 8, lg: 0 }}>
+        <Box textAlign={"center"} justifyContent={"center"} boxSize={{ base: "100%", lg: "40%" }} mt={{ base: 8, lg: 0 }}>
             <Center textAlign={"center"}><Heading textAlign={"center"} justifyContent={"center"} pb="5" color="#136213">{info.title} </Heading></Center>
             <Text fontSize={"lg"}>{info.description}
             </Text>
@@ -102,7 +96,7 @@ const RowBoxRight = (info) => {
 const Description = () => {
 
     const [dimension, setDimension] = useState(true);
-
+    const MotionHeading = motion(Heading)
 
     useEffect(() => {
         function handleResize() {
@@ -127,17 +121,58 @@ const Description = () => {
                 backgroundColor={"white"}
                 mx='16px'
             >
-                    <Stack divider={<StackDivider borderColor="gray.200" />}>
+                <Stack divider={<StackDivider borderColor="gray.200" />}>
+                    <Center py="40px">
+                        <Stack direction="column">
+                            <Center>  <MotionHeading
+                                color={"gray.800"}
+                                initial={{ opacity: 0, scale: 0.5 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.8, delay: 0.5, ease: [0, 0.71, 0.2, 1.01] }}
+                            >"We are on a highway to climate hell"</MotionHeading></Center>
+                            <Center>  <MotionHeading
+                                color={"gray.800"}
+                                initial={{ opacity: 0, scale: 0.5 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.8, delay: 0.5, ease: [0, 0.71, 0.2, 1.01] }}
+                            >Turn right and take with us the stairway to climate heaven.</MotionHeading></Center>
+                        </Stack>
+                    </Center>
+                    <RowBoxLeft {...rows.row1} />
+                    {dimension ? <RowBoxRight {...rows.row2} /> : <RowBoxLeft {...rows.row2} />}
+                    <RowBoxLeft {...rows.row3} />
+                    <Center py="40px">
+                        <Stack direction="column">
+                            <Center>  <MotionHeading
+                                color={"gray.800"}
+                                initial={{ opacity: 0, scale: 0.5 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.8, delay: 0.5, ease: [0, 0.71, 0.2, 1.01] }}>Despite yesterday, we act today because of tomorrow.</MotionHeading></Center>
+                            <Center>
+                                <MotionHeading color={"gray.800"}
+                                    initial={{ opacity: 0, scale: 0.5 }}
+                                    whileInView={{ opacity: 1, scale: 1 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.8, delay: 0.5, ease: [0, 0.71, 0.2, 1.01] }}
+                                >
+                                    <Highlight
+                                        query={['Offset our future']}
+                                        styles={{ px: '2', pb: '2', rounded: 'full', bg: "rgb(88, 129, 87, 0.3)" }}
+                                    >
+                                        Offset our future, Together.  </Highlight>
 
-                        <RowBoxLeft {...rows.row1} />
-                        {dimension ? <RowBoxRight {...rows.row2} /> : <RowBoxLeft {...rows.row2} />}
-                        <RowBoxLeft {...rows.row3} />
-                        {dimension ? <RowBoxRight {...rows.row4} /> : <RowBoxLeft {...rows.row4} />}
-                        <RowBoxLeft {...rows.row5} />
-                        {dimension ? <RowBoxRight {...rows.row6} /> : <RowBoxLeft {...rows.row6} />}
-                        <RowBoxLeft {...rows.row7} />
+                                </MotionHeading>
 
-                    </Stack>
+
+
+                            </Center>
+                        </Stack>
+                    </Center>
+
+                </Stack>
             </Flex>
 
         </>

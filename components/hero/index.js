@@ -66,13 +66,13 @@ const Hero = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.5, ease: [0, 0.71, 0.2, 1.01] }}
             >
-              Future of earth</MotionText>
+              Offset our future.</MotionText>
             <MotionText as={'span'} color={'primary'} textShadow='2px 2px #344E41'
               initial={{ opacity: 0, scale: 0.5 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 2, delay: 1, ease: [0, 0.71, 0.2, 1.01] }}>
-              starts with you
+              Together.
             </MotionText>
           </Heading>
           <MotionText borderRadius={"20px"} backgroundColor={"rgba(0, 0, 0, 0.4)"} color={{ base: 'white', sm: 'white' }} fontSize={{ base: "lg", sm: "2xl" }}
@@ -81,7 +81,7 @@ const Hero = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 1.5, ease: [0, 0.71, 0.2, 1.01] }}
           >
-            Create, Trade, Buy and Sell to sustain the planet on the most decentralized carbon credit exchange platform.
+            Take part to the green revolution and help us build a new ecosystem, a better one, with zero emissions.
 
           </MotionText>
           <MotionStack
@@ -137,7 +137,7 @@ const Hero = () => {
     </Flex>
 
 
-    <Modal isOpen={isOpen} onClose={onClose} isCentered bg="tertiary">
+    <Modal isOpen={isOpen} onClose={onClose} isCentered >
       <ModalOverlay
         backdropFilter='blur(3px) hue-rotate(50deg)'
       />

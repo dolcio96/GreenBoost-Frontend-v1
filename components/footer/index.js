@@ -115,7 +115,7 @@ const Footer = () => {
                 }}
               />
               <IconButton
-                bg={useColorModeValue('green.400', 'green.800')}
+                bg="primary"
                 color={useColorModeValue('white', 'gray.800')}
                 _hover={{
                   bg: 'green.600',

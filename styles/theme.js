@@ -16,7 +16,7 @@ export const myTheme = extendTheme({
         Modal: {
           baseStyle: (props) => ({
             dialog: {
-              bg: "#DAD7CD"
+              
             }
           })
         }

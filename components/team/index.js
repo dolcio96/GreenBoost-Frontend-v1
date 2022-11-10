@@ -3,7 +3,8 @@ import {
     Stack,
     SimpleGrid,
     Heading,
-    Center
+    Center,
+    Highlight
 } from '@chakra-ui/react';
 import TeamCard from './teamCard'
 import { useAnimation, motion } from "framer-motion"
@@ -20,10 +21,10 @@ import BackgroudImage from "@public/Images/heroForest2.jpg"
 const team = {
     ludovico: { nome: "Ludovico Dolcini", role: "Frontend Developer", desc: "descrizione", linkedin: "https://www.linkedin.com/in/ldolcini/", img: LudovicoAvatar },
     giovanni: { nome: "Giovanni Misso", role: "Backend Developer", desc: "descrizione", linkedin: "https://www.linkedin.com/in/giovannimisso/", img: GiovanniAvatar },
-    arturo: { nome: "Arturo Sorgato", role: "CEO", desc: "descrizione", linkedin: "https://www.linkedin.com/in/arturo-sorgato-555b05215/", img: ArturoAvatar },
+    arturo: { nome: "Arturo Sorgato", role: "CTO", desc: "descrizione", linkedin: "https://www.linkedin.com/in/arturo-sorgato-555b05215/", img: ArturoAvatar },
     tommaso: { nome: "Tommaso Marinelli", role: "CEO", desc: "descrizione", linkedin: "https://www.linkedin.com/in/tommaso-marinelli1/", img: TommasoAvatar },
-    enrico: { nome: "Enrico Martini", role: "CEO", desc: "descrizione", linkedin: "https://www.linkedin.com/in/enrico-martini-070696/", img: EnricoAvatar },
-    andrea: { nome: "Andrea Corini", role: "CEO", desc: "descrizione", linkedin: "https://www.linkedin.com/in/andrea-corini-131634129/", img: AndreaAvatar },
+    enrico: { nome: "Enrico Martini", role: "COO", desc: "descrizione", linkedin: "https://www.linkedin.com/in/enrico-martini-070696/", img: EnricoAvatar },
+    andrea: { nome: "Andrea Corini", role: "CMO", desc: "descrizione", linkedin: "https://www.linkedin.com/in/andrea-corini-131634129/", img: AndreaAvatar },
 }
 
 const Bubbles = () => {
@@ -49,7 +50,7 @@ const Team = () => {
                 backgroundColor={"white"}
                 py={{ base: "20px", md: "40px" }}
             >
-                <MotionHeading pb="20px" color="primary" fontSize={{ base: "3xl", md: "6xl" }}
+                <MotionHeading pb="20px" color="primary" fontSize={{ base: "3xl", md: "5xl" }}
                     initial={{ opacity: 0, scale: 0.5 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
@@ -68,6 +69,28 @@ const Team = () => {
                     <TeamCard info={team.andrea} />
                 </SimpleGrid>
 
+                <Center py="80px">
+                    <Stack direction="column">
+                        <Center>
+                            <MotionHeading color={"gray.800"}
+
+                                initial={{ opacity: 0, scale: 0.5 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.8, delay: 0.5, ease: [0, 0.71, 0.2, 1.01] }}
+                            >
+                                <Highlight
+                                    query={['ecosystem', 'marketplace']}
+                                    styles={{ px: '2', pb: '2', rounded: 'full', bg: "rgb(88, 129, 87, 0.3)" }}
+                                >
+                                    We are GreenBoost, we are an ecosystem, not just a marketplace.  </Highlight>
+
+                            </MotionHeading>
+
+
+                        </Center>
+                    </Stack>
+                </Center>
             </Stack>
         </>
 
