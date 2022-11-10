@@ -121,7 +121,7 @@ const Buy = (props) => {
                                 {FilterOpts[0].title}
                             </MenuButton>
                             <MenuList>
-                                {FilterOpts[0].subtitle}
+                                <b>{FilterOpts[0].subtitle}</b>
                                 {FilterOpts[0].opts.map((opt) => (
                                     <MenuItem key={opt}>{opt}</MenuItem>
                                 ))}
@@ -138,7 +138,7 @@ const Buy = (props) => {
                                 {FilterOpts[1].title}
                             </MenuButton>
                             <MenuList>
-                                {FilterOpts[1].subtitle}
+                            <b>{FilterOpts[1].subtitle}</b>
                                 {FilterOpts[1].opts.map((opt) => (
                                     <MenuItem key={opt}>{opt}</MenuItem>
                                 ))}
@@ -155,7 +155,7 @@ const Buy = (props) => {
                                 {FilterOpts[2].title}
                             </MenuButton>
                             <MenuList alignItems={'center'} justifyContent={'center'}>
-                                {FilterOpts[2].subtitle}
+                            <b>{FilterOpts[2].subtitle}</b>
                                 {FilterOpts[2].opts.map((opt) => (
                                     <MenuItem key={opt}>{opt}</MenuItem>
                                 ))}

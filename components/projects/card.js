@@ -28,6 +28,8 @@ import {
 import ForestIcon from '@mui/icons-material/Forest';
 import EmojiNatureIcon from '@mui/icons-material/EmojiNature';
 
+import img from '@public/Images/foresta2.jpg';
+
 const Card = (props) => {
     const [show, setShow] = useState(false);
     const handleToggle = () => setShow(!show);
@@ -53,8 +55,7 @@ const Card = (props) => {
                             fontWeight="semibold"
                             as="h4"
                             lineHeight="tight"
-                            isTruncated
-                            mb="3px">
+                            my={'10px'}>
                            <Text> Project <span style={{color:"green"}}>{props.id} </span></Text>
                         </Box>
                     </Flex>
@@ -64,11 +65,8 @@ const Card = (props) => {
                             >
 
                                 <Image
-                                    src={props.imageURL}
+                                    src={img.src}
                                     alt={`Picture of ${props.id}`}
-                                    rounded="lg"
-                                    w="300px"
-                                    h="300px"
                                 />
 
                                 <Box p="6">

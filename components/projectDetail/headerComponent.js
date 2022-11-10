@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import {
     Text,
+    Stack,
     Flex,
     Button,
     Icon
@@ -41,16 +42,16 @@ const ProjectDetailHeader = (props) => {
                     w={{ sm: "100%" }}
                     textAlign={{ sm: "center", md: "start" }}>
 
-                    <Flex direction='column' maxWidth='100%' my={{ sm: "14px" }}>
+                    <Stack direction='column' maxWidth='100%' my={{ sm: "14px" }}>
                         <Text
                             fontSize={{ sm: "lg", lg: "xl" }}
                             fontWeight='bold'
                             ms={{ sm: "8px", md: "0px" }}>
-                            {props.project?.id} Ludovico S.p.A.
+                            Project {props.project?.id}
                         </Text>
                         <Button
                             border="none"
-                            background="none"
+                            background="primary"
                             fontSize={{ sm: "sm", md: "md" }}
                             fontWeight='semibold'
                             onClick={() =>showInMapClicked("45.4131712","10.2825984")}
@@ -58,7 +59,7 @@ const ProjectDetailHeader = (props) => {
                             <PlaceIcon />
                             Posizione
                         </Button>
-                    </Flex>
+                    </Stack>
                 </Flex>
                 <Flex
                     direction={{ sm: "row"}}

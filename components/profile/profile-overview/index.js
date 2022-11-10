@@ -39,9 +39,8 @@ function ProfileOverview() {
 
   return (
     <Flex direction='column'>
-      <Grid templateColumns={{ sm: "1fr", xl: "repeat(2, 1fr)" }} gap='22px'>
-
-        <Card p='16px' my={{ sm: "24px", xl: "0px" }} bg="gray.50">
+      <Grid templateColumns={{ sm: "1fr", xl: "repeat(2, 1fr)" }} gap='22px'  bg="gray.200">
+        <Card p='16px' my={{ sm: "24px", xl: "0px" }}>
           <CardHeader p='12px 5px' mb='12px'>
             <Text fontSize='lg' color={textColor} fontWeight='bold'>
               Profile Information
@@ -50,10 +49,6 @@ function ProfileOverview() {
           <CardBody px='5px'>
             {/* */}
             <Flex direction='column'>
-              <Text fontSize='md' color='gray.400' fontWeight='400' mb='30px'>
-                Lorem Ipsum.Lorem Ipsum.Lorem Ipsum.Lorem Ipsum.Lorem Ipsum.Lorem Ipsum.Lorem Ipsum. Lorem Ipsum.Lorem Ipsum.Lorem Ipsum.Lorem Ipsum.
-                Lorem Ipsum.Lorem Ipsum. Lorem Ipsum.Lorem Ipsum. Lorem Ipsum.Lorem Ipsum.Lorem Ipsum.Lorem Ipsum.Lorem Ipsum.Lorem Ipsum.Lorem Ipsum.Lorem Ipsum.
-              </Text>
               <Flex align='center' mb='18px'>
                 <Text
                   fontSize='md'
@@ -109,7 +104,7 @@ function ProfileOverview() {
 
           </CardBody>
         </Card>
-        <Card p='16px' bg="gray.50">
+        <Card p='16px'>
           <CardHeader p='12px 5px' mb='12px'>
             <Text fontSize='lg' color={textColor} fontWeight='bold'>
               Buyers
@@ -277,8 +272,8 @@ function ProfileOverview() {
             templateColumns={{ sm: "1fr", md: "1fr 1fr", xl: "repeat(4, 1fr)" }}
             templateRows={{ sm: "1fr 1fr 1fr auto", md: "1fr 1fr", xl: "1fr" }}
             gap='24px'>
-            <Flex direction='column'>
-              <Box mb='20px' position='relative' borderRadius='15px'>
+            <Flex direction='column'  bg="gray.200" p='10px' borderRadius='15px'>
+              <Box mb='20px' position='relative' borderRadius='15px'  bg="gray.200">
                 <Image src={ImageArchitect1.src} borderRadius='15px' />
                 <Box
                   w='100%'
@@ -315,7 +310,7 @@ function ProfileOverview() {
                 </Flex>
               </Flex>
             </Flex>
-            <Flex direction='column'>
+            <Flex direction='column' bg="gray.200" p='10px' borderRadius='15px'>
               <Box mb='20px' position='relative' borderRadius='15px'>
                 <Image src={ImageArchitect2.src} borderRadius='15px' />
                 <Box
@@ -353,7 +348,7 @@ function ProfileOverview() {
                 </Flex>
               </Flex>
             </Flex>
-            <Flex direction='column'>
+            <Flex direction='column'  bg="gray.200" p='10px' borderRadius='15px'>
               <Box mb='20px' position='relative' borderRadius='15px'>
                 <Image src={ImageArchitect3.src} borderRadius='15px' />
                 <Box
