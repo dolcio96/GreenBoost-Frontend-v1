@@ -26,9 +26,9 @@ import leave from "@public/Images/icons/leave.svg"
 
 const MotionFlex = motion(Flex)
 const rows = {
-    row1: { title: "Title 1", description: "Access to the marketplace and offset your emissions in 3 easy click. We want to make our Marketplace accessible to everyone, in a very easy and autonomously way, with the will to make voluntary market grow as much as possible.", img: co2 },
-    row2: { title: "Title3", description: "We don’t choose you, you choose us! List your porjects on GreenBoost and become a member of our ecosystem. This will bring to the creation of a market with the greatest selection ever, where you can find every kind of VCC from all over the world.", img: forest },
-    row3: { title: "Title4", description: "And that’s not all! GreenBoost wants to reinvest constantly in the development of new green projects, every year, to reduce Co2 emissions as much as we can. Our community will join us in this adventure, taking part in the choice of future projects and building our new ecosystem, together.", img: footprint },
+    row1: { title: "Easy and free access", description: "Access to the marketplace and offset your emissions in 3 easy click. We want to make our Marketplace accessible to everyone, in a very easy and autonomously way, with the will to make voluntary market grow as much as possible.", img: co2 },
+    row2: { title: "Carbon Credit supply gatherer", description: "We don’t choose you, you choose us! List your porjects on GreenBoost and become a member of our ecosystem. This will bring to the creation of a market with the greatest selection ever, where you can find every kind of VCC from all over the world.", img: forest },
+    row3: { title: "Build our zero Co2 future", description: "And that’s not all! GreenBoost wants to reinvest constantly in the development of new green projects, every year, to reduce Co2 emissions as much as we can. Our community will join us in this adventure, taking part in the choice of future projects and building our new ecosystem, together.", img: footprint },
 }
 
 
@@ -122,8 +122,7 @@ const Description = () => {
                 mx='16px'
             >
                 <Stack divider={<StackDivider borderColor="gray.200" />}>
-                    <Center py="40px">
-                        <Stack direction="column">
+                        <Stack direction="column"  my={'100px'}>
                             <Center>  <MotionHeading
                                 color={"gray.800"}
                                 initial={{ opacity: 0, scale: 0.5 }}
@@ -139,12 +138,10 @@ const Description = () => {
                                 transition={{ duration: 0.8, delay: 0.5, ease: [0, 0.71, 0.2, 1.01] }}
                             >Turn right and take with us the stairway to climate heaven.</MotionHeading></Center>
                         </Stack>
-                    </Center>
                     <RowBoxLeft {...rows.row1} />
                     {dimension ? <RowBoxRight {...rows.row2} /> : <RowBoxLeft {...rows.row2} />}
                     <RowBoxLeft {...rows.row3} />
-                    <Center py="40px">
-                        <Stack direction="column">
+                        <Stack direction="column"  my={'100px'}>
                             <Center>  <MotionHeading
                                 color={"gray.800"}
                                 initial={{ opacity: 0, scale: 0.5 }}
@@ -170,7 +167,6 @@ const Description = () => {
 
                             </Center>
                         </Stack>
-                    </Center>
 
                 </Stack>
             </Flex>
