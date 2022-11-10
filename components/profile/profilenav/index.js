@@ -67,7 +67,7 @@ const ProfileNav = () => {
                             color={textColor}
                             fontWeight='bold'
                             ms={{ sm: "8px", md: "0px" }}>
-                            {status == 'loading' ? 'loading...' : session?.user.company.company_name} Ludovico Dolcini S.p.A
+                            {status == 'loading' ? 'loading...' : 'mycompany'/**session?.user.company.company_name*/}
                         </Text>
                         <Text
                             fontSize={{ sm: "md", lg: "lg" }}
@@ -79,7 +79,7 @@ const ProfileNav = () => {
                             fontSize={{ sm: "sm", md: "md" }}
                             color={emailColor}
                             fontWeight='semibold'>
-                            {status == 'loading' ? 'loading...' : session?.user.company.customer.email} ludovico.dolcini@gmail.com
+                            {status == 'loading' ? 'loading...' : session?.user.company.customer.email}
                         </Text>
                     </Flex>
                 </Flex>

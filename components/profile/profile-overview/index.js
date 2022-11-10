@@ -58,7 +58,7 @@ function ProfileOverview() {
                   Full Name:{" "}
                 </Text>
                 <Text fontSize='md' color='gray.400' fontWeight='400'>
-                  Ludovico Dolcini
+                  mycompany
                 </Text>
               </Flex>
               <Flex align='center' mb='18px'>
@@ -82,7 +82,7 @@ function ProfileOverview() {
                   Email:{" "}
                 </Text>
                 <Text fontSize='md' color='gray.400' fontWeight='400'>
-                  ludovico.dolcini@gmail.com
+                  username@mycompany.com
                 </Text>
               </Flex>
               <Flex align='center' mb='18px'>
@@ -123,10 +123,9 @@ function ProfileOverview() {
                   />
                   <Flex direction='column'>
                     <Text fontSize='sm' color={textColor} fontWeight='bold'>
-                      Sophie B.{" "}
+                      Company{" "}
                     </Text>
                     <Text fontSize='xs' color='gray.400' fontWeight='400'>
-                      Hi! I need more information...
                     </Text>
                   </Flex>
                 </Flex>
@@ -151,10 +150,9 @@ function ProfileOverview() {
                   />
                   <Flex direction='column'>
                     <Text fontSize='sm' color={textColor} fontWeight='bold'>
-                      Sophie B.{" "}
+                      Company{" "}
                     </Text>
                     <Text fontSize='xs' color='gray.400' fontWeight='400'>
-                      Awesome work, can you change...
                     </Text>
                   </Flex>
                 </Flex>
@@ -179,10 +177,9 @@ function ProfileOverview() {
                   />
                   <Flex direction='column'>
                     <Text fontSize='sm' color={textColor} fontWeight='bold'>
-                      Sophie B.{" "}
+                      Company{" "}
                     </Text>
                     <Text fontSize='xs' color='gray.400' fontWeight='400'>
-                      Have a great afternoon...
                     </Text>
                   </Flex>
                 </Flex>
@@ -207,10 +204,9 @@ function ProfileOverview() {
                   />
                   <Flex direction='column'>
                     <Text fontSize='sm' color={textColor} fontWeight='bold'>
-                      Sophie B.{" "}
+                      Company{" "}
                     </Text>
                     <Text fontSize='xs' color='gray.400' fontWeight='400'>
-                      About files I can...
                     </Text>
                   </Flex>
                 </Flex>
@@ -235,10 +231,9 @@ function ProfileOverview() {
                   />
                   <Flex direction='column'>
                     <Text fontSize='sm' color={textColor} fontWeight='bold'>
-                      Sophie B.{" "}
+                      Company{" "}
                     </Text>
                     <Text fontSize='xs' color='gray.400' fontWeight='400'>
-                      About files I can...
                     </Text>
                   </Flex>
                 </Flex>

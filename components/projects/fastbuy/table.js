@@ -28,7 +28,7 @@ function Tables() {
             <Card overflowX={{ sm: "scroll", xl: "hidden" }} pb="0px">
                 <CardHeader p="6px 0px 22px 0px">
                     <Text fontSize="xl"  fontWeight="bold" pl="20px">
-                        List of random projects 
+                        List of selected projects 
                     </Text>
                 </CardHeader>
                 <CardBody>
@@ -56,6 +56,8 @@ function Tables() {
                                         date={row.insert_timestamp}
                                         isLast={index === arr.length - 1 ? true : false}
                                         key={index}
+
+                                        index={index}
                                     />
                                </> );
                             })}
