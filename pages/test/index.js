@@ -2,13 +2,15 @@
 import { ReactElement } from "react"
 import {
     Box,
-    Grid
+    Grid,
+    Input
 } from "@chakra-ui/react";
 import Layout from "@components/layout"
 import Head from "@components/head"
 import ProjectDetailComponent from "@components/projectDetail/projectDetails.js"
 import ChooseVCCComponent from "@components/projects"
 import ProjectCard from "@components/projects/projectCard"
+import ProfileBuyer from "@components/profile/profileOverviewBuyer"
 
 //To retrieve
 const tableContent = {}
@@ -20,16 +22,9 @@ export default function Projects() {
                 title="GreenBoost: test"
                 description="GreenBoost: test"
             />
-            <Box bg="secondary">
-                <Grid
-                    templateColumns={{ sm: "1fr", md: "1fr 1fr", xl: "repeat(3, 1fr)" }}
-                    templateRows={{ sm: "1fr 1fr 1fr auto", md: "1fr 1fr", xl: "1fr" }}
-                    gap='20'>
-                    <ProjectCard />
-                    <ProjectCard />
-                    <ProjectCard />
-                    <ProjectCard />
-                </Grid>
+            <Box h="500px">
+
+            <Input variant="normalInput"></Input>
             </Box>
             {/*<ProjectDetailComponent />
             {/* <ChooseVCCComponent/>*/}

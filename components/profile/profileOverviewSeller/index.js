@@ -46,17 +46,89 @@ const BuyerRow = () => {
           me='10px'
         />
         <Flex direction='column'>
-          <Text fontSize='sm' color={textColor} fontWeight='bold'>
+          <Text fontSize='sm' color={"black"} fontWeight='bold'>
             Company{" "}
           </Text>
           <Text fontSize='xs' color='gray.400' fontWeight='400'>
+            Quantity
           </Text>
         </Flex>
       </Flex>
+      <Button p='0px' bg='transparent' variant='no-effects'>
+        <Text
+          fontSize='10px'
+          fontWeight='700'
+          alignSelf='center'>
+          VISIT
+        </Text>
+      </Button>
     </Flex>
   </>)
 }
 
+const Informations = () => {
+  const textColor = useColorModeValue("gray.700", "white");
+  const iconColor = useColorModeValue("blue.500", "white");
+  return (<>
+
+    <Box px='5px'>
+      <Flex direction='column'>
+        <Flex align='center' mb='18px'>
+          <Text
+            fontSize='md'
+            color={textColor}
+            fontWeight='bold'
+            me='10px'>
+            Full Name:{" "}
+          </Text>
+          <Text fontSize='md' color='gray.400' fontWeight='400'>
+            mycompany
+          </Text>
+        </Flex>
+        <Flex align='center' mb='18px'>
+          <Text
+            fontSize='md'
+            color={textColor}
+            fontWeight='bold'
+            me='10px'>
+            Mobile:{" "}
+          </Text>
+          <Text fontSize='md' color='gray.400' fontWeight='400'>
+            (44) 123 1234 123
+          </Text>
+        </Flex>
+        <Flex align='center' mb='18px'>
+          <Text
+            fontSize='md'
+            color={textColor}
+            fontWeight='bold'
+            me='10px'>
+            Email:{" "}
+          </Text>
+          <Text fontSize='md' color='gray.400' fontWeight='400'>
+            username@mycompany.com
+          </Text>
+        </Flex>
+        <Flex align='center' mb='18px'>
+          <Text
+            fontSize='md'
+            color={textColor}
+            fontWeight='bold'
+            me='10px'>
+            Location:{" "}
+          </Text>
+          <Text fontSize='md' color='gray.400' fontWeight='400'>
+            United States
+          </Text>
+        </Flex>
+        <Flex align='center' mb='18px'>
+
+        </Flex>
+      </Flex>
+
+    </Box>
+  </>)
+}
 
 function ProfileOverview() {
   const { colorMode } = useColorMode();
@@ -74,210 +146,26 @@ function ProfileOverview() {
               Profile Information
             </Heading>
           </Box>
+          <Informations />
+        </Box>
+
+
+        <Box p='16px'>
+          <Box p='12px 5px' mb='12px'>
+            <Heading>
+              Buyers
+            </Heading>
+          </Box>
           <Box px='5px'>
-            <Flex direction='column'>
-              <Flex align='center' mb='18px'>
-                <Text
-                  fontSize='md'
-                  color={textColor}
-                  fontWeight='bold'
-                  me='10px'>
-                  Full Name:{" "}
-                </Text>
-                <Text fontSize='md' color='gray.400' fontWeight='400'>
-                  mycompany
-                </Text>
-              </Flex>
-              <Flex align='center' mb='18px'>
-                <Text
-                  fontSize='md'
-                  color={textColor}
-                  fontWeight='bold'
-                  me='10px'>
-                  Mobile:{" "}
-                </Text>
-                <Text fontSize='md' color='gray.400' fontWeight='400'>
-                  (44) 123 1234 123
-                </Text>
-              </Flex>
-              <Flex align='center' mb='18px'>
-                <Text
-                  fontSize='md'
-                  color={textColor}
-                  fontWeight='bold'
-                  me='10px'>
-                  Email:{" "}
-                </Text>
-                <Text fontSize='md' color='gray.400' fontWeight='400'>
-                  username@mycompany.com
-                </Text>
-              </Flex>
-              <Flex align='center' mb='18px'>
-                <Text
-                  fontSize='md'
-                  color={textColor}
-                  fontWeight='bold'
-                  me='10px'>
-                  Location:{" "}
-                </Text>
-                <Text fontSize='md' color='gray.400' fontWeight='400'>
-                  United States
-                </Text>
-              </Flex>
-              <Flex align='center' mb='18px'>
-
-              </Flex>
+            <Flex direction='column' w='100%'>
+              <BuyerRow />
+              <BuyerRow />
+              <BuyerRow />
+              <BuyerRow />
+              <BuyerRow />
             </Flex>
-
           </Box>
         </Box>
-        <Card p='16px'>
-          <CardHeader p='12px 5px' mb='12px'>
-            <Text fontSize='lg' color={textColor} fontWeight='bold'>
-              Buyers
-            </Text>
-          </CardHeader>
-          <CardBody px='5px'>
-            <Flex direction='column' w='100%'>
-              <Flex justifyContent='space-between' mb='21px'>
-                <Flex align='center'>
-                  <Avatar
-                    src={avatar2}
-                    w='50px'
-                    h='50px'
-                    borderRadius='15px'
-                    me='10px'
-                  />
-                  <Flex direction='column'>
-                    <Text fontSize='sm' color={textColor} fontWeight='bold'>
-                      Company{" "}
-                    </Text>
-                    <Text fontSize='xs' color='gray.400' fontWeight='400'>
-                      Project Name
-                    </Text>
-                  </Flex>
-                </Flex>
-                <Button p='0px' bg='transparent' variant='no-effects'>
-                  <Text
-                    fontSize='10px'
-                    fontWeight='700'
-                    color={iconColor}
-                    alignSelf='center'>
-                    VISIT
-                  </Text>
-                </Button>
-              </Flex>
-              <Flex justifyContent='space-between' mb='21px'>
-                <Flex align='center'>
-                  <Avatar
-                    src={avatar3}
-                    w='50px'
-                    h='50px'
-                    borderRadius='15px'
-                    me='10px'
-                  />
-                  <Flex direction='column'>
-                    <Text fontSize='sm' color={textColor} fontWeight='bold'>
-                      Company{" "}
-                    </Text>
-                    <Text fontSize='xs' color='gray.400' fontWeight='400'>
-                    </Text>
-                  </Flex>
-                </Flex>
-                <Button p='0px' bg='transparent' variant='no-effects'>
-                  <Text
-                    fontSize='10px'
-                    fontWeight='700'
-                    color={iconColor}
-                    alignSelf='center'>
-                    VISIT
-                  </Text>
-                </Button>
-              </Flex>
-              <Flex justifyContent='space-between' mb='21px'>
-                <Flex align='center'>
-                  <Avatar
-                    src={avatar4}
-                    w='50px'
-                    h='50px'
-                    borderRadius='15px'
-                    me='10px'
-                  />
-                  <Flex direction='column'>
-                    <Text fontSize='sm' color={textColor} fontWeight='bold'>
-                      Company{" "}
-                    </Text>
-                    <Text fontSize='xs' color='gray.400' fontWeight='400'>
-                    </Text>
-                  </Flex>
-                </Flex>
-                <Button p='0px' bg='transparent' variant='no-effects'>
-                  <Text
-                    fontSize='10px'
-                    fontWeight='700'
-                    color={iconColor}
-                    alignSelf='center'>
-                    VISIT
-                  </Text>
-                </Button>
-              </Flex>
-              <Flex justifyContent='space-between' mb='21px'>
-                <Flex align='center'>
-                  <Avatar
-                    src={avatar5}
-                    w='50px'
-                    h='50px'
-                    borderRadius='15px'
-                    me='10px'
-                  />
-                  <Flex direction='column'>
-                    <Text fontSize='sm' color={textColor} fontWeight='bold'>
-                      Company{" "}
-                    </Text>
-                    <Text fontSize='xs' color='gray.400' fontWeight='400'>
-                    </Text>
-                  </Flex>
-                </Flex>
-                <Button p='0px' bg='transparent' variant='no-effects'>
-                  <Text
-                    fontSize='10px'
-                    fontWeight='700'
-                    color={iconColor}
-                    alignSelf='center'>
-                    VISIT
-                  </Text>
-                </Button>
-              </Flex>
-              <Flex justifyContent='space-between' mb='21px'>
-                <Flex align='center'>
-                  <Avatar
-                    src={avatar6}
-                    w='50px'
-                    h='50px'
-                    borderRadius='15px'
-                    me='10px'
-                  />
-                  <Flex direction='column'>
-                    <Text fontSize='sm' color={textColor} fontWeight='bold'>
-                      Company{" "}
-                    </Text>
-                    <Text fontSize='xs' color='gray.400' fontWeight='400'>
-                    </Text>
-                  </Flex>
-                </Flex>
-                <Button p='0px' bg='transparent' variant='no-effects'>
-                  <Text
-                    fontSize='10px'
-                    fontWeight='700'
-                    color={iconColor}
-                    alignSelf='center'>
-                    VISIT
-                  </Text>
-                </Button>
-              </Flex>
-            </Flex>
-          </CardBody>
-        </Card>
       </Grid>
 
       <Card p='16px'>

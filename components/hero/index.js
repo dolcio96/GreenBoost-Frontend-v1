@@ -166,7 +166,7 @@ const Hero = () => {
         </ModalBody>
         <ModalFooter justifyContent={"center"}>
 
-          <Button backgroundColor='primary' color="white" mr={3} justifyContent={"center"}>
+          <Button variant={"normalButton"} mr={3} justifyContent={"center"}>
             Subscribe Now
           </Button>
 

@@ -57,12 +57,7 @@ const Signin = (props) => {
                   <Checkbox>Remember me</Checkbox>
                   <Link color={'green.400'}>Forgot password?</Link>
                 </Stack>
-                <Button onClick={() => { signIn('credentials', { username: credentials.username, password: credentials.password }) }}
-                  bg={'green.400'}
-                  color={'white'}
-                  _hover={{
-                    bg: 'blue.500',
-                  }}>
+                <Button variant='normalButton' onClick={() => { signIn('credentials', { username: credentials.username, password: credentials.password }) }}>
                   Sign in
                 </Button>
                 <Center>
