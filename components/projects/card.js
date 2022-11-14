@@ -7,21 +7,10 @@ import {
     AccordionItem,
     useColorModeValue,
     Text,
-    Icon,
-    chakra,
-    Tooltip,
-    AccordionIcon,
-    Button,
-    AccordionButton,
-    AccordionPanel,
+
     LinkBox,
     LinkOverlay,
-    Modal,
-    ModalOverlay,
-    ModalContent,
-    ModalHeader,
-    ModalFooter,
-    ModalCloseButton,
+
     useDisclosure,
     ModalBody
 } from '@chakra-ui/react';

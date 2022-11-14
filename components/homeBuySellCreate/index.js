@@ -43,46 +43,7 @@ const HomeBuySellCreate = () => {
     const MotionHeading = motion(Heading)
 
     return (<>
-        <Stack my={'100px'}>
-            <Center>
 
-                <MotionHeading color={"gray.800"}
-
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8, delay: 0.5, ease: [0, 0.71, 0.2, 1.01] }}
-                >
-                    <Highlight
-                        query={['community', 'marketplace']}
-                        styles={{ px: '2', pb: '2', rounded: 'full', bg: "rgb(88, 129, 87, 0.3)" }}
-                    >
-                        Be part of our community, join GreenBoost marketplace.
-                    </Highlight>
-
-
-                </MotionHeading>
-            </Center>
-
-            <Center>
-                <MotionHeading color={"gray.800"}
-
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8, delay: 0.5, ease: [0, 0.71, 0.2, 1.01] }}
-                >
-                    <Highlight
-                        query={['community', 'marketplace']}
-                        styles={{ px: '2', pb: '2', rounded: 'full', bg: "rgb(88, 129, 87, 0.3)" }}
-                    >
-                        Reduce you carbon footprint through voluntary carbon credit market.
-                    </Highlight>
-
-
-                </MotionHeading>
-            </Center>
-        </Stack>
 
         <Box py={{ base: "20px", md: "40px" }}>
             <SimpleGrid columns={[1, 1, 1, 3]} gap={0}>

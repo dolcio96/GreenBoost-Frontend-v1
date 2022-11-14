@@ -69,26 +69,6 @@ const Team = () => {
                     <TeamCard info={team.andrea} />
                 </SimpleGrid>
 
-                <Stack direction="column">
-                    <Center my={'100px'}>
-                        <MotionHeading color={"gray.800"}
-
-                            initial={{ opacity: 0, scale: 0.5 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8, delay: 0.5, ease: [0, 0.71, 0.2, 1.01] }}
-                        >
-                            <Highlight
-                                query={['ecosystem', 'marketplace']}
-                                styles={{ px: '2', pb: '2', rounded: 'full', bg: "rgb(88, 129, 87, 0.3)" }}
-                            >
-                                We are GreenBoost, we are an ecosystem, not just a marketplace.  </Highlight>
-
-                        </MotionHeading>
-
-
-                    </Center>
-                </Stack>
 s            </Stack>
         </>
 

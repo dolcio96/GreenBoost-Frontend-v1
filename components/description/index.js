@@ -122,52 +122,9 @@ const Description = () => {
                 mx='16px'
             >
                 <Stack divider={<StackDivider borderColor="gray.200" />}>
-                        <Stack direction="column"  my={'100px'}>
-                            <Center>  <MotionHeading
-                                color={"gray.800"}
-                                initial={{ opacity: 0, scale: 0.5 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.8, delay: 0.5, ease: [0, 0.71, 0.2, 1.01] }}
-                            >"We are on a highway to climate hell"</MotionHeading></Center>
-                            <Center>  <MotionHeading
-                                color={"gray.800"}
-                                initial={{ opacity: 0, scale: 0.5 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.8, delay: 0.5, ease: [0, 0.71, 0.2, 1.01] }}
-                            >Turn right and take with us the stairway to climate heaven.</MotionHeading></Center>
-                        </Stack>
                     <RowBoxLeft {...rows.row1} />
                     {dimension ? <RowBoxRight {...rows.row2} /> : <RowBoxLeft {...rows.row2} />}
                     <RowBoxLeft {...rows.row3} />
-                        <Stack direction="column"  my={'100px'}>
-                            <Center>  <MotionHeading
-                                color={"gray.800"}
-                                initial={{ opacity: 0, scale: 0.5 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.8, delay: 0.5, ease: [0, 0.71, 0.2, 1.01] }}>Despite yesterday, we act today because of tomorrow.</MotionHeading></Center>
-                            <Center>
-                                <MotionHeading color={"gray.800"}
-                                    initial={{ opacity: 0, scale: 0.5 }}
-                                    whileInView={{ opacity: 1, scale: 1 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.8, delay: 0.5, ease: [0, 0.71, 0.2, 1.01] }}
-                                >
-                                    <Highlight
-                                        query={['Offset our future']}
-                                        styles={{ px: '2', pb: '2', rounded: 'full', bg: "rgb(88, 129, 87, 0.3)" }}
-                                    >
-                                        Offset our future, Together.  </Highlight>
-
-                                </MotionHeading>
-
-
-
-                            </Center>
-                        </Stack>
-
                 </Stack>
             </Flex>
 

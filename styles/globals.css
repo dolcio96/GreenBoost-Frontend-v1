@@ -94,3 +94,57 @@ a {
   width: 30px;
 }
 
+
+.waveContainer{
+  position: relative;
+  background: #588157;
+  height: 38vh;
+}
+
+@media only screen and (max-width: 600px) {
+  .waveContainer{
+    height: 50vh;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .waveContainer{
+    height: 40vh;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  .waveContainer{
+    height: 45vh;
+  }
+}
+
+
+
+.wave {
+  position: absolute;
+  height: 67px;
+  width: 100%;
+  background: #588157;
+  bottom: 0;
+}
+
+.wave::before, .wave::after {
+  content: "";
+  display: block;
+  position: absolute;
+  border-radius: 100% 50%;
+}
+
+.wave::before {
+  width: 55%;
+  height: 109%;
+  background-color: #fff;
+  right: -1.5%;
+  top: 60%;
+}
+.wave::after {
+  width: 55%;
+  height: 100%;
+  background-color: #588157;
+  left: -1.5%;
+  top: 40%;
+}
