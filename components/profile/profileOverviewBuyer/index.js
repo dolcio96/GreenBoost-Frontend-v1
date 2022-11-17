@@ -12,27 +12,29 @@ import {
     useColorMode,
     useColorModeValue,
     Heading,
+    Stack,
+    VStack,
 } from "@chakra-ui/react";
 // public
 import avatar2 from "@public/Images/avatars/avatar2.png";
 import avatar3 from "@public/Images/avatars/avatar3.png";
 import avatar4 from "@public/Images/avatars/avatar4.png";
-import avatar5 from "@public/Images/avatars/avatar5.png";
+
 import avatar6 from "@public/Images/avatars/avatar6.png";
-import ImageArchitect1 from "@public/Images/bamboo.jpg";
-import ImageArchitect2 from "@public/Images/foresta.jpg";
-import ImageArchitect3 from "@public/Images/foresta.jpg";
+
 // Custom components
-import Card from "@components/card/card";
-import CardBody from "@components/card/cardBody";
-import CardHeader from "@components/card/cardHeader";
+
 import React from "react";
 import {
     FaPlus,
 } from "react-icons/fa";
 
-import ProjectCard from "@components/projects/projectCard"
+import KPINumber from "@lib/KPInumber"
 
+
+
+
+import { useSpring, animated } from "react-spring";
 
 const TitleComponent = ({ title }) => {
     return (<>
@@ -61,54 +63,54 @@ const ProjectRow = () => {
             <Grid templateColumns={{ sm: "1fr", md: "repeat(3, 1fr)", xl: "repeat(6, 1fr)" }} gap='22px' justifyContent={"center"}>
 
 
-                    <Box>
-                        <Flex direction='column' align='center'>
-                            <TitleComponent title="Project Name" />
-                            <ElementComponent><Text>Element3</Text></ElementComponent>
-                        </Flex>
-                    </Box>
+                <Box>
+                    <Flex direction='column' align='center'>
+                        <TitleComponent title="Project Name" />
+                        <ElementComponent><Text>Element3</Text></ElementComponent>
+                    </Flex>
+                </Box>
 
-                    <Box>
-                        <Flex direction='column' align='center'>
-                            <TitleComponent title="Project Type" />
-                            <ElementComponent>
-                                <Flex gap={3} >
-                                    <Avatar name='Ryan Florence' src={avatar6} size={"sm"} />
-                                    <Avatar name='Segun Adebayo' src={avatar2} size={"sm"} />
-                                    <Avatar name='Kent Dodds' src={avatar3} size={"sm"} />
-                                    <Avatar name='Prosper Otemuyiwa' src={avatar4} size={"sm"} />
-                                </Flex>
-                            </ElementComponent>
+                <Box>
+                    <Flex direction='column' align='center'>
+                        <TitleComponent title="Project Type" />
+                        <ElementComponent>
+                            <Flex gap={3} >
+                                <Avatar name='Ryan Florence' src={avatar6} size={"sm"} />
+                                <Avatar name='Segun Adebayo' src={avatar2} size={"sm"} />
+                                <Avatar name='Kent Dodds' src={avatar3} size={"sm"} />
+                                <Avatar name='Prosper Otemuyiwa' src={avatar4} size={"sm"} />
+                            </Flex>
+                        </ElementComponent>
 
-                        </Flex>
-                    </Box>
+                    </Flex>
+                </Box>
 
-                    <Box>
-                        <Flex direction='column' align='center'>
-                            <TitleComponent title="Location" />
-                            <ElementComponent><Text>Location</Text></ElementComponent>
-                        </Flex>
-                    </Box>
-                    <Box>
-                        <Flex direction='column' align='center'>
-                            <TitleComponent title="Quantity" />
-                            <ElementComponent><Text>30 CC</Text></ElementComponent>
-                        </Flex>
-                    </Box>
+                <Box>
+                    <Flex direction='column' align='center'>
+                        <TitleComponent title="Location" />
+                        <ElementComponent><Text>Location</Text></ElementComponent>
+                    </Flex>
+                </Box>
+                <Box>
+                    <Flex direction='column' align='center'>
+                        <TitleComponent title="Quantity" />
+                        <ElementComponent><Text>30 CC</Text></ElementComponent>
+                    </Flex>
+                </Box>
 
-                    <Box>
-                        <Flex direction='column' align='center'>
-                            <TitleComponent title="Date" />
-                            <ElementComponent><Text>30/04/2022</Text></ElementComponent>
-                        </Flex>
-                    </Box>
+                <Box>
+                    <Flex direction='column' align='center'>
+                        <TitleComponent title="Date" />
+                        <ElementComponent><Text>30/04/2022</Text></ElementComponent>
+                    </Flex>
+                </Box>
 
-                    <Box>
-                        <Flex direction='column' align='center'>
-                            <TitleComponent title="Expiration Date" />
-                            <ElementComponent><Text>31/12/2022</Text></ElementComponent>
-                        </Flex>
-                    </Box>
+                <Box>
+                    <Flex direction='column' align='center'>
+                        <TitleComponent title="Expiration Date" />
+                        <ElementComponent><Text>31/12/2022</Text></ElementComponent>
+                    </Flex>
+                </Box>
 
 
             </Grid>
@@ -118,6 +120,8 @@ const ProjectRow = () => {
     </>)
 }
 
+
+
 function ProfileOverview() {
     const { colorMode } = useColorMode();
 
@@ -126,19 +130,50 @@ function ProfileOverview() {
     const iconColor = useColorModeValue("blue.500", "white");
 
     return (
-        <Flex direction='column'>
-            <Box p='16px' px="50px" my={{ sm: "24px", xl: "0px" }}>
-                <Box p='12px 5px' mb='12px'>
-                    <Heading>
-                        Bought Projects
-                    </Heading>
+
+        <>
+            {/*
+            <Flex direction='row' w="100%">
+                <Flex direction='column' w="50%">
+                    <Center>
+                        <Text> TOTAL ACTIVE VCC : <KPINumber n={60} dly={200} /></Text>
+                    </Center>
+                </Flex>
+                <Flex direction='column' w="50%">
+
+                    <Box>
+                        <Center>
+                            <Text>  FORESTRY VCC :<KPINumber n={30} dly={400} /></Text>
+                        </Center>
+                    </Box>
+                    <Box>
+                        <Center>
+                            <Text>  OTHER VCC : <KPINumber n={30} dly={400} /></Text>
+                        </Center>
+                    </Box>
+
+                </Flex>
+            </Flex>
+             */}
+            <Flex direction='column'>
+                <Box p='16px' px="50px" my={{ sm: "24px", xl: "0px" }}>
+                    <Box p='12px 5px' mb='12px'>
+                        <Flex direction="row" justifyContent={"space-between"}>
+                            <Heading>
+                                Bought Projects
+                            </Heading>
+                            <Heading>
+                                Total VCC: 60
+                            </Heading>
+                        </Flex>
+                    </Box>
+                    <ProjectRow />
+                    <ProjectRow />
                 </Box>
-                <ProjectRow />
-                <ProjectRow />
-            </Box>
 
 
-        </Flex>
+            </Flex>
+        </>
     );
 }
 
