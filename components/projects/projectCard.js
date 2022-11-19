@@ -24,11 +24,11 @@ import avatar4 from "@public/Images/avatars/avatar4.png";
 import avatar6 from "@public/Images/avatars/avatar6.png";
 
 const ProjectCard = (props) => {
-const MotionFlex = motion(Flex)
+    const MotionFlex = motion(Flex)
     return (<>
         <MotionFlex direction='column' bg="gray.200" p='10px' borderRadius='10px' whileHover={{ scale: 1.05 }}>
             <LinkBox  >
-                <LinkOverlay href={'/projects/' + "link"}>
+                <LinkOverlay href={'/projects/' + props.id}>
                     <Box mb='20px' position='relative' borderRadius='10px' bg="gray.200">
                         <Image src={ImageArchitect1.src} borderRadius='10px' />
                         <Box
@@ -42,7 +42,7 @@ const MotionFlex = motion(Flex)
                     <Flex direction='column' px="15px">
                         <Center>
                             <Text fontSize='2xl' color='black' fontWeight='600' mb='10px'>
-                                Project Name
+                                project name {props.id}
                             </Text>
                         </Center>
                         <Text
@@ -53,14 +53,13 @@ const MotionFlex = motion(Flex)
                             West America
                         </Text>
                         <Text fontSize='md' color='gray.400' fontWeight='400' mb='20px' noOfLines={2}>
-                            Description Description Description Description DescriptionD escriptionDescriptionD escriptionDescr iptionDescription Description...
-                        </Text> 
+                            {props.description}
+                        </Text>
                         <Flex justifyContent='center' gap={3} >
                             <Avatar name='Ryan Florence' src={avatar6} size={"md"} />
                             <Avatar name='Segun Adebayo' src={avatar2} size={"md"} />
                             <Avatar name='Kent Dodds' src={avatar3} size={"md"} />
                             <Avatar name='Prosper Otemuyiwa' src={avatar4} size={"md"} />
-
                         </Flex>
                     </Flex>
                 </LinkOverlay>

@@ -1,3 +1,7 @@
+import {
+  Spinner,
+  Center,
+} from '@chakra-ui/react';
 
 import { ReactElement } from "react"
 import Layout from "@components/layout"
@@ -9,8 +13,8 @@ import { useRouter } from 'next/router';
 import { useSession } from "next-auth/react"
 
 export default function Profile() {
-  const role = "buyer"
-
+  const { data: session, status } = useSession()
+  console.log(session)
 
   return (
 
@@ -19,9 +23,18 @@ export default function Profile() {
         title="GreenBoost: Profile"
         description="GreenBoost: Profile"
       />
-      {role == "buyer" ?
-        <ProfileOverviewBuyerComponet />
-        : <ProfileOverviewSellerComponet />}
+      {status == 'loading' ?
+        <Center>
+          <Spinner
+            thickness='4px'
+            speed='0.65s'
+            emptyColor="#b7e4c7"
+            color="#0B0E3F"
+            size='xl' />
+        </Center>
+        : session.user.customer_type == "buyer" ?
+          <ProfileOverviewBuyerComponet />
+          : <ProfileOverviewSellerComponet />}
 
     </>
   )
