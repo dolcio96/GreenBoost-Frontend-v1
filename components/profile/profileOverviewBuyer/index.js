@@ -132,7 +132,7 @@ function ProfileOverview() {
     return (
 
         <>
-            {/*
+            
             <Flex direction='row' w="100%">
                 <Flex direction='column' w="50%">
                     <Center>
@@ -154,7 +154,7 @@ function ProfileOverview() {
 
                 </Flex>
             </Flex>
-             */}
+             
             <Flex direction='column'>
                 <Box p='16px' px="50px" my={{ sm: "24px", xl: "0px" }}>
                     <Box p='12px 5px' mb='12px'>
