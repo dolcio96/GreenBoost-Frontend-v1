@@ -1,5 +1,5 @@
 
-import Card from "./card"
+import Card from "./projectCard"
 import {
     Flex,
     Grid,
@@ -190,7 +190,7 @@ const Buy = (props) => {
 
 
 
-            <SimpleGrid columns={{ base: 3, lg: 3, md: 2, sm: 1 }}>
+            <SimpleGrid columns={{ base: 3, lg: 3, md: 2, sm: 1 }} gap={5} mx={"10%"}>
                 {props.projects.map(project => <Card {...project} />)}
             </SimpleGrid>
 

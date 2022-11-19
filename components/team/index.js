@@ -68,8 +68,7 @@ const Team = () => {
                     <TeamCard info={team.enrico} />
                     <TeamCard info={team.andrea} />
                 </SimpleGrid>
-
-s            </Stack>
+            </Stack>
         </>
 
     )
