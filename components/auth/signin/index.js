@@ -32,7 +32,7 @@ const Signin = (props) => {
           <Stack align={'center'}>
             <Heading fontSize={'4xl'}>Sign in to your account</Heading>
             <Text fontSize={'lg'} color={'gray.600'}>
-              to enjoy all of our <Link color={'green.400'}>features</Link> 🌲
+              to enjoy all of our features 🌲
             </Text>
           </Stack>
           <Box
@@ -54,8 +54,8 @@ const Signin = (props) => {
                   direction={{ base: 'column', sm: 'row' }}
                   align={'start'}
                   justify={'space-between'}>
-                  <Checkbox>Remember me</Checkbox>
-                  <Link color={'green.400'}>Forgot password?</Link>
+                  <Checkbox >Remember me</Checkbox>
+                  <Link color={'primary'}>Forgot password?</Link>
                 </Stack>
                 <Button variant='normalButton' onClick={() => { signIn('credentials', { username: credentials.username, password: credentials.password }) }}>
                   Sign in

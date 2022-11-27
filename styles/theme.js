@@ -12,7 +12,12 @@ export const myTheme = extendTheme({
         warning: "#F2C57C"
     },
 
-
+    fonts: {
+        body: "system-ui, sans-serif",
+      //  heading: "Georgia, serif",
+      //  text:"Georgia, serif",
+        mono: "Menlo, monospace",
+    },
 
     components: {
         Modal: {
@@ -23,16 +28,18 @@ export const myTheme = extendTheme({
             })
         },
         Input: {
-           //baseStyle: {
+            //baseStyle: {
             //    field: {
-                    //bg: "red",
-                    //color: 'white', // change the input text color
+            //bg: "red",
+            //color: 'white', // change the input text color
             //    },
-           // },
+            // },
         },
 
         Button: {
-            baseStyle: {},
+            baseStyle: {
+                
+            },
             variants: {
                 'normalButton': {
                     color: "white",
@@ -47,17 +54,42 @@ export const myTheme = extendTheme({
         },
         Radio: {
             baseStyle: {
-                size: "xl",
+                control:{  
+                }
 
             },
             variants: {
                 'normalRadio': {
-                    size: "xl",
-                    bg: "red"
+                    control:{
+                        _checked:{ borderColor: "primary", borderStyle: "solid", borderWidth: "2px", bg:"primary", _hover:{bg:"secondary",borderColor: "secondary"}}
+                    },
                 }
             }
         },
+        Checkbox: {
+            baseStyle: {
+                control: {
+                    _checked: {
+                        bg: "primary",
+                        border: "none",
+                        _hover: {
+                            bg: "primary"
+                        },
+                    },
 
+                },
+            },
+            variants: {
+                'test': {
+                    control: {
+                        bg: "gray",
+                        _checked: {
+                            bg: "red"
+                        }
+                    }
+                }
+            }
+        }
 
     }
 })

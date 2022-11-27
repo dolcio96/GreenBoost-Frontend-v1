@@ -18,7 +18,7 @@ import {
 
 import LogoGB from '@public/logoGB.png'
 
-import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
+import { FaInstagram, FaTwitter, FaLinkedin } from 'react-icons/fa';
 import { BiMailSend } from 'react-icons/bi';
 
 const SocialButton = ({
@@ -79,8 +79,8 @@ const Footer = () => {
               <SocialButton label={'Twitter'} href={'#'} bgColor={"#00acee"}>
                 <FaTwitter />
               </SocialButton>
-              <SocialButton label={'YouTube'} href={'#'} bgColor={"#FF0000"}>
-                <FaYoutube />
+              <SocialButton label={'YouTube'} href={'#'} bgColor={"#0077B5"}>
+                <FaLinkedin />
               </SocialButton>
               <SocialButton label={'Instagram'} href={'#'} bgColor={"#E1306C"}>
                 <FaInstagram />

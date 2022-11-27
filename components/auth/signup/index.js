@@ -99,14 +99,14 @@ const Signup = () => {
                   </InputRightElement>
                 </InputGroup>
               </FormControl>
-              <FormControl>
+              <FormControl isRequired>
                 <FormLabel>Role</FormLabel>
                 <Controller
                   render={({ field: { onChange, value } }) => (
                     <RadioGroup name='type' onChange={onChange} value={value}>
                       <HStack spacing='24px' justifyContent={"center"}>
-                        <Radio _checked={{ borderColor: "green", borderStyle: "solid", borderWidth: "5px" }} value='seller'>Seller</Radio>
-                        <Radio _checked={{ borderColor: "green", borderStyle: "solid", borderWidth: "5px" }} value='buyer'>Buyer</Radio>
+                        <Radio variant={"normalRadio"} value='seller'>Seller</Radio>
+                        <Radio variant={"normalRadio"} value='buyer'>Buyer</Radio>
                       </HStack>
                     </RadioGroup>
                   )}
@@ -121,17 +121,13 @@ const Signup = () => {
                   type='submit'
                   loadingText="Submitting"
                   size="lg"
-                  bg={'green.400'}
-                  color={'white'}
-                  _hover={{
-                    bg: 'blue.500',
-                  }}>
+                  variant="normalButton">
                   Sign up
                 </Button>
               </Stack>
               <Stack pt={6}>
                 <Text align={'center'}>
-                  Already a user? <Link color={'green.400'} href={"signin"}>Login</Link>
+                  Already a user? <Link color={'primary'} href={"signin"}>Login</Link>
                 </Text>
               </Stack>
             </form>
