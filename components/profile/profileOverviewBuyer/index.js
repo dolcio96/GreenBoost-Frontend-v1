@@ -15,6 +15,37 @@ import {
     Stack,
     VStack,
 } from "@chakra-ui/react";
+import dynamic from 'next/dynamic';
+const ApexCharts = dynamic(() => import('react-apexcharts'), { ssr: false });
+
+
+
+const chartOptions = {
+
+    series: [44, 55, 13],
+    options: {
+        chart: {
+            width: 380,
+            type: 'pie',
+        },
+        labels: ['Forestry', 'Heolic', 'Other'],
+        responsive: [{
+            breakpoint: 480,
+            options: {
+                chart: {
+                    width: 200
+                },
+                legend: {
+                    position: 'bottom'
+                }
+            }
+        }]
+    },
+
+
+};
+
+
 // public
 import avatar2 from "@public/Images/avatars/avatar2.png";
 import avatar3 from "@public/Images/avatars/avatar3.png";
@@ -123,38 +154,31 @@ const ProjectRow = () => {
 
 
 function ProfileOverview() {
-    const { colorMode } = useColorMode();
 
-    // Chakra color mode
-    const textColor = useColorModeValue("gray.700", "white");
-    const iconColor = useColorModeValue("blue.500", "white");
 
     return (
 
         <>
-            
-            <Flex direction='row' w="100%">
-                <Flex direction='column' w="50%">
-                    <Center>
-                        <Text> TOTAL ACTIVE VCC : <KPINumber n={60} dly={200} /></Text>
+            <Center h="80vh" >
+                <Stack direction={{ base: 'column', md: 'row' }} w="100%" justifyContent={{ base: 'center', md: "space-between" }}  >
+                    <Center w={{ base: '100%', md: '50%' }}>
+                        <Box>
+                            <ApexCharts options={chartOptions.options} series={chartOptions.series} type="pie" width={500} />
+                        </Box>
                     </Center>
-                </Flex>
-                <Flex direction='column' w="50%">
+                    <Center w={{ base: '100%', md: '50%' }}>
+                        <Flex direction='column'  >
 
-                    <Box>
-                        <Center>
-                            <Text>  FORESTRY VCC :<KPINumber n={30} dly={400} /></Text>
-                        </Center>
-                    </Box>
-                    <Box>
-                        <Center>
-                            <Text>  OTHER VCC : <KPINumber n={30} dly={400} /></Text>
-                        </Center>
-                    </Box>
+                            <KPINumber n={60} dly={200} lbl={"Total Active VCC"} fontSize={"5xl"} />
+                            <KPINumber n={30} dly={1200} lbl={"Forestry VCC"} fontSize={"3xl"} />
+                            <KPINumber n={30} dly={1200} lbl={"Other VCC"} fontSize={"3xl"} />
 
-                </Flex>
-            </Flex>
-             
+
+                        </Flex>
+                    </Center>
+
+                </Stack>
+            </Center>
             <Flex direction='column'>
                 <Box p='16px' px="50px" my={{ sm: "24px", xl: "0px" }}>
                     <Box p='12px 5px' mb='12px'>

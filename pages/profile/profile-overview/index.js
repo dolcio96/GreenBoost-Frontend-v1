@@ -32,7 +32,7 @@ export default function Profile() {
             color="#0B0E3F"
             size='xl' />
         </Center>
-        : session.user.customer_type == "buyer" ?
+        : session?.user.customer_type == "buyer" ?
           <ProfileOverviewBuyerComponet />
           : <ProfileOverviewSellerComponet />}
 

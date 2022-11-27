@@ -38,13 +38,12 @@ const ProfileNav = () => {
 
     return (<>
 
-        <Flex direction='column' pt={{ base: "64px", md: "64px", lg: "64px" }}>
+        <Flex direction='column' pt={{ base: "64px", md: "64px", lg: "64px" }}  >
             <Flex
                 direction={{ sm: "column", md: "row" }}
                 justifyContent={{ sm: "center", md: "space-between" }}
                 align='center'
-                bg={bgProfile}
-                p='16px'
+                bg={"tertiary"}
                 borderRadius='20px'>
                 <Flex
                     align='center'
@@ -59,6 +58,7 @@ const ProfileNav = () => {
                         }
                         w='80px'
                         h='80px'
+                        p={2}
                         borderRadius='15px'
                     />
                     <Flex direction='column' maxWidth='100%' my={{ sm: "14px" }}>
@@ -90,11 +90,11 @@ const ProfileNav = () => {
                         <Flex
                             align='center'
                             w={{ sm: "100%", lg: "135px" }}
-                            bg={colorMode === "dark" ? "navy.900" : "#fff"}
                             borderRadius='8px'
                             justifyContent='center'
                             py='10px'
-                            boxShadow={router.pathname === "/profile/profile-overview" ? '0px 2px 5.5px rgba(0, 0, 0, 0.06)' : 'none'}
+                            bg={router.pathname === "/profile/profile-overview" ? 'white' : 'none'}
+                            boxShadow={router.pathname === "/profile/profile-overview" ? '0px 2px 5.5px rgba(0, 0, 0, 0.36)' : 'none'}
                             cursor='pointer'>
                             <Icon color={textColor} as={FaCube} me='6px' />
                             <Text fontSize='xs' color={textColor} fontWeight='bold'>
@@ -108,7 +108,8 @@ const ProfileNav = () => {
                             w={{ sm: "100%", lg: "135px" }}
                             borderRadius='8px'
                             justifyContent='center'
-                            boxShadow={router.pathname === "/profile/profile-projects" ? '0px 2px 5.5px rgba(0, 0, 0, 0.06)' : 'none'}
+                            bg={router.pathname === "/profile/profile-projects" ? 'white' : 'none'}
+                            boxShadow={router.pathname === "/profile/profile-projects" ? '0px 2px 5.5px rgba(0, 0, 0, 0.36)' : 'none'}
                             py='10px'
                             cursor='pointer'>
                             <Icon color={textColor} as={FaPenFancy} me='6px' />
@@ -123,7 +124,8 @@ const ProfileNav = () => {
                             w={{ sm: "100%", lg: "135px" }}
                             borderRadius='8px'
                             justifyContent='center'
-                            boxShadow={router.pathname === "/profile/profile-info" ? '0px 2px 5.5px rgba(0, 0, 0, 0.06)' : 'none'}
+                            bg={router.pathname === "/profile/profile-info" ? 'white' : 'none'}
+                            boxShadow={router.pathname === "/profile/profile-info" ? '0px 2px 5.5px rgba(0, 0, 0, 0.36)' : 'none'}
                             py='10px'
                             cursor='pointer'>
                             <Icon color={textColor} as={FaPenFancy} me='6px' />
