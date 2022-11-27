@@ -48,7 +48,6 @@ const Team = () => {
             <Stack
                 direction={"column"}
                 backgroundColor={"white"}
-                py={{ base: "20px", md: "40px" }}
             >
                 <MotionHeading pb="20px" color="primary" fontSize={{ base: "3xl", md: "5xl" }}
                     initial={{ opacity: 0, scale: 0.5 }}
@@ -60,7 +59,7 @@ const Team = () => {
                 </MotionHeading>
                 {/*<Bubbles />*/}
 
-                <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} spacing={10}>
+                <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} spacing={10} py={0}>
                     <TeamCard info={team.ludovico} />
                     <TeamCard info={team.giovanni} />
                     <TeamCard info={team.arturo} />
