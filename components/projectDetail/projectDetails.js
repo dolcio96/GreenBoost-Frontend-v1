@@ -6,8 +6,15 @@ import {
     Icon,
     Box,
     VStack,
+    Input,
     Stack,
-    Divider
+    NumberInput,
+    NumberInputField,
+    NumberInputStepper,
+    NumberIncrementStepper,
+    NumberDecrementStepper,
+    Divider,
+    Center
 } from '@chakra-ui/react'
 import RecommendIcon from '@mui/icons-material/Recommend';
 import ForestIcon from '@mui/icons-material/Forest';
@@ -19,7 +26,12 @@ import Modal from "./modal"
 
 
 const ProjectDetails = (props) => {
+    const project = props.project
+    const price = project.carbon_credits[0].price_per_unit
+    const n_available = project.carbon_credits.length
 
+    const [value, setValue] = React.useState(n_available)
+    const handleChange = (v) => setValue(v)
 
     return (<>
         <Box
@@ -63,7 +75,7 @@ const ProjectDetails = (props) => {
                                 Quantity Available:
                             </Flex>
                             <Flex direction='row' maxWidth='100%' my={{ sm: "14px" }}>
-                                10.000 - ton Co2
+                                {n_available}
                             </Flex>
                         </Flex>
                         <Flex
@@ -102,20 +114,26 @@ const ProjectDetails = (props) => {
                     >
                         <Flex direction="row" justifyContent="space-between">
                             <Text>Price:</Text>
-                            <Text>25€/ ton</Text>
+                            <Text>{price}</Text>
                         </Flex>
                         <Flex direction="row" justifyContent="space-between">
-                            <Text>Amount:</Text>
-                            <Text>150 ton</Text>
+                            <Center><Text>Amount:</Text></Center>
+                            <NumberInput w='50%' variant="flushed" min={1} max={n_available} value={value} onChange={handleChange} >
+                                <NumberInputField textAlign={'right'}/>
+                                <NumberInputStepper>
+                                    <NumberIncrementStepper />
+                                    <NumberDecrementStepper />
+                                </NumberInputStepper>
+                            </NumberInput>
                         </Flex>
                         <Flex direction="row" justifyContent="space-between">
-                            <Text>Costs:</Text>
-                            <Text>x%</Text>
+                            <Text>Costs (10%):</Text>
+                            <Text>{(value * price * 0.1).toFixed(2)}</Text>
                         </Flex>
                         <Divider />
                         <Flex direction="row" justifyContent="space-between">
                             <Text>Total:</Text>
-                            <Text>3750,00€</Text>
+                            <Text>{(value * price * 1.1).toFixed(2)}</Text>
                         </Flex>
                         <Button backgroundColor="green.300">Buy Now</Button>
                     </Flex>

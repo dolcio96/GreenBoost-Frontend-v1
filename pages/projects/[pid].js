@@ -14,7 +14,10 @@ import TableComponet from "@components/table"
 const tableContent = {}
 
 export default function Project(props) {
+    console.log(props)
+
     return (
+
         <>
             <Head
                 title="GreenBoost: Projects"
@@ -34,7 +37,7 @@ export async function getServerSideProps(context) {
     const { pid } = context.query;
 
     const res = await fetch(
-        process.env.BACKEND_API_URL + `/api/crud/project/${pid}`,
+        process.env.BACKEND_API_URL + `/api/project/${pid}`,
         {
             method: "GET",
             headers: { 'Content-Type': 'application/json' }
