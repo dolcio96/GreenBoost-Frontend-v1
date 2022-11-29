@@ -1,30 +1,25 @@
-import React, { useState } from "react";
+import React from "react";
 import Hero from "@components/hero"
-import Testimonial from "@components/testimonials"
-import HomeNav from "@components/homeBuySellCreate"
+import HomeBuySellCreate from "@components/homeBuySellCreate"
 import TeamComponent from "@components/team"
 import DescriptionComponent from "components/description"
 import Phrase from "@components/phrase"
 
 import {
     Box,
-    Stack,
-    SimpleGrid,
-    Center,
-    GridItem,
-    Flex
+    Stack
 } from '@chakra-ui/react';
 
 
 
-const WaveComp = () => {
+const WaveComp = ({ rotate, bg }) => {
     return (
-        <div style={{ overflow: 'hidden' }}>
+        <div style={{ overflow: 'hidden', backgroundColor: bg }}>
             <svg
                 preserveAspectRatio="none"
                 viewBox="0 0 1200 120"
                 xmlns="http://www.w3.org/2000/svg"
-                style={{ fill: '#588157', width: '139%', height: '15vh' }}
+                style={{ fill: '#588157', width: '139%', height: '10vh', transform: rotate ? "rotate(180deg)" : "rotate(0deg)" }}
             >
                 <path
                     d="M0 0v46.29c47.79 22.2 103.59 32.17 158 28 70.36-5.37 136.33-33.31 206.8-37.5 73.84-4.36 147.54 16.88 218.2 35.26 69.27 18 138.3 24.88 209.4 13.08 36.15-6 69.85-17.84 104.45-29.34C989.49 25 1113-14.29 1200 52.47V0z"
@@ -41,73 +36,36 @@ const WaveComp = () => {
     );
 }
 
-
-const PhraseComp = (text, highlight) => {
-    return (<>
-
-        <Box className="waveContainer">
-            <Box className="wave">
-                <Stack spacing={5} my={40}>
-                    {text.map((el, i) => {
-                        return (<>
-
-                            <Phrase text={el[i]} highlight={['community', 'marketplace']} />
-                        </>);
-                    })}
-                    <Phrase text="Be part of our community, join GreenBoost marketplace." highlight={['community', 'marketplace']} />
-                    <Phrase text="Reduce you carbon footprint through voluntary carbon credit market." highlight={['']} />
-                </Stack>
-            </Box>
-        </Box>
-    </>)
-}
-
-
 const Home = () => {
-
-
     return (
         <>
-            <Box>
-                <Hero />
-                <Box bg={"primary"} >
-                    <Stack spacing={5} py={20}>
+            <Stack spacing={25}>
+                <Box>
+                    <Hero />
+                    <Stack spacing={5} pt={20} bg={"primary"}>
                         <Phrase text="Be part of our community, join GreenBoost marketplace." highlight={['community', 'marketplace']} />
                         <Phrase text="Reduce you carbon footprint through voluntary carbon credit market." highlight={['']} />
-                    </Stack>
-
-                </Box>
-                <WaveComp />
-
-                <Box my={25}>
-                    <HomeNav />
-                </Box>
-                <Box bg={"primary"}>
-                    <Stack spacing={5} py={20}>
-                        <Phrase text='"We are on a highway to climate hell."' highlight={['']} />
-                        <Phrase text="Turn right and take with us the stairway to climate heaven." highlight={['']} />
+                        <WaveComp bg={'white'} />
                     </Stack>
                 </Box>
-                <WaveComp />
-                <Box my={20}>
-                    <DescriptionComponent />
-                </Box>
-                <Box bg={"primary"}>
-                    <Stack spacing={5} py={20}>
-                        <Phrase text="Despite yesterday, we act today because of tomorrow." highlight={['']} />
-                        <Phrase text="  Offset our future, Together. " highlight={['Offset our future']} />
-                    </Stack>
-                </Box>
-                <WaveComp />
-                <Box my={20}>
-                    <TeamComponent />
-                </Box>
-                <Box bg={"primary"}>
-                    <Stack spacing={5} py={24}>
-                        <Phrase text="We are GreenBoost, we are an ecosystem, not just a marketplace." highlight={['ecosystem', 'marketplace']} />
-                    </Stack>
-                </Box>
-            </Box>
+                <HomeBuySellCreate />
+                <Stack spacing={5} pt={20} mb={20} bg={"primary"}>
+                    <Phrase text='"We are on a highway to climate hell."' highlight={['']} />
+                    <Phrase text="Turn right and take with us the stairway to climate heaven." highlight={['']} />
+                    <WaveComp bg={'white'} />
+                </Stack>
+                <DescriptionComponent />
+                <Stack spacing={5} pt={20} mb={20} bg={"primary"}>
+                    <Phrase text="Despite yesterday, we act today because of tomorrow." highlight={['']} />
+                    <Phrase text="  Offset our future, Together. " highlight={['Offset our future']} />
+                    <WaveComp bg={'white'} />
+                </Stack>
+                <TeamComponent />
+                <Stack spacing={5} pb={20} bg={"primary"} zIndex={-100}>
+                    <WaveComp rotate={true} bg={'white'} />
+                    <Phrase text="We are GreenBoost, we are an ecosystem, not just a marketplace." highlight={['ecosystem', 'marketplace']} />
+                </Stack>
+            </Stack>
         </>
     )
 

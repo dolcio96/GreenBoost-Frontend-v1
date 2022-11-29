@@ -40,147 +40,148 @@ const Hero = () => {
   const MotionStack = motion(Stack)
 
 
-  return (<>
-    <Flex backgroundImage={BGImage}
-      backgroundRepeat={"no-repeat"}
-      backgroundSize={{ xl: "120%" }}
-      h='100vh'
-    >
+  return (
+    <>
+      <Flex
+        backgroundImage={BGImage}
+        backgroundRepeat={"no-repeat"}
+        backgroundSize={'cover'}
+        h='100vh'
+      >
 
-      <Container maxW={'3xl'}>
-        <Stack
-          as={Box}
-          textAlign={'center'}
-          spacing={{ base: 8, md: 14 }}
-          py={{ base: 40, md: 36 }}
-        >
-          <Heading
-            fontWeight={600}
-            fontSize={{ base: '3xl', sm: '4xl', md: '6xl' }}
-            lineHeight={'110%'}
-            color={'quaternary'}
-
+        <Container maxW={'3xl'}>
+          <Stack
+            as={Box}
+            textAlign={'center'}
+            spacing={{ base: 8, md: 14 }}
+            py={{ base: 40, md: 36 }}
           >
-            <MotionText color={'quaternary'} textShadow='2px 2px #588157'
-              initial={{ opacity: 0, scale: 0.5 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.5, ease: [0, 0.71, 0.2, 1.01] }}
+            <Heading
+              fontWeight={600}
+              fontSize={{ base: '3xl', sm: '4xl', md: '6xl' }}
+              lineHeight={'110%'}
+              color={'quaternary'}
+
             >
-              Offset our future.</MotionText>
-            <MotionText as={'span'} color={'primary'} textShadow='2px 2px #344E41'
+              <MotionText
+                color={'quaternary'}
+                textShadow='2px 2px #588157'
+                initial={{ opacity: 0, scale: 0.5 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.5, ease: [0, 0.71, 0.2, 1.01] }}
+              >
+                Offset our future.</MotionText>
+              <MotionText as={'span'} color={'primary'} textShadow='2px 2px #344E41'
+                initial={{ opacity: 0, scale: 0.5 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 2, delay: 1, ease: [0, 0.71, 0.2, 1.01] }}>
+                Together.
+              </MotionText>
+            </Heading>
+            <MotionText borderRadius={"20px"} backgroundColor={"rgba(0, 0, 0, 0.8)"} color={{ base: 'white', sm: 'white' }} fontSize={{ base: "lg", sm: "2xl" }}
               initial={{ opacity: 0, scale: 0.5 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 2, delay: 1, ease: [0, 0.71, 0.2, 1.01] }}>
-              Together.
+              transition={{ duration: 0.8, delay: 1.5, ease: [0, 0.71, 0.2, 1.01] }}
+              p='10px'
+            >
+              Take part to the green revolution and help us build a new ecosystem, a better one, with zero emissions.
+
             </MotionText>
-          </Heading>
-          <MotionText borderRadius={"20px"} backgroundColor={"rgba(0, 0, 0, 0.8)"} color={{ base: 'white', sm: 'white' }} fontSize={{ base: "lg", sm: "2xl" }}
-            initial={{ opacity: 0, scale: 0.5 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 1.5, ease: [0, 0.71, 0.2, 1.01] }}
-            p='10px'
-          >
-            Take part to the green revolution and help us build a new ecosystem, a better one, with zero emissions.
-
-          </MotionText>
-          <MotionStack
-            direction={'column'}
-            spacing={3}
-            align={'center'}
-            alignSelf={'center'}
-            position={'relative'}
-            initial={{ opacity: 0, scale: 0.5 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 1.5, ease: [0, 0.71, 0.2, 1.01] }}
-          >
-            <Button
-              color={"quaternary"}
-              bg={"tertiary"}
-              rounded={'full'}
-              px={6}
-              _hover={{
-                color: 'tertiary',
-                bg: 'quaternary',
-              }}
-              onClick={onOpen}
-              _focus={{ outline: "none" }}
-
+            <MotionStack
+              direction={'column'}
+              spacing={3}
+              align={'center'}
+              alignSelf={'center'}
+              position={'relative'}
+              initial={{ opacity: 0, scale: 0.5 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 1.5, ease: [0, 0.71, 0.2, 1.01] }}
             >
-              Stay tuned
+              <Button
+                color={"quaternary"}
+                bg={"tertiary"}
+                rounded={'full'}
+                px={6}
+                _hover={{
+                  color: 'tertiary',
+                  bg: 'quaternary',
+                }}
+                onClick={onOpen}
+                _focus={{ outline: "none" }}
 
-            </Button>
-            <Box>
-              <Icon
-                as={Arrow}
-                color={"white"}
-                w={71}
-                position={'absolute'}
-                right={-71}
-                top={'10px'}
-              />
-              <Text
-                fontSize={'lg'}
-                color={"black"}
-                fontFamily={'Caveat'}
-                position={'absolute'}
-                right={'-125px'}
-                top={'-15px'}
-                transform={'rotate(10deg)'}>
-                Subscribe now!
-              </Text>
-            </Box>
-          </MotionStack>
-        </Stack>
-      </Container>
-    </Flex>
+              >
+                Stay tuned
 
-
-    <Modal isOpen={isOpen} onClose={onClose} isCentered >
-      <ModalOverlay
-        backdropFilter='blur(3px) hue-rotate(50deg)'
-      />
-      <ModalContent >
-        <ModalHeader ustifyContent={"center"} textAlign={"center"}>Stay Tuned, Subscribe Now!</ModalHeader>
-
-        <ModalBody>
-          <Stack direction={'column'} spacing={6}>
-            <Text>Send us your email if you are interested in the project</Text>
-            <FormControl>
-              <Input placeholder='Email' className="inputFieldNormal" />
-            </FormControl>
-            <Stack direction='row'>
-              <Text>Chose your side</Text>
-              <RadioGroup >
-                <Stack direction='row'>
-                  <Radio value='Seller'>Seller</Radio>
-                  <Radio value='Buyer'>Buyer</Radio>
-                </Stack>
-              </RadioGroup>
-
-            </Stack>
+              </Button>
+              <Box>
+                <Icon
+                  as={Arrow}
+                  color={"white"}
+                  w={71}
+                  position={'absolute'}
+                  right={-71}
+                  top={'10px'}
+                />
+                <Text
+                  fontSize={'lg'}
+                  color={"black"}
+                  fontFamily={'Caveat'}
+                  position={'absolute'}
+                  right={'-125px'}
+                  top={'-15px'}
+                  transform={'rotate(10deg)'}>
+                  Subscribe now!
+                </Text>
+              </Box>
+            </MotionStack>
           </Stack>
-        </ModalBody>
-        <ModalFooter justifyContent={"center"}>
+        </Container>
+      </Flex>
 
-          <Button variant={"normalButton"} mr={3} justifyContent={"center"}>
-            Subscribe Now
-          </Button>
 
-        </ModalFooter>
-      </ModalContent>
-    </Modal>
-  </>)
+      <Modal isOpen={isOpen} onClose={onClose} isCentered >
+        <ModalOverlay
+          backdropFilter='blur(3px) hue-rotate(50deg)'
+        />
+        <ModalContent >
+          <ModalHeader ustifyContent={"center"} textAlign={"center"}>Stay Tuned, Subscribe Now!</ModalHeader>
+
+          <ModalBody>
+            <Stack direction={'column'} spacing={6}>
+              <Text>Send us your email if you are interested in the project</Text>
+              <FormControl>
+                <Input placeholder='Email' className="inputFieldNormal" />
+              </FormControl>
+              <Stack direction='row'>
+                <Text>Chose your side</Text>
+                <RadioGroup >
+                  <Stack direction='row'>
+                    <Radio value='Seller'>Seller</Radio>
+                    <Radio value='Buyer'>Buyer</Radio>
+                  </Stack>
+                </RadioGroup>
+
+              </Stack>
+            </Stack>
+          </ModalBody>
+          <ModalFooter justifyContent={"center"}>
+
+            <Button variant={"normalButton"} mr={3} justifyContent={"center"}>
+              Subscribe Now
+            </Button>
+
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+    </>)
 
 }
 
 export default Hero
-
-
-
 
 const Arrow = createIcon({
   displayName: 'Arrow',
