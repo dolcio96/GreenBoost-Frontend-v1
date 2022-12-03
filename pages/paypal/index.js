@@ -1,7 +1,7 @@
 
 import Head from "@components/head"
 import PaypalComponent from "@components/paypal"
-import ProfileLayout from "@components/layout/profileLayout"
+import Layout from "@components/layout"
 
 export default function Paypal() {
   return (
@@ -17,5 +17,5 @@ export default function Paypal() {
 }
 
 Paypal.getLayout = function getLayout(page) {
-  return <ProfileLayout>{page}</ProfileLayout>
+  return <Layout>{page}</Layout>
 }

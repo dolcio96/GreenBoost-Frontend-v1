@@ -32,6 +32,7 @@ import {
 
 import BackgroudImage from "@public/Images/heroForest2.jpg"
 
+
 const Hero = () => {
   const BGImage = BackgroudImage.src
   const { isOpen, onOpen, onClose } = useDisclosure()
