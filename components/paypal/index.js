@@ -40,7 +40,7 @@ const Paypal = () => {
                                 purchase_units: [
                                     {
                                         amount: {
-                                            value: "0.01",
+                                            value: "0.01", //change to real value
                                         },
                                     },
                                 ],
@@ -48,9 +48,7 @@ const Paypal = () => {
                         }}
                         onApprove={(data, actions) => {
                             return actions.order.capture().then((details) => {
-                                const name = details.payer.name.given_name;
-
-                                Checkout();
+                                onOpen();
 
                             });
                         }}
@@ -59,7 +57,7 @@ const Paypal = () => {
 
             </Box>
 
-            <PopUp isOpen={isOpen} onOpen={onOpen} onClose={onClose} header={"Thank you for your order!"} text={"Now you can visit your personal area to review the order"} bgColor={"primary"} />
+            <PopUp isOpen={isOpen} onOpen={onOpen} onClose={onClose} href={'/profile/profile-overview'} header={"Thank you for your order!"} text={"Now you can visit your personal area to review the order"} bgColor={"primary"} />
 
 
         </>

@@ -8,11 +8,13 @@ import {
     ModalContent,
     ModalHeader,
     ModalBody,
+    ModalFooter,
+    Button
 
 
 } from "@chakra-ui/react";
 
-const Message = ({ isOpen, onOpen, onClose, header, text, bgColor }) => {
+const Message = ({ isOpen, onOpen, onClose, header, text, bgColor, href }) => {
 
 
 
@@ -25,6 +27,7 @@ const Message = ({ isOpen, onOpen, onClose, header, text, bgColor }) => {
                     <ModalBody color={"tertiary"}>
                         {text}
                     </ModalBody>
+                    <ModalFooter><Center><Button as={'a'} href={href}>check on your profile</Button></Center></ModalFooter>
                 </ModalContent>
             </Modal>
         </>

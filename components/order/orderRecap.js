@@ -10,8 +10,6 @@ import {
 
 const OrderRecap = ({project, price, quantity}) => {
 
-    console.log(project)
-
     return (
         <>
             <Flex

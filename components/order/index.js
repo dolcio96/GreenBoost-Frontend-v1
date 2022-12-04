@@ -20,7 +20,7 @@ const Order = () => {
 
     const router = useRouter();
 
-    const project = JSON.parse(router.query.project)
+    const project = router.query.project ? JSON.parse(router.query.project) : 'undefined'
     const price = router.query.price
     const quantity = router.query.quantity
 
@@ -30,7 +30,7 @@ const Order = () => {
                 <Center>
                     <Flex direction={"column"} w="50%" gap={"10"}>
                         <Box>
-                            <OrderRecap project={project} price={price} quantity={quantity}/>
+                            <OrderRecap project={project} price={price} quantity={quantity} />
                         </Box>
                         <Box>
                             <Text textAlign="center" fontSize={"3xl"}>
