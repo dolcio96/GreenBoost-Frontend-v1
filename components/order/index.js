@@ -9,7 +9,7 @@ import {
     useDisclosure,
 } from "@chakra-ui/react";
 
-import PopUp from "@components/modal/message"
+
 
 import PaypalComponet from "@components/paypal"
 import OrderRecap from "@components/order/orderRecap"
@@ -42,8 +42,7 @@ const Order = () => {
                         </Box>
                     </Flex>
                 </Center>
-                <Button onClick={onOpen}>Open Modal</Button>
-                <PopUp isOpen={isOpen} onOpen={onOpen} onClose={onClose} header={"Thank you for your order!"} text={"Now you can visit your personal area to review the order"} bgColor={"primary"} />
+
             </Box>
         </>
     )

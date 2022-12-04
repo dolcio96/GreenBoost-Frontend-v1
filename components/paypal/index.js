@@ -2,20 +2,37 @@ import React, { useState } from "react";
 import { PayPalButtons } from "@paypal/react-paypal-js";
 import {
     Box,
-    Center
+    Center,
+    useDisclosure,
 } from "@chakra-ui/react";
+
+import { useRouter } from 'next/router'
+import PopUp from "@components/modal/message"
+
+function Checkout() {
+    const router = useRouter()
+    router.push('/')
+
+
+    //const myTimeout = setTimeout(console.log(2000), 5000);
+    /* onOpen().then(useEffect(() => {
+ 
+         Router.push('/')
+     }))*/
+
+}
 
 
 
 
 const Paypal = () => {
-
-
+    const { isOpen, onOpen, onClose } = useDisclosure()
+    const router = useRouter()
 
     return (
         <>
             <Box>
-                
+
                 <Center>
                     <PayPalButtons
                         createOrder={(data, actions) => {
@@ -32,7 +49,9 @@ const Paypal = () => {
                         onApprove={(data, actions) => {
                             return actions.order.capture().then((details) => {
                                 const name = details.payer.name.given_name;
-                                alert(`Transaction completed by ${name}`);
+
+                                Checkout();
+
                             });
                         }}
                     />
@@ -40,6 +59,7 @@ const Paypal = () => {
 
             </Box>
 
+            <PopUp isOpen={isOpen} onOpen={onOpen} onClose={onClose} header={"Thank you for your order!"} text={"Now you can visit your personal area to review the order"} bgColor={"primary"} />
 
 
         </>
