@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { PayPalButtons } from "@paypal/react-paypal-js";
 import {
     Box,
@@ -13,18 +13,24 @@ import PopUp from "@components/modal/message"
 
 import PaypalComponet from "@components/paypal"
 import OrderRecap from "@components/order/orderRecap"
+import { useRouter } from 'next/router'
 
 const Order = () => {
-const { isOpen, onOpen, onClose } = useDisclosure()
+    const { isOpen, onOpen, onClose } = useDisclosure()
 
+    const router = useRouter();
+
+    const project = JSON.parse(router.query.project)
+    const price = router.query.price
+    const quantity = router.query.quantity
 
     return (
         <>
             <Box my="20">
                 <Center>
                     <Flex direction={"column"} w="50%" gap={"10"}>
-                        <Box> 
-                            <OrderRecap />
+                        <Box>
+                            <OrderRecap project={project} price={price} quantity={quantity}/>
                         </Box>
                         <Box>
                             <Text textAlign="center" fontSize={"3xl"}>
@@ -37,7 +43,7 @@ const { isOpen, onOpen, onClose } = useDisclosure()
                     </Flex>
                 </Center>
                 <Button onClick={onOpen}>Open Modal</Button>
-                <PopUp isOpen={isOpen} onOpen={onOpen} onClose={onClose} header={"Thank you for your order!"} text={"Now you can visit your personal area to review the order"} bgColor={"primary"}/>
+                <PopUp isOpen={isOpen} onOpen={onOpen} onClose={onClose} header={"Thank you for your order!"} text={"Now you can visit your personal area to review the order"} bgColor={"primary"} />
             </Box>
         </>
     )
