@@ -16,15 +16,20 @@ import {
 import { useAnimation, motion } from "framer-motion"
 
 import ImageArchitect1 from "@public/Images/bamboo.jpg";
-// Custom components
 
-import avatar2 from "@public/Images/avatars/avatar2.png";
-import avatar3 from "@public/Images/avatars/avatar3.png";
-import avatar4 from "@public/Images/avatars/avatar4.png";
-import avatar6 from "@public/Images/avatars/avatar6.png";
+import { EolicIcon, TrashIcon, BambooIcon, NuclearIcon, ForestIcon, LeafIcon, ChemicalIcon } from "@lib/icons";
+
+
+const iconSize = 36
+
+const Icons = [<EolicIcon size={36} />, <TrashIcon size={36} />, <BambooIcon size={36} />,
+<NuclearIcon size={36} />, <ForestIcon size={36} />, <LeafIcon size={36} />, <ChemicalIcon size={36} />]
+
+
 
 const ProjectCard = (props) => {
     const MotionFlex = motion(Flex)
+
     return (<>
         <MotionFlex direction='column' bg="gray.200" p='10px' borderRadius='10px' whileHover={{ scale: 1.05 }}>
             <LinkBox  >
@@ -56,10 +61,12 @@ const ProjectCard = (props) => {
                             {props.description}
                         </Text>
                         <Flex justifyContent='center' gap={3} >
-                            <Avatar name='Ryan Florence' src={avatar6} size={"md"} />
-                            <Avatar name='Segun Adebayo' src={avatar2} size={"md"} />
-                            <Avatar name='Kent Dodds' src={avatar3} size={"md"} />
-                            <Avatar name='Prosper Otemuyiwa' src={avatar4} size={"md"} />
+                            
+                            {Icons[Math.floor(Math.random() * (Icons.length - 0 + 1)) + 0]}
+                            {Icons[Math.floor(Math.random() * (Icons.length - 0 + 1)) + 0]}
+                            {Icons[Math.floor(Math.random() * (Icons.length - 0 + 1)) + 0]}
+                            {Icons[Math.floor(Math.random() * (Icons.length - 0 + 1)) + 0]}
+
                         </Flex>
                     </Flex>
                 </LinkOverlay>

@@ -31,7 +31,7 @@ import {
 } from '@chakra-ui/react';
 
 import BackgroudImage from "@public/Images/heroForest2.jpg"
-import Fiume from "@public/Video/fiume.gif"
+//import Fiume from "@public/Video/fiume.gif"
 
 
 const Hero = () => {
