@@ -9,7 +9,9 @@ import {
     Heading,
     useDisclosure,
     Button,
-    Collapse
+    Collapse,
+    Circle,
+    Tooltip
 } from "@chakra-ui/react";
 
 import React, { useState } from "react";
@@ -41,27 +43,48 @@ const ElementComponent = ({ children }) => {
     </>)
 }
 
+const openTransactionInfo = () => {
+    if (typeof window !== undefined) {
+        // browser code
+        window?.open("https://www.google.com", 'noopener,noreferrer');
+    }
+    console.log("click")
+}
 
 
 
-function ProjectRow({ projectName, projectTypes, location, quantity, date, expirationDate, txLink,  }) {
+
+function ProjectRow({ projectName, projectTypes, location, quantity, date, expirationDate, txLink }) {
     const { isOpen, onToggle } = useDisclosure({ defaultIsOpen: false });
 
-    const openTransactionInfo = () => {
-
+    const circleColor = () => {
+        const elements = expirationDate.split("/")
+        const deadlineDate = new Date(parseInt(elements[2], 10), parseInt(elements[1], 10) - 1, parseInt(elements[0], 10),)
+        const today = new Date();
+        if (deadlineDate < today) return ["red.300", "Expired CC"]
+        else return ["green.300", "Valid CC"]
+        return deadlineDate
     }
-
+    console.log(circleColor())
     return (<>
         <Box my="20px" p='5px' bg="primary"
             borderRadius={"10px"}
         >
-            <Grid templateColumns={{ sm: "1fr", md: "repeat(2, 1fr)", xl: "repeat(4, 1fr)" }} gap='22px' justifyContent={"center"}>
+            <Tooltip label={circleColor()[1]}>
+                <Circle
+                    size="20px"
+                    position="absolute"
+                    bg={circleColor()[0]}
 
+                />
+            </Tooltip>
+
+            <Grid templateColumns={{ sm: "1fr", md: "repeat(2, 1fr)", xl: "repeat(4, 1fr)" }} gap='22px' justifyContent={"center"}>
 
                 <Box>
                     <Flex direction='column' align='center'>
                         <TitleComponent title="Project Name" />
-                        <ElementComponent><Text>{projectName}</Text></ElementComponent>
+                        <ElementComponent><Text fontSize={20}>{projectName}</Text></ElementComponent>
                     </Flex>
                 </Box>
 
@@ -84,7 +107,7 @@ function ProjectRow({ projectName, projectTypes, location, quantity, date, expir
                 <Box>
                     <Flex direction='column' align='center'>
                         <TitleComponent title="Quantity" />
-                        <ElementComponent><Text>{quantity} CC</Text></ElementComponent>
+                        <ElementComponent><Text fontSize={20}>{quantity} CC</Text></ElementComponent>
                     </Flex>
                 </Box>
 
@@ -92,7 +115,7 @@ function ProjectRow({ projectName, projectTypes, location, quantity, date, expir
                 <Box>
                     <Flex direction='column' align='center'>
                         <TitleComponent title="Transaction" />
-                        <ElementComponent><ExternalLinkIcon boxSize={8} cursor={"pointer"} onClick={openTransactionInfo()} /></ElementComponent>
+                        <ElementComponent><a href={txLink} target="_blank"><ExternalLinkIcon boxSize={8} cursor={"pointer"} /></a></ElementComponent>
                     </Flex>
                 </Box>
 
@@ -108,20 +131,20 @@ function ProjectRow({ projectName, projectTypes, location, quantity, date, expir
                     <Box>
                         <Flex direction='column' align='center'>
                             <TitleComponent title="Location" />
-                            <ElementComponent><Text>{location}</Text></ElementComponent>
+                            <ElementComponent><Text fontSize={20}>{location}</Text></ElementComponent>
                         </Flex>
                     </Box>
                     <Box>
                         <Flex direction='column' align='center'>
                             <TitleComponent title="Date" />
-                            <ElementComponent><Text>{date}</Text></ElementComponent>
+                            <ElementComponent><Text fontSize={20}>{date}</Text></ElementComponent>
                         </Flex>
                     </Box>
 
                     <Box>
                         <Flex direction='column' align='center'>
                             <TitleComponent title="Expiration Date" />
-                            <ElementComponent><Text>{expirationDate}</Text></ElementComponent>
+                            <ElementComponent><Text fontSize={20}>{expirationDate}</Text></ElementComponent>
                         </Flex>
                     </Box>
 

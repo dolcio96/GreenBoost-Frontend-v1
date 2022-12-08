@@ -31,7 +31,7 @@ const ProjectCard = (props) => {
     const MotionFlex = motion(Flex)
 
     return (<>
-        <MotionFlex direction='column' bg="gray.200" p='10px' borderRadius='10px' whileHover={{ scale: 1.05 }}>
+        <MotionFlex direction='column'  p='10px' borderRadius='10px' whileHover={{ scale: 1.05 }}>
             <LinkBox  >
                 <LinkOverlay href={'/projects/' + props.id}>
                     <Box mb='20px' position='relative' borderRadius='10px' bg="gray.200">

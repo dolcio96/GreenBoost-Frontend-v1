@@ -12,9 +12,9 @@ const Layout = ({ children }) => {
     return (
         <>
             <Nav />
-            <Box p={8}>
+            <Box p={8} bg="tertiary">
                 <ProfileNav />
-                <main style={{ paddingTop: "0px" }} className="relative" >{children}</main>
+                <main style={{ paddingTop: "0px"}} className="relative" >{children}</main>
             </Box>
             <Footer />
         </>

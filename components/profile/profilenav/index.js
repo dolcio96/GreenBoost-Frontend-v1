@@ -21,15 +21,18 @@ import {
     FaFacebook,
     FaInstagram,
     FaPenFancy,
-    FaPlus,
-    FaTwitter,
+
 } from "react-icons/fa";
+
+import { GrOverview } from "react-icons/gr";
+import { RiLeafLine } from "react-icons/ri";
+
 import { IoDocumentsSharp } from "react-icons/io5";
 import { useRouter } from 'next/router'
 
 const ProfileNav = () => {
     const { colorMode } = useColorMode();
-    const textColor = useColorModeValue("gray.700", "white");
+    const textColor = "tertiary"
     const bgProfile = useColorModeValue("hsla(0,0%,100%,.8)", "navy.800");
     const borderProfileColor = useColorModeValue("white", "transparent");
     const emailColor = useColorModeValue("gray.400", "gray.300");
@@ -44,14 +47,16 @@ const ProfileNav = () => {
                 direction={{ sm: "column", md: "row" }}
                 justifyContent={{ sm: "center", md: "space-between" }}
                 align='center'
-                bg={"tertiary"}
-                borderRadius='20px'>
+                bg={"quaternary"}
+                borderRadius='20px'
+                >
                 <Flex
                     align='center'
                     mb={{ sm: "10px", md: "0px" }}
                     direction={{ sm: "column", md: "row" }}
                     w={{ sm: "100%" }}
                     textAlign={{ sm: "center", md: "start" }}
+                    
                 >
                     <Avatar
                         me={{ md: "22px" }}
@@ -98,8 +103,8 @@ const ProfileNav = () => {
                             bg={router.pathname === "/profile/profile-overview" ? 'white' : 'none'}
                             boxShadow={router.pathname === "/profile/profile-overview" ? '0px 2px 5.5px rgba(0, 0, 0, 0.36)' : 'none'}
                             cursor='pointer'>
-                            <Icon color={textColor} as={FaCube} me='6px' />
-                            <Text fontSize='xs' color={textColor} fontWeight='bold'>
+                            <Icon color={router.pathname === "/profile/profile-overview" ? 'black' : 'tertiary'} as={RiLeafLine} me='6px' />
+                            <Text fontSize='xs'  color={router.pathname === "/profile/profile-overview" ? 'black' : 'tertiary'} fontWeight='bold'>
                                 OVERVIEW
                             </Text>
                         </Flex>
@@ -114,8 +119,8 @@ const ProfileNav = () => {
                             boxShadow={router.pathname === "/profile/profile-projects" ? '0px 2px 5.5px rgba(0, 0, 0, 0.36)' : 'none'}
                             py='10px'
                             cursor='pointer'>
-                            <Icon color={textColor} as={FaPenFancy} me='6px' />
-                            <Text fontSize='xs' color={textColor} fontWeight='bold'>
+                            <Icon color={router.pathname === "/profile/profile-projects" ? 'black' : 'tertiary'} as={FaCube} me='6px' />
+                            <Text fontSize='xs' color={router.pathname === "/profile/profile-projects" ? 'black' : 'tertiary'} fontWeight='bold'>
                                 PROJECTS
                             </Text>
                         </Flex>
@@ -130,8 +135,8 @@ const ProfileNav = () => {
                             boxShadow={router.pathname === "/profile/profile-info" ? '0px 2px 5.5px rgba(0, 0, 0, 0.36)' : 'none'}
                             py='10px'
                             cursor='pointer'>
-                            <Icon color={textColor} as={FaPenFancy} me='6px' />
-                            <Text fontSize='xs' color={textColor} fontWeight='bold'>
+                            <Icon color={router.pathname === "/profile/profile-info" ? 'black' : 'tertiary'} as={FaPenFancy} me='6px' />
+                            <Text fontSize='xs' color={router.pathname === "/profile/profile-info" ? 'black' : 'tertiary'} fontWeight='bold'>
                                 USER INFO
                             </Text>
                         </Flex>
