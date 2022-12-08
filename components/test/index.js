@@ -1,136 +1,79 @@
-import { ReactNode } from 'react';
+import { ReactElement, useState, useEffect } from "react"
 import {
-  Box,
-  Flex,
-  Avatar,
-  HStack,
-  Link,
-  IconButton,
-  Button,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuDivider,
-  useDisclosure,
-  useColorModeValue,
-  Stack,
-  Container
+    Flex,
+    Center,
+    Box,
+    Image,
+    AvatarGroup,
+    useColorModeValue,
+    Text,
+    Avatar,
+    LinkBox,
+    LinkOverlay,
+
+    useDisclosure,
 } from '@chakra-ui/react';
-import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
+import { useAnimation, motion } from "framer-motion"
 
-const Links = ['Dashboard', 'Projects', 'Team'];
+import ImageArchitect1 from "@public/Images/bamboo.jpg";
 
-const NavLink = ({ children }) => (
-  <Link
-    px={2}
-    py={1}
-    rounded={'md'}
-    _hover={{
-      textDecoration: 'none',
-      bg: useColorModeValue('gray.200', 'gray.700'),
-    }}
-    href={'#'}>
-    {children}
-  </Link>
-);
+import { EolicIcon, TrashIcon, BambooIcon, NuclearIcon, ForestIcon, LeafIcon, ChemicalIcon } from "@lib/icons";
+
+
+const iconSize = 36
+
+const Icons = [<EolicIcon size={36} />, <TrashIcon size={36} />, <BambooIcon size={36} />,
+<NuclearIcon size={36} />, <ForestIcon size={36} />, <LeafIcon size={36} />, <ChemicalIcon size={36} />]
 
 
 
+const Test = (props) => {
+    const MotionFlex = motion(Flex)
 
-const Test = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  return (<>
-    <Box as="header" position="fixed" w="100%">
-      <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
-        <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
-          <IconButton
-            size={'md'}
-            icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
-            aria-label={'Open Menu'}
-            display={{ md: 'none' }}
-            onClick={isOpen ? onClose : onOpen}
-          />
-          <HStack spacing={8} alignItems={'center'}>
-            <Box>Logo</Box>
-            <HStack
-              as={'nav'}
-              spacing={4}
-              display={{ base: 'none', md: 'flex' }}>
-              {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
-              ))}
-            </HStack>
-          </HStack>
-          <Flex alignItems={'center'}>
-            <Menu>
-              <MenuButton
-                as={Button}
-                rounded={'full'}
-                variant={'link'}
-                cursor={'pointer'}
-                minW={0}>
-                <Avatar
-                  size={'sm'}
-                  src={
-                    'https://images.unsplash.com/photo-1493666438817-866a91353ca9?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=b616b2c5b373a80ffc9636ba24f7a4a9'
-                  }
-                />
-              </MenuButton>
-              <MenuList>
-                <MenuItem>Link 1</MenuItem>
-                <MenuItem>Link 2</MenuItem>
-                <MenuDivider />
-                <MenuItem>Link 3</MenuItem>
-              </MenuList>
-            </Menu>
-          </Flex>
-        </Flex>
+    return (<>
+        <MotionFlex direction='column'  p='10px' borderRadius='10px' whileHover={{ scale: 1.05 }}>
+            <LinkBox  >
+                <LinkOverlay href={'/projects/' + 12345}>
+                    <Box mb='20px' position='relative' borderRadius='10px' bg="gray.200">
+                        <Image src={ImageArchitect1.src} borderRadius='10px' />
+                        <Box
+                            w='100%'
+                            h='100%'
+                            position='absolute'
+                            top='0'
+                            borderRadius='10px'
+                            bg='linear-gradient(360deg, rgba(49, 56, 96, 0.16) 0%, rgba(21, 25, 40, 0.88) 100%)'></Box>
+                    </Box>
+                    <Flex direction='column' px="15px">
+                        <Center>
+                            <Text fontSize='2xl' color='black' fontWeight='600' mb='10px'>
+                                project name 12345
+                            </Text>
+                        </Center>
+                        <Text
+                            fontSize='md'
+                            color="gray.800"
+                            fontWeight='bold'
+                            mb='10px'>
+                            West America
+                        </Text>
+                        <Text fontSize='md' color='gray.400' fontWeight='400' mb='20px' noOfLines={2}>
+                            Description description description description description
+                        </Text>
+                        <Flex justifyContent='center' gap={3} >
+                            
+                            {Icons[Math.floor(Math.random() * (Icons.length - 0 + 1)) + 0]}
+                            {Icons[Math.floor(Math.random() * (Icons.length - 0 + 1)) + 0]}
+                            {Icons[Math.floor(Math.random() * (Icons.length - 0 + 1)) + 0]}
+                            {Icons[Math.floor(Math.random() * (Icons.length - 0 + 1)) + 0]}
 
-        {isOpen ? (
-          <Box pb={4} display={{ md: 'none' }}>
-            <Stack as={'nav'} spacing={4}>
-              {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
-              ))}
-            </Stack>
-          </Box>
-        ) : null}
-      </Box>
-    </Box>
-    <Box as="main">
-      <Box p={4}>Main Content Here</Box>
-      <Box p={4}>Main Content Here</Box>
-      <Box p={4}>Main Content Here</Box>
-      <Box p={4}>Main Content Here</Box>
-      <Box p={4}>Main Content Here</Box>
-      <Box p={4}>Main Content Here</Box>
-      <Box p={4}>Main Content Here</Box>
-      <Box p={4}>Main Content Here</Box>
-      <Box p={4}>Main Content Here</Box>
-      <Box p={4}>Main Content Here</Box>
-      <Box p={4}>Main Content Here</Box>
-      <Box p={4}>Main Content Here</Box>
-      <Box p={4}>Main Content Here</Box>
-      <Box p={4}>Main Content Here</Box>
-      <Box p={4}>Main Content Here</Box>
-      <Box p={4}>Main Content Here</Box>
-      <Box p={4}>Main Content Here</Box>
-      <Box p={4}>Main Content Here</Box>
-      <Box p={4}>Main Content Here</Box>
-      <Box p={4}>Main Content Here</Box>
-      <Box p={4}>Main Content Here</Box>
-      <Box p={4}>Main Content Here</Box>
-      <Box p={4}>Main Content Here</Box>
-      <Box p={4}>Main Content Here</Box>
-      <Box p={4}>Main Content Here</Box>
-      <Box p={4}>Main Content Here</Box>
-      <Box p={4}>Main Content Here</Box>
-      <Box p={4}>Main Content Here</Box>
-      <Box p={4}>Main Content Here</Box>
-      <Box p={4}>Main Content Here</Box>
-    </Box>
-  </>)
+                        </Flex>
+                    </Flex>
+                </LinkOverlay>
+            </LinkBox>
+        </MotionFlex>
+
+    </>)
 
 }
 

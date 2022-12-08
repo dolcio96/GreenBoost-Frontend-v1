@@ -13,9 +13,9 @@ export const myTheme = extendTheme({
     },
 
     fonts: {
-        body: "system-ui, sans-serif",
-      //  heading: "Georgia, serif",
-      //  text:"Georgia, serif",
+        body: "SF Pro Display, sans-serif",
+        heading: "SF Pro Display, sans-serif",
+        text:"SF Pro Display, serif",
         mono: "Menlo, monospace",
     },
 

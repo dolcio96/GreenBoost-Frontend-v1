@@ -54,7 +54,7 @@ const HomeBuySellCreate = () => {
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: 0.2, ease: [0, 0.71, 0.2, 1.01] }}>
                         <Center>
-                            <Text fontSize='3xl'>{e.title}</Text><Text fontSize='2xl' color='green.400'> .</Text>
+                            <Text fontSize='3xl' fontWeight={"bold"}>{e.title}</Text><Text fontSize='3xl' color='green.400' fontWeight={"bold"}> .</Text>
                         </Center>
                         <Card {...e} />
                     </motion.div>

@@ -3,10 +3,12 @@ import { ReactElement } from "react"
 import {
     Box,
     Grid,
+    SimpleGrid,
     Input
 } from "@chakra-ui/react";
 import Layout from "@components/layout"
 import Head from "@components/head"
+import TestComponent from "@components/test"
 import ProjectDetailComponent from "@components/projectDetail/projectDetails.js"
 import ChooseVCCComponent from "@components/projects"
 import ProjectCard from "@components/projects/projectCard"
@@ -22,7 +24,19 @@ export default function Projects() {
                 title="GreenBoost: test"
                 description="GreenBoost: test"
             />
+            <SimpleGrid columns={{ base: 3, lg: 3, md: 2, sm: 1 }} gap={10} mx={"10%"}>
+                <TestComponent />
+                <TestComponent />
+                <TestComponent />
+                <TestComponent />
+                <TestComponent />
+                <TestComponent />
+                <TestComponent />
+                <TestComponent />
+            </SimpleGrid>
 
+       
+            {/*
             <div style={{ overflow: 'hidden' }}>
                 <svg
                     preserveAspectRatio="none"
@@ -43,11 +57,11 @@ export default function Projects() {
             </svg>
         </div>
 
-          
+       */}
             {/*<ProjectDetailComponent />
             {/* <ChooseVCCComponent/>*/}
 
-    {/*
+            {/*
             <div class='page'>
                 The closer/bigger the object is, more blur is added.
                 <h2>

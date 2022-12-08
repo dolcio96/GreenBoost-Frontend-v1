@@ -40,6 +40,7 @@ const ProfileNav = () => {
 
         <Flex direction='column' pt={{ base: "64px", md: "64px", lg: "64px" }}  >
             <Flex
+                px={4}
                 direction={{ sm: "column", md: "row" }}
                 justifyContent={{ sm: "center", md: "space-between" }}
                 align='center'
@@ -50,7 +51,8 @@ const ProfileNav = () => {
                     mb={{ sm: "10px", md: "0px" }}
                     direction={{ sm: "column", md: "row" }}
                     w={{ sm: "100%" }}
-                    textAlign={{ sm: "center", md: "start" }}>
+                    textAlign={{ sm: "center", md: "start" }}
+                >
                     <Avatar
                         me={{ md: "22px" }}
                         src={
@@ -61,7 +63,7 @@ const ProfileNav = () => {
                         p={2}
                         borderRadius='15px'
                     />
-                    <Flex direction='column' maxWidth='100%' my={{ sm: "14px" }}>
+                    <Flex direction='column' maxWidth='100%' my={{ sm: "14px" }} >
                         <Text
                             fontSize={{ sm: "lg", lg: "xl" }}
                             color={textColor}

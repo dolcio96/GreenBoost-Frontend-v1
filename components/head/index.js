@@ -10,6 +10,8 @@ const Head = ({ title, description, image }) => {
       {description && <meta itemProp="description" content={description} />}
       {image && <meta itemProp="image" content={image} />}
       <link rel="icon" href="/favicon.ico" />
+      <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet"/>
+                
     </NextHead>
   )
 }

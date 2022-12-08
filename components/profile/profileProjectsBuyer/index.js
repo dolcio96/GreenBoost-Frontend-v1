@@ -14,9 +14,14 @@ import {
     Heading,
     Stack,
     VStack,
+    useDisclosure,
+    Collapse,
 } from "@chakra-ui/react";
 
 import { EolicIcon, TrashIcon, BambooIcon, NuclearIcon, ForestIcon, LeafIcon, ChemicalIcon } from "@lib/icons";
+
+
+import React, { useState } from "react";
 
 const Icons = [<EolicIcon size={36} />, <TrashIcon size={36} />, <BambooIcon size={36} />,
 <NuclearIcon size={36} />, <ForestIcon size={36} />, <LeafIcon size={36} />, <ChemicalIcon size={36} />]
@@ -37,7 +42,7 @@ function ProfileProjectsBuyer() {
     return (
         <>
 
-  
+
             {Object.keys(projects).map((key, index) => {
                 return (<>
                     <ProjectRowComponent projectName={projects[key].projectName} projectTypes={projects[key].projectTypes}
@@ -46,8 +51,7 @@ function ProfileProjectsBuyer() {
                 </>
                 )
             })}
-
-
+           
 
 
         </>

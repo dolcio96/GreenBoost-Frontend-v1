@@ -7,8 +7,12 @@ import {
     Grid,
     Text,
     Heading,
+    useDisclosure,
+    Button,
+    Collapse
 } from "@chakra-ui/react";
 
+import React, { useState } from "react";
 
 // public
 import avatar2 from "@public/Images/avatars/avatar2.png";
@@ -19,8 +23,7 @@ import avatar6 from "@public/Images/avatars/avatar6.png";
 
 // Custom components
 
-import React from "react";
-
+import { ChevronDownIcon, ChevronUpIcon, ExternalLinkIcon } from '@chakra-ui/icons'
 
 const TitleComponent = ({ title }) => {
     return (<>
@@ -41,15 +44,18 @@ const ElementComponent = ({ children }) => {
 
 
 
-function ProjectRow({ projectName, projectTypes, location, quantity, date, expirationDate }) {
+function ProjectRow({ projectName, projectTypes, location, quantity, date, expirationDate, txLink,  }) {
+    const { isOpen, onToggle } = useDisclosure({ defaultIsOpen: false });
 
+    const openTransactionInfo = () => {
 
-    console.log(projectTypes[0])
+    }
+
     return (<>
         <Box my="20px" p='5px' bg="primary"
             borderRadius={"10px"}
         >
-            <Grid templateColumns={{ sm: "1fr", md: "repeat(3, 1fr)", xl: "repeat(6, 1fr)" }} gap='22px' justifyContent={"center"}>
+            <Grid templateColumns={{ sm: "1fr", md: "repeat(2, 1fr)", xl: "repeat(4, 1fr)" }} gap='22px' justifyContent={"center"}>
 
 
                 <Box>
@@ -66,7 +72,7 @@ function ProjectRow({ projectName, projectTypes, location, quantity, date, expir
                             <Flex gap={3} >
 
                                 {projectTypes.map((pt, index) => {
-                                    return ( pt )
+                                    return (pt)
                                 })}
 
                             </Flex>
@@ -77,33 +83,55 @@ function ProjectRow({ projectName, projectTypes, location, quantity, date, expir
 
                 <Box>
                     <Flex direction='column' align='center'>
-                        <TitleComponent title="Location" />
-                        <ElementComponent><Text>{location}</Text></ElementComponent>
-                    </Flex>
-                </Box>
-                <Box>
-                    <Flex direction='column' align='center'>
                         <TitleComponent title="Quantity" />
                         <ElementComponent><Text>{quantity} CC</Text></ElementComponent>
                     </Flex>
                 </Box>
 
-                <Box>
-                    <Flex direction='column' align='center'>
-                        <TitleComponent title="Date" />
-                        <ElementComponent><Text>{date}</Text></ElementComponent>
-                    </Flex>
-                </Box>
 
                 <Box>
                     <Flex direction='column' align='center'>
-                        <TitleComponent title="Expiration Date" />
-                        <ElementComponent><Text>{expirationDate}</Text></ElementComponent>
+                        <TitleComponent title="Transaction" />
+                        <ElementComponent><ExternalLinkIcon boxSize={8} cursor={"pointer"} onClick={openTransactionInfo()} /></ElementComponent>
                     </Flex>
                 </Box>
 
 
             </Grid>
+
+
+
+            <Collapse mt={4} in={isOpen}>
+                <Grid templateColumns={{ sm: "1fr", md: "repeat(3, 1fr)", xl: "repeat(3, 1fr)" }} gap='22px' justifyContent={"center"}>
+
+
+                    <Box>
+                        <Flex direction='column' align='center'>
+                            <TitleComponent title="Location" />
+                            <ElementComponent><Text>{location}</Text></ElementComponent>
+                        </Flex>
+                    </Box>
+                    <Box>
+                        <Flex direction='column' align='center'>
+                            <TitleComponent title="Date" />
+                            <ElementComponent><Text>{date}</Text></ElementComponent>
+                        </Flex>
+                    </Box>
+
+                    <Box>
+                        <Flex direction='column' align='center'>
+                            <TitleComponent title="Expiration Date" />
+                            <ElementComponent><Text>{expirationDate}</Text></ElementComponent>
+                        </Flex>
+                    </Box>
+
+
+                </Grid>
+            </Collapse>
+            <Center>
+                {isOpen ? <ChevronUpIcon onClick={onToggle} boxSize={6} color={"white"} cursor={"pointer"} /> :
+                    <ChevronDownIcon onClick={onToggle} boxSize={6} color={"white"} cursor={"pointer"} />}
+            </Center>
 
 
         </Box>

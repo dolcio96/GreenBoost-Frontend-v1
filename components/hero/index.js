@@ -31,6 +31,7 @@ import {
 } from '@chakra-ui/react';
 
 import BackgroudImage from "@public/Images/heroForest2.jpg"
+import BackgroudImage2 from "@public/Images/hero.png"
 
 const Hero = () => {
   const BGImage = BackgroudImage.src
@@ -80,7 +81,7 @@ const Hero = () => {
                 Together.
               </MotionText>
             </Heading>
-            <MotionText borderRadius={"20px"} backgroundColor={"rgba(0, 0, 0, 0.8)"} color={{ base: 'white', sm: 'white' }} fontSize={{ base: "lg", sm: "2xl" }}
+            <MotionText borderRadius={"20px"} backgroundColor={"quaternary"} color={{ base: 'white', sm: 'white' }} fontSize={{ base: "lg", sm: "2xl" }}
               initial={{ opacity: 0, scale: 0.5 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -106,6 +107,8 @@ const Hero = () => {
                 bg={"tertiary"}
                 rounded={'full'}
                 px={6}
+                borderColor={"quaternary"}
+                border="2px"
                 _hover={{
                   color: 'tertiary',
                   bg: 'quaternary',
@@ -117,7 +120,7 @@ const Hero = () => {
                 Stay tuned
 
               </Button>
-              <Box>
+             {/* <Box>
                 <Icon
                   as={Arrow}
                   color={"white"}
@@ -136,7 +139,7 @@ const Hero = () => {
                   transform={'rotate(10deg)'}>
                   Subscribe now!
                 </Text>
-              </Box>
+              </Box> */}
             </MotionStack>
           </Stack>
         </Container>
