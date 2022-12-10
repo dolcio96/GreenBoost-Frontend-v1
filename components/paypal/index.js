@@ -13,16 +13,26 @@ import { orderService } from 'services';
 
 function Checkout() {
     const router = useRouter()
-
+    order_info = {
+        "id": "123456789",
+        "Seller": "Azienda1",
+        "Buyer": "Azienda2",
+        "Project": "ProjectName",
+        "CC": "30",
+        "Type": ["Forest", "Biochimic"],
+        "Location": "USA",
+        "Date": "30-04-1996",
+        "Expiration": "31-12-2022"
+    }
     orderService.submitOrder(orderInfo).then((response) => {
         if (response.ok) {
-          router.push('/')
+            router.push('/')
         } else {
-          alert(response.status)
+            alert(response.status)
         }
-      })
+    })
 
-    
+
 
     //const myTimeout = setTimeout(console.log(2000), 5000);
     /* onOpen().then(useEffect(() => {
