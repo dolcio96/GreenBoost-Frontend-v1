@@ -9,10 +9,20 @@ import {
 import { useRouter } from 'next/router'
 import PopUp from "@components/modal/message"
 
+import { orderService } from 'services';
+
 function Checkout() {
     const router = useRouter()
-    router.push('/')
 
+    orderService.submitOrder(orderInfo).then((response) => {
+        if (response.ok) {
+          router.push('/')
+        } else {
+          alert(response.status)
+        }
+      })
+
+    
 
     //const myTimeout = setTimeout(console.log(2000), 5000);
     /* onOpen().then(useEffect(() => {
