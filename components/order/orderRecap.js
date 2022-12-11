@@ -8,7 +8,7 @@ import {
 } from "@chakra-ui/react";
 
 
-const OrderRecap = () => {
+const OrderRecap = ({project, price, quantity}) => {
 
 
 
@@ -29,23 +29,24 @@ const OrderRecap = () => {
                     >
                         <Flex direction="row" justifyContent="center">
                             <Text>Lista dei Progetti</Text>
+                            <Text>Project {project.id}</Text>
                         </Flex>
                         <Flex direction="row" justifyContent="space-between">
                             <Text>Price</Text>
-                            <Text>25 €/ton</Text>
+                            <Text>{price} €/ton</Text>
                         </Flex>
                         <Flex direction="row" justifyContent="space-between">
                             <Text>Amount</Text>
-                            <Text>150 ton</Text>
+                            <Text>{quantity} ton</Text>
                         </Flex>
                         <Flex direction="row" justifyContent="space-between">
                             <Text>Costs (10%)</Text>
-                            <Text>12 €</Text>
+                            <Text>{(quantity * price * 0.1).toFixed(2)} €</Text>
                         </Flex>
                         <Divider size={"5xl"} color/>
                         <Flex direction="row" justifyContent="space-between">
                             <Text>Total</Text>
-                            <Text>3750,00 €</Text>
+                            <Text>{(quantity * price * 1.1).toFixed(2)} €</Text>
                         </Flex>
                     </Flex>  
         </>
