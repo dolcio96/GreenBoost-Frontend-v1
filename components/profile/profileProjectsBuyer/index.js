@@ -33,22 +33,30 @@ const projects2 = {
 
 function ProfileProjectsBuyer() {
     const { data: session, status } = useSession()
-    const projects = session.user.projects
+    const projects = session?.user.projects
 
     return (
         <>
             <Box minH={"80vh"}>
                 <Center><Heading my={3} color="primary" fontSize={50}>My Carbon Credits</Heading></Center>
-                {projects.map((project, index) => {
-                    return (
-                        <ProjectRowComponent projectName={project.id} projectTypes={project.project_type}
-                            location={"U.S.A."} quantity={project.count}
-                            date={project.insert_timestamp} expirationDate={"31/12/2022"}
-                            txLink={"https://mumbai.polygonscan.com/tx/0x99ce5cf9971e860fed4e9236c7e1c1298b630103ebd5e113860315fe45958f3c"}
-                        />
+                {status = "loading" ?
+                    <Spinner
+                        thickness='4px'
+                        speed='0.65s'
+                        emptyColor="#b7e4c7"
+                        color="#0B0E3F"
+                        size='xl' /> :
+                    projects.map((project, index) => {
+                        return (
+                            <ProjectRowComponent projectName={project.id} projectTypes={project.project_type}
+                                location={"U.S.A."} quantity={project.count}
+                                date={project.insert_timestamp} expirationDate={"31/12/2022"}
+                                txLink={"https://mumbai.polygonscan.com/tx/0x99ce5cf9971e860fed4e9236c7e1c1298b630103ebd5e113860315fe45958f3c"}
+                            />
 
-                    )
-                })}
+                        )
+                    })}
+
                 {/* {Object.keys(projects).map((key, index) => {
                     return (<>
 
