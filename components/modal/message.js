@@ -12,7 +12,7 @@ import {
     Button
 } from "@chakra-ui/react";
 
-const Message = ({ isOpen, onOpen, onClose, header, text, bgColor , href }) => {
+const Message = ({ isOpen, onOpen, onClose, header, text,footer, bgColor , href }) => {
 
 
 
@@ -25,7 +25,7 @@ const Message = ({ isOpen, onOpen, onClose, header, text, bgColor , href }) => {
                     <ModalBody color={"tertiary"}>
                         {text}
                     </ModalBody>
-                    <ModalFooter><Center><Button as={'a'} href={href}>check on your profile</Button></Center></ModalFooter>
+                    <ModalFooter><Center><Button as={'a'} href={href}>{footer}</Button></Center></ModalFooter>
                 </ModalContent>
             </Modal>
         </>

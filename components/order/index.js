@@ -76,7 +76,7 @@ const Order = () => {
                         </Box>
                     </Flex>
                 </Center>
-                <PopUp isOpen={isOpen} onOpen={onOpen} onClose={onClose} header={"Thank you for your order!"} text={"Now you can visit your personal area to review the order"} bgColor={"primary"} href={"/profile/profile-overview"} />
+                <PopUp isOpen={isOpen} onOpen={onOpen} onClose={onClose} header={"Thank you for your order!"} text={"Now you can visit your personal area to review the order"} bgColor={"primary"} footer={"Check on your profile"} href={"/profile/profile-overview"} />
             </Box>
         </>
     )
