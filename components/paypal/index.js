@@ -58,7 +58,7 @@ const Paypal = ({Checkout, value}) => {
                                 purchase_units: [
                                     {
                                         amount: {
-                                            value: value,
+                                            value: 1//value,
                                         },
                                     },
                                 ],

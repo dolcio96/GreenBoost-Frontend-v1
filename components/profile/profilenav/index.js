@@ -38,7 +38,7 @@ const ProfileNav = () => {
     const emailColor = useColorModeValue("gray.400", "gray.300");
     const router = useRouter()
     const { data: session, status } = useSession()
-
+    console.log(session?.user.company)
     return (<>
 
         <Flex direction='column' pt={{ base: "64px", md: "64px", lg: "64px" }}  >
@@ -80,7 +80,7 @@ const ProfileNav = () => {
                             fontSize={{ sm: "md", lg: "lg" }}
                             color={textColor}
                             fontWeight='bold'>
-                            {status == 'loading' ? 'loading...' : session?.user.company.role} Seller
+                            {status == 'loading' ? 'loading...' : session?.user.company.customer_type} Seller
                         </Text>
                         <Text
                             fontSize={{ sm: "sm", md: "md" }}

@@ -16,6 +16,8 @@ import OrderRecap from "@components/order/orderRecap"
 
 import { useSession } from "next-auth/react"
 
+import { orderService } from 'services';
+
 const Order = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
 
@@ -29,11 +31,10 @@ const Order = () => {
     const { data: session, status } = useSession()
 
     function Checkout() {
-
         const order_info = {
             id: "123456789",
-            Seller: project.seler.company.company_id,
-            Buyer: session?.user.company.company_id,
+            Seller: project.seller.company.company_name,
+            Buyer: session.user.company.company_id,
             Project: project.id,
             CC: quantity,
             Type: ["Forest", "Biochimic"],
