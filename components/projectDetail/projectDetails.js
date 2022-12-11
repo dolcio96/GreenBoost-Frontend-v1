@@ -124,7 +124,7 @@ const ProjectDetails = (props) => {
                     >
                         <Flex direction="row" justifyContent="space-between">
                             <Text>Price:</Text>
-                            <Text>{price}</Text>
+                            <Text>{price} €/CC</Text>
                         </Flex>
                         <Flex direction="row" justifyContent="space-between">
                             <Center><Text>Amount:</Text></Center>
@@ -138,12 +138,12 @@ const ProjectDetails = (props) => {
                         </Flex>
                         <Flex direction="row" justifyContent="space-between">
                             <Text>Costs (10%):</Text>
-                            <Text>{(quantity * price * 0.1).toFixed(2)}</Text>
+                            <Text>{(quantity * price * 0.1).toFixed(2)} €</Text>
                         </Flex>
                         <Divider />
                         <Flex direction="row" justifyContent="space-between">
                             <Text>Total:</Text>
-                            <Text>{(quantity * price * 1.1).toFixed(2)}</Text>
+                            <Text>{(quantity * price * 1.1).toFixed(2)} €</Text>
                         </Flex>
                         <Button backgroundColor="green.300" onClick={onBuyNow}>Buy Now</Button>
                     </Flex>

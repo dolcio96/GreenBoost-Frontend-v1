@@ -9,9 +9,6 @@ import {
 
 
 const OrderRecap = ({project, price, quantity}) => {
-
-
-
     return (
         <>
             <Flex
@@ -33,11 +30,11 @@ const OrderRecap = ({project, price, quantity}) => {
                         </Flex>
                         <Flex direction="row" justifyContent="space-between">
                             <Text>Price</Text>
-                            <Text>{price} €/ton</Text>
+                            <Text>{price} €/CC</Text>
                         </Flex>
                         <Flex direction="row" justifyContent="space-between">
                             <Text>Amount</Text>
-                            <Text>{quantity} ton</Text>
+                            <Text>{quantity} CC</Text>
                         </Flex>
                         <Flex direction="row" justifyContent="space-between">
                             <Text>Costs (10%)</Text>

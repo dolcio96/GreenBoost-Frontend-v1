@@ -25,6 +25,7 @@ const Order = () => {
     const router = useRouter();
 
     const project = router.query.project ?  JSON.parse(router.query.project) : 'undefined'
+    const buyer = session.user.company.company_id
     const price = router.query.price
     const quantity = router.query.quantity
     const value = (quantity * price * 1.1).toFixed(2)
@@ -34,7 +35,7 @@ const Order = () => {
     function Checkout() {
         const order_info = {
             Seller: project.seller.company.company_name,
-            Buyer: session.user.company.company_id,
+            Buyer: buyer,
             Project: project.id,
             CC: quantity,
             Type: ["Forest", "Biochimic"],
@@ -53,9 +54,6 @@ const Order = () => {
         })
 
     }
-
-
-
 
 
     return (
