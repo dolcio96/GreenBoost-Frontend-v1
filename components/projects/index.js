@@ -1,5 +1,3 @@
-
-import Card from "./projectCard"
 import {
     Flex,
     Grid,
@@ -14,8 +12,12 @@ import {
     MenuItem,
     useDisclosure,
 } from '@chakra-ui/react';
+
+import ProjectCardComponent from "./projectCard"
+
 import ForestIcon from '@mui/icons-material/Forest';
 import EmojiNatureIcon from '@mui/icons-material/EmojiNature';
+/*
 const projects = [
     {
         imageURL:
@@ -68,7 +70,7 @@ const projects = [
 
 ];
 
-
+*/
 const FilterOpts = [{
     title: "How Many?",
     subtitle: "Select the quantity you want",
@@ -191,7 +193,7 @@ const Buy = (props) => {
 
 
             <SimpleGrid columns={{ base: 3, lg: 3, md: 2, sm: 1 }} gap={5} mx={"10%"}>
-                {props.projects.map(project => <Card {...project} />)}
+                {props.projects.map(project => <ProjectCardComponent {...project} />)}
             </SimpleGrid>
 
         </>)

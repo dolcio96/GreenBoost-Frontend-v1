@@ -61,12 +61,13 @@ const ProjectCard = (props) => {
                             {props.description}
                         </Text>
                         <Flex justifyContent='center' gap={3} >
-                            
+                            abc
+                            {/*
                             {Icons[Math.floor(Math.random() * (Icons.length - 0 + 1)) + 0]}
                             {Icons[Math.floor(Math.random() * (Icons.length - 0 + 1)) + 0]}
                             {Icons[Math.floor(Math.random() * (Icons.length - 0 + 1)) + 0]}
                             {Icons[Math.floor(Math.random() * (Icons.length - 0 + 1)) + 0]}
-
+ */}
                         </Flex>
                     </Flex>
                 </LinkOverlay>
