@@ -17,13 +17,14 @@ import OrderRecap from "@components/order/orderRecap"
 import { useSession } from "next-auth/react"
 
 import { orderService } from 'services';
+import PopUp from "@components/modal/message"
 
 const Order = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
 
     const router = useRouter();
 
-    const project = JSON.parse(router.query.project)
+    const project = router.query.project ?  JSON.parse(router.query.project) : 'undefined'
     const price = router.query.price
     const quantity = router.query.quantity
     const value = (quantity * price * 1.1).toFixed(2)
@@ -32,7 +33,6 @@ const Order = () => {
 
     function Checkout() {
         const order_info = {
-            id: "123456789",
             Seller: project.seller.company.company_name,
             Buyer: session.user.company.company_id,
             Project: project.id,
@@ -76,7 +76,7 @@ const Order = () => {
                         </Box>
                     </Flex>
                 </Center>
-
+                <PopUp isOpen={isOpen} onOpen={onOpen} onClose={onClose} header={"Thank you for your order!"} text={"Now you can visit your personal area to review the order"} bgColor={"primary"} href={"/profile/profile-overview"} />
             </Box>
         </>
     )
