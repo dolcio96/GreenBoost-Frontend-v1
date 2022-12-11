@@ -11,25 +11,29 @@ import PopUp from "@components/modal/message"
 
 import { orderService } from 'services';
 
+//import { useSession } from "next-auth/react"
 
-const Paypal = () => {
+
+const Paypal = ({Checkout, value}) => {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const router = useRouter()
-
+   // const value = (quantity * price * 1.1).toFixed(2)
+    //const today = new Date();
+    //const { data: session, status } = useSession()
+/*
     function Checkout() {
-        console.log(123)
+
         const order_info = {
             id: "123456789",
-            Seller: "Azienda1",
-            Buyer: "Azienda2",
-            Project: "ProjectName",
-            CC: "30",
+            Seller: project.seler.company.company_id,
+            Buyer: session?.user.company.company_id,
+            Project: project.id,
+            CC: quantity,
             Type: ["Forest", "Biochimic"],
             Location: "USA",
-            Date: "30-04-1996",
+            Date: today,
             Expiration: "31-12-2022"
         }
-        console.log(order_info)
 
         orderService.submitOrder(order_info).then((response) => {
             if (response.ok) {
@@ -40,17 +44,9 @@ const Paypal = () => {
 
         })
 
-        console.log(666)
-
-
-        //const myTimeout = setTimeout(console.log(2000), 5000);
-        /* onOpen().then(useEffect(() => {
-     
-             Router.push('/')
-         }))*/
 
     }
-
+*/
     return (
         <>
             <Box>
@@ -62,7 +58,7 @@ const Paypal = () => {
                                 purchase_units: [
                                     {
                                         amount: {
-                                            value: "0.01",
+                                            value: value,
                                         },
                                     },
                                 ],
@@ -70,7 +66,7 @@ const Paypal = () => {
                         }}
                         onApprove={(data, actions) => {
                             return actions.order.capture().then((details) => {
-                                const name = details.payer.name.given_name;
+                                //const name = details.payer.name.given_name;
 
                                 Checkout();
 

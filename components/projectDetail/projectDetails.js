@@ -33,14 +33,14 @@ const ProjectDetails = (props) => {
     const price = project.carbon_credits[0].price_per_unit
     const n_available = project.carbon_credits.length
 
-    const [value, setValue] = React.useState(n_available)
-    const handleChange = (v) => setValue(v)
+    const [quantity, setQuantity] = React.useState(n_available)
+    const handleChange = (v) => setQuantity(v)
     const router = useRouter()
 
     function onBuyNow() {
         router.push({
             pathname: '/order',
-            query: { project: JSON.stringify(props.project), price: price, quantity: value }
+            query: { project: JSON.stringify(props.project), price: price, quantity: quantity }
         }, '/order')
     }
     return (<>
@@ -128,7 +128,7 @@ const ProjectDetails = (props) => {
                         </Flex>
                         <Flex direction="row" justifyContent="space-between">
                             <Center><Text>Amount:</Text></Center>
-                            <NumberInput w='50%' variant="flushed" min={1} max={n_available} value={value} onChange={handleChange} >
+                            <NumberInput w='50%' variant="flushed" min={1} max={n_available} quantity={quantity} onChange={handleChange} >
                                 <NumberInputField textAlign={'right'} />
                                 <NumberInputStepper>
                                     <NumberIncrementStepper />
@@ -138,12 +138,12 @@ const ProjectDetails = (props) => {
                         </Flex>
                         <Flex direction="row" justifyContent="space-between">
                             <Text>Costs (10%):</Text>
-                            <Text>{(value * price * 0.1).toFixed(2)}</Text>
+                            <Text>{(quantity * price * 0.1).toFixed(2)}</Text>
                         </Flex>
                         <Divider />
                         <Flex direction="row" justifyContent="space-between">
                             <Text>Total:</Text>
-                            <Text>{(value * price * 1.1).toFixed(2)}</Text>
+                            <Text>{(quantity * price * 1.1).toFixed(2)}</Text>
                         </Flex>
                         <Button backgroundColor="green.300" onClick={onBuyNow}>Buy Now</Button>
                     </Flex>
