@@ -11,43 +11,45 @@ import PopUp from "@components/modal/message"
 
 import { orderService } from 'services';
 
-function Checkout() {
-    const router = useRouter()
-    order_info = {
-        "id": "123456789",
-        "Seller": "Azienda1",
-        "Buyer": "Azienda2",
-        "Project": "ProjectName",
-        "CC": "30",
-        "Type": ["Forest", "Biochimic"],
-        "Location": "USA",
-        "Date": "30-04-1996",
-        "Expiration": "31-12-2022"
-    }
-    orderService.submitOrder(orderInfo).then((response) => {
-        if (response.ok) {
-            router.push('/')
-        } else {
-            alert(response.status)
-        }
-    })
-
-
-
-    //const myTimeout = setTimeout(console.log(2000), 5000);
-    /* onOpen().then(useEffect(() => {
- 
-         Router.push('/')
-     }))*/
-
-}
-
-
-
 
 const Paypal = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const router = useRouter()
+
+    function Checkout() {
+        console.log(123)
+        const order_info = {
+            id: "123456789",
+            Seller: "Azienda1",
+            Buyer: "Azienda2",
+            Project: "ProjectName",
+            CC: "30",
+            Type: ["Forest", "Biochimic"],
+            Location: "USA",
+            Date: "30-04-1996",
+            Expiration: "31-12-2022"
+        }
+        console.log(order_info)
+
+        orderService.submitOrder(order_info).then((response) => {
+            if (response.ok) {
+                router.push('/')
+            } else {
+                alert(response.status)
+            }
+
+        })
+
+        console.log(666)
+
+
+        //const myTimeout = setTimeout(console.log(2000), 5000);
+        /* onOpen().then(useEffect(() => {
+     
+             Router.push('/')
+         }))*/
+
+    }
 
     return (
         <>

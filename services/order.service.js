@@ -4,6 +4,6 @@ export const orderService = {
    submitOrder,
 };
 
-function submitOrder(orderInfo) {
-   return fetchWrapper.post(`/backend/submitorder`, orderInfo);
+function submitOrder(order_info) {
+   return fetchWrapper.post(`/backend/order`, order_info);
 }
