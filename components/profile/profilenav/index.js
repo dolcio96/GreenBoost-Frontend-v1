@@ -80,7 +80,7 @@ const ProfileNav = () => {
                             fontSize={{ sm: "md", lg: "lg" }}
                             color={textColor}
                             fontWeight='bold'>
-                            {status == 'loading' ? 'loading...' : session?.user.company.customer_type} Seller
+                            {status == 'loading' ? 'loading...' : session?.user.customer_type}
                         </Text>
                         <Text
                             fontSize={{ sm: "sm", md: "md" }}

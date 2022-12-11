@@ -45,7 +45,7 @@ const Order = () => {
 
         orderService.submitOrder(order_info).then((response) => {
             if (response.ok) {
-                router.push('/')
+                onOpen()
             } else {
                 alert(response.status)
             }
