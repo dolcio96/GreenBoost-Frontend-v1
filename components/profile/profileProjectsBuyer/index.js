@@ -15,7 +15,7 @@ import {
     Stack,
     VStack,
     useDisclosure,
-    Collapse,
+    Spinner,
 } from "@chakra-ui/react";
 
 import { EolicIcon, TrashIcon, BambooIcon, NuclearIcon, ForestIcon, LeafIcon, ChemicalIcon } from "@lib/icons";
