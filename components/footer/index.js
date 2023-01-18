@@ -70,7 +70,7 @@ const Footer = () => {
           spacing={8}>
           <Stack spacing={6}>
             <Box w={"70%"} as={"a"} href={"/"}>
-              <Image src={LogoGB.src} color={useColorModeValue('gray.700', 'white')} />
+              <Image src={LogoGB.src} color={useColorModeValue('gray.700', 'white')} alt="LogoFooter" />
             </Box>
             <Text fontSize={'sm'}>
               © 2022 GreenBoost. All rights reserved
