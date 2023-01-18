@@ -11,7 +11,8 @@ import {
     MenuDivider,
     MenuItem,
     useDisclosure,
-    Link
+    Link,
+    Stack
 } from '@chakra-ui/react';
 
 import ProjectCardComponent from "./projectCard"
