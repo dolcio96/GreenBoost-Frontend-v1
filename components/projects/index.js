@@ -11,6 +11,7 @@ import {
     MenuDivider,
     MenuItem,
     useDisclosure,
+    Link
 } from '@chakra-ui/react';
 
 import ProjectCardComponent from "./projectCard"
@@ -86,6 +87,21 @@ const FilterOpts = [{
     subtitle: "Search by Reagion",
     opts: ["Europe", "South America", "North America", "Antartica", "Asia", "Africa"]
 }]
+
+const NavLink = ({ children }) => (
+    <Link
+        px={2}
+        py={1}
+        rounded={'md'}
+        _hover={{
+            textDecoration: 'none',
+            bg: "primary",
+            color: "white"
+        }}
+        href={'/' + children.toString().replace('&', '').replace(/\s/g, '').toLowerCase()}>
+        {children}
+    </Link>
+);
 
 const Filter = () => (
     <Menu>
