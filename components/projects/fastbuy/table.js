@@ -10,7 +10,7 @@ import {
     useColorModeValue
 } from "@chakra-ui/react";
 
-import Card from "@components/card/Card.js";
+import Card from "@components/card/card.js";
 import CardBody from "@components/card/cardBody.js";
 import CardHeader from "@components/card/cardHeader.js";
 import TablesTableRow from "@components/projects/fastbuy/tablerow.js";

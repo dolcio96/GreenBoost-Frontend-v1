@@ -32,8 +32,8 @@ const projects2 = {
 }
 
 function ProfileProjectsBuyer() {
-    const { data: session, status } = useSession()
-    const projects = session?.user.projects
+    var { data: session, status } = useSession()
+    var projects = session?.user.projects
 
     return (
         <>

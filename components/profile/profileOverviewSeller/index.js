@@ -23,9 +23,9 @@ import ImageArchitect1 from "@public/Images/bamboo.jpg";
 import ImageArchitect2 from "@public/Images/foresta.jpg";
 import ImageArchitect3 from "@public/Images/foresta.jpg";
 // Custom components
-import Card from "@components/card/Card";
-import CardBody from "@components/card/CardBody";
-import CardHeader from "@components/card/CardHeader";
+import Card from "@components/card/card";
+import CardBody from "@components/card/cardBody";
+import CardHeader from "@components/card/cardHeader";
 import React from "react";
 import {
   FaPlus,
