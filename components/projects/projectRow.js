@@ -115,7 +115,7 @@ function ProjectRow({ projectName, projectTypes, location, quantity, date, expir
                 <Box>
                     <Flex direction='column' align='center'>
                         <TitleComponent title="Transaction" />
-                        <ElementComponent><a href={txLink} target="_blank"><ExternalLinkIcon boxSize={8} cursor={"pointer"} /></a></ElementComponent>
+                        <ElementComponent><a href={txLink} rel="noreferrer" target="_blank"><ExternalLinkIcon boxSize={8} cursor={"pointer"} /></a></ElementComponent>
                     </Flex>
                 </Box>
 

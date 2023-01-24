@@ -48,7 +48,7 @@ function ProfileProjectsBuyer() {
                         size='xl' /> :
                     projects.map((project, index) => {
                         return (
-                            <ProjectRowComponent projectName={project.id} projectTypes={project.project_type}
+                            <ProjectRowComponent key={project.id} projectName={project.id} projectTypes={project.project_type}
                                 location={"U.S.A."} quantity={project.count}
                                 date={project.insert_timestamp} expirationDate={"31/12/2022"}
                                 txLink={"https://mumbai.polygonscan.com/tx/0x99ce5cf9971e860fed4e9236c7e1c1298b630103ebd5e113860315fe45958f3c"}

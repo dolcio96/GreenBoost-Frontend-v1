@@ -114,9 +114,7 @@ const FastBuy = () => {
               <Box style={{
                 display: showProjects ? "block" : "none"
               }}>
-                <Table >
-
-                </Table>
+                <Table />
               </Box>
 
             </Flex>
