@@ -47,7 +47,7 @@ const HomeBuySellCreate = () => {
 
         <Box py={{ base: "20px", md: "40px" }}>
             <SimpleGrid columns={[1, 1, 1, 3]} gap={0}>
-                {data.map(e => <GridItem>
+                {data.map((e, index) => <GridItem key={index}>
                     <motion.div
                         initial={{ opacity: 0, scale: 0.5 }}
                         whileInView={{ opacity: 1, scale: 1 }}
