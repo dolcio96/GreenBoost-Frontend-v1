@@ -23,8 +23,8 @@ import { EolicIcon, TrashIcon, BambooIcon, NuclearIcon, ForestIcon, LeafIcon, Ch
 import { useSession } from "next-auth/react"
 import React, { useState } from "react";
 import ProjectRowComponent from "@components/projects/projectRow"
-const Icons = [<EolicIcon size={36} />, <TrashIcon size={36} />, <BambooIcon size={36} />,
-<NuclearIcon size={36} />, <ForestIcon size={36} />, <LeafIcon size={36} />, <ChemicalIcon size={36} />]
+const Icons = [<EolicIcon key={1} size={36} />, <TrashIcon key={2} size={36} />, <BambooIcon key={3} size={36} />,
+<NuclearIcon key={4} size={36} />, <ForestIcon key={5} size={36} />, <LeafIcon key={6} size={36} />, <ChemicalIcon key={7} size={36} />]
 
 const projects2 = {
     uno: { projectName: "Progetto 1", projectTypes: [Icons[1], Icons[3], Icons[4]], location: "U.S.A", quantity: "5", date: "10/11/2022", expirationDate: "31/12/2022", txLink: "" },
