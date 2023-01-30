@@ -86,7 +86,7 @@ const DropDownMenu = () => {
                 </Link>
             </MenuButton>
             <MenuList onMouseEnter={onOpen} onMouseLeave={onClose} >
-                <MenuItem as="a" href="http://localhost:443//projects"
+                <MenuItem as="a" href="/projects"
                     _hover={{
                         bg: "primary",
                         color: "white",
