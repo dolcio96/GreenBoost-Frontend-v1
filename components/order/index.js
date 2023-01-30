@@ -23,14 +23,14 @@ const Order = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
 
     const router = useRouter();
+    const { data: session, status } = useSession()
 
     const project = router.query.project ?  JSON.parse(router.query.project) : 'undefined'
-    const buyer = session.user.company.company_id
+    const buyer = session?.user.company.company_id
     const price = router.query.price
     const quantity = router.query.quantity
     const value = (quantity * price * 1.1).toFixed(2)
     const today = new Date();
-    const { data: session, status } = useSession()
 
     function Checkout() {
         const order_info = {

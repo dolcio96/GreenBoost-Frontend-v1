@@ -29,9 +29,8 @@ const FastBuy = () => {
   const [showSpinner, setShowSpinner] = useState(false);
   function toggle() {
 
-    if(showProjects===true)
-    { setShowProjects(false);}
-    else{
+    if (showProjects === true) { setShowProjects(false); }
+    else {
       setShowSpinner(!showSpinner);
       setTimeout(() => {
         setShowProjects(!showProjects);
@@ -58,7 +57,7 @@ const FastBuy = () => {
 
 
 
-            <Flex p={{base:"10px",}}direction={{ base:"column", sm: "column", lg: "row" }} justifyContent="space-between">
+            <Flex p={{ base: "10px", }} direction={{ base: "column", sm: "column", lg: "row" }} justifyContent="space-between">
               <Box w={{ sm: "100%", lg: "40%" }}>
                 <Text textAlign="justify"
 
@@ -77,8 +76,9 @@ const FastBuy = () => {
                       <InputGroup borderColor="#40916c" _focus={{ borderColor: "#40916c" }}  >
                         <InputLeftElement
                           pointerEvents="none"
-                          children={<Co2Icon color="gray.800" />}
-                        />
+                        >
+                          <Co2Icon color="gray.800" />
+                        </InputLeftElement>
 
                         <Input type="quantity" size="md" />
                       </InputGroup>
@@ -114,9 +114,7 @@ const FastBuy = () => {
               <Box style={{
                 display: showProjects ? "block" : "none"
               }}>
-                <Table >
-
-                </Table>
+                <Table />
               </Box>
 
             </Flex>

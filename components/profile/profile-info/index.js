@@ -14,9 +14,9 @@ import {
     Center,
     useColorModeValue,
 } from "@chakra-ui/react";
-import Card from "@components/card/card";
-import CardBody from "@components/card/cardBody";
-import CardHeader from "@components/card/cardHeader";
+import Card from "@components/card/Card";
+import CardBody from "@components/card/CardBody";
+import CardHeader from "@components/card/CardHeader";
 import { RiMastercardFill } from "react-icons/ri";
 
 const FlexContainerIB = ({ children }) => {

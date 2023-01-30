@@ -10,8 +10,7 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 
-function TablesTableRow(props) {
-  const { logo, name, email, subdomain, domain, status, date, isLast, index } = props;
+function TablesTableRow({ logo, name, email, subdomain, domain, status, date, isLast, index }) {
   const textColor = useColorModeValue("white");
   const titleColor = useColorModeValue("gray.700", "white");
   const bgStatus = useColorModeValue("gray.400", "navy.900");

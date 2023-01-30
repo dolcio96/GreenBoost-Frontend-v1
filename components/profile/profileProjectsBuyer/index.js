@@ -23,8 +23,8 @@ import { EolicIcon, TrashIcon, BambooIcon, NuclearIcon, ForestIcon, LeafIcon, Ch
 import { useSession } from "next-auth/react"
 import React, { useState } from "react";
 import ProjectRowComponent from "@components/projects/projectRow"
-const Icons = [<EolicIcon size={36} />, <TrashIcon size={36} />, <BambooIcon size={36} />,
-<NuclearIcon size={36} />, <ForestIcon size={36} />, <LeafIcon size={36} />, <ChemicalIcon size={36} />]
+const Icons = [<EolicIcon key={1} size={36} />, <TrashIcon key={2} size={36} />, <BambooIcon key={3} size={36} />,
+<NuclearIcon key={4} size={36} />, <ForestIcon key={5} size={36} />, <LeafIcon key={6} size={36} />, <ChemicalIcon key={7} size={36} />]
 
 const projects2 = {
     uno: { projectName: "Progetto 1", projectTypes: [Icons[1], Icons[3], Icons[4]], location: "U.S.A", quantity: "5", date: "10/11/2022", expirationDate: "31/12/2022", txLink: "" },
@@ -32,8 +32,8 @@ const projects2 = {
 }
 
 function ProfileProjectsBuyer() {
-    const { data: session, status } = useSession()
-    const projects = session?.user.projects
+    var { data: session, status } = useSession()
+    var projects = session?.user.projects
 
     return (
         <>
@@ -48,7 +48,7 @@ function ProfileProjectsBuyer() {
                         size='xl' /> :
                     projects.map((project, index) => {
                         return (
-                            <ProjectRowComponent projectName={project.id} projectTypes={project.project_type}
+                            <ProjectRowComponent key={project.id} projectName={project.id} projectTypes={project.project_type}
                                 location={"U.S.A."} quantity={project.count}
                                 date={project.insert_timestamp} expirationDate={"31/12/2022"}
                                 txLink={"https://mumbai.polygonscan.com/tx/0x99ce5cf9971e860fed4e9236c7e1c1298b630103ebd5e113860315fe45958f3c"}

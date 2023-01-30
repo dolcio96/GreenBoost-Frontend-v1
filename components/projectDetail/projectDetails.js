@@ -30,8 +30,8 @@ import { useRouter } from "next/router";
 
 const ProjectDetails = (props) => {
     const project = props.project
-    const price = project.carbon_credits[0].price_per_unit
-    const n_available = project.carbon_credits.length
+    const price = project?.carbon_credits[0].price_per_unit
+    const n_available = project?.carbon_credits.length
 
     const [quantity, setQuantity] = React.useState(n_available)
     const handleChange = (v) => setQuantity(v)
