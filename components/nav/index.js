@@ -186,7 +186,15 @@ const Nav = () => {
 
                             </MenuButton>
                             <MenuList>
-                                {session ? <MenuItem onClick={() => signOut()}>Logout</MenuItem> : <MenuItem onClick={() => signIn()}>Login</MenuItem>}
+                                {session ? <MenuItem onClick={() => function (event) {
+                                    event.preventDefault();
+                                    signOut()
+                                }
+                                }>Logout</MenuItem> : <MenuItem onClick={() =>
+                                    function (event) {
+                                        event.preventDefault();
+                                        signIn()
+                                    }}>Login</MenuItem>}
                                 <MenuItem as="a" href="/auth/signup">Signup</MenuItem>
                                 <MenuItem as="a" href="/profile/profile-overview">Profile</MenuItem>
                             </MenuList>
