@@ -69,6 +69,7 @@ const DropDownMenu = () => {
                 _active={{ textDecoration: "none", outline: "none", border: "none", borderStyle: "none" }}
                 _visited={{ textDecoration: 'none', outline: "none", border: "none", borderStyle: "none" }}
                 _after={{ textDecoration: 'none', outline: "none", border: "none", borderStyle: "none" }}
+                _focusVisible={{borderStyle:"none"}}
                 minW={0}
                 cursor={'pointer'}>
                 <Link
@@ -78,8 +79,8 @@ const DropDownMenu = () => {
                     _hover={{
                         bg: "primary",
                         color: "white",
+                        borderStyle:"none"
                     }}
-
                     href='/buy'
                 >
                     Marketplace  {isOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}

@@ -1,16 +1,16 @@
-import { useCallback } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { Center, useColorModeValue, Icon } from '@chakra-ui/react';
 import { AiFillFileAdd } from 'react-icons/ai';
 
-export default function Dropzone({ onFileAccepted }) {
-  const onDrop = useCallback((acceptedFiles) => {
+export default function Dropzone({getRootProps , getInputProps, isDragActive}) {
+  /*const onDrop = useCallback((acceptedFiles) => {
     onFileAccepted(acceptedFiles[0]);
   }, [onFileAccepted]);
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop, accept: '.pdf', maxFiles: 1, multiple: false,
-  });
+  });*/
 
   const dropText = isDragActive ? 'Drop the files here ...' : 'Drag \'n\' drop .file here, or click to select files';
 

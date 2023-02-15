@@ -7,21 +7,25 @@ import {
   Flex,
   Grid,
   Icon,
-  Image,
+  Center,
   Text,
   useColorMode,
   useColorModeValue,
   Heading,
+  color,
 } from "@chakra-ui/react";
 // public
 import avatar2 from "@public/Images/avatars/avatar2.png";
 import avatar3 from "@public/Images/avatars/avatar3.png";
 import avatar4 from "@public/Images/avatars/avatar4.png";
 import avatar5 from "@public/Images/avatars/avatar5.png";
-import avatar6 from "@public/Images/avatars/avatar6.png";
+import avatar6 from "@public/Images/avatars/avatar4.png";
 import ImageArchitect1 from "@public/Images/bamboo.jpg";
 import ImageArchitect2 from "@public/Images/foresta.jpg";
 import ImageArchitect3 from "@public/Images/foresta.jpg";
+import  {  BiUser } from "react-icons/bi";
+
+
 // Custom components
 import Card from "@components/card/Card";
 import CardBody from "@components/card/CardBody";
@@ -32,18 +36,47 @@ import {
 } from "react-icons/fa";
 
 import ProjectCard from "@components/projects/projectCard"
+import dynamic from 'next/dynamic';
+import KPINumber from "@lib/KPInumber"
 
+const chartOptions = {
+
+  series: [44, 55, 13],
+  options: {
+    chart: {
+      width: 380,
+      type: 'pie',
+    },
+    labels: ['Project 1', 'Project 2', 'Project 3'],
+    responsive: [{
+      breakpoint: 480,
+      options: {
+        chart: {
+          width: 200
+        },
+        legend: {
+          position: 'bottom'
+        }
+      }
+    }]
+  },
+
+
+};
 
 const BuyerRow = () => {
   return (<>
     <Flex justifyContent='space-between' mb='21px'>
       <Flex align='center'>
         <Avatar
-          src={avatar5}
+          src={avatar6.src}
           w='50px'
           h='50px'
           borderRadius='15px'
           me='10px'
+          backdropBlur={'100%'}
+          backgroundColor='transparent'
+          
         />
         <Flex direction='column'>
           <Text fontSize='sm' color={"black"} fontWeight='bold'>
@@ -131,22 +164,49 @@ const Informations = () => {
 }
 
 function ProfileOverview() {
+  const ApexCharts = dynamic(() => import('react-apexcharts'), { ssr: false });
   const { colorMode } = useColorMode();
 
   // Chakra color mode
   const textColor = useColorModeValue("gray.700", "white");
-  const iconColor = useColorModeValue("blue.500", "white");
 
   return (
     <Flex direction='column'>
-      <Grid templateColumns={{ sm: "1fr", xl: "repeat(2, 1fr)" }} gap='22px' bg="gray.200">
+      <Grid templateColumns={{ sm: "1fr", xl: "repeat(2, 1fr)" }} gap='22px' >
         <Box p='16px' my={{ sm: "24px", xl: "0px" }}>
           <Box p='12px 5px' mb='12px'>
             <Heading>
-              Profile Information
+              Results
             </Heading>
           </Box>
-          <Informations />
+          {/* <Informations /> */}
+          <Center >
+            <Box w="80%">
+              <Text fontWeight={'bold'} fontSize={"xl"}>% Sold</Text>
+              <Center>
+              <ApexCharts options={chartOptions.options} series={chartOptions.series} type="pie" width={500} />
+              </Center>
+            </Box>
+          </Center>
+          <Center>
+            <Box w="80%">
+            <Text fontWeight={'bold'} fontSize={"xl"}>Remains</Text>
+            <Center>
+              <Flex direction='column'  >
+
+                <KPINumber n={100} dly={200} lbl={"All projects"} fontSize={"5xl"} />
+                <KPINumber n={29} dly={1200} lbl={"Project 1 "} fontSize={"3xl"} />
+                <KPINumber n={71} dly={1200} lbl={"Project 2 "} fontSize={"3xl"} />
+
+
+              </Flex>
+
+              </Center>
+            </Box>
+        
+            </Center>
+
+
         </Box>
 
 
@@ -163,6 +223,9 @@ function ProfileOverview() {
               <BuyerRow />
               <BuyerRow />
               <BuyerRow />
+              <BuyerRow />
+              <BuyerRow />
+              <BuyerRow />
             </Flex>
           </Box>
         </Box>
@@ -171,9 +234,9 @@ function ProfileOverview() {
       <Card p='16px'>
         <CardHeader p='12px 5px' mb='12px'>
           <Flex direction='column'>
-            <Text fontSize='lg' color={textColor} fontWeight='bold'>
+            <Heading color={textColor} fontWeight='bold'>
               Projects
-            </Text>
+            </Heading>
             <Text fontSize='sm' color='gray.400' fontWeight='400'>
               My Projects
             </Text>
@@ -189,16 +252,19 @@ function ProfileOverview() {
             <ProjectCard />
             <ProjectCard />
             <Button
+            color={textColor}
               as={"a"}
               href={"/createproject"}
               p='0px'
               bg='transparent'
               border='1px solid lightgray'
               borderRadius='15px'
-              minHeight={{ sm: "200px", md: "100%" }}>
+              minHeight={{ sm: "200px", md: "100%" }}
+              _hover={{bg:"secondary",
+              textColor:"tertiary"}}>
               <Flex direction='column' justifyContent='center' align='center'>
-                <Icon as={FaPlus} color={textColor} fontSize='lg' mb='12px' />
-                <Text fontSize='lg' color={textColor} fontWeight='bold'>
+                <Icon as={FaPlus}  fontSize='lg' mb='12px' />
+                <Text fontSize='lg'  fontWeight='bold'>
                   Create a New Project
                 </Text>
               </Flex>

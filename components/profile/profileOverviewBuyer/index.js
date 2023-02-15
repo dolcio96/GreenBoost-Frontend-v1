@@ -16,7 +16,7 @@ import {
     VStack,
 } from "@chakra-ui/react";
 import dynamic from 'next/dynamic';
-//const ApexCharts = dynamic(() => import('react-apexcharts'), { ssr: false });
+const ApexCharts = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 
 
@@ -163,7 +163,7 @@ function ProfileOverview() {
                 <Stack direction={{ base: 'column', md: 'row' }} w="100%" justifyContent={{ base: 'center', md: "space-between" }}  >
                     <Center w={{ base: '100%', md: '50%' }}>
                         <Box>
-                            {/*<ApexCharts options={chartOptions.options} series={chartOptions.series} type="pie" width={500} />*/}
+                            <ApexCharts options={chartOptions.options} series={chartOptions.series} type="pie" width={500} />
                         </Box>
                     </Center>
                     <Center w={{ base: '100%', md: '50%' }}>
