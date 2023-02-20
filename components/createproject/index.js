@@ -7,21 +7,21 @@ import {
     Button
 } from '@chakra-ui/react';
 import React, { useState } from 'react';
-import { userService } from 'services';
+import { uploadProjectService } from 'services';
 
 import { useForm, FormProvider } from 'react-hook-form'
 import UploadProjectForm from "@components/createproject/uploadProjectForm"
 
 
 function onSubmit(project) {
-    return console.log(JSON.stringify(project, null, 4))
-    {/*return userService.uploadProject(project).then((response) => {
+    //return console.log(JSON.stringify(project, null, 4))
+    return uploadProjectService.uploadProject(project).then((response) => {
         if (response.ok) {
           console.log("OK")
         } else {
           alert(response.status)
         }
-      })*/}
+      })
 }
 
 
