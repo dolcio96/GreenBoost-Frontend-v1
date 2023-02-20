@@ -19,27 +19,22 @@ import {
 } from "@chakra-ui/react";
 
 import { EolicIcon, TrashIcon, BambooIcon, NuclearIcon, ForestIcon, LeafIcon, ChemicalIcon } from "@lib/icons";
-
 import { useSession } from "next-auth/react"
 import React, { useState } from "react";
 import ProjectRowComponent from "@components/projects/projectRow"
 const Icons = [<EolicIcon key={1} size={36} />, <TrashIcon key={2} size={36} />, <BambooIcon key={3} size={36} />,
 <NuclearIcon key={4} size={36} />, <ForestIcon key={5} size={36} />, <LeafIcon key={6} size={36} />, <ChemicalIcon key={7} size={36} />]
 
-const projects2 = {
-    uno: { projectName: "Progetto 1", projectTypes: [Icons[1], Icons[3], Icons[4]], location: "U.S.A", quantity: "5", date: "10/11/2022", expirationDate: "31/12/2022", txLink: "" },
-    due: { projectName: "Progetto 2", projectTypes: [Icons[0], Icons[2], Icons[3]], location: "France", quantity: "10", date: "09/10/2022", expirationDate: "31/12/2021", txLink: "" },
-}
 
-function ProfileProjectBuyer() {
+function ProfileProjectsBuyer() {
     var { data: session, status } = useSession()
     var projects = session?.user.projects
 
     return (
         <>
             <Box minH={"80vh"}>
-                <Center><Heading my={3} color="primary" fontSize={50}>My Carbon Credits</Heading></Center>
-                {status = "loading" ?
+                <Center><Heading my={3} color="primary" fontSize={50}>Project Seller</Heading></Center>
+             {/*    {status = "loading" ?
                     <Spinner
                         thickness='4px'
                         speed='0.65s'
@@ -57,18 +52,7 @@ function ProfileProjectBuyer() {
                         )
                     })}
 
-                {/* {Object.keys(projects).map((key, index) => {
-                    return (<>
-
-                        <ProjectRowComponent projectName={projects[key].projectName} projectTypes={projects[key].projectTypes}
-                            location={projects[key].location} quantity={projects[key].quantity}
-                            date={projects[key].date} expirationDate={projects[key].expirationDate}
-                            txLink={projects[key].txLink}
-                        /> 
-
-                    </>
-                    )
-                })}*/}
+               */}
             </Box>
 
 
@@ -77,4 +61,4 @@ function ProfileProjectBuyer() {
     );
 }
 
-export default ProfileProjectBuyer;
+export default ProfileProjectsBuyer;

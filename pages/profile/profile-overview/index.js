@@ -24,7 +24,7 @@ export default function Profile() {
         description="GreenBoost: Profile"
       />
       {status == 'loading' ?
-        <Center>
+        <Center h='70vh'>
           <Spinner
             thickness='4px'
             speed='0.65s'

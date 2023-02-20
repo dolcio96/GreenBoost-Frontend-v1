@@ -1,9 +1,17 @@
 
+import {
+  Spinner,
+  Center,
+} from '@chakra-ui/react';
+
 import Head from "@components/head"
-import ProfileInfoComponet from "@components/profile/profile-info"
+import ProfileInfoBuyerComponet from "@components/profile/profileInfoBuyer"
+import ProfileInfoSellerComponet from "@components/profile/profileInfoSeller"
 import ProfileLayout from "@components/layout/profileLayout"
+import { useSession } from "next-auth/react"
 
 export default function ProfileInfo() {
+  const { data: session, status } = useSession()
   return (
 
     <>
@@ -11,7 +19,19 @@ export default function ProfileInfo() {
         title="GreenBoost: Profile Info"
         description="GreenBoost: Profile Info"
       />
-      <ProfileInfoComponet />
+      {status == 'loading' ?
+        <Center h='70vh'>
+          <Spinner
+            thickness='4px'
+            speed='0.65s'
+            emptyColor="#b7e4c7"
+            color="#0B0E3F"
+            size='xl' />
+        </Center>
+        : session?.user.customer_type == "buyer" ?
+          <ProfileInfoBuyerComponet />
+          : <ProfileInfoSellerComponet />}
+
     </>
   )
 }
