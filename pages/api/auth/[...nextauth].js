@@ -31,7 +31,11 @@ export default NextAuth({
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ username: credentials.username, password: credentials.password })
         })
-        return await response.json()
+        var resp = await response.json()
+        delete resp.projects
+        delete resp.carbon_credits
+        delete resp.buyers
+        return 
       }
     }),
     GoogleProvider({
