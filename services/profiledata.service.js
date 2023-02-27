@@ -8,5 +8,5 @@ export const getUserDataService = {
 };
 
 function getData(userID) {
-   return  fetchWrapper.get(`/api/crud/buyer/`+ userID);
+   return  fetchWrapper.get(process.env.BACKEND_API_URL +`/api/crud/buyer/`+ userID);
 }
