@@ -16,10 +16,10 @@ import { getUserDataService } from 'services';
 export default function Profile() {
   const { data: session, status } = useSession()
   //console.log(session)
-  const userData = null
+  var userData = null
 
   if (status != 'loading') {
-    userData = getUserDataService(session.user.id)
+    userData = getUserDataService.getData(session.user.id)
     console.log(userData)
   }
 

@@ -7,6 +7,6 @@ export const getUserDataService = {
    // delete: _delete
 };
 
-function getData(userID) {
-   return fetchWrapper.post(`/backend/crud/buyer/`+ userID);
+async function getData(userID) {
+   return await fetchWrapper.get(`/backend/crud/buyer/`+ userID);
 }
