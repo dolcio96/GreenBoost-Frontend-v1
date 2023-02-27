@@ -1,6 +1,5 @@
 import { userService } from 'services';
 
-
 export const fetchWrapper = {
     get,
     post,
@@ -19,8 +18,8 @@ function post(url, body) {
     return fetch(url, requestOptions).then(handleResponse);
 }
 
-function get(url){
-    return fetch(url).then(handleResponse);
+ async function get(url){
+    return await fetch(url).then(handleResponse);
 }
 
 

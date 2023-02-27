@@ -10,12 +10,13 @@ import ProfileOverviewSellerComponet from "@components/profile/profileOverviewSe
 import ProfileOverviewBuyerComponet from "@components/profile/profileOverviewBuyer"
 import ProfileLayout from "@components/layout/profileLayout"
 import { useRouter } from 'next/router';
-import { useSession } from "next-auth/react"
+import { useSession, getSession } from "next-auth/react"
 import { getUserDataService } from 'services';
 
-export default function Profile() {
+export default function Profile({data}) {
   const { data: session, status } = useSession()
-  //console.log(session)
+  console.log("data")
+  console.log(data)
   var userData = null
 
   if (status != 'loading') {
@@ -49,4 +50,24 @@ export default function Profile() {
 
 Profile.getLayout = function getLayout(page) {
   return <ProfileLayout>{page}</ProfileLayout>
+}
+
+
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+  console.log("session")
+  console.log(session)
+
+  // Import the function that you want to call
+  const { getUserDataService } = require('services');
+
+  // Pass the session parameter to the function and await its response
+  const data = await getUserDataService.getData(session.user.id);
+
+  // Return the data as props
+  return {
+    props: {
+      data
+    }
+  };
 }
