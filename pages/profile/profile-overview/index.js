@@ -65,7 +65,7 @@ export async function getServerSideProps(context) {
   //const data = await getUserDataService.getData(session.user.id);
 
   const res = await fetch(
-    process.env.BACKEND_API_URL + `backend/crud/buyer/`+ session.user.id,
+    process.env.BACKEND_API_URL + `/backend/crud/buyer/`+ session.user.id,
     {
         method: "GET",
         headers: { 'Content-Type': 'application/json' }
