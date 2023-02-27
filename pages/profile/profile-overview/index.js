@@ -17,12 +17,7 @@ export default function Profile({data}) {
   const { data: session, status } = useSession()
   console.log("data")
   console.log(data)
-  var userData = null
-
-  if (status != 'loading') {
-    userData = getUserDataService.getData(session.user.id)
-    console.log(userData)
-  }
+ 
 
   return (
 
