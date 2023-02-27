@@ -11,10 +11,17 @@ import ProfileOverviewBuyerComponet from "@components/profile/profileOverviewBuy
 import ProfileLayout from "@components/layout/profileLayout"
 import { useRouter } from 'next/router';
 import { useSession } from "next-auth/react"
+import { getUserDataService } from 'services';
 
 export default function Profile() {
   const { data: session, status } = useSession()
-  console.log(session)
+  //console.log(session)
+  const userData = null
+
+  if (status != 'loading') {
+    userData = getUserDataService(session.user.id)
+    console.log(userData)
+  }
 
   return (
 

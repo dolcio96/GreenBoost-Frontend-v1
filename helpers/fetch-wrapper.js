@@ -2,7 +2,7 @@ import { userService } from 'services';
 
 
 export const fetchWrapper = {
-   // get,
+    get,
     post,
     //put,
     //delete: _delete
@@ -17,6 +17,10 @@ function post(url, body) {
         body: JSON.stringify(body)
     };
     return fetch(url, requestOptions).then(handleResponse);
+}
+
+function get(url){
+    return fetch(url).then(handleResponse);
 }
 
 
