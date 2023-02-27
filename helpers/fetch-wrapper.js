@@ -18,8 +18,8 @@ function post(url, body) {
     return fetch(url, requestOptions).then(handleResponse);
 }
 
- async function get(url){
-    return await fetch(url).then(handleResponse);
+ function get(url){
+    return fetch(url).then(handleResponse);
 }
 
 
