@@ -34,8 +34,8 @@ export default function Profile({ data }) {
             size='xl' />
         </Center>
         : session?.user.customer_type == "buyer" ?
-          <ProfileOverviewBuyerComponet data/>
-          : <ProfileOverviewSellerComponet data/>}
+          <ProfileOverviewBuyerComponet data={data}/>
+          : <ProfileOverviewSellerComponet data={data}/>}
 
     </>
   )
