@@ -50,27 +50,15 @@ Profile.getLayout = function getLayout(page) {
 
 export async function getServerSideProps(context) {
   const session = await getSession(context);
-  console.log("session")
-  console.log(session)
 
   // Import the function that you want to call
   const { getUserDataService } = require('services');
 
   // Pass the session parameter to the function and await its response
   const res = await getUserDataService.getData(session.user.id);
-/*  const res = await fetch(
-    process.env.BACKEND_API_URL + `/api/crud/buyer/`+ session.user.id,
-    {
-        method: "GET",
-        headers: { 'Content-Type': 'application/json' }
-    }
-)
- */
 
 const data = await res.json()
 
-
-  // Return the data as props
   return {
     props: {
       data
