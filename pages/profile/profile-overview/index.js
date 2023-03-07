@@ -15,9 +15,6 @@ import { getUserDataService } from 'services';
 
 export default function Profile({ userInfo }) {
   const { data: session, status } = useSession()
-  console.log("data")
-  console.log(userInfo)
-
 
   return (
 
