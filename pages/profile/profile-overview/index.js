@@ -15,8 +15,6 @@ import { getUserDataService } from 'services';
 
 export default function Profile({ data }) {
   const { data: session, status } = useSession()
-  console.log("data")
-  console.log(data)
 
 
   return (
@@ -36,8 +34,8 @@ export default function Profile({ data }) {
             size='xl' />
         </Center>
         : session?.user.customer_type == "buyer" ?
-          <ProfileOverviewBuyerComponet />
-          : <ProfileOverviewSellerComponet />}
+          <ProfileOverviewBuyerComponet data/>
+          : <ProfileOverviewSellerComponet data/>}
 
     </>
   )
