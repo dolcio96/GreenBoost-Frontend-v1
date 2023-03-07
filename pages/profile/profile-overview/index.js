@@ -13,8 +13,10 @@ import { useRouter } from 'next/router';
 import { useSession, getSession } from "next-auth/react"
 import { getUserDataService } from 'services';
 
-export default function Profile({ data }) {
+export default function Profile({ userInfo }) {
   const { data: session, status } = useSession()
+  console.log("data")
+  console.log(userInfo)
 
 
   return (
@@ -34,8 +36,8 @@ export default function Profile({ data }) {
             size='xl' />
         </Center>
         : session?.user.customer_type == "buyer" ?
-          <ProfileOverviewBuyerComponet data={data}/>
-          : <ProfileOverviewSellerComponet data={data}/>}
+          <ProfileOverviewBuyerComponet />
+          : <ProfileOverviewSellerComponet />}
 
     </>
   )
@@ -55,11 +57,11 @@ export async function getServerSideProps(context) {
   // Pass the session parameter to the function and await its response
   const res = await getUserDataService.getData(session?.user.customer_type, session?.user.id);
 
-  const data = await res.json()
+  const userInfo = await res.json()
 
   return {
     props: {
-      data
+      userInfo
     }
   };
 }
