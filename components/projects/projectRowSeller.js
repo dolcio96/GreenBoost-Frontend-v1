@@ -11,17 +11,11 @@ import {
     Button,
     Collapse,
     Circle,
-    Tooltip
+    Tooltip,
 } from "@chakra-ui/react";
 
 import React, { useState } from "react";
 
-// public
-import avatar2 from "@public/Images/avatars/avatar2.png";
-import avatar3 from "@public/Images/avatars/avatar3.png";
-import avatar4 from "@public/Images/avatars/avatar4.png";
-
-import avatar6 from "@public/Images/avatars/avatar6.png";
 
 // Custom components
 
@@ -43,18 +37,11 @@ const ElementComponent = ({ children }) => {
     </>)
 }
 
-const openTransactionInfo = () => {
-    if (typeof window !== undefined) {
-        // browser code
-        window?.open("https://www.google.com", 'noopener,noreferrer');
-    }
-    console.log("click")
-}
 
 
 
 
-function ProjectRow({ projectName, projectTypes, location, quantity, date, expirationDate, txLink }) {
+function ProjectRow({ projectId, projectName, projectTypes, location, quantity, date, expirationDate, txLink }) {
     const { isOpen, onToggle } = useDisclosure({ defaultIsOpen: false });
 
     const circleColor = () => {
@@ -67,7 +54,7 @@ function ProjectRow({ projectName, projectTypes, location, quantity, date, expir
     }
     console.log(circleColor())
     return (<>
-        <Box my="20px" p='5px' bg="primary"
+        <Box  my="20px" p='5px' bg="primary"
             borderRadius={"10px"}
         >
             <Tooltip label={circleColor()[1]}>
@@ -114,8 +101,8 @@ function ProjectRow({ projectName, projectTypes, location, quantity, date, expir
 
                 <Box>
                     <Flex direction='column' align='center'>
-                        <TitleComponent title="Transaction" />
-                        <ElementComponent><a href={txLink} rel="noreferrer" target="_blank"><ExternalLinkIcon boxSize={8} cursor={"pointer"} /></a></ElementComponent>
+                        <TitleComponent title="More Info" />
+                        <ElementComponent><a href={'/projects/' + project} rel="noreferrer" target="_blank"><ExternalLinkIcon boxSize={8} cursor={"pointer"} /></a></ElementComponent>
                     </Flex>
                 </Box>
 

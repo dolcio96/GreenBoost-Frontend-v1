@@ -22,7 +22,7 @@ import { EolicIcon, TrashIcon, BambooIcon, NuclearIcon, ForestIcon, LeafIcon, Ch
 
 import { useSession } from "next-auth/react"
 import React, { useState } from "react";
-import ProjectRowComponent from "@components/projects/projectRow"
+import ProjectRowComponent from "@components/projects/projectRowBuyer"
 const Icons = [<EolicIcon key={1} size={36} />, <TrashIcon key={2} size={36} />, <BambooIcon key={3} size={36} />,
 <NuclearIcon key={4} size={36} />, <ForestIcon key={5} size={36} />, <LeafIcon key={6} size={36} />, <ChemicalIcon key={7} size={36} />]
 

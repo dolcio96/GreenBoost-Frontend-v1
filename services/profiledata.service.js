@@ -8,5 +8,5 @@ export const getUserDataService = {
 };
 
 function getData(userID) {
-   return  fetchWrapper.post(process.env.BACKEND_API_URL +`/api/test`, userID);
+   return  fetchWrapper.get(process.env.BACKEND_API_URL +`/api/user`, userID);
 }

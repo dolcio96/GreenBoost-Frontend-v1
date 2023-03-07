@@ -55,7 +55,7 @@ export async function getServerSideProps(context) {
   const { getUserDataService } = require('services');
 
   // Pass the session parameter to the function and await its response
-  const res = await getUserDataService.getData(session.user.id);
+  const res = await getUserDataService.getData(session?.user.id);
 
 const data = await res.json()
 
