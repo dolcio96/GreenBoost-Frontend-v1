@@ -55,7 +55,7 @@ const chartOptions = {
 
 };
 
-const BuyerRow = ({data}) => {
+const BuyerRow = (data) => {
   console.log(data)
   return (<>
     <Flex justifyContent='space-between' mb='21px'>
