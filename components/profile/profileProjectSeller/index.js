@@ -37,8 +37,8 @@ function ProfileProjectsSeller({ userInfo }) {
                 <Center>
                     <Heading my={3} color="primary" fontSize={50}>Project Seller</Heading>
                 </Center>
-                <Grid templateColumns={{ sm: "1fr", md: "repeat(3, 1fr)" }} gap='22px' justifyContent={"center"}>
-                    <GridItem colSpan={{ sm: 3, md: 2 }}>
+                <Grid templateColumns={{ base: "1fr", sm: "repeat(3, 1fr)" }} gap='22px' justifyContent={"center"}>
+                    <GridItem colSpan={{ base: 3, sm: 2 }}>
                         {
                             userInfo.projects.map((project, index) => {
                                 return (
@@ -49,7 +49,7 @@ function ProfileProjectsSeller({ userInfo }) {
                                 )
                             })}
                     </GridItem>
-                    <GridItem colSpan={{ sm: 3, md: 1 }}> "ABC"</GridItem>
+                    <GridItem colSpan={{ base: 3, sm: 1 }}> "ABC"</GridItem>
 
                 </Grid>
             </Box>
