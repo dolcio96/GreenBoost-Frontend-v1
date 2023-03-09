@@ -30,6 +30,7 @@ function ProfileProjectsSeller({userInfo}) {
     var { data: session, status } = useSession()
     console.log("INFO")
     console.log(userInfo)
+    console.log(status)
     return (
         <>
             <Box minH={"80vh"}>
