@@ -49,7 +49,7 @@ function ProfileProjectsSeller({userInfo}) {
                     txLink={"https://mumbai.polygonscan.com/tx/0x99ce5cf9971e860fed4e9236c7e1c1298b630103ebd5e113860315fe45958f3c"}
                 />
  */}
-                {status = "loading" ?
+                {status != "loading" ?
                     <Spinner
                         thickness='4px'
                         speed='0.65s'
