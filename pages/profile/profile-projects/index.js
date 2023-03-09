@@ -16,7 +16,6 @@ import { useSession,getSession } from "next-auth/react"
 export default function Profile({userInfo}) {
   const { data: session, status } = useSession()
   const router = useRouter();
-
   return (
 
     <>

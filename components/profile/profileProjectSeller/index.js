@@ -28,6 +28,7 @@ const Icons = [<EolicIcon key={1} size={36} />, <TrashIcon key={2} size={36} />,
 
 function ProfileProjectsSeller({userInfo}) {
     var { data: session, status } = useSession()
+    console.log("INFO")
     console.log(userInfo)
     return (
         <>

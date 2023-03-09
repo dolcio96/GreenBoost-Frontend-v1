@@ -59,7 +59,7 @@ function ProjectRow({projectId, projectName, projectTypes, location, quantity, d
         else return ["green.300", "Valid CC"]
         return deadlineDate
     }
-    console.log(circleColor())
+  
     return (<>
         <Box  my="20px" p='5px' bg="primary"
             borderRadius={"10px"}
