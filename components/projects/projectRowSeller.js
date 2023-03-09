@@ -109,15 +109,8 @@ function ProjectRow({ project }) {
 
 
             <Collapse mt={4} in={isOpen}>
-                <Grid templateColumns={{ sm: "1fr", md: "repeat(3, 1fr)", xl: "repeat(3, 1fr)" }} gap='22px' justifyContent={"center"}>
+                <Grid templateColumns={{ sm: "1fr", md: "repeat(2, 1fr)", xl: "repeat(3, 1fr)" }} gap='22px' justifyContent={"center"}>
 
-
-                    <Box>
-                        <Flex direction='column' align='center'>
-                            <TitleComponent title="Location" />
-                            <ElementComponent><Text fontSize={20}>{project.id}</Text></ElementComponent>
-                        </Flex>
-                    </Box>
                     <Box>
                         <Flex direction='column' align='center'>
                             <TitleComponent title="Date" />
