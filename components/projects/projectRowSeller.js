@@ -41,10 +41,11 @@ const ElementComponent = ({ children }) => {
 
 
 
-function ProjectRow({ projectId, projectName, projectTypes, location, quantity, date, expirationDate, txLink }) {
+function ProjectRow({ project }) {
     const { isOpen, onToggle } = useDisclosure({ defaultIsOpen: false });
 
     const circleColor = () => {
+        const expirationDate = "31/12/2022"
         const elements = expirationDate.split("/")
         const deadlineDate = new Date(parseInt(elements[2], 10), parseInt(elements[1], 10) - 1, parseInt(elements[0], 10),)
         const today = new Date();
@@ -52,7 +53,6 @@ function ProjectRow({ projectId, projectName, projectTypes, location, quantity, 
         else return ["green.300", "Valid CC"]
         return deadlineDate
     }
-    console.log(circleColor())
     return (<>
         <Box  my="20px" p='5px' bg="primary"
             borderRadius={"10px"}
@@ -67,11 +67,10 @@ function ProjectRow({ projectId, projectName, projectTypes, location, quantity, 
             </Tooltip>
 
             <Grid templateColumns={{ sm: "1fr", md: "repeat(2, 1fr)", xl: "repeat(4, 1fr)" }} gap='22px' justifyContent={"center"}>
-
                 <Box>
                     <Flex direction='column' align='center'>
                         <TitleComponent title="Project Name" />
-                        <ElementComponent><Text fontSize={20}>{projectName}</Text></ElementComponent>
+                        <ElementComponent><Text fontSize={20}>{project.id}</Text></ElementComponent>
                     </Flex>
                 </Box>
 
@@ -81,8 +80,8 @@ function ProjectRow({ projectId, projectName, projectTypes, location, quantity, 
                         <ElementComponent>
                             <Flex gap={3} >
 
-                                {projectTypes.map((pt, index) => {
-                                    return (pt)
+                                {project.project_type.map((pt, index) => {
+                                    return (pt.type_name)
                                 })}
 
                             </Flex>
@@ -94,7 +93,7 @@ function ProjectRow({ projectId, projectName, projectTypes, location, quantity, 
                 <Box>
                     <Flex direction='column' align='center'>
                         <TitleComponent title="Quantity" />
-                        <ElementComponent><Text fontSize={20}>{quantity} CC</Text></ElementComponent>
+                        <ElementComponent><Text fontSize={20}>{project.carbon_credits.length} CC</Text></ElementComponent>
                     </Flex>
                 </Box>
 
@@ -102,11 +101,9 @@ function ProjectRow({ projectId, projectName, projectTypes, location, quantity, 
                 <Box>
                     <Flex direction='column' align='center'>
                         <TitleComponent title="More Info" />
-                        <ElementComponent><a href={'/projects/' + project} rel="noreferrer" target="_blank"><ExternalLinkIcon boxSize={8} cursor={"pointer"} /></a></ElementComponent>
+                        <ElementComponent><a href={'/projects/' + project.id} rel="noreferrer" target="_blank"><ExternalLinkIcon boxSize={8} cursor={"pointer"} /></a></ElementComponent>
                     </Flex>
                 </Box>
-
-
             </Grid>
 
 
@@ -118,20 +115,20 @@ function ProjectRow({ projectId, projectName, projectTypes, location, quantity, 
                     <Box>
                         <Flex direction='column' align='center'>
                             <TitleComponent title="Location" />
-                            <ElementComponent><Text fontSize={20}>{location}</Text></ElementComponent>
+                            <ElementComponent><Text fontSize={20}>{project.id}</Text></ElementComponent>
                         </Flex>
                     </Box>
                     <Box>
                         <Flex direction='column' align='center'>
                             <TitleComponent title="Date" />
-                            <ElementComponent><Text fontSize={20}>{date}</Text></ElementComponent>
+                            <ElementComponent><Text fontSize={20}>{project.update_timestamp}</Text></ElementComponent>
                         </Flex>
                     </Box>
 
                     <Box>
                         <Flex direction='column' align='center'>
                             <TitleComponent title="Expiration Date" />
-                            <ElementComponent><Text fontSize={20}>{expirationDate}</Text></ElementComponent>
+                            <ElementComponent><Text fontSize={20}>{"31/12/2022"}</Text></ElementComponent>
                         </Flex>
                     </Box>
 
