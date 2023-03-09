@@ -11,7 +11,7 @@ import ProfileProjectSellerComponet from "@components/profile/profileProjectSell
 import ProfileProjectBuyerComponent from "@components/profile/profileProjectsBuyer"
 import ProfileLayout from "@components/layout/profileLayout"
 import { useRouter } from 'next/router';
-import { useSession } from "next-auth/react"
+import { useSession,getSession } from "next-auth/react"
 
 export default function Profile({userInfo}) {
   const { data: session, status } = useSession()
