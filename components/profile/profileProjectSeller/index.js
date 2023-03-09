@@ -26,7 +26,7 @@ const Icons = [<EolicIcon key={1} size={36} />, <TrashIcon key={2} size={36} />,
 <NuclearIcon key={4} size={36} />, <ForestIcon key={5} size={36} />, <LeafIcon key={6} size={36} />, <ChemicalIcon key={7} size={36} />]
 
 
-function ProfileProjectsSeller({userInfo}) {
+function ProfileProjectsSeller({ userInfo }) {
     var { data: session, status } = useSession()
     console.log("INFO")
     console.log(userInfo)
@@ -34,17 +34,24 @@ function ProfileProjectsSeller({userInfo}) {
     return (
         <>
             <Box minH={"80vh"}>
-                <Center><Heading my={3} color="primary" fontSize={50}>Project Seller</Heading></Center>
+                <Center>
+                    <Heading my={3} color="primary" fontSize={50}>Project Seller</Heading>
+                </Center>
+                <Grid templateColumns={{ sm: "1fr", md: "repeat(3, 1fr)" }} gap='22px' justifyContent={"center"}>
+                    <GridItem colSpan={{ sm: 3, md: 2 }}>
+                        {
+                            userInfo.projects.map((project, index) => {
+                                return (
+                                    <ProjectRowSellerComponent
+                                        key={index}
+                                        project={project} />
 
-                {
-                    userInfo.projects.map((project, index) => {
-                        return (
-                            <ProjectRowSellerComponent 
-                            key={index} 
-                            project={project}/>
+                                )
+                            })}
+                    </GridItem>
+                    <GridItem colSpan={{ sm: 3, md: 1 }}> "ABC"</GridItem>
 
-                        )
-                    })}
+                </Grid>
             </Box>
         </>
     );
