@@ -79,10 +79,10 @@ function ProjectRow({ project }) {
                         <TitleComponent title="Project Type" />
                         <ElementComponent>
                             <Flex gap={3} >
-
-                                {project.project_type.map((pt, index) => {
+                            {project.project_type.type_name}
+                                {/*project.project_type.map((pt, index) => {
                                     return (pt.type_name)
-                                })}
+                                })*/}
 
                             </Flex>
                         </ElementComponent>
