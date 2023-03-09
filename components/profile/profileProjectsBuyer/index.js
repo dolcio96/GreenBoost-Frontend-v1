@@ -31,9 +31,8 @@ const projects2 = {
     due: { projectName: "Progetto 2", projectTypes: [Icons[0], Icons[2], Icons[3]], location: "France", quantity: "10", date: "09/10/2022", expirationDate: "31/12/2021", txLink: "" },
 }
 
-function ProfileProjectBuyer() {
+function ProfileProjectBuyer({userInfo}) {
     var { data: session, status } = useSession()
-    var projects = session?.user.projects
 
     return (
         <>

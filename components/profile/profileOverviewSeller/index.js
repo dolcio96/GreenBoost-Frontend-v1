@@ -30,30 +30,7 @@ import ProjectCard from "@components/projects/projectCard"
 import dynamic from 'next/dynamic';
 import KPINumber from "@lib/KPInumber"
 
-const chartOptions = {
 
-  series: [44, 55, 13],
-  options: {
-    chart: {
-      width: 380,
-      type: 'pie',
-    },
-    labels: ['Project 1', 'Project 2', 'Project 3'],
-    responsive: [{
-      breakpoint: 480,
-      options: {
-        chart: {
-          width: 200
-        },
-        legend: {
-          position: 'bottom'
-        }
-      }
-    }]
-  },
-
-
-};
 
 const BuyerRow = ({data}) => {
   return (<>
@@ -157,6 +134,30 @@ const Informations = () => {
 function ProfileOverviewSeller({userInfo}) {
   console.log(userInfo)
   const ApexCharts = dynamic(() => import('react-apexcharts'), { ssr: false });
+  const chartOptions = {
+
+    series: [44, 55, 13],
+    options: {
+      chart: {
+        width: 380,
+        type: 'pie',
+      },
+      labels: ['Project 1', 'Project 2', 'Project 3'],
+      responsive: [{
+        breakpoint: 480,
+        options: {
+          chart: {
+            width: 200
+          },
+          legend: {
+            position: 'bottom'
+          }
+        }
+      }]
+    },
+  
+  
+  };
   const { colorMode } = useColorMode();
 
   // Chakra color mode

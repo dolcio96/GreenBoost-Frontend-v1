@@ -13,7 +13,7 @@ import ProfileLayout from "@components/layout/profileLayout"
 import { useRouter } from 'next/router';
 import { useSession } from "next-auth/react"
 
-export default function Profile() {
+export default function Profile({userInfo}) {
   const { data: session, status } = useSession()
   const router = useRouter();
 
@@ -35,12 +35,28 @@ export default function Profile() {
             size='xl' />
         </Center>
         : session?.user.customer_type == "buyer" ?
-          <ProfileProjectBuyerComponent />
-          : <ProfileProjectSellerComponet />}
+          <ProfileProjectBuyerComponent userInfo={userInfo}/>
+          : <ProfileProjectSellerComponet userInfo={userInfo}/>}
     </>
   )
 }
 
 Profile.getLayout = function getLayout(page) {
   return <ProfileLayout>{page}</ProfileLayout>
+}
+
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+
+  const { getUserDataService } = require('services');
+
+  const res = await getUserDataService.getData(session?.user.customer_type, session?.user.id);
+
+  const userInfo = await res.json()
+
+  return {
+    props: {
+      userInfo
+    }
+  };
 }
