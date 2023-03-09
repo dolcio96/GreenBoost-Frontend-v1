@@ -153,7 +153,7 @@ const ProjectRow = () => {
 
 
 
-function ProfileOverview() {
+function ProfileOverviewBuyer({userInfo}) {
 
 
     return (
@@ -201,4 +201,4 @@ function ProfileOverview() {
     );
 }
 
-export default ProfileOverview;
+export default ProfileOverviewBuyer;

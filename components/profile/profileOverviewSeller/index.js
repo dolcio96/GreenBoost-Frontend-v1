@@ -154,7 +154,8 @@ const Informations = () => {
   </>)
 }
 
-function ProfileOverview() {
+function ProfileOverviewSeller({userInfo}) {
+  console.log(userInfo)
   const ApexCharts = dynamic(() => import('react-apexcharts'), { ssr: false });
   const { colorMode } = useColorMode();
 
@@ -267,4 +268,4 @@ function ProfileOverview() {
   );
 }
 
-export default ProfileOverview;
+export default ProfileOverviewSeller;
