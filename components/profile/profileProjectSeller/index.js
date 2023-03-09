@@ -48,26 +48,25 @@ function ProfileProjectsSeller({userInfo}) {
                     txLink={"https://mumbai.polygonscan.com/tx/0x99ce5cf9971e860fed4e9236c7e1c1298b630103ebd5e113860315fe45958f3c"}
                 />
 
-
-                {/*    {status = "loading" ?
+                {status = "loading" ?
                     <Spinner
                         thickness='4px'
                         speed='0.65s'
                         emptyColor="#b7e4c7"
                         color="#0B0E3F"
                         size='xl' /> :
-                    projects.map((project, index) => {
+                    userInfo.projects.map((project, index) => {
                         return (
-                            <ProjectRowBuyerComponent key={project.id} projectId={project.id} projectName={project.id} projectTypes={project.project_type}
-                                location={"U.S.A."} quantity={project.count}
-                                date={project.insert_timestamp} expirationDate={"31/12/2022"}
+                            <ProjectRowBuyerComponent key={project.id} projectId={project.id} projectName={project.id} projectTypes={["project.project_type"]}
+                                location={"U.S.A."} quantity={project.carbon_credits.length}
+                                date={project.update_timestamp} expirationDate={"31/12/2022"}
                                 txLink={"https://mumbai.polygonscan.com/tx/0x99ce5cf9971e860fed4e9236c7e1c1298b630103ebd5e113860315fe45958f3c"}
                             />
 
                         )
                     })}
 
-               */}
+               
             </Box>
 
 
