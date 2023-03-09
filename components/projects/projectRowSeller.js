@@ -101,7 +101,7 @@ function ProjectRow({ project }) {
                 <Box>
                     <Flex direction='column' align='center'>
                         <TitleComponent title="More Info" />
-                        <ElementComponent><a href={'/projects/' + project.id} rel="noreferrer" target="_blank"><ExternalLinkIcon boxSize={8} cursor={"pointer"} /></a></ElementComponent>
+                        <ElementComponent><a href={'/projects/' + project.id}><ExternalLinkIcon boxSize={8} cursor={"pointer"} /></a></ElementComponent>
                     </Flex>
                 </Box>
             </Grid>
