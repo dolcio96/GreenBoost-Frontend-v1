@@ -12,7 +12,7 @@ import {
     useColorMode,
     useColorModeValue,
     Heading,
-    Stack,
+    GridItem,
     VStack,
     useDisclosure,
     Spinner,
