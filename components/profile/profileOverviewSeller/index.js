@@ -33,7 +33,6 @@ import KPINumber from "@lib/KPInumber"
 
 
 const BuyerRow = ({ buyer }) => {
-  console.log(buyer)
   return (<>
     <Flex justifyContent='space-between' mb='21px'>
       <Flex align='center'>
@@ -249,11 +248,15 @@ function ProfileOverviewSeller({ userInfo }) {
             templateRows={{ sm: "1fr 1fr 1fr auto", md: "1fr 1fr", xl: "1fr" }}
             gap='24px'>
 
-            <ProjectCard />
-            <ProjectCard />
-            <ProjectCard />
-            <ProjectCard />
-            <ProjectCard />
+            {userInfo.projects.map((project, index) => {
+              return (
+                <ProjectCard
+                  key={index}
+                  project={project} />
+
+              )
+            })}
+
             <ProjectCard />
             <ProjectCard />
             <Button

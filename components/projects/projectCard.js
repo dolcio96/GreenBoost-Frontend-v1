@@ -27,13 +27,13 @@ const Icons = [<EolicIcon key={1} size={36} />, <TrashIcon key={2} size={36} />,
 
 
 
-const ProjectCard = (props) => {
+const ProjectCard = ({project}) => {
     const MotionFlex = motion(Flex)
 
     return (<>
         <MotionFlex direction='column'  p='10px' borderRadius='10px' whileHover={{ scale: 1.05 }}>
             <LinkBox  >
-                <LinkOverlay href={'/projects/' + props.id}>
+                <LinkOverlay href={'/projects/' + project.id}>
                     <Box mb='20px' position='relative' borderRadius='10px' bg="gray.200">
                         <Image src={ImageArchitect1.src} borderRadius='10px' />
                         <Box
@@ -47,7 +47,7 @@ const ProjectCard = (props) => {
                     <Flex direction='column' px="15px">
                         <Center>
                             <Text fontSize='2xl' color='black' fontWeight='600' mb='10px'>
-                                project name {props.id}
+                                project name {project.id}
                             </Text>
                         </Center>
                         <Text
