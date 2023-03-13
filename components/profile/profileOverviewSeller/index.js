@@ -187,6 +187,7 @@ function ProfileOverviewSeller({ userInfo }) {
 
           </Center>
         </Box>
+
         <Box p='16px' my={{ sm: "24px", xl: "0px" }}>
 
           {/* <Informations /> */}
@@ -208,7 +209,7 @@ function ProfileOverviewSeller({ userInfo }) {
             </Heading>
           </Box>
           <Box px='5px'>
-            <Flex direction={{ sm: 'row', xl: 'column' }} w='100%'>
+            <Grid templateColumns={{ base: "repeat(2, 1fr)", md: "repeat(3, 1fr)", xl: "1fr" }} gap='22px' >
               {userInfo.buyers.map((buyer, index) => {
                 return (
                   <BuyerRow
@@ -233,7 +234,7 @@ function ProfileOverviewSeller({ userInfo }) {
 
                 )
               })}
-            </Flex>
+            </Grid>
           </Box>
         </Box>
       </Grid>
