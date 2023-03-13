@@ -32,7 +32,8 @@ import KPINumber from "@lib/KPInumber"
 
 
 
-const BuyerRow = ({data}) => {
+const BuyerRow = ({ buyer }) => {
+  console.log(buyer)
   return (<>
     <Flex justifyContent='space-between' mb='21px'>
       <Flex align='center'>
@@ -131,7 +132,7 @@ const Informations = () => {
   </>)
 }
 
-function ProfileOverviewSeller({userInfo}) {
+function ProfileOverviewSeller({ userInfo }) {
   console.log(userInfo)
   const ApexCharts = dynamic(() => import('react-apexcharts'), { ssr: false });
   const chartOptions = {
@@ -155,8 +156,8 @@ function ProfileOverviewSeller({userInfo}) {
         }
       }]
     },
-  
-  
+
+
   };
   const { colorMode } = useColorMode();
 
@@ -208,11 +209,16 @@ function ProfileOverviewSeller({userInfo}) {
           </Box>
           <Box px='5px'>
             <Flex direction='column' w='100%'>
-              <BuyerRow />
-              <BuyerRow />
-              <BuyerRow />
-              <BuyerRow />
-              <BuyerRow />
+              {userInfo.buyers.map((buyer, index) => {
+                return (
+                  <BuyerRow
+                    key={index}
+                    buyer={buyer} />
+
+                )
+              })}
+
+
             </Flex>
           </Box>
         </Box>

@@ -24,32 +24,41 @@ import React, { useState } from "react";
 import ProjectRowSellerComponent from "@components/projects/projectRowSeller"
 import dynamic from 'next/dynamic';
 const ApexCharts = dynamic(() => import('react-apexcharts'), { ssr: false });
-const chartOptions = {
 
-    series: [44, 55, 13],
-    options: {
-        chart: {
-            width: 380,
-            type: 'pie',
-        },
-        labels: ['Forestry', 'Heolic', 'Other'],
-        responsive: [{
-            breakpoint: 480,
-            options: {
-                chart: {
-                    width: 200
-                },
-                legend: {
-                    position: 'bottom'
-                }
-            }
-        }]
-    },
-
-
-};
 const Icons = [<EolicIcon key={1} size={36} />, <TrashIcon key={2} size={36} />, <BambooIcon key={3} size={36} />,
 <NuclearIcon key={4} size={36} />, <ForestIcon key={5} size={36} />, <LeafIcon key={6} size={36} />, <ChemicalIcon key={7} size={36} />]
+
+function setChartOptions(projects) {
+
+    var chartOpts = {
+
+        series: [44, 55, 13],
+        options: {
+            chart: {
+                width: 380,
+                type: 'pie',
+            },
+            labels: ['Forestry', 'Heolic', 'Other'],
+            responsive: [{
+                breakpoint: 480,
+                options: {
+                    chart: {
+                        width: 200
+                    },
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }]
+        },
+
+
+    };
+
+
+
+    return chartOpts;
+}
 
 
 function ProfileProjectsSeller({ userInfo }) {
@@ -57,6 +66,8 @@ function ProfileProjectsSeller({ userInfo }) {
     console.log("INFO")
     console.log(userInfo)
     console.log(status)
+    const chartOptions = setChartOptions(userInfo.projects)
+
     return (
         <>
             <Box minH={"80vh"}>
@@ -64,7 +75,7 @@ function ProfileProjectsSeller({ userInfo }) {
                     <Heading my={3} color="primary" fontSize={50}>Project Seller</Heading>
                 </Center>
                 <Grid templateColumns={{ base: "1fr", lg: "repeat(3, 1fr)" }} gap='22px' justifyContent={"center"}>
-                    <GridItem colSpan={{ base: 3, lg: 2 }}>
+                    <GridItem colSpan={{ base: 3, lg: 2 }} justifyContent={"center"}>
                         {
                             userInfo.projects.map((project, index) => {
                                 return (
@@ -75,8 +86,10 @@ function ProfileProjectsSeller({ userInfo }) {
                                 )
                             })}
                     </GridItem>
-                    <GridItem colSpan={{ base: 3, lg: 1 }}>
-                        <ApexCharts options={chartOptions.options} series={chartOptions.series} type="pie" width={500} />
+                    <GridItem colSpan={{ base: 3, lg: 1 }} justifyContent={"center"}>
+                        <Center>
+                            <ApexCharts options={chartOptions.options} series={chartOptions.series} type="pie" width={500} />
+                        </Center>
                     </GridItem>
 
                 </Grid>
