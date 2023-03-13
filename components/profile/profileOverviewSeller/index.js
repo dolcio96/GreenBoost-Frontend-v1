@@ -56,14 +56,6 @@ const BuyerRow = ({ buyer }) => {
           </Text>
         </Flex>
       </Flex>
-      <Button p='0px' bg='transparent' variant='no-effects'>
-        <Text
-          fontSize='10px'
-          fontWeight='700'
-          alignSelf='center'>
-          VISIT
-        </Text>
-      </Button>
     </Flex>
   </>)
 }
