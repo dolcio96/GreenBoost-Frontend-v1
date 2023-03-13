@@ -58,7 +58,7 @@ const ProjectCard = ({project}) => {
                             West America
                         </Text>
                         <Text fontSize='md' color='gray.400' fontWeight='400' mb='20px' noOfLines={2}>
-                            {props.description}
+                            {project.description}
                         </Text>
                         <Flex justifyContent='center' gap={3} >
                           <EolicIcon/>

@@ -257,8 +257,6 @@ function ProfileOverviewSeller({ userInfo }) {
               )
             })}
 
-            <ProjectCard />
-            <ProjectCard />
             <Button
               color={textColor}
               as={"a"}
