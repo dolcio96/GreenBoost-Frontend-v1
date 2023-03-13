@@ -208,7 +208,7 @@ function ProfileOverviewSeller({ userInfo }) {
             </Heading>
           </Box>
           <Box px='5px'>
-            <Flex direction={{ sm: 'row', xl: 'column' }} w={{ sm: '50%', xl: '100%' }}>
+            <Flex direction={{ sm: 'row', xl: 'column' }} w='100%'>
               {userInfo.buyers.map((buyer, index) => {
                 return (
                   <BuyerRow
