@@ -8,6 +8,7 @@ import {
     Icon,
     Image,
     Link,
+    Heading,
     Spacer,
     Text,
     Input,
