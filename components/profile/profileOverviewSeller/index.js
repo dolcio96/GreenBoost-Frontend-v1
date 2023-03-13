@@ -49,10 +49,10 @@ const BuyerRow = ({ buyer }) => {
         />
         <Flex direction='column'>
           <Text fontSize='sm' color={"black"} fontWeight='bold'>
-            Company{" "}
+            Company: {buyer.company.company_name}
           </Text>
           <Text fontSize='xs' color='gray.400' fontWeight='400'>
-            Quantity
+            Quantity:
           </Text>
         </Flex>
       </Flex>
@@ -208,7 +208,7 @@ function ProfileOverviewSeller({ userInfo }) {
             </Heading>
           </Box>
           <Box px='5px'>
-            <Flex direction='column' w='100%'>
+            <Flex direction={{ sm: 'row', xl: 'column' }} w={{ sm: '50%', xl: '100%' }}>
               {userInfo.buyers.map((buyer, index) => {
                 return (
                   <BuyerRow
@@ -217,8 +217,22 @@ function ProfileOverviewSeller({ userInfo }) {
 
                 )
               })}
+              {userInfo.buyers.map((buyer, index) => {
+                return (
+                  <BuyerRow
+                    key={index}
+                    buyer={buyer} />
 
+                )
+              })}
+              {userInfo.buyers.map((buyer, index) => {
+                return (
+                  <BuyerRow
+                    key={index}
+                    buyer={buyer} />
 
+                )
+              })}
             </Flex>
           </Box>
         </Box>
