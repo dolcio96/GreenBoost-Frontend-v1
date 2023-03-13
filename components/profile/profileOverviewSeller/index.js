@@ -201,7 +201,7 @@ function ProfileOverviewSeller({ userInfo }) {
             </Heading>
           </Box>
           <Box px='5px'>
-            <Grid templateColumns={{ base: "repeat(2, 1fr)", md: "repeat(3, 1fr)", xl: "1fr" }} gap='22px' >
+            <Grid templateColumns={{ base: "repeat(2, 1fr)", md: "repeat(3, 1fr)", xl: "1fr" }} gap={{ md: '22px', xl: '10px' }} >
               {userInfo.buyers.map((buyer, index) => {
                 return (
                   <BuyerRow
