@@ -35,10 +35,12 @@ function ProfileInfoSeller() {
                 <Grid templateColumns={{ sm: "1fr", xl: "repeat(2, 1fr)" }} gap='22px'>
 
                     <Card p='16px' my={{ sm: "24px", md: "0px" }}>
-                        <CardHeader p='12px 5px' mb='12px'>
-                            <Text fontSize='25px' fontWeight='bold'>
-                                Profile Informations
-                            </Text>
+                        <CardHeader>
+                            <Box p='12px 5px' mb='12px'>
+                                <Heading>
+                                    Profile Informations
+                                </Heading>
+                            </Box>
                         </CardHeader>
                         <CardBody px='5px'>
                             <Flex direction='column' >
@@ -197,7 +199,7 @@ function ProfileInfoSeller() {
                                 </Text>
                             </CardHeader>
                             <CardBody h="173px">
-                                
+
                             </CardBody>
 
                             <Button>Save</Button>

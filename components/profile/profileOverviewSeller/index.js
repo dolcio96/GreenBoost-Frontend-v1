@@ -209,22 +209,6 @@ function ProfileOverviewSeller({ userInfo }) {
 
                 )
               })}
-              {userInfo.buyers.map((buyer, index) => {
-                return (
-                  <BuyerRow
-                    key={index}
-                    buyer={buyer} />
-
-                )
-              })}
-              {userInfo.buyers.map((buyer, index) => {
-                return (
-                  <BuyerRow
-                    key={index}
-                    buyer={buyer} />
-
-                )
-              })}
             </Grid>
           </Box>
         </Box>
