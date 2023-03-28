@@ -82,7 +82,7 @@ function ProjectRow({ project }) {
                 />
             </Tooltip>
 
-            <Grid templateColumns={{ sm: "1fr", md: "repeat(2, 1fr)", xl: "repeat(4, 1fr)" }} gap='22px' justifyContent={"center"}>
+            <Grid templateColumns={{ sm: "1fr", md: "repeat(3, 1fr)", xl: "repeat(5, 1fr)" }} gap='22px' justifyContent={"center"}>
                 <Box>
                     <Flex direction='column' align='center'>
                         <TitleComponent title="Project Name" />
@@ -108,15 +108,21 @@ function ProjectRow({ project }) {
 
                 <Box>
                     <Flex direction='column' align='center'>
-                        <TitleComponent title="Quantity" />
+                        <TitleComponent title="Total CC" />
                         <ElementComponent><Text fontSize={20}>{project.carbon_credits.length} CC</Text></ElementComponent>
                     </Flex>
                 </Box>
 
+                <Box>
+                    <Flex direction='column' align='center'>
+                        <TitleComponent title="Remaining CC" />
+                        <ElementComponent><Text fontSize={20}>{project.carbon_credits.length} CC</Text></ElementComponent>
+                    </Flex>
+                </Box>
 
                 <Box>
                     <Flex direction='column' align='center'>
-                        <TitleComponent title="More Info" />
+                        <TitleComponent title="Show Project" />
                         <ElementComponent><a href={'/projects/' + project.id}><ExternalLinkIcon boxSize={8} cursor={"pointer"} /></a></ElementComponent>
                     </Flex>
                 </Box>
@@ -129,7 +135,7 @@ function ProjectRow({ project }) {
 
                     <Box>
                         <Flex direction='column' align='center'>
-                            <TitleComponent title="Date" />
+                            <TitleComponent title="Start Validity Date" />
                             <ElementComponent><Text fontSize={20}>{formatDate(project.update_timestamp)}</Text></ElementComponent>
                         </Flex>
                     </Box>
