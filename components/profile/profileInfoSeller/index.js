@@ -30,7 +30,7 @@ const TextDesc = ({ children }) => {
 };
 
 const TextValue = ({ children }) => {
-    return <Text w={{ md: "50%" }} color="gray.400" mt={"9px"}  mb='18px' mr={{ sm: "0px", md: "20px" }}>{children}</Text>;
+    return <Text  color="gray.400" mt={"9px"}  mb='18px' >{children}</Text>;
 };
 
 
@@ -54,7 +54,7 @@ function ProfileInfoSeller() {
                             </Box>
                         </CardHeader>
                         <CardBody px='5px'>
-                            <Grid templateColumns={{ sm: "1fr", xl: "repeat(2, 1fr)" }} gap='10px'>
+                            <Grid templateColumns={{ base: "1fr", xl: "repeat(2, 1fr)" }} gap='10px'>
                                 <FlexContainerIB>
                                     <TextDesc>Company Name:</TextDesc>
                                     <TextValue>{session?.user.company.company_name}</TextValue>
@@ -66,7 +66,7 @@ function ProfileInfoSeller() {
                                 </FlexContainerIB>
                                 <FlexContainerIB>
                                     <TextDesc>Street Address:</TextDesc>
-                                    <TextValue>{session?.user.company.customer.email}</TextValue>
+                                    <TextValue>{session?.user.company.customer.customer_address}</TextValue>
                                 </FlexContainerIB>
                                 <FlexContainerIB>
                                     <TextDesc>City:</TextDesc>
