@@ -4,6 +4,7 @@ import Layout from "@components/layout"
 import Head from "@components/head"
 import AboutUsComponet from "@components/aboutus"
 
+
 export default function AboutUs() {
  
     return (
