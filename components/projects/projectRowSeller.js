@@ -16,7 +16,7 @@ import {
 
 import React, { useState } from "react";
 import BuyersTableComponent from "@components/table"
-
+import {formatDate} from "@lib/parser"
 // Custom components
 
 import { ChevronDownIcon, ChevronUpIcon, ExternalLinkIcon } from '@chakra-ui/icons'
@@ -130,7 +130,7 @@ function ProjectRow({ project }) {
                     <Box>
                         <Flex direction='column' align='center'>
                             <TitleComponent title="Date" />
-                            <ElementComponent><Text fontSize={20}>{project.update_timestamp }</Text></ElementComponent>
+                            <ElementComponent><Text fontSize={20}>{formatDate(project.update_timestamp)}</Text></ElementComponent>
                         </Flex>
                     </Box>
 

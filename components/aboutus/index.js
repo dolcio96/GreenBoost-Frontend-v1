@@ -23,6 +23,7 @@ import { useSession } from "next-auth/react"
 import React, { useState } from "react";
 import ProjectRowSellerComponent from "@components/projects/projectRowSeller"
 import dynamic from 'next/dynamic';
+
 const ApexCharts = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 const Icons = [<EolicIcon key={1} size={36} />, <TrashIcon key={2} size={36} />, <BambooIcon key={3} size={36} />,
@@ -83,7 +84,6 @@ const projects2 = [
 
 function AboutUs() {
     const chartOptions = setChartOptions()
-
     return (
         <>
             <Box minH={"80vh"}>
