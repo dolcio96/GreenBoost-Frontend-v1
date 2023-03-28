@@ -211,7 +211,7 @@ const Buy = ({projects}) => {
 
 
             <SimpleGrid columns={{ base: 3, lg: 3, md: 2, sm: 1 }} gap={5} mx={"10%"}>
-                {projects.map(project => <ProjectCardComponent key={project.id} {...project} />)}
+                {projects.map(project => <ProjectCardComponent key={project.id} project={project} />)}
             </SimpleGrid>
 
         </>)
