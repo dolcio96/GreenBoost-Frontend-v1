@@ -5,128 +5,38 @@ import {
     Box,
     Button,
     Flex,
-    Grid,
-    Icon,
     Center,
+    Grid,
+    Image,
     Text,
     useColorMode,
     useColorModeValue,
     Heading,
-    color
+    GridItem,
+    VStack,
+    useDisclosure,
+    Icon,
 } from "@chakra-ui/react";
-// public
-import avatar6 from "@public/Images/avatars/avatar4.png";
 
-// Custom components
-import Card from "@components/card/Card";
-import CardBody from "@components/card/CardBody";
-import CardHeader from "@components/card/CardHeader";
-import React from "react";
 import {
     FaPlus,
 } from "react-icons/fa";
 
-import ProjectCard from "@components/projects/projectCard"
+import Co2Icon from '@mui/icons-material/Co2';
+
+import { EolicIcon, TrashIcon, BambooIcon, NuclearIcon, ForestIcon, LeafIcon, ChemicalIcon } from "@lib/icons";
+import { useSession } from "next-auth/react"
+import React, { useState } from "react";
+import ProjectRowSellerComponent from "@components/projects/projectRowSeller"
 import dynamic from 'next/dynamic';
-import KPINumber from "@lib/KPInumber"
+const ApexCharts = dynamic(() => import('react-apexcharts'), { ssr: false });
 
+const Icons = [<EolicIcon key={1} size={36} />, <TrashIcon key={2} size={36} />, <BambooIcon key={3} size={36} />,
+<NuclearIcon key={4} size={36} />, <ForestIcon key={5} size={36} />, <LeafIcon key={6} size={36} />, <ChemicalIcon key={7} size={36} />]
 
+function setChartOptions(projects) {
 
-const BuyerRow = ({ buyer }) => {
-    return (<>
-        <Flex justifyContent='space-between' mb='21px'>
-            <Flex align='center'>
-                <Avatar
-                    src={avatar6.src}
-                    w='50px'
-                    h='50px'
-                    borderRadius='15px'
-                    me='10px'
-                    backdropBlur={'100%'}
-                    backgroundColor='transparent'
-
-                />
-                <Flex direction='column'>
-                    <Text fontSize='sm' color={"black"} fontWeight='bold'>
-                        Company: {buyer.company.company_name}
-                    </Text>
-                    <Text fontSize='xs' color='gray.400' fontWeight='400'>
-                        Quantity:
-                    </Text>
-                </Flex>
-            </Flex>
-        </Flex>
-    </>)
-}
-
-const Informations = () => {
-    const textColor = useColorModeValue("gray.700", "white");
-    const iconColor = useColorModeValue("blue.500", "white");
-    return (<>
-
-        <Box px='5px'>
-            <Flex direction='column'>
-                <Flex align='center' mb='18px'>
-                    <Text
-                        fontSize='md'
-                        color={textColor}
-                        fontWeight='bold'
-                        me='10px'>
-                        Full Name:{" "}
-                    </Text>
-                    <Text fontSize='md' color='gray.400' fontWeight='400'>
-                        mycompany
-                    </Text>
-                </Flex>
-                <Flex align='center' mb='18px'>
-                    <Text
-                        fontSize='md'
-                        color={textColor}
-                        fontWeight='bold'
-                        me='10px'>
-                        Mobile:{" "}
-                    </Text>
-                    <Text fontSize='md' color='gray.400' fontWeight='400'>
-                        (44) 123 1234 123
-                    </Text>
-                </Flex>
-                <Flex align='center' mb='18px'>
-                    <Text
-                        fontSize='md'
-                        color={textColor}
-                        fontWeight='bold'
-                        me='10px'>
-                        Email:{" "}
-                    </Text>
-                    <Text fontSize='md' color='gray.400' fontWeight='400'>
-                        username@mycompany.com
-                    </Text>
-                </Flex>
-                <Flex align='center' mb='18px'>
-                    <Text
-                        fontSize='md'
-                        color={textColor}
-                        fontWeight='bold'
-                        me='10px'>
-                        Location:{" "}
-                    </Text>
-                    <Text fontSize='md' color='gray.400' fontWeight='400'>
-                        United States
-                    </Text>
-                </Flex>
-                <Flex align='center' mb='18px'>
-
-                </Flex>
-            </Flex>
-
-        </Box>
-    </>)
-}
-
-function AboutUs() {
-
-    const ApexCharts = dynamic(() => import('react-apexcharts'), { ssr: false });
-    const chartOptions = {
+    var chartOpts = {
 
         series: [44, 55, 13],
         options: {
@@ -134,7 +44,7 @@ function AboutUs() {
                 width: 380,
                 type: 'pie',
             },
-            labels: ['Project 1', 'Project 2', 'Project 3'],
+            labels: ['Forestry', 'Heolic', 'Other'],
             responsive: [{
                 breakpoint: 480,
                 options: {
@@ -150,121 +60,64 @@ function AboutUs() {
 
 
     };
-    const { colorMode } = useColorMode();
 
-    // Chakra color mode
-    const textColor = useColorModeValue("gray.700", "white");
+    return chartOpts;
+}
+
+
+function ProfileProjectsSeller({ userInfo }) {
+    var { data: session, status } = useSession()
+    // console.log("INFO")
+    // console.log(userInfo)
+    // console.log(status)
+
+    const chartOptions = setChartOptions()
 
     return (
         <>
-            <Flex direction='column' bg="tertiary">
-                <Grid templateColumns={{ sm: "1fr", xl: "repeat(3, 1fr)" }} gap='22px' >
-                    <Box p='16px'>
-                        <Box p='12px 5px' mb='12px'>
-                            <Heading>
-                                Stats
-                            </Heading>
-                        </Box>
+            <Box minH={"80vh"}>
+                <Center>
+                    <Heading my={3} color="primary" fontSize={50}>Project Seller</Heading>
+                </Center>
+                <Grid templateColumns={{ base: "1fr", lg: "repeat(3, 1fr)" }} gap='22px' justifyContent={"center"}>
+                    <GridItem colSpan={{ base: 3, lg: 2 }} justifyContent={"center"}>
+                        <p>riga</p>
+                        <p>riga</p>
+                        <p>riga</p>
+                    </GridItem>
+                    <GridItem colSpan={{ base: 3, lg: 1 }} justifyContent={"center"}>
                         <Center>
-                            <Box w="80%" >
-                                <Box bg="tertiary" boxShadow='1px 2px 15px #588157' borderRadius="15px" mb="10px" p="5px" >
-                                    <Text fontWeight={'bold'} fontSize={"xl"}>Total Sales</Text>
-                                    <Flex direction='column' >
-                                        <KPINumber n={100} dly={200} lbl={"$"} fontSize={"5xl"} />
-                                        <KPINumber n={100} dly={200} lbl={"CC"} fontSize={"5xl"} />
+                            <Flex direction={"column"}>
+                                <ApexCharts options={chartOptions.options} series={chartOptions.series} type="pie" width={500} />
+                                <Button
+                                    w={"90%"}
+                                    color={"black"}
+                                    as={"a"}
+                                    href={"/createproject"}
+                                    p='0px'
+                                    bg='transparent'
+                                    border='1px solid lightgray'
+                                    borderRadius='15px'
+                                    minHeight={{ sm: "200px", md: "200px" }}
+                                    _hover={{
+                                        bg: "primary",
+                                        textColor: "tertiary"
+                                    }}>
+                                    <Flex direction='column' justifyContent='center' align='center'>
+                                        <Co2Icon fontSize="large"/>
+                                        <Text fontSize='lg' fontWeight='bold'>
+                                           Other projects? Certify Them through us!
+                                        </Text>
                                     </Flex>
-                                </Box>
-                                <Box bg="tertiary" boxShadow='1px 2px 5px #588157' borderRadius="15px" p="5px">
-                                    <Text fontWeight={'bold'} fontSize={"xl"}>Remains</Text>
-                                    <Flex direction='column'  >
-                                        <KPINumber n={100} dly={200} lbl={"All projects"} fontSize={"5xl"} />
-                                        <KPINumber n={29} dly={1200} lbl={"Project 1 "} fontSize={"3xl"} />
-                                        <KPINumber n={71} dly={1200} lbl={"Project 2 "} fontSize={"3xl"} />
-                                    </Flex>
-                                </Box>
-                            </Box>
-
+                                </Button>
+                            </Flex>
                         </Center>
-                    </Box>
+                    </GridItem>
 
-                    <Box p='16px' my={{ sm: "24px", xl: "0px" }}>
-
-                        {/* <Informations /> */}
-                        <Center >
-                            <Box w="80%">
-                                <Text fontWeight={'bold'} fontSize={"xl"}>% Sold</Text>
-                                <Center>
-                                    <ApexCharts options={chartOptions.options} series={chartOptions.series} type="pie" width={500} />
-                                </Center>
-                            </Box>
-                        </Center>
-                    </Box>
-
-
-                    <Box p='16px'>
-                        <Box p='12px 5px' mb='12px'>
-                            <Heading>
-                                Interactions
-                            </Heading>
-                        </Box>
-                        <Box px='5px'>
-                            <Grid templateColumns={{ base: "1fr", sm: "repeat(3, 1fr)", xl: "1fr" }} gap={{ md: '22px', xl: '10px' }} >
-
-                            </Grid>
-                        </Box>
-                    </Box>
                 </Grid>
-
-
-                <Card p='16px'>
-                    <CardHeader p='12px 5px' mb='12px'>
-                        <Flex direction='column'>
-                            <Heading color={textColor} fontWeight='bold'>
-                                Projects
-                            </Heading>
-                            <Text fontSize='sm' color='gray.400' fontWeight='400'>
-                                My Projects
-                            </Text>
-                        </Flex>
-                    </CardHeader>
-                    <CardBody px='5px'>
-                        <Grid
-                            templateColumns={{ sm: "1fr", md: "1fr 1fr", xl: "repeat(4, 1fr)" }}
-                            templateRows={{ sm: "1fr 1fr 1fr auto", md: "1fr 1fr", xl: "1fr" }}
-                            gap='24px'>
-
-
-
-                            <Button
-                                color={textColor}
-                                as={"a"}
-                                href={"/createproject"}
-                                p='0px'
-                                bg='transparent'
-                                border='1px solid lightgray'
-                                borderRadius='15px'
-                                minHeight={{ sm: "200px", md: "100%" }}
-                                _hover={{
-                                    bg: "secondary",
-                                    textColor: "tertiary"
-                                }}>
-                                <Flex direction='column' justifyContent='center' align='center'>
-                                    <Icon as={FaPlus} fontSize='lg' mb='12px' />
-                                    <Text fontSize='lg' fontWeight='bold'>
-                                        Create a New Project
-                                    </Text>
-                                </Flex>
-                            </Button>
-
-                        </Grid>
-                    </CardBody>
-                </Card>
-
-            </Flex>
-            <Box>
-
-            </Box></>
+            </Box>
+        </>
     );
 }
 
-export default AboutUs;
+export default ProfileProjectsSeller;

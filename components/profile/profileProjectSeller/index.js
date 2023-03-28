@@ -23,6 +23,7 @@ import { useSession } from "next-auth/react"
 import React, { useState } from "react";
 import ProjectRowSellerComponent from "@components/projects/projectRowSeller"
 import dynamic from 'next/dynamic';
+import Co2Icon from '@mui/icons-material/Co2';
 const ApexCharts = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 const Icons = [<EolicIcon key={1} size={36} />, <TrashIcon key={2} size={36} />, <BambooIcon key={3} size={36} />,
@@ -61,10 +62,10 @@ function setChartOptions(projects) {
 
 function ProfileProjectsSeller({ userInfo }) {
     var { data: session, status } = useSession()
-   // console.log("INFO")
-   // console.log(userInfo)
-   // console.log(status)
- 
+    // console.log("INFO")
+    // console.log(userInfo)
+    // console.log(status)
+
     const chartOptions = setChartOptions(userInfo.projects)
 
     return (
@@ -104,7 +105,30 @@ function ProfileProjectsSeller({ userInfo }) {
                     </GridItem>
                     <GridItem colSpan={{ base: 3, lg: 1 }} justifyContent={"center"}>
                         <Center>
-                            <ApexCharts options={chartOptions.options} series={chartOptions.series} type="pie" width={500} />
+                            <Flex direction={"column"}>
+                                <ApexCharts options={chartOptions.options} series={chartOptions.series} type="pie" width={500} />
+                                <Button
+                                    w={"90%"}
+                                    color={"black"}
+                                    as={"a"}
+                                    href={"/createproject"}
+                                    p='0px'
+                                    bg='transparent'
+                                    border='1px solid lightgray'
+                                    borderRadius='15px'
+                                    minHeight={{ sm: "200px", md: "200px" }}
+                                    _hover={{
+                                        bg: "primary",
+                                        textColor: "tertiary"
+                                    }}>
+                                    <Flex direction='column' justifyContent='center' align='center'>
+                                        <Co2Icon fontSize="large" />
+                                        <Text fontSize='lg' fontWeight='bold'>
+                                            Other projects? Certify Them through us!
+                                        </Text>
+                                    </Flex>
+                                </Button>
+                            </Flex>
                         </Center>
                     </GridItem>
 
