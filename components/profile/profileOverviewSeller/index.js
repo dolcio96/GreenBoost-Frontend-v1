@@ -172,13 +172,13 @@ function ProfileOverviewSeller({ userInfo }) {
                 <KPINumber n={100} dly={200} lbl={"CC"} fontSize={"5xl"} />
               </Flex>
               <Text fontWeight={'bold'} fontSize={"xl"}>Remains</Text>
-              <Center>
-                <Flex direction='column'  >
-                  <KPINumber n={100} dly={200} lbl={"All projects"} fontSize={"5xl"} />
-                  <KPINumber n={29} dly={1200} lbl={"Project 1 "} fontSize={"3xl"} />
-                  <KPINumber n={71} dly={1200} lbl={"Project 2 "} fontSize={"3xl"} />
-                </Flex>
-              </Center>
+
+              <Flex direction='column'  >
+                <KPINumber n={100} dly={200} lbl={"All projects"} fontSize={"5xl"} />
+                <KPINumber n={29} dly={1200} lbl={"Project 1 "} fontSize={"3xl"} />
+                <KPINumber n={71} dly={1200} lbl={"Project 2 "} fontSize={"3xl"} />
+              </Flex>
+
             </Box>
 
           </Center>
