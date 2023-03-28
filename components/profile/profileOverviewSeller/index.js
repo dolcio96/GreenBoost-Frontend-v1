@@ -166,19 +166,21 @@ function ProfileOverviewSeller({ userInfo }) {
           </Box>
           <Center>
             <Box w="80%">
-              <Text fontWeight={'bold'} fontSize={"xl"}>Total Sales</Text>
-              <Flex direction='column'  >
-                <KPINumber n={100} dly={200} lbl={"$"} fontSize={"5xl"} />
-                <KPINumber n={100} dly={200} lbl={"CC"} fontSize={"5xl"} />
-              </Flex>
-              <Text fontWeight={'bold'} fontSize={"xl"}>Remains</Text>
-
-              <Flex direction='column'  >
-                <KPINumber n={100} dly={200} lbl={"All projects"} fontSize={"5xl"} />
-                <KPINumber n={29} dly={1200} lbl={"Project 1 "} fontSize={"3xl"} />
-                <KPINumber n={71} dly={1200} lbl={"Project 2 "} fontSize={"3xl"} />
-              </Flex>
-
+              <Box border="1px" borderColor="gray.400" backgroundColor="white" boxShadow='1px 2px 9px #F4AAB9' borderRadius="20px" mb="10px" p="5px" >
+                <Text fontWeight={'bold'} fontSize={"xl"}>Total Sales</Text>
+                <Flex direction='column' >
+                  <KPINumber n={100} dly={200} lbl={"$"} fontSize={"5xl"} />
+                  <KPINumber n={100} dly={200} lbl={"CC"} fontSize={"5xl"} />
+                </Flex>
+              </Box>
+              <Box border="1px" borderColor="gray.400" backgroundColor="white" boxShadow='1px 2px 9px #F4AAB9' borderRadius="20px" p="5px">
+                <Text fontWeight={'bold'} fontSize={"xl"}>Remains</Text>
+                <Flex direction='column'  >
+                  <KPINumber n={100} dly={200} lbl={"All projects"} fontSize={"5xl"} />
+                  <KPINumber n={29} dly={1200} lbl={"Project 1 "} fontSize={"3xl"} />
+                  <KPINumber n={71} dly={1200} lbl={"Project 2 "} fontSize={"3xl"} />
+                </Flex>
+              </Box>
             </Box>
 
           </Center>
