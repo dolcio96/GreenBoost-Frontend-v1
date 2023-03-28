@@ -57,29 +57,28 @@ function ProfileInfoSeller() {
                             <Grid templateColumns={{ sm: "1fr", xl: "repeat(2, 1fr)" }} gap='10px'>
                                 <FlexContainerIB>
                                     <TextDesc>Company Name:</TextDesc>
-                                    <TextValue>Company Name</TextValue>
+                                    <TextValue>{session?.user.company.company_name}</TextValue>
                                     {/* <Input align='center' mb='18px' mr='10px' variant='flushed' placeholder='Company Name' readonly="true" _focus={{ border: "none" }} border="none" />*/}
                                 </FlexContainerIB>
                                 <FlexContainerIB>
                                     <TextDesc>Email Address:</TextDesc>
-                                    <TextValue>Email Address</TextValue>
+                                    <TextValue>{session?.user.company.customer.email}</TextValue>
                                 </FlexContainerIB>
                                 <FlexContainerIB>
                                     <TextDesc>Street Address:</TextDesc>
-                                    <TextValue>Street Address</TextValue>
+                                    <TextValue>{session?.user.company.customer.email}</TextValue>
                                 </FlexContainerIB>
-
+                                <FlexContainerIB>
+                                    <TextDesc>City:</TextDesc>
+                                    <TextValue>{session?.user.company.customer.city.country.country_name}</TextValue>
+                                </FlexContainerIB>
                                 <FlexContainerIB>
                                     <TextDesc>Country:</TextDesc>
-                                    <TextValue>Country</TextValue>
-                                </FlexContainerIB>
-                                <FlexContainerIB>
-                                    <TextDesc>State:</TextDesc>
-                                    <TextValue>State</TextValue>
+                                    <TextValue>{session?.user.company.customer.city.city_name}</TextValue>
                                 </FlexContainerIB>
                                 <FlexContainerIB>
                                     <TextDesc>TAX Number:</TextDesc>
-                                    <TextValue>TAX Number</TextValue>
+                                    <TextValue>{session?.user.company.tax_number}</TextValue>
                                 </FlexContainerIB>
                                 <FlexContainerIB>
                                     <TextDesc>Identity Status:</TextDesc>
