@@ -130,7 +130,7 @@ function ProjectRow({ project }) {
                     <Box>
                         <Flex direction='column' align='center'>
                             <TitleComponent title="Date" />
-                            <ElementComponent><Text fontSize={20}>{project.update_timestamp}</Text></ElementComponent>
+                            <ElementComponent><Text fontSize={20}>{project.update_timestamp.format('D/MM/YYYY')}</Text></ElementComponent>
                         </Flex>
                     </Box>
 
