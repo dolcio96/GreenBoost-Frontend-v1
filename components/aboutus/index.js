@@ -12,7 +12,7 @@ import {
     useColorMode,
     useColorModeValue,
     Heading,
-    color,
+    color
 } from "@chakra-ui/react";
 // public
 import avatar6 from "@public/Images/avatars/avatar4.png";
@@ -156,109 +156,114 @@ function AboutUs() {
     const textColor = useColorModeValue("gray.700", "white");
 
     return (
-        <Flex direction='column' bg="tertiary">
-            <Grid templateColumns={{ sm: "1fr", xl: "repeat(3, 1fr)" }} gap='22px' >
-                <Box p='16px'>
-                    <Box p='12px 5px' mb='12px'>
-                        <Heading>
-                            Stats
-                        </Heading>
-                    </Box>
-                    <Center>
-                        <Box w="80%" >
-                            <Box  bg="tertiary" boxShadow='1px 2px 15px #588157' borderRadius="15px" mb="10px" p="5px" >
-                                <Text fontWeight={'bold'} fontSize={"xl"}>Total Sales</Text>
-                                <Flex direction='column' >
-                                    <KPINumber n={100} dly={200} lbl={"$"} fontSize={"5xl"} />
-                                    <KPINumber n={100} dly={200} lbl={"CC"} fontSize={"5xl"} />
-                                </Flex>
-                            </Box>
-                            <Box bg="tertiary" boxShadow='1px 2px 5px #588157' borderRadius="15px"  p="5px">
-                                <Text fontWeight={'bold'} fontSize={"xl"}>Remains</Text>
-                                <Flex direction='column'  >
-                                    <KPINumber n={100} dly={200} lbl={"All projects"} fontSize={"5xl"} />
-                                    <KPINumber n={29} dly={1200} lbl={"Project 1 "} fontSize={"3xl"} />
-                                    <KPINumber n={71} dly={1200} lbl={"Project 2 "} fontSize={"3xl"} />
-                                </Flex>
-                            </Box>
+        <>
+            <Flex direction='column' bg="tertiary">
+                <Grid templateColumns={{ sm: "1fr", xl: "repeat(3, 1fr)" }} gap='22px' >
+                    <Box p='16px'>
+                        <Box p='12px 5px' mb='12px'>
+                            <Heading>
+                                Stats
+                            </Heading>
                         </Box>
+                        <Center>
+                            <Box w="80%" >
+                                <Box bg="tertiary" boxShadow='1px 2px 15px #588157' borderRadius="15px" mb="10px" p="5px" >
+                                    <Text fontWeight={'bold'} fontSize={"xl"}>Total Sales</Text>
+                                    <Flex direction='column' >
+                                        <KPINumber n={100} dly={200} lbl={"$"} fontSize={"5xl"} />
+                                        <KPINumber n={100} dly={200} lbl={"CC"} fontSize={"5xl"} />
+                                    </Flex>
+                                </Box>
+                                <Box bg="tertiary" boxShadow='1px 2px 5px #588157' borderRadius="15px" p="5px">
+                                    <Text fontWeight={'bold'} fontSize={"xl"}>Remains</Text>
+                                    <Flex direction='column'  >
+                                        <KPINumber n={100} dly={200} lbl={"All projects"} fontSize={"5xl"} />
+                                        <KPINumber n={29} dly={1200} lbl={"Project 1 "} fontSize={"3xl"} />
+                                        <KPINumber n={71} dly={1200} lbl={"Project 2 "} fontSize={"3xl"} />
+                                    </Flex>
+                                </Box>
+                            </Box>
 
-                    </Center>
-                </Box>
-
-                <Box p='16px' my={{ sm: "24px", xl: "0px" }}>
-
-                    {/* <Informations /> */}
-                    <Center >
-                        <Box w="80%">
-                            <Text fontWeight={'bold'} fontSize={"xl"}>% Sold</Text>
-                            <Center>
-                                <ApexCharts options={chartOptions.options} series={chartOptions.series} type="pie" width={500} />
-                            </Center>
-                        </Box>
-                    </Center>
-                </Box>
-
-
-                <Box p='16px'>
-                    <Box p='12px 5px' mb='12px'>
-                        <Heading>
-                            Interactions
-                        </Heading>
+                        </Center>
                     </Box>
-                    <Box px='5px'>
-                        <Grid templateColumns={{ base: "1fr", sm: "repeat(3, 1fr)", xl: "1fr" }} gap={{ md: '22px', xl: '10px' }} >
+
+                    <Box p='16px' my={{ sm: "24px", xl: "0px" }}>
+
+                        {/* <Informations /> */}
+                        <Center >
+                            <Box w="80%">
+                                <Text fontWeight={'bold'} fontSize={"xl"}>% Sold</Text>
+                                <Center>
+                                    <ApexCharts options={chartOptions.options} series={chartOptions.series} type="pie" width={500} />
+                                </Center>
+                            </Box>
+                        </Center>
+                    </Box>
+
+
+                    <Box p='16px'>
+                        <Box p='12px 5px' mb='12px'>
+                            <Heading>
+                                Interactions
+                            </Heading>
+                        </Box>
+                        <Box px='5px'>
+                            <Grid templateColumns={{ base: "1fr", sm: "repeat(3, 1fr)", xl: "1fr" }} gap={{ md: '22px', xl: '10px' }} >
+
+                            </Grid>
+                        </Box>
+                    </Box>
+                </Grid>
+
+
+                <Card p='16px'>
+                    <CardHeader p='12px 5px' mb='12px'>
+                        <Flex direction='column'>
+                            <Heading color={textColor} fontWeight='bold'>
+                                Projects
+                            </Heading>
+                            <Text fontSize='sm' color='gray.400' fontWeight='400'>
+                                My Projects
+                            </Text>
+                        </Flex>
+                    </CardHeader>
+                    <CardBody px='5px'>
+                        <Grid
+                            templateColumns={{ sm: "1fr", md: "1fr 1fr", xl: "repeat(4, 1fr)" }}
+                            templateRows={{ sm: "1fr 1fr 1fr auto", md: "1fr 1fr", xl: "1fr" }}
+                            gap='24px'>
+
+
+
+                            <Button
+                                color={textColor}
+                                as={"a"}
+                                href={"/createproject"}
+                                p='0px'
+                                bg='transparent'
+                                border='1px solid lightgray'
+                                borderRadius='15px'
+                                minHeight={{ sm: "200px", md: "100%" }}
+                                _hover={{
+                                    bg: "secondary",
+                                    textColor: "tertiary"
+                                }}>
+                                <Flex direction='column' justifyContent='center' align='center'>
+                                    <Icon as={FaPlus} fontSize='lg' mb='12px' />
+                                    <Text fontSize='lg' fontWeight='bold'>
+                                        Create a New Project
+                                    </Text>
+                                </Flex>
+                            </Button>
 
                         </Grid>
-                    </Box>
-                </Box>
-            </Grid>
+                    </CardBody>
+                </Card>
 
+            </Flex>
+            <Box>
 
-            <Card p='16px'>
-                <CardHeader p='12px 5px' mb='12px'>
-                    <Flex direction='column'>
-                        <Heading color={textColor} fontWeight='bold'>
-                            Projects
-                        </Heading>
-                        <Text fontSize='sm' color='gray.400' fontWeight='400'>
-                            My Projects
-                        </Text>
-                    </Flex>
-                </CardHeader>
-                <CardBody px='5px'>
-                    <Grid
-                        templateColumns={{ sm: "1fr", md: "1fr 1fr", xl: "repeat(4, 1fr)" }}
-                        templateRows={{ sm: "1fr 1fr 1fr auto", md: "1fr 1fr", xl: "1fr" }}
-                        gap='24px'>
-
-
-
-                        <Button
-                            color={textColor}
-                            as={"a"}
-                            href={"/createproject"}
-                            p='0px'
-                            bg='transparent'
-                            border='1px solid lightgray'
-                            borderRadius='15px'
-                            minHeight={{ sm: "200px", md: "100%" }}
-                            _hover={{
-                                bg: "secondary",
-                                textColor: "tertiary"
-                            }}>
-                            <Flex direction='column' justifyContent='center' align='center'>
-                                <Icon as={FaPlus} fontSize='lg' mb='12px' />
-                                <Text fontSize='lg' fontWeight='bold'>
-                                    Create a New Project
-                                </Text>
-                            </Flex>
-                        </Button>
-
-                    </Grid>
-                </CardBody>
-            </Card>
-        </Flex>
+            </Box></>
     );
 }
 
