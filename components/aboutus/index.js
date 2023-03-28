@@ -156,7 +156,7 @@ function AboutUs() {
     const textColor = useColorModeValue("gray.700", "white");
 
     return (
-        <Flex direction='column'>
+        <Flex direction='column' bg="tertiary">
             <Grid templateColumns={{ sm: "1fr", xl: "repeat(3, 1fr)" }} gap='22px' >
                 <Box p='16px'>
                     <Box p='12px 5px' mb='12px'>
@@ -166,14 +166,14 @@ function AboutUs() {
                     </Box>
                     <Center>
                         <Box w="80%" >
-                            <Box border="1px" borderColor="gray.400" bg="tertiary" boxShadow='1px 2px 9px #588157' borderRadius="15px" mb="10px" p="5px" >
+                            <Box  bg="tertiary" boxShadow='1px 2px 15px #588157' borderRadius="15px" mb="10px" p="5px" >
                                 <Text fontWeight={'bold'} fontSize={"xl"}>Total Sales</Text>
                                 <Flex direction='column' >
                                     <KPINumber n={100} dly={200} lbl={"$"} fontSize={"5xl"} />
                                     <KPINumber n={100} dly={200} lbl={"CC"} fontSize={"5xl"} />
                                 </Flex>
                             </Box>
-                            <Box border="1px" borderColor="gray.400" bg="tertiary" boxShadow='1px 2px 9px #588157' borderRadius="15px"  p="5px">
+                            <Box bg="tertiary" boxShadow='1px 2px 5px #588157' borderRadius="15px"  p="5px">
                                 <Text fontWeight={'bold'} fontSize={"xl"}>Remains</Text>
                                 <Flex direction='column'  >
                                     <KPINumber n={100} dly={200} lbl={"All projects"} fontSize={"5xl"} />
