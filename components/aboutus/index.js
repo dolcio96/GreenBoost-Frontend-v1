@@ -88,28 +88,32 @@ function ProfileProjectsSeller({ userInfo }) {
                     <GridItem colSpan={{ base: 3, lg: 1 }} justifyContent={"center"}>
                         <Center>
                             <Flex direction={"column"}>
-                                <ApexCharts options={chartOptions.options} series={chartOptions.series} type="pie" width={500} />
-                                <Button
-                                    w={"90%"}
-                                    color={"black"}
-                                    as={"a"}
-                                    href={"/createproject"}
-                                    p='0px'
-                                    bg='transparent'
-                                    border='1px solid lightgray'
-                                    borderRadius='15px'
-                                    minHeight={{ sm: "200px", md: "200px" }}
-                                    _hover={{
-                                        bg: "primary",
-                                        textColor: "tertiary"
-                                    }}>
-                                    <Flex direction='column' justifyContent='center' align='center'>
-                                        <Co2Icon fontSize="large"/>
-                                        <Text fontSize='lg' fontWeight='bold'>
-                                           Other projects? Certify Them through us!
-                                        </Text>
-                                    </Flex>
-                                </Button>
+                                <Center>
+                                    <ApexCharts options={chartOptions.options} series={chartOptions.series} type="pie" width={500} />
+                                </Center>
+                                <Center>
+                                    <Button
+                                        w={"90%"}
+                                        color={"black"}
+                                        as={"a"}
+                                        href={"/createproject"}
+                                        p='0px'
+                                        bg='transparent'
+                                        border='1px solid lightgray'
+                                        borderRadius='15px'
+                                        minHeight={{ sm: "200px", md: "200px" }}
+                                        _hover={{
+                                            bg: "primary",
+                                            textColor: "tertiary"
+                                        }}>
+                                        <Flex direction='column' justifyContent='center' align='center'>
+                                            <Co2Icon fontSize="large" />
+                                            <Text fontSize='lg' fontWeight='bold'>
+                                                Other projects? Certify Them through us!
+                                            </Text>
+                                        </Flex>
+                                    </Button>
+                                </Center>
                             </Flex>
                         </Center>
                     </GridItem>
