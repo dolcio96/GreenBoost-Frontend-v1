@@ -166,13 +166,11 @@ function ProfileOverviewSeller({ userInfo }) {
           </Box>
           <Center>
             <Box w="80%">
-            <Text fontWeight={'bold'} fontSize={"xl"}>Total Sales</Text>
-              <Center>
-                <Flex direction='column'  >
-                  <KPINumber n={100} dly={200} lbl={"CC"} fontSize={"5xl"} />
-                  <KPINumber n={100} dly={200} lbl={"$"} fontSize={"5xl"} />
-                </Flex>
-              </Center>
+              <Text fontWeight={'bold'} fontSize={"xl"}>Total Sales</Text>
+              <Flex direction='column'  >
+                <KPINumber n={100} dly={200} lbl={"$"} fontSize={"5xl"} />
+                <KPINumber n={100} dly={200} lbl={"CC"} fontSize={"5xl"} />
+              </Flex>
               <Text fontWeight={'bold'} fontSize={"xl"}>Remains</Text>
               <Center>
                 <Flex direction='column'  >
