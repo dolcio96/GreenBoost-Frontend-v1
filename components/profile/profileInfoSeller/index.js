@@ -15,6 +15,7 @@ import {
     Center,
     useColorModeValue,
 } from "@chakra-ui/react";
+import { useSession } from "next-auth/react"
 import Card from "@components/card/Card";
 import CardBody from "@components/card/CardBody";
 import CardHeader from "@components/card/CardHeader";
@@ -24,12 +25,21 @@ const FlexContainerIB = ({ children }) => {
     return <Flex direction={{ sm: "column" }}>{children}</Flex>;
 };
 
-const TextIB = ({ children }) => {
+const TextDesc = ({ children }) => {
     return <Text w={{ md: "50%" }} fontWeight='bold' fontSize="15px" mr={{ sm: "0px", md: "20px" }}>{children}</Text>;
+};
+
+const TextValue = ({ children }) => {
+    return <Text w={{ md: "50%" }} color="gray.400" mt={"9px"}  mb='18px' mr={{ sm: "0px", md: "20px" }}>{children}</Text>;
 };
 
 
 function ProfileInfoSeller() {
+
+    var { data: session, status } = useSession()
+
+     console.log(status)
+     console.log(session)
     return (
         <>
             <Flex direction='column'  >
@@ -44,48 +54,38 @@ function ProfileInfoSeller() {
                             </Box>
                         </CardHeader>
                         <CardBody px='5px'>
-                            <Flex direction='column' >
+                            <Grid templateColumns={{ sm: "1fr", xl: "repeat(2, 1fr)" }} gap='10px'>
                                 <FlexContainerIB>
-                                    <TextIB>Password:</TextIB>
-                                    <Input align='center' mb='18px' mr='10px' variant='flushed' placeholder='Password' />
+                                    <TextDesc>Company Name:</TextDesc>
+                                    <TextValue>Company Name</TextValue>
+                                    {/* <Input align='center' mb='18px' mr='10px' variant='flushed' placeholder='Company Name' readonly="true" _focus={{ border: "none" }} border="none" />*/}
                                 </FlexContainerIB>
                                 <FlexContainerIB>
-                                    <TextIB>Repeat Password:</TextIB>
-                                    <Input align='center' mb='18px' mr='10px' variant='flushed' placeholder='Repeat Password' />
+                                    <TextDesc>Email Address:</TextDesc>
+                                    <TextValue>Email Address</TextValue>
                                 </FlexContainerIB>
                                 <FlexContainerIB>
-                                    <TextIB>Street Address:</TextIB>
-                                    <Input align='center' mb='18px' mr='10px' variant='flushed' placeholder='Street Address:' />
-                                </FlexContainerIB>
-                                <FlexContainerIB>
-                                    <TextIB>Country:</TextIB>
-                                    <Input align='center' mb='18px' mr='10px' variant='flushed' placeholder='Country' />
-                                </FlexContainerIB>
-                                <FlexContainerIB>
-                                    <TextIB>State:</TextIB>
-                                    <Input align='center' mb='18px' mr='10px' variant='flushed' placeholder='State' />
-                                </FlexContainerIB>
-                                <FlexContainerIB>
-                                    <TextIB>ZIP Code:</TextIB>
-                                    <Input align='center' mb='18px' mr='10px' variant='flushed' placeholder='ZIP code' />
+                                    <TextDesc>Street Address:</TextDesc>
+                                    <TextValue>Street Address</TextValue>
                                 </FlexContainerIB>
 
-                                {/* 
-                                <Input align='center' mb='18px' variant='flushed' placeholder='ZIP Code' />
-                                <Flex direction='row'>
-                                    <Input align='center' mb='18px' mr='10px' variant='flushed' placeholder='Country' />
-                                    <Input align='center' mb='18px' variant='flushed' placeholder='State' />
-                                </Flex>
-                                <Flex direction='row'>
-                                    <Input align='center' mb='18px' mr='10px' variant='flushed' placeholder='City' />
-                                    <Input align='center' mb='18px' variant='flushed' placeholder='ZIP Code' />
-                                </Flex>
-                                <Input align='center' mb='18px' variant='flushed' placeholder='Name' />*/}
-                                <Button>Save</Button>
-
-
-
-                            </Flex>
+                                <FlexContainerIB>
+                                    <TextDesc>Country:</TextDesc>
+                                    <TextValue>Country</TextValue>
+                                </FlexContainerIB>
+                                <FlexContainerIB>
+                                    <TextDesc>State:</TextDesc>
+                                    <TextValue>State</TextValue>
+                                </FlexContainerIB>
+                                <FlexContainerIB>
+                                    <TextDesc>TAX Number:</TextDesc>
+                                    <TextValue>TAX Number</TextValue>
+                                </FlexContainerIB>
+                                <FlexContainerIB>
+                                    <TextDesc>Identity Status:</TextDesc>
+                                    <TextValue>Verified</TextValue>
+                                </FlexContainerIB>
+                            </Grid>
                         </CardBody>
                     </Card>
                     <Card p='16px' my={{ sm: "24px", md: "0px" }} >
@@ -162,16 +162,16 @@ function ProfileInfoSeller() {
                                 <Box w={{ sm: "100%", md: "50%", lg: "50%" }} pl={{ md: "20px" }} mt={{ sm: "20px" }}>
                                     <Flex direction='column'>
                                         <FlexContainerIB>
-                                            <TextIB>Number:</TextIB>
+                                            <TextDesc>Number:</TextDesc>
                                             <Input align='center' mb='18px' mr='10px' variant='flushed' placeholder='Number' />
                                         </FlexContainerIB>
                                         <FlexContainerIB>  <Flex direction='row' >
                                             <Box w={{ sm: "100%" }}>
-                                                <TextIB>Name:</TextIB>
+                                                <TextDesc>Name:</TextDesc>
                                                 <Input align='center' mb='18px' mr='10px' variant='flushed' placeholder='Name' />
                                             </Box>
                                             <Box w={{ sm: "100%" }}>
-                                                <TextIB>Surname:</TextIB>
+                                                <TextDesc>Surname:</TextDesc>
                                                 <Input align='center' mb='18px' mr='10px' ml='10px' variant='flushed' placeholder='Surname' />
                                             </Box>
                                         </Flex>
@@ -179,11 +179,11 @@ function ProfileInfoSeller() {
 
                                         <FlexContainerIB>  <Flex direction='row' >
                                             <Box w={{ sm: "100%" }}>
-                                                <TextIB>Validity:</TextIB>
+                                                <TextDesc>Validity:</TextDesc>
                                                 <Input align='center' mb='18px' mr='10px' variant='flushed' placeholder='00/00' />
                                             </Box>
                                             <Box w={{ sm: "100%" }}>
-                                                <TextIB>CCV:</TextIB>
+                                                <TextDesc>CCV:</TextDesc>
                                                 <Input align='center' mb='18px' mr='10px' ml='10px' variant='flushed' placeholder='xxx' />
                                             </Box>
                                         </Flex>

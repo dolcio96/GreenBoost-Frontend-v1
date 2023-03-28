@@ -146,7 +146,12 @@ function ProjectRow({ project }) {
                             <ElementComponent><Text fontSize={20}>{"31/12/2022"}</Text></ElementComponent>
                         </Flex>
                     </Box>
-
+                    <Box>
+                        <Flex direction='column' align='center'>
+                            <TitleComponent title="Project Status" />
+                            <ElementComponent><Text fontSize={20}>{"Valid"}</Text></ElementComponent>
+                        </Flex>
+                    </Box>
 
                 </Grid>
 
