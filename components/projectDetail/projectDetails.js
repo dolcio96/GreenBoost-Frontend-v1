@@ -26,7 +26,7 @@ import ProjectDetailGalleryComponent from "./imgGalleryComponent"
 import Modal from "./modal"
 
 import { useRouter } from "next/router";
-
+import { useSession } from "next-auth/react"
 
 const ProjectDetails = (props) => {
     const project = props.project
@@ -36,6 +36,7 @@ const ProjectDetails = (props) => {
     const [quantity, setQuantity] = React.useState(n_available)
     const handleChange = (v) => setQuantity(v)
     const router = useRouter()
+    const { data: session, status } = useSession()
 
     function onBuyNow() {
         router.push({
@@ -109,44 +110,51 @@ const ProjectDetails = (props) => {
                         </Flex>
 
                     </Flex>
+                    {status == 'authenticated' && session?.user.customer_type == "buyer" ?
+                        <Flex
+                            w={{ sm: "100%", md: "35%", lg: "25%" }}
+                            minH="180px"
+                            direction="column"
+                            m="5px"
+                            p="5px"
+                            justifyContent={{ sm: "center", md: "space-around" }}
+                            textAlign={{ sm: "center", md: "start" }}
+                            boxShadow='0px 2px 5.5px rgba(0, 0, 0, 0.3)'
+                            backgroundColor="#EFEFEF"
+                            borderRadius={5}
+                        >
+                            <Flex direction="row" justifyContent="space-between">
+                                <Text>Price:</Text>
+                                <Text>{price} €/CC</Text>
+                            </Flex>
+                            <Flex direction="row" justifyContent="space-between">
+                                <Center><Text>Amount:</Text></Center>
+                                <NumberInput w='50%' variant="flushed" min={1} max={n_available} quantity={quantity} onChange={handleChange} >
+                                    <NumberInputField textAlign={'right'} />
+                                    <NumberInputStepper>
+                                        <NumberIncrementStepper />
+                                        <NumberDecrementStepper />
+                                    </NumberInputStepper>
+                                </NumberInput>
+                            </Flex>
+                            <Flex direction="row" justifyContent="space-between">
+                                <Text>Costs (10%):</Text>
+                                <Text>{(quantity * price * 0.1).toFixed(2)} €</Text>
+                            </Flex>
+                            <Divider />
+                            <Flex direction="row" justifyContent="space-between">
+                                <Text>Total:</Text>
+                                <Text>{(quantity * price * 1.1).toFixed(2)} €</Text>
+                            </Flex>
+                            <Button backgroundColor="green.300" onClick={onBuyNow}>Buy Now</Button>
+                        </Flex> : 
+                        <Flex>
+                            <Text>
+                            For Buying this projects credit login as Buyer
+                            </Text>
+                        </Flex>
 
-                    <Flex
-                        w={{ sm: "100%", md: "35%", lg: "25%" }}
-                        minH="180px"
-                        direction="column"
-                        m="5px"
-                        p="5px"
-                        justifyContent={{ sm: "center", md: "space-around" }}
-                        textAlign={{ sm: "center", md: "start" }}
-                        boxShadow='0px 2px 5.5px rgba(0, 0, 0, 0.3)'
-                        backgroundColor="#EFEFEF"
-                        borderRadius={5}
-                    >
-                        <Flex direction="row" justifyContent="space-between">
-                            <Text>Price:</Text>
-                            <Text>{price} €/CC</Text>
-                        </Flex>
-                        <Flex direction="row" justifyContent="space-between">
-                            <Center><Text>Amount:</Text></Center>
-                            <NumberInput w='50%' variant="flushed" min={1} max={n_available} quantity={quantity} onChange={handleChange} >
-                                <NumberInputField textAlign={'right'} />
-                                <NumberInputStepper>
-                                    <NumberIncrementStepper />
-                                    <NumberDecrementStepper />
-                                </NumberInputStepper>
-                            </NumberInput>
-                        </Flex>
-                        <Flex direction="row" justifyContent="space-between">
-                            <Text>Costs (10%):</Text>
-                            <Text>{(quantity * price * 0.1).toFixed(2)} €</Text>
-                        </Flex>
-                        <Divider />
-                        <Flex direction="row" justifyContent="space-between">
-                            <Text>Total:</Text>
-                            <Text>{(quantity * price * 1.1).toFixed(2)} €</Text>
-                        </Flex>
-                        <Button backgroundColor="green.300" onClick={onBuyNow}>Buy Now</Button>
-                    </Flex>
+                    }
                 </Flex>
             </Flex>
         </Box>
