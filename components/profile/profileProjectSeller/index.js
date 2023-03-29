@@ -65,7 +65,7 @@ function ProfileProjectsSeller({ userInfo }) {
                 <Center>
                     <Heading my={3} color="primary" fontSize={50}>Project Seller</Heading>
                 </Center>
-                {status = "loading" ?
+                {status == "loading" ?
                     <Spinner
                         thickness='4px'
                         speed='0.65s'
