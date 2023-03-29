@@ -8,6 +8,7 @@ import {
     Text,
     Heading,
     GridItem,
+    Spinner,
 } from "@chakra-ui/react";
 
 import { EolicIcon, TrashIcon, BambooIcon, NuclearIcon, ForestIcon, LeafIcon, ChemicalIcon } from "@lib/icons";
