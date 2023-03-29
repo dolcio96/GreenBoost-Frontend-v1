@@ -124,7 +124,6 @@ const Filter = () => (
 );
 
 const Buy = ({projects}) => {
-    console.log(projects)
     const { isOpen, onOpen, onClose } = useDisclosure();
     return (
         <>

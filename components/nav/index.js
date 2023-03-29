@@ -21,7 +21,7 @@ import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { useSession, signIn, signOut } from "next-auth/react"
 import { ChevronDownIcon, ChevronUpIcon } from '@chakra-ui/icons'
 
-const Links = ['About Us'];
+const Links = ['About Us', 'test'];
 
 import LogoGB from '@public/logoGB.png'
 
@@ -69,7 +69,7 @@ const DropDownMenu = () => {
                 _active={{ textDecoration: "none", outline: "none", border: "none", borderStyle: "none" }}
                 _visited={{ textDecoration: 'none', outline: "none", border: "none", borderStyle: "none" }}
                 _after={{ textDecoration: 'none', outline: "none", border: "none", borderStyle: "none" }}
-                _focusVisible={{borderStyle:"none"}}
+                _focusVisible={{ borderStyle: "none" }}
                 minW={0}
                 cursor={'pointer'}>
                 <Link
@@ -79,7 +79,7 @@ const DropDownMenu = () => {
                     _hover={{
                         bg: "primary",
                         color: "white",
-                        borderStyle:"none"
+                        borderStyle: "none"
                     }}
                     href='/buy'
                 >
@@ -97,6 +97,11 @@ const DropDownMenu = () => {
                         bg: "primary",
                         color: "white",
                     }}>Sell</MenuItem>
+                <MenuItem as="a" href="/create"
+                    _hover={{
+                        bg: "primary",
+                        color: "white",
+                    }}>Create</MenuItem>
             </MenuList>
         </Menu>
 
@@ -187,7 +192,7 @@ const Nav = () => {
 
                             </MenuButton>
                             <MenuList>
-                            {session ? <MenuItem onClick={() => signOut()}>Logout</MenuItem> : <MenuItem onClick={() => signIn()}>Login</MenuItem>}
+                                {session ? <MenuItem onClick={() => signOut()}>Logout</MenuItem> : <MenuItem onClick={() => signIn()}>Login</MenuItem>}
                                 <MenuItem as="a" href="/auth/signup">Signup</MenuItem>
                                 <MenuItem as="a" href="/profile/profile-overview">Profile</MenuItem>
                             </MenuList>

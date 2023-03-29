@@ -83,7 +83,6 @@ const ElementComponent = ({ children }) => {
     </>)
 }
 
-
 const ProjectRow = () => {
     const textColor = useColorModeValue("gray.700", "white");
     const iconColor = useColorModeValue("blue.500", "white");
@@ -157,7 +156,6 @@ function ProfileOverviewBuyer({userInfo}) {
 
 
     return (
-
         <>
             <Center h="80vh" >
                 <Stack direction={{ base: 'column', md: 'row' }} w="100%" justifyContent={{ base: 'center', md: "space-between" }}  >

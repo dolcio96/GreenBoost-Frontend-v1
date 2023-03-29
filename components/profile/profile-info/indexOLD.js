@@ -8,14 +8,12 @@ import {
     Icon,
     Image,
     Link,
-    Heading,
     Spacer,
     Text,
     Input,
     Center,
     useColorModeValue,
 } from "@chakra-ui/react";
-import { useSession } from "next-auth/react"
 import Card from "@components/card/Card";
 import CardBody from "@components/card/CardBody";
 import CardHeader from "@components/card/CardHeader";
@@ -25,66 +23,66 @@ const FlexContainerIB = ({ children }) => {
     return <Flex direction={{ sm: "column" }}>{children}</Flex>;
 };
 
-const TextDesc = ({ children }) => {
+const TextIB = ({ children }) => {
     return <Text w={{ md: "50%" }} fontWeight='bold' fontSize="15px" mr={{ sm: "0px", md: "20px" }}>{children}</Text>;
-};
-
-const TextValue = ({ children }) => {
-    return <Text  color="gray.400" mt={"9px"}  mb='18px' >{children}</Text>;
 };
 
 
 function ProfileInfoBuyer() {
-
-    var { data: session, status } = useSession()
-
-     console.log(status)
-     console.log(session)
     return (
         <>
             <Flex direction='column'  >
                 <Grid templateColumns={{ sm: "1fr", xl: "repeat(2, 1fr)" }} gap='22px'>
 
                     <Card p='16px' my={{ sm: "24px", md: "0px" }}>
-                        <CardHeader>
-                            <Box p='12px 5px' mb='12px'>
-                                <Heading>
-                                    Profile Informations
-                                </Heading>
-                            </Box>
+                        <CardHeader p='12px 5px' mb='12px'>
+                            <Text fontSize='25px' fontWeight='bold'>
+                                Profile Informations
+                            </Text>
                         </CardHeader>
                         <CardBody px='5px'>
-                            <Grid templateColumns={{ base: "1fr", xl: "repeat(2, 1fr)" }} gap='10px'>
+                            <Flex direction='column' >
                                 <FlexContainerIB>
-                                    <TextDesc>Company Name:</TextDesc>
-                                    <TextValue>{session?.user.company.company_name}</TextValue>
-                                    {/* <Input align='center' mb='18px' mr='10px' variant='flushed' placeholder='Company Name' readonly="true" _focus={{ border: "none" }} border="none" />*/}
+                                    <TextIB>Password:</TextIB>
+                                    <Input align='center' mb='18px' mr='10px' variant='flushed' placeholder='Password' />
                                 </FlexContainerIB>
                                 <FlexContainerIB>
-                                    <TextDesc>Email Address:</TextDesc>
-                                    <TextValue>{session?.user.company.customer.email}</TextValue>
+                                    <TextIB>Repeat Password:</TextIB>
+                                    <Input align='center' mb='18px' mr='10px' variant='flushed' placeholder='Repeat Password' />
                                 </FlexContainerIB>
                                 <FlexContainerIB>
-                                    <TextDesc>Street Address:</TextDesc>
-                                    <TextValue>{session?.user.company.customer.customer_address}</TextValue>
+                                    <TextIB>Street Address:</TextIB>
+                                    <Input align='center' mb='18px' mr='10px' variant='flushed' placeholder='Street Address:' />
                                 </FlexContainerIB>
                                 <FlexContainerIB>
-                                    <TextDesc>City:</TextDesc>
-                                    <TextValue>{session?.user.company.customer.city.country.country_name}</TextValue>
+                                    <TextIB>Country:</TextIB>
+                                    <Input align='center' mb='18px' mr='10px' variant='flushed' placeholder='Country' />
                                 </FlexContainerIB>
                                 <FlexContainerIB>
-                                    <TextDesc>Country:</TextDesc>
-                                    <TextValue>{session?.user.company.customer.city.city_name}</TextValue>
+                                    <TextIB>State:</TextIB>
+                                    <Input align='center' mb='18px' mr='10px' variant='flushed' placeholder='State' />
                                 </FlexContainerIB>
                                 <FlexContainerIB>
-                                    <TextDesc>TAX Number:</TextDesc>
-                                    <TextValue>{session?.user.company.tax_number}</TextValue>
+                                    <TextIB>ZIP Code:</TextIB>
+                                    <Input align='center' mb='18px' mr='10px' variant='flushed' placeholder='ZIP code' />
                                 </FlexContainerIB>
-                                <FlexContainerIB>
-                                    <TextDesc>Identity Status:</TextDesc>
-                                    <TextValue>Verified</TextValue>
-                                </FlexContainerIB>
-                            </Grid>
+
+                                {/* 
+                                <Input align='center' mb='18px' variant='flushed' placeholder='ZIP Code' />
+                                <Flex direction='row'>
+                                    <Input align='center' mb='18px' mr='10px' variant='flushed' placeholder='Country' />
+                                    <Input align='center' mb='18px' variant='flushed' placeholder='State' />
+                                </Flex>
+                                <Flex direction='row'>
+                                    <Input align='center' mb='18px' mr='10px' variant='flushed' placeholder='City' />
+                                    <Input align='center' mb='18px' variant='flushed' placeholder='ZIP Code' />
+                                </Flex>
+                                <Input align='center' mb='18px' variant='flushed' placeholder='Name' />*/}
+                                <Button>Save</Button>
+
+
+
+                            </Flex>
                         </CardBody>
                     </Card>
                     <Card p='16px' my={{ sm: "24px", md: "0px" }} >
@@ -161,16 +159,16 @@ function ProfileInfoBuyer() {
                                 <Box w={{ sm: "100%", md: "50%", lg: "50%" }} pl={{ md: "20px" }} mt={{ sm: "20px" }}>
                                     <Flex direction='column'>
                                         <FlexContainerIB>
-                                            <TextDesc>Number:</TextDesc>
+                                            <TextIB>Number:</TextIB>
                                             <Input align='center' mb='18px' mr='10px' variant='flushed' placeholder='Number' />
                                         </FlexContainerIB>
                                         <FlexContainerIB>  <Flex direction='row' >
                                             <Box w={{ sm: "100%" }}>
-                                                <TextDesc>Name:</TextDesc>
+                                                <TextIB>Name:</TextIB>
                                                 <Input align='center' mb='18px' mr='10px' variant='flushed' placeholder='Name' />
                                             </Box>
                                             <Box w={{ sm: "100%" }}>
-                                                <TextDesc>Surname:</TextDesc>
+                                                <TextIB>Surname:</TextIB>
                                                 <Input align='center' mb='18px' mr='10px' ml='10px' variant='flushed' placeholder='Surname' />
                                             </Box>
                                         </Flex>
@@ -178,11 +176,11 @@ function ProfileInfoBuyer() {
 
                                         <FlexContainerIB>  <Flex direction='row' >
                                             <Box w={{ sm: "100%" }}>
-                                                <TextDesc>Validity:</TextDesc>
+                                                <TextIB>Validity:</TextIB>
                                                 <Input align='center' mb='18px' mr='10px' variant='flushed' placeholder='00/00' />
                                             </Box>
                                             <Box w={{ sm: "100%" }}>
-                                                <TextDesc>CCV:</TextDesc>
+                                                <TextIB>CCV:</TextIB>
                                                 <Input align='center' mb='18px' mr='10px' ml='10px' variant='flushed' placeholder='xxx' />
                                             </Box>
                                         </Flex>
@@ -199,7 +197,7 @@ function ProfileInfoBuyer() {
                                 </Text>
                             </CardHeader>
                             <CardBody h="173px">
-
+                                
                             </CardBody>
 
                             <Button>Save</Button>
