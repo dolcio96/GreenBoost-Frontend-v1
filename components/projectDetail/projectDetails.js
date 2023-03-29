@@ -47,25 +47,16 @@ const ProjectDetails = (props) => {
     return (<>
         <Box
             ml="50px" mr="50px">
-            <Flex direction='column' >
-                <Flex
-                    direction={{ sm: "column", md: "row" }}
-                    justifyContent={{ sm: "center", md: "space-between" }}
-                    align='center'
-                    boxShadow='0px 2px 5.5px rgba(0, 0, 0, 0.3)'
-                    p="5px"
-                    mt="10px"
-                    mb="10px"
-                    borderRadius={5}
-                >
-                    <Flex
-                        w={{ sm: "100%", md: "65%", lg: "75%" }}
-                        direction="column"
-                        m="5px"
-                        p="5px"
-                        justifyContent={{ sm: "center", md: "space-around" }}
-                        textAlign={{ sm: "center", md: "start" }}
-                    >
+            <Box
+                align='center'
+                boxShadow='0px 2px 5.5px rgba(0, 0, 0, 0.3)'
+                p="5px"
+                mt="10px"
+                mb="10px"
+                borderRadius={5}
+            >
+                <Grid templateColumns={{ base: "1fr", lg: "repeat(4, 1fr)" }} gap='22px' justifyContent={"center"}>
+                    <GridItem colSpan={{ base: 4, lg: 3 }} justifyContent={"center"}>
 
                         <Flex direction="row"
                             justifyContent="space-between"
@@ -109,54 +100,66 @@ const ProjectDetails = (props) => {
                             <Text>Links</Text>
                         </Flex>
 
-                    </Flex>
-                    {status == 'authenticated' && session?.user.customer_type == "buyer" ?
-                        <Flex
-                            w={{ sm: "100%", md: "35%", lg: "25%" }}
-                            minH="180px"
-                            direction="column"
-                            m="5px"
-                            p="5px"
-                            justifyContent={{ sm: "center", md: "space-around" }}
-                            textAlign={{ sm: "center", md: "start" }}
-                            boxShadow='0px 2px 5.5px rgba(0, 0, 0, 0.3)'
-                            backgroundColor="#EFEFEF"
-                            borderRadius={5}
-                        >
-                            <Flex direction="row" justifyContent="space-between">
-                                <Text>Price:</Text>
-                                <Text>{price} €/CC</Text>
-                            </Flex>
-                            <Flex direction="row" justifyContent="space-between">
-                                <Center><Text>Amount:</Text></Center>
-                                <NumberInput w='50%' variant="flushed" min={1} max={n_available} quantity={quantity} onChange={handleChange} >
-                                    <NumberInputField textAlign={'right'} />
-                                    <NumberInputStepper>
-                                        <NumberIncrementStepper />
-                                        <NumberDecrementStepper />
-                                    </NumberInputStepper>
-                                </NumberInput>
-                            </Flex>
-                            <Flex direction="row" justifyContent="space-between">
-                                <Text>Costs (10%):</Text>
-                                <Text>{(quantity * price * 0.1).toFixed(2)} €</Text>
-                            </Flex>
-                            <Divider />
-                            <Flex direction="row" justifyContent="space-between">
-                                <Text>Total:</Text>
-                                <Text>{(quantity * price * 1.1).toFixed(2)} €</Text>
-                            </Flex>
-                            <Button backgroundColor="green.300" onClick={onBuyNow}>Buy Now</Button>
-                        </Flex> : 
-                        <Flex>
-                            <Text>
-                            For Buying this projects credit login as Buyer
-                            </Text>
-                        </Flex>
 
-                    }
-                </Flex>
-            </Flex>
+                    </GridItem>
+                    <GridItem colSpan={{ base: 4, lg: 1 }} justifyContent={"center"}>
+
+
+                        {status == 'authenticated' && session?.user.customer_type == "buyer" ?
+                            <Box
+                                minH="180px"
+                                direction="column"
+                                m="5px"
+                                p="5px"
+                                boxShadow='0px 2px 5.5px rgba(0, 0, 0, 0.3)'
+                                backgroundColor={"tertiary"}
+                                borderRadius={5}
+                            >
+                                <Flex direction="row" justifyContent="space-between">
+                                    <Text>Price:</Text>
+                                    <Text>{price} €/CC</Text>
+                                </Flex>
+                                <Flex direction="row" justifyContent="space-between">
+                                    <Center><Text>Amount:</Text></Center>
+                                    <NumberInput w='50%' variant="flushed" min={1} max={n_available} quantity={quantity} onChange={handleChange} >
+                                        <NumberInputField textAlign={'right'} />
+                                        <NumberInputStepper>
+                                            <NumberIncrementStepper />
+                                            <NumberDecrementStepper />
+                                        </NumberInputStepper>
+                                    </NumberInput>
+                                </Flex>
+                                <Flex direction="row" justifyContent="space-between">
+                                    <Text>Costs (10%):</Text>
+                                    <Text>{(quantity * price * 0.1).toFixed(2)} €</Text>
+                                </Flex>
+                                <Divider />
+                                <Flex direction="row" justifyContent="space-between">
+                                    <Text>Total:</Text>
+                                    <Text>{(quantity * price * 1.1).toFixed(2)} €</Text>
+                                </Flex>
+                                <Button backgroundColor="green.300" onClick={onBuyNow}>Buy Now</Button>
+                            </Box> :
+                            <Flex
+                                h="100%"
+                                direction="column"
+                                justifyContent={{ sm: "center" }}
+                                textAlign={{ sm: "center" }}>
+
+                                <Text fontWeight={"bold"}>
+                                    For Buying CC  login as Buyer
+                                </Text>
+
+                            </Flex>
+                        }
+
+
+
+                    </GridItem>
+
+                </Grid>
+
+            </Box>
         </Box>
     </>)
 

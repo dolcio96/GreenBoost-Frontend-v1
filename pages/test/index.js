@@ -8,6 +8,8 @@ import {
 } from "@chakra-ui/react";
 import Layout from "@components/layout"
 import Head from "@components/head"
+import TestComponent from "@components/test"
+
 import ProjectDetailComponent from "@components/projectDetail/projectDetails.js"
 import ChooseVCCComponent from "@components/projects"
 import ProjectCard from "@components/projects/projectCard"
@@ -23,6 +25,9 @@ export default function Projects() {
                 title="GreenBoost: test"
                 description="GreenBoost: test"
             />
+
+            <TestComponent/>
+
         </>
     )
 }
