@@ -52,6 +52,25 @@ function setChartOptions(projects) {
     return chartOpts;
 }
 
+function addTablesData(project) {
+    project["tablesData"] = {
+        type: "Buyers",
+        header:
+            [
+                "Buyer",
+                "Quantity",
+                "value",
+                "Date",
+                "Blockchain Tx"
+            ],
+        list: {
+            buyer1: ["Company1", "10 CC", "40 $", "25/12/2023", "https://mumbai.polygonscan.com/tx/0x99ce5cf9971e860fed4e9236c7e1c1298b630103ebd5e113860315fe45958f3c"],
+            buyer2: ["Company2", "20 CC", "40 $", "25/12/2023", "https://mumbai.polygonscan.com/tx/0x99ce5cf9971e860fed4e9236c7e1c1298b630103ebd5e113860315fe45958f3c"],
+            buyer3: ["Company3", "50 CC", "40 $", "25/12/2023", "https://mumbai.polygonscan.com/tx/0x99ce5cf9971e860fed4e9236c7e1c1298b630103ebd5e113860315fe45958f3c"],
+        }
+    }
+    return project
+}
 
 function ProfileProjectsSeller({ userInfo }) {
     var { data: session, status } = useSession()
@@ -76,26 +95,10 @@ function ProfileProjectsSeller({ userInfo }) {
                         <GridItem colSpan={{ base: 3, lg: 2 }} justifyContent={"center"}>
                             {
                                 userInfo.projects.map((project, index) => {
-                                    project["tablesData"] = {
-                                        type: "Buyers",
-                                        header:
-                                            [
-                                                "Buyer",
-                                                "Quantity",
-                                                "value",
-                                                "Date",
-                                                "Blockchain Tx"
-                                            ],
-                                        list: {
-                                            buyer1: ["Company1", "10 CC", "40 $", "25/12/2023", "https://mumbai.polygonscan.com/tx/0x99ce5cf9971e860fed4e9236c7e1c1298b630103ebd5e113860315fe45958f3c"],
-                                            buyer2: ["Company2", "20 CC", "40 $", "25/12/2023", "https://mumbai.polygonscan.com/tx/0x99ce5cf9971e860fed4e9236c7e1c1298b630103ebd5e113860315fe45958f3c"],
-                                            buyer3: ["Company3", "50 CC", "40 $", "25/12/2023", "https://mumbai.polygonscan.com/tx/0x99ce5cf9971e860fed4e9236c7e1c1298b630103ebd5e113860315fe45958f3c"],
-                                        }
-                                    }
                                     return (
                                         <ProjectRowSellerComponent
                                             key={index}
-                                            project={project} />
+                                            project={addTablesData(project)} />
 
                                     )
                                 })}

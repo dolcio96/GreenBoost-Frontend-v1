@@ -9,6 +9,9 @@ import {
 import {
     Button,
     Box,
+    Spinner,
+    Center,
+
 } from "@chakra-ui/react";
 
 function CheckoutForm() {
@@ -86,7 +89,7 @@ function CheckoutForm() {
     };
 
     const paymentElementOptions = {
-        layout: "accordion",
+        layout: "tabs",
     };
 
     return (
@@ -96,11 +99,13 @@ function CheckoutForm() {
                 onChange={(e) => setEmail(e.target.value)}
             />
             <PaymentElement id="payment-element" options={paymentElementOptions} />
-            <Button disabled={isLoading || !stripe || !elements} id="submit">
-                <span id="button-text">
-                    {isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
-                </span>
-            </Button>
+            <Center>
+                <Button disabled={isLoading || !stripe || !elements} id="submit" type="submit">
+                    <Box id="button-text">
+                        {isLoading ? <Spinner /> : "Pay now"}
+                    </Box>
+                </Button>
+            </Center>
             {/* Show any error or success messages */}
             {message && <Box id="payment-message">{message}</Box>}
         </form>
