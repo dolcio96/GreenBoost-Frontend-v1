@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { PayPalButtons } from "@paypal/react-paypal-js";
 import {
     Box,
     Center,
@@ -9,8 +10,8 @@ import {
 } from "@chakra-ui/react";
 import { useRouter } from 'next/router'
 
-import CheckoutFormComponent from "@components/checkoutForm";
-//import PaypalComponet from "@components/paypal"
+
+import PaypalComponet from "@components/paypal"
 import OrderRecap from "@components/order/orderRecap"
 
 import { useSession } from "next-auth/react"
@@ -69,7 +70,7 @@ const Order = () => {
                             </Text>
                         </Box>
                         <Box >
-                            <CheckoutFormComponent/>
+                            <PaypalComponet Checkout={Checkout} value={value} />
                         </Box>
                     </Flex>
                 </Center>
