@@ -19,7 +19,7 @@ import React from "react";
 
 
 
-function Tables({tablesData}) {
+function Tables({ tablesData }) {
   const textColor = useColorModeValue("gray.700", "white");
   const borderColor = useColorModeValue("gray.200", "gray.600");
 
@@ -55,6 +55,7 @@ function Tables({tablesData}) {
                     return (
 
                       <TableRowProfileComponent
+                        type={tablesData.type}
                         info={tablesData.list[key]}
                         //isLast={index === arr.length - 1 ? true : false}
                         key={index}

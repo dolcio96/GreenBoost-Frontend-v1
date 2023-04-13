@@ -1,6 +1,5 @@
 // Chakra imports
 import {
-    Avatar,
     Box,
     Flex,
     Center,
@@ -18,6 +17,7 @@ import React, { useState } from "react";
 import BuyersTableComponent from "@components/table"
 import {formatDate} from "@lib/parser"
 // Custom components
+import {compareDate} from "@lib/dateFunctions"
 
 import { ChevronDownIcon, ChevronUpIcon, ExternalLinkIcon } from '@chakra-ui/icons'
 
@@ -37,47 +37,19 @@ const ElementComponent = ({ children }) => {
     </>)
 }
 
-const tablesData = {
-    type: "Buyers",
-    header:
-      [
-        "Project Name",
-        "Buyer",
-        "Quantity",
-        "value",
-        "Date",
-        "Blockchain Tx"
-      ],
-    list: {
-      buyer1: ["Project1", "Company1", "10 CC", "40 $", "25/12/2023", "https://mumbai.polygonscan.com/tx/0x99ce5cf9971e860fed4e9236c7e1c1298b630103ebd5e113860315fe45958f3c"],
-      buyer2: ["Project2", "Company2", "20 CC", "40 $", "25/12/2023", "https://mumbai.polygonscan.com/tx/0x99ce5cf9971e860fed4e9236c7e1c1298b630103ebd5e113860315fe45958f3c"],
-      buyer3: ["Project1", "Company3", "50 CC", "40 $", "25/12/2023", "https://mumbai.polygonscan.com/tx/0x99ce5cf9971e860fed4e9236c7e1c1298b630103ebd5e113860315fe45958f3c"],
-    }
-  }
 
-
-
-function ProjectRow({ project }) {
+function ProjectRowSeller({ project }) {
     const { isOpen, onToggle } = useDisclosure({ defaultIsOpen: false });
 
-    const circleColor = () => {
-        const expirationDate = "31/12/2022"
-        const elements = expirationDate.split("/")
-        const deadlineDate = new Date(parseInt(elements[2], 10), parseInt(elements[1], 10) - 1, parseInt(elements[0], 10),)
-        const today = new Date();
-        if (deadlineDate < today) return ["red.300", "Expired CC"]
-        else return ["green.300", "Valid CC"]
-        return deadlineDate
-    }
     return (<>
         <Box  my="20px" p='5px' bg="primary"
             borderRadius={"10px"}
         >
-            <Tooltip label={circleColor()[1]}>
+            <Tooltip label={compareDate("31/12/2023")[1]}>
                 <Circle
                     size="20px"
                     position="absolute"
-                    bg={circleColor()[0]}
+                    bg={compareDate("31/12/2023")[0]}
 
                 />
             </Tooltip>
@@ -167,4 +139,4 @@ function ProjectRow({ project }) {
     </>)
 }
 
-export default ProjectRow;
+export default ProjectRowSeller;

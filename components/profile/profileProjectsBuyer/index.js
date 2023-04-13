@@ -1,79 +1,119 @@
 // Chakra imports
 import {
-    Avatar,
-    AvatarGroup,
     Box,
     Button,
     Flex,
     Center,
     Grid,
-    Image,
     Text,
-    useColorMode,
-    useColorModeValue,
     Heading,
-    Stack,
-    VStack,
-    useDisclosure,
+    GridItem,
     Spinner,
 } from "@chakra-ui/react";
 
-import { EolicIcon, TrashIcon, BambooIcon, NuclearIcon, ForestIcon, LeafIcon, ChemicalIcon } from "@lib/icons";
-
 import { useSession } from "next-auth/react"
 import React, { useState } from "react";
-import ProjectRowComponent from "@components/projects/projectRowBuyer"
-const Icons = [<EolicIcon key={1} size={36} />, <TrashIcon key={2} size={36} />, <BambooIcon key={3} size={36} />,
-<NuclearIcon key={4} size={36} />, <ForestIcon key={5} size={36} />, <LeafIcon key={6} size={36} />, <ChemicalIcon key={7} size={36} />]
+import ProjectRowBuyerComponent from "@components/projects/projectRowBuyer"
+import dynamic from 'next/dynamic';
 
-const projects2 = {
-    uno: { projectName: "Progetto 1", projectTypes: [Icons[1], Icons[3], Icons[4]], location: "U.S.A", quantity: "5", date: "10/11/2022", expirationDate: "31/12/2022", txLink: "" },
-    due: { projectName: "Progetto 2", projectTypes: [Icons[0], Icons[2], Icons[3]], location: "France", quantity: "10", date: "09/10/2022", expirationDate: "31/12/2021", txLink: "" },
+const ApexCharts = dynamic(() => import('react-apexcharts'), { ssr: false });
+
+function setChartOptions(projects) {
+
+    var chartOpts = {
+
+        series: [44, 55, 13],
+        options: {
+            chart: {
+                width: 380,
+                type: 'pie',
+            },
+            labels: ['Forestry', 'Heolic', 'Other'],
+            responsive: [{
+                breakpoint: 480,
+                options: {
+                    chart: {
+                        width: 200
+                    },
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }]
+        },
+
+
+    };
+
+    return chartOpts;
 }
 
-function ProfileProjectBuyer({userInfo}) {
+function addTablesData(project) {
+    project["tablesData"] = {
+        type: "Sellers",
+        header:
+            [
+                "Date",
+                "Quantity",
+                "value",
+                "Blockchain Tx"
+            ],
+        list: {
+            seller1: [ "25/12/2023", "10 CC", "40 $", "https://mumbai.polygonscan.com/tx/0x99ce5cf9971e860fed4e9236c7e1c1298b630103ebd5e113860315fe45958f3c"],
+            seller2: ["25/12/2023", "20 CC", "40 $",  "https://mumbai.polygonscan.com/tx/0x99ce5cf9971e860fed4e9236c7e1c1298b630103ebd5e113860315fe45958f3c"],
+            seller3: ["25/12/2023", "20 CC", "40 $", "https://mumbai.polygonscan.com/tx/0x99ce5cf9971e860fed4e9236c7e1c1298b630103ebd5e113860315fe45958f3c"],
+        }
+    }
+    return project
+}
+
+function ProfileProjectsBuyer({ userInfo }) {
     var { data: session, status } = useSession()
+
+
+    const chartOptions = setChartOptions(userInfo.projects)
 
     return (
         <>
             <Box minH={"80vh"}>
-                <Center><Heading my={3} color="primary" fontSize={50}>My Carbon Credits</Heading></Center>
-                {status = "loading" ?
+                <Center>
+                    <Heading my={3} color="primary" fontSize={50}>Project Buyer</Heading>
+                </Center>
+                {status == "loading" ?
                     <Spinner
                         thickness='4px'
                         speed='0.65s'
                         emptyColor="#b7e4c7"
                         color="#0B0E3F"
                         size='xl' /> :
-                    projects.map((project, index) => {
-                        return (
-                            <ProjectRowComponent key={project.id} projectName={project.id} projectTypes={project.project_type}
-                                location={"U.S.A."} quantity={project.count}
-                                date={project.insert_timestamp} expirationDate={"31/12/2022"}
-                                txLink={"https://mumbai.polygonscan.com/tx/0x99ce5cf9971e860fed4e9236c7e1c1298b630103ebd5e113860315fe45958f3c"}
-                            />
+                    <Grid templateColumns={{ base: "1fr", lg: "repeat(3, 1fr)" }} gap='22px' justifyContent={"center"}>
+                        <GridItem colSpan={{ base: 3, lg: 2 }} justifyContent={"center"}>
+                            {
+                                userInfo.projects.map((project, index) => {
+                                    return (
+                                        <ProjectRowBuyerComponent
+                                            key={index}
+                                            project={addTablesData(project)} />
 
-                        )
-                    })}
+                                    )
+                                })}
+                        </GridItem>
+                        <GridItem colSpan={{ base: 3, lg: 1 }} justifyContent={"center"}>
+                            <Center>
+                                <Flex direction={"column"}>
+                                    <Center>
+                                        <ApexCharts options={chartOptions.options} series={chartOptions.series} type="pie" width={500} />
+                                    </Center>
+                                </Flex>
+                            </Center>
+                        </GridItem>
 
-                {/* {Object.keys(projects).map((key, index) => {
-                    return (<>
+                    </Grid>
+                }
 
-                        <ProjectRowComponent projectName={projects[key].projectName} projectTypes={projects[key].projectTypes}
-                            location={projects[key].location} quantity={projects[key].quantity}
-                            date={projects[key].date} expirationDate={projects[key].expirationDate}
-                            txLink={projects[key].txLink}
-                        /> 
-
-                    </>
-                    )
-                })}*/}
             </Box>
-
-
-
         </>
     );
 }
 
-export default ProfileProjectBuyer;
+export default ProfileProjectsBuyer;
