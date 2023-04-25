@@ -44,7 +44,6 @@ const ProjectDetails = (props) => {
     const router = useRouter()
     const { data: session, status } = useSession()
 
-    console.log(session)
     function onBuyNow() {
         router.push({
             pathname: '/order',
@@ -52,15 +51,17 @@ const ProjectDetails = (props) => {
         }, '/order')
     }
 
-    async function addToChart(projectID, quantity) {
+    async function addToChart() {
 
         const buyerID = session.user.id;
-     
+
         const response = await fetch("/api/chart/add", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ buyerID: buyerID, projectID: projectID, quantity: quantity }),
-        });
+            body: JSON.stringify({ buyerID: buyerID, projectID: project.id, quantity: quantity }),
+        });         
+        console.log(response)
+
         if (!response.ok) {
             throw new Error(response.statusText);
         }
@@ -159,7 +160,7 @@ const ProjectDetails = (props) => {
                                     <Text>Total:</Text>
                                     <Text>{(quantity * price * 1.1).toFixed(2)} €</Text>
                                 </Flex>
-                                <Button backgroundColor="green.300" onClick={(addToChart(project.id, quantity))}>Add to chart</Button>
+                                <Button backgroundColor="green.300" onClick={addToChart}>Add to chart</Button>
                             </Box> :
                             <Flex
                                 h="100%"
