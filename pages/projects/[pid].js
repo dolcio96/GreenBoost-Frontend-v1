@@ -14,7 +14,7 @@ import TableComponet from "@components/table"
 const tableContent = {}
 
 export default function Project(props) {
-    console.log(props)
+   // console.log(props)
 
     return (
 
