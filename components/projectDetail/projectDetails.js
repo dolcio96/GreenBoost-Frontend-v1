@@ -30,6 +30,10 @@ import Modal from "./modal"
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/react"
 
+const { getChartService } = require('services');
+
+
+
 const ProjectDetails = (props) => {
     const project = props.project
     const price = project?.carbon_credits[0].price_per_unit
@@ -40,12 +44,29 @@ const ProjectDetails = (props) => {
     const router = useRouter()
     const { data: session, status } = useSession()
 
+    console.log(session)
     function onBuyNow() {
         router.push({
             pathname: '/order',
             query: { project: JSON.stringify(props.project), price: price, quantity: quantity }
         }, '/order')
     }
+
+    async function addToChart(projectID, quantity) {
+
+        const buyerID = session.user.id;
+     
+        const response = await fetch("/api/chart/add", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ buyerID: buyerID, projectID: projectID, quantity: quantity }),
+        });
+        if (!response.ok) {
+            throw new Error(response.statusText);
+        }
+        return await response.json()
+    }
+
     return (<>
         <Box
             ml="50px" mr="50px">
@@ -105,8 +126,6 @@ const ProjectDetails = (props) => {
 
                     </GridItem>
                     <GridItem colSpan={{ base: 4, lg: 1 }} justifyContent={"center"}>
-
-
                         {status == 'authenticated' && session?.user.customer_type == "buyer" ?
                             <Box
                                 minH="180px"
@@ -140,7 +159,7 @@ const ProjectDetails = (props) => {
                                     <Text>Total:</Text>
                                     <Text>{(quantity * price * 1.1).toFixed(2)} €</Text>
                                 </Flex>
-                                <Button backgroundColor="green.300" onClick={onBuyNow}>Buy Now</Button>
+                                <Button backgroundColor="green.300" onClick={(addToChart(project.id, quantity))}>Add to chart</Button>
                             </Box> :
                             <Flex
                                 h="100%"
