@@ -2564,10 +2564,10 @@
   dependencies:
     "prop-types" "^15.7.2"
 
-"@stripe/stripe-js@^1.44.1", "@stripe/stripe-js@^1.52.0":
-  "integrity" "sha512-Ja2VlaTf3kM5tN4Y0sC8T3ibZAnfGUU/QzMAlk/G+Adz2fF1ycTabtSkdSuVP4/adXox8NkPPV4Xndx/EP4fMg=="
-  "resolved" "https://registry.npmjs.org/@stripe/stripe-js/-/stripe-js-1.52.0.tgz"
-  "version" "1.52.0"
+"@stripe/stripe-js@^1.44.1", "@stripe/stripe-js@^1.52.1":
+  "integrity" "sha512-fza40OPSpGQlFxc5TZWiYC/6Lk89Sep1fLuv9ss33YS6lCAF8UZbfA1E6W+lwO4c7WRKZIZumHIEbPJfP/O9uw=="
+  "resolved" "https://registry.npmjs.org/@stripe/stripe-js/-/stripe-js-1.52.1.tgz"
+  "version" "1.52.1"
 
 "@swc/helpers@0.4.11":
   "integrity" "sha512-rEUrBSGIoSFuYxwBYtlUFMlE2CwGhmW+w9355/5oduSw8e5h2+Tj4UrAGNNgP9915++wj5vkQo0UuOBqOAq4nw=="
@@ -7252,10 +7252,10 @@
   "resolved" "https://registry.npmjs.org/strip-json-comments/-/strip-json-comments-3.1.1.tgz"
   "version" "3.1.1"
 
-"stripe@^11.17.0":
-  "integrity" "sha512-nDH5afq2J5x8cp0b3Uf0h4U7mLLntDLXA91/4cg+LRhMOrDc2BI6xOGjYpI2uwRG80PU16pqhZh9oVupvCG/pQ=="
-  "resolved" "https://registry.npmjs.org/stripe/-/stripe-11.17.0.tgz"
-  "version" "11.17.0"
+"stripe@^12.1.1":
+  "integrity" "sha512-vn74vXtZeJx18oGzA0AhL818euhLF/juCgkKrJfAS1Y0bp5/EzQKPuc/75qQUvY43nNGIkgOVb3kUBuyoeqEkA=="
+  "resolved" "https://registry.npmjs.org/stripe/-/stripe-12.1.1.tgz"
+  "version" "12.1.1"
   dependencies:
     "@types/node" ">=8.1.0"
     "qs" "^6.11.0"

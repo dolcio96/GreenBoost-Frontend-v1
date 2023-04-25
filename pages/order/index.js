@@ -18,7 +18,7 @@ export default function Order() {
 
   React.useEffect(() => {
     // Create PaymentIntent as soon as the page loads
-    fetch("/api/create-payment-intent", {
+    fetch("/api/stripe/create-payment-intent", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ items: [{ id: "xl-tshirt" }] }),
