@@ -11,28 +11,6 @@ function MyApp({
   pageProps: { session, ...pageProps } }) {
   const getLayout = Component.getLayout || ((page) => page)
 
-  async function getCustomerData() {
-
-    const userID = session.user.customer_type
-    const userType = session.user.id
-
-    const response = await fetch("/api/backend/getCustomerData", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({userType: userType,  userID: userID}),
-    });
-
-    if (!response.ok) {
-      throw new Error(response.statusText);
-    }
-    return await response.json()
-  }
-
-
-  if (session) {
-    sessionStorage.setItem("userData", getCustomerData());
-  }
-  else console.log(session)
 
   return <>
 

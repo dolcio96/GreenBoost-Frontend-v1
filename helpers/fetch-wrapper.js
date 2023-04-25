@@ -13,7 +13,7 @@ function post(url, body) {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },//, ...authHeader(url) },
         //credentials: 'include',
-        body: JSON.stringify({id: body})
+        body: JSON.stringify(body)
     };
     return fetch(url, requestOptions).then(handleResponse);
 }
