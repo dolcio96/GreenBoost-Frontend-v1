@@ -55,7 +55,7 @@ const ProjectDetails = (props) => {
 
         const buyerID = session.user.id;
 
-        const response = await fetch("/api/cart/add", {
+        const response = await fetch("/api/backend/cart/add", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ buyerID: buyerID, projectID: project.id, quantity: quantity }),

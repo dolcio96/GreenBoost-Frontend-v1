@@ -27,7 +27,7 @@ import { ShoppingCart } from "@mui/icons-material"
 const Links = ['About Us', 'test'];
 
 import LogoGB from '@public/logoGB.png'
-
+import Message from "@components/modal/message"
 
 
 const NavLink = ({ children }) => (
@@ -119,6 +119,11 @@ const DropDownMenu = () => {
 
 const Nav = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
+    const { 
+        isOpen: isOpenModal, 
+        onOpen: onOpenModal, 
+        onClose: onCloseModal 
+    } = useDisclosure()
     const { data: session } = useSession()
     const router = useRouter()
     const [scrolled, setScrolled] = useState(false)
@@ -139,12 +144,13 @@ const Nav = () => {
     function onBuy() {
 
 
-        console.log(data)
-        /*
-        router.push({
-            pathname: '/order'
-        }, '/order')
-         */
+        if (session?.user?.cart) {
+            router.push({
+                pathname: '/order'
+            }, '/order')
+        }
+        else
+       onOpenModal()
     }
 
     return (
@@ -230,6 +236,7 @@ const Nav = () => {
                     </Box>
                 ) : null}
             </Box>
+            <Message isOpen={isOpenModal} onClose={onCloseModal} header="The Chart is Empty" bgColor={"primary"}/>
         </>
     );
 
