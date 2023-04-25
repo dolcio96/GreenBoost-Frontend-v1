@@ -16,6 +16,8 @@ export default function Order() {
 
   const [clientSecret, setClientSecret] = React.useState("");
 
+  const [orderItems, setOrderItem] = React.useState("");
+
   React.useEffect(() => {
     // Create PaymentIntent as soon as the page loads
     fetch("/api/stripe/create-payment-intent", {
@@ -26,6 +28,7 @@ export default function Order() {
       .then((res) => res.json())
       .then((data) => setClientSecret(data.clientSecret));
   }, []);
+
 
   const appearance = {
     theme: 'stripe',

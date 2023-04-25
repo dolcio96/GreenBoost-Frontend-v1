@@ -15,11 +15,14 @@ import {
     useDisclosure,
     useColorModeValue,
     Stack,
-
+    Center,
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { useSession, signIn, signOut } from "next-auth/react"
 import { ChevronDownIcon, ChevronUpIcon } from '@chakra-ui/icons'
+import { useRouter } from "next/router";
+
+import { ShoppingCart } from "@mui/icons-material"
 
 const Links = ['About Us', 'test'];
 
@@ -44,6 +47,7 @@ const NavLink = ({ children }) => (
 
 const DropDownMenu = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
+
     return (<>
         <Menu isOpen={isOpen}>
             <MenuButton
@@ -116,7 +120,7 @@ const DropDownMenu = () => {
 const Nav = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const { data: session } = useSession()
-
+    const router = useRouter()
     const [scrolled, setScrolled] = useState(false)
     useEffect(_ => {
         const handleScroll = _ => {
@@ -131,6 +135,17 @@ const Nav = () => {
             window.removeEventListener('scroll', handleScroll)
         }
     }, [])
+
+    function onBuy() {
+
+
+        console.log(data)
+        /*
+        router.push({
+            pathname: '/order'
+        }, '/order')
+         */
+    }
 
     return (
         <>
@@ -172,6 +187,11 @@ const Nav = () => {
 
                     </HStack>
                     <Flex alignItems={'center'}>
+                        <Center mx="10px" color={"primary"}>
+                            <Button bg={"none"} _hover={{ bg: "none" }} onClick={onBuy}>
+                                <ShoppingCart fontSize="large" />
+                            </Button>
+                        </Center>
                         <Menu>
                             <MenuButton
                                 as={Button}
