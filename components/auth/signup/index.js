@@ -40,7 +40,7 @@ const Signup = () => {
   function onSubmit(user) {
     return userService.register(user).then((response) => {
       if (response.ok) {
-        signIn('credentials', { username: user.email, password: user.password.padEnd(60, ' ') })
+        signIn('credentials', { username: user.email, password: user.password })
         router.push('/')
       } else {
         alert(response.status)
