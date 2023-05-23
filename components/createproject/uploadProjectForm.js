@@ -15,6 +15,8 @@ import Dropzone from "@components/createproject/dropzone";
 import DropzoneField from "@components/createproject/dropzoneField";
 import { VscFilePdf } from "react-icons/vsc";
 
+import { useSession } from "next-auth/react"
+
 const typeOptions = [
     { value: 'Avoided Conversation', label: 'Avoided Conversation', color: '#40916c', isFixed: true },
     { value: 'Biomass/Biogas', label: 'Biomass/Biogas', color: '#40916c' },
@@ -61,10 +63,15 @@ function UploadProjectForm() {
         }
     });
 
-
+    const { data: session } = useSession()
+    const sellerID = session?.user?.id
     const { control, register, formState: { errors, isSubmitting }, } = useFormContext(); // retrieve all hook methods
     return <>
-
+        <FlexContainerIB>
+            <FormControl isRequired>
+                <Input  value={sellerID} align='center' mb='18px' mr='10px' variant='flushed' type="number" {...register('sellerID')} />
+            </FormControl>
+        </FlexContainerIB>
         <FlexContainerIB>
             <TextIB>Company Name:</TextIB>
             <FormControl isRequired>
@@ -164,7 +171,7 @@ function UploadProjectForm() {
             <Box py={{ lg: "20px" }}>
                 {/* <Dropzone getRootProps={getRootProps} getInputProps={getInputProps} isDragActive={isDragActive} />*/}
                 <FormControl isRequired>
-                    <DropzoneField files={files} setFiles={setFiles}/>
+                    <DropzoneField files={files} setFiles={setFiles} />
                 </FormControl >
             </Box>
             {thumbs}
