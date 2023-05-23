@@ -15,8 +15,8 @@ import UploadProjectForm from "@components/createproject/uploadProjectForm"
 
 function onSubmit(project) {
     //Add the seller ID
-    const { data: session } = useSession()
-    project.sellerID = session?.user?.id
+    //const { data: session } = useSession()
+    //project.sellerID = session?.user?.id
     //return console.log(JSON.stringify(project, null, 4))
     return uploadProjectService.uploadProject(project).then((response) => {
         if (response.ok) {
