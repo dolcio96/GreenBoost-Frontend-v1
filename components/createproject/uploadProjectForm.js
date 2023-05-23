@@ -77,12 +77,6 @@ function UploadProjectForm() {
                 <Input align='center' mb='18px' mr='10px' variant='flushed' {...register('projectName')} />
             </FormControl>
         </FlexContainerIB>
-        <FlexContainerIB>
-            <TextIB>Country:</TextIB>
-            <FormControl isRequired>
-                <Input align='center' mb='18px' mr='10px' variant='flushed' {...register('country')} />
-            </FormControl>
-        </FlexContainerIB>
 
         <FlexContainerIB >
             <TextIB>Country:</TextIB>
@@ -109,7 +103,7 @@ function UploadProjectForm() {
 
 
         <FlexContainerIB>
-            <TextIB>Latituede:</TextIB>
+            <TextIB>Latitude:</TextIB>
             <FormControl isRequired>
                 <Input align='center' mb='18px' mr='10px' variant='flushed' type="number" {...register('latitude')} />
             </FormControl>
