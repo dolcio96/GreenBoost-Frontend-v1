@@ -14,8 +14,17 @@ import {
     Link,
     Text,
     Heading,
-    Stack
+    Stack,
+    Input,
+    Center,
+    FormErrorMessage,
+    FormLabel,
+    FormControl,
+    NumberInput,
+    NumberInputField
 } from '@chakra-ui/react';
+
+import { useForm } from 'react-hook-form'
 
 import ClearIcon from '@mui/icons-material/Clear';
 
@@ -36,6 +45,7 @@ const projects2 = [
         description: 'Descrizione progetto in due righe',
         projectType: "Forest",
         projectLocation: "Asia",
+        projectQuantity: 1,
         icons: [ForestIcon, EmojiNatureIcon],
         href: '/buy/buynow',
     },
@@ -46,6 +56,7 @@ const projects2 = [
         description: 'Descrizione progetto in due righe',
         projectType: "Forest",
         projectLocation: "Europe",
+        projectQuantity: 2,
         icons: [ForestIcon, EmojiNatureIcon],
         href: '/buy/buynow',
     },
@@ -56,6 +67,7 @@ const projects2 = [
         description: 'Descrizione progetto in due righe',
         projectType: "Agricolture",
         projectLocation: "Europe",
+        projectQuantity: 3,
         icons: [ForestIcon, EmojiNatureIcon],
         href: '/buy/buynow',
     },
@@ -66,6 +78,7 @@ const projects2 = [
         description: 'Descrizione progetto in due righe',
         projectType: "Chemical",
         projectLocation: "Europe",
+        projectQuantity: 4,
         icons: [ForestIcon, EmojiNatureIcon],
         href: '/buy/buynow',
     },
@@ -76,6 +89,7 @@ const projects2 = [
         description: 'Descrizione progetto in due righe',
         projectType: "Chemical",
         projectLocation: "Africa",
+        projectQuantity: 5,
         icons: [ForestIcon, EmojiNatureIcon],
         href: '/buy/buynow',
     },
@@ -86,6 +100,7 @@ const projects2 = [
         description: 'Descrizione progetto in due righe',
         projectType: "Forest",
         projectLocation: "Asia",
+        projectQuantity: 6,
         icons: [ForestIcon, EmojiNatureIcon],
         href: '/buy/buynow',
     },
@@ -167,164 +182,225 @@ const Buy = ({ projects }) => {
                 project.projectLocation.toLowerCase().includes(place.toLowerCase())
             )
         }
-        console.log("qty: " + quantity, "type: " + type, "place: " + place)
 
-        setFilteredProjects(
-            projectTemp
-        );
+        //Filtra epr quantità
+        if (quantity != "") {
+            console.log(1)
+            projectTemp = projectTemp.filter((project) =>
+                project.projectQuantity >= parseInt(quantity))
+        
+}
+console.log("qty: " + quantity, "type: " + type, "place: " + place)
+
+setFilteredProjects(
+    projectTemp
+);
 
     }, [quantity, type, place]);
 
 
+const {
+    handleSubmit,
+    register,
+    formState: { errors, isSubmitting },
+} = useForm()
+
+function onSubmitQuantity(values) {
+    console.log (values.quantity)
+   addFilter("quantity", values.quantity)
+}
 
 
-    function addFilter(filterType, element) {
-        //Aggiungi l'elemento filtrato alle relative variabili
-        if (filterType == "type") {
-            setType(element)
-        }
-        else if (filterType = "place") {
-            setPlace(element)
-        }
-        else if (filterType = "quantity") {
-            setQuantity(element)
-        }
+function addFilter(filterType, element) {
+    //Aggiungi l'elemento filtrato alle relative variabili
+    if (filterType == "type") {
+        setType(element)
+    }
+    else if (filterType == "place") {
+        setPlace(element)
+    }
+    else if (filterType == "quantity") {
+        console.log("abs")
+        setQuantity(element)
+    }
+}
+
+function removeFilter(filterType) {
+    if (filterType == "type") {
+        setType("")
+    }
+    else if (filterType == "place") {
+        setPlace("")
+    }
+    else if (filterType == "quantity") {
+        setQuantity("")
     }
 
-    function removeFilter(filterType) {
-        if (filterType == "type") {
-            setType("")
-        }
-        else if (filterType = "place") {
-            setPlace("")
-        }
-        else if (filterType = "quantity") {
-            setQuantity("")
-        }
 
+}
 
-    }
+return (
+    <>
 
-    return (
-        <>
-
-            <Box
-                ml="50px"
-                position="fixed" zIndex={999}
-                bg={"primary"}
-                borderRadius={6}>
-                {(type || quantity || place) &&
-                    <Heading color="tertiary" p="15px">Filtered By:</Heading>
-                }
-                {quantity &&
-                    <Flex direction="row" alignItems={'center'} justifyContent={'center'}>
-                        <Text color="tertiary">Quantity: {quantity}</Text><ClearIcon cursor="pointer" onClick={() => removeFilter("quantity")} />
-                    </Flex>
-                }
-                {type &&
-                    <Flex direction="row" alignItems={'center'} justifyContent={'center'}>
-                        <Text color="tertiary">Type: {type}</Text>
-                        <ClearIcon cursor="pointer" onClick={() => removeFilter("type")} /></Flex>
-                }
-                {place &&
-                    <Flex direction="row" alignItems={'center'} justifyContent={'center'}>
-                        <Text color="tertiary">Place: {place}</Text><ClearIcon cursor="pointer" onClick={() => removeFilter("place")} />
-                    </Flex>
-                }
-            </Box>
-            <Box px={4} mt={5}>
-                <Flex alignItems={'center'} justifyContent={'center'} direction={{ sm: "column", md: "row" }}>
-                    <Flex alignItems={'center'} justifyContent={'center'} >
-                        <Menu>
-                            <MenuButton
-                                w={{ sm: "100px", md: "150px", lg: "200px" }}
-                                as={Button}
-                                variant={'solid'}
-                                cursor={'pointer'}
-                                minW={0}>
-                                {FilterOpts[0].title}
-                            </MenuButton>
-                            <MenuList>
+        <Box
+            ml="50px"
+            position="fixed" zIndex={999}
+            bg={"primary"}
+            borderRadius={6}>
+            {(type || quantity || place) &&
+                <Heading color="tertiary" p="15px">Filtered By:</Heading>
+            }
+            {quantity &&
+                <Flex direction="row" alignItems={'center'} justifyContent={'center'}>
+                    <Text color="tertiary">Quantity: {quantity}</Text>
+                    <ClearIcon cursor="pointer" onClick={() => removeFilter("quantity")} />
+                </Flex>
+            }
+            {type &&
+                <Flex direction="row" alignItems={'center'} justifyContent={'center'}>
+                    <Text color="tertiary">Type: {type}</Text>
+                    <ClearIcon cursor="pointer" onClick={() => removeFilter("type")} /></Flex>
+            }
+            {place &&
+                <Flex direction="row" alignItems={'center'} justifyContent={'center'}>
+                    <Text color="tertiary">Place: {place}</Text>
+                    <ClearIcon cursor="pointer" onClick={() => removeFilter("place")} />
+                </Flex>
+            }
+        </Box>
+        
+        <Box px={4} mt={5}>
+            <Flex alignItems={'center'} justifyContent={'center'} direction={{ sm: "column", md: "row" }}>
+                <Flex alignItems={'center'} justifyContent={'center'} >
+                    <Menu>
+                        <MenuButton
+                            w={{ sm: "100px", md: "150px", lg: "200px" }}
+                            as={Button}
+                            variant={'solid'}
+                            cursor={'pointer'}
+                            minW={0}>
+                            {FilterOpts[0].title}
+                        </MenuButton>
+                        <MenuList>
+                            <Center>
                                 <b>{FilterOpts[0].subtitle}</b>
-                                {FilterOpts[0].opts.map((opt) => (
-                                    <MenuItem key={opt}>{opt}</MenuItem>
-                                ))}
-                            </MenuList>
-                        </Menu>
+                            </Center>
+                            {FilterOpts[0].opts.map((opt) => (
+                                <MenuItem key={opt} onClick={() => addFilter("quantity", opt)}>{opt}</MenuItem>
+                            ))}
 
-                        <Menu>
-                            <MenuButton
-                                w={{ sm: "100px", md: "150px", lg: "200px" }}
-                                as={Button}
-                                variant={'solid'}
-                                cursor={'pointer'}
-                                minW={0}>
-                                {FilterOpts[1].title}
-                            </MenuButton>
-                            <MenuList>
-                                <b>{FilterOpts[1].subtitle}</b>
-                                {FilterOpts[1].opts.map((opt) => (
-                                    <MenuItem key={opt} onClick={() => addFilter("type", opt)}>{opt}  </MenuItem>
-                                ))}
-                            </MenuList>
-                        </Menu>
-                        <Menu >
-                            <MenuButton
-                                w={{ sm: "100px", md: "150px", lg: "200px" }}
-                                as={Button}
-                                variant={'solid'}
-                                cursor={'pointer'}
-                                minW={0}>
-                                {FilterOpts[2].title}
-                            </MenuButton>
-                            <MenuList alignItems={'center'} justifyContent={'center'}>
-                                <b>{FilterOpts[2].subtitle}</b>
-                                {FilterOpts[2].opts.map((opt) => (
-                                    <MenuItem key={opt} onClick={() => addFilter("place", opt)}>{opt}</MenuItem>
-                                ))}
-                            </MenuList>
-                        </Menu>
+                            <form onSubmit={handleSubmit(onSubmitQuantity)}>
+                                <FormControl>
+                                    <FormLabel htmlFor='quantity'>
+                                        <Text fontWeight={"bold"}>Inserisce la quantità minima</Text>
+                                    </FormLabel>
+                                        <Input
+                                            id='quantity'
+                                            type="number"
+                                            placeholder='quantity'
+                                            {...register('quantity', {
+                                                required: 'Compilare il Campo',
+                                            })}
+                                        />
 
-                    </Flex>
+
+                                </FormControl>
+                                <Button mt={1} isLoading={isSubmitting} type='submit'>
+                                    Filter
+                                </Button>
+                            </form>
 
 
 
-                    <Flex mb={{ md: "80px" }}>
-                        <Box position={{ sm: "center", md: "absolute" }}
-                            mt={"20px"} ml={{ md: "10%", lg: "10%", xl: "20%" }}
+                            {/*  <Center>
+                                    <Text fontWeight={"bold"}>Inserisce la quantità minima</Text>
+                                </Center>
+                                <Center >
+                                    <Input m="3px" placeholder='large size' />
+                                </Center>
+                                <Center>
+                                    <Button size='sm' onClick={() => addFilter("quantity", opt)}>
+                                        Filter
+                                    </Button>
+                                </Center>
+*/}
+                        </MenuList>
 
-                            alignItems={'center'}
-                            justifyContent={'center'}>
-                            <Button backgroundColor={"gold"} _hover={{ backgroundColor: "green.400" }} as="a" href="/fastbuy"> Fast Buy</Button>
-                        </Box>
-                    </Flex>
+                    </Menu>
+
+                    <Menu>
+                        <MenuButton
+                            w={{ sm: "100px", md: "150px", lg: "200px" }}
+                            as={Button}
+                            variant={'solid'}
+                            cursor={'pointer'}
+                            minW={0}>
+                            {FilterOpts[1].title}
+                        </MenuButton>
+                        <MenuList>
+                            <b>{FilterOpts[1].subtitle}</b>
+                            {FilterOpts[1].opts.map((opt) => (
+                                <MenuItem key={opt} onClick={() => addFilter("type", opt)}>{opt}  </MenuItem>
+                            ))}
+                        </MenuList>
+                    </Menu>
+                    <Menu >
+                        <MenuButton
+                            w={{ sm: "100px", md: "150px", lg: "200px" }}
+                            as={Button}
+                            variant={'solid'}
+                            cursor={'pointer'}
+                            minW={0}>
+                            {FilterOpts[2].title}
+                        </MenuButton>
+                        <MenuList alignItems={'center'} justifyContent={'center'}>
+                            <b>{FilterOpts[2].subtitle}</b>
+                            {FilterOpts[2].opts.map((opt) => (
+                                <MenuItem key={opt} onClick={() => addFilter("place", opt)}>{opt}</MenuItem>
+                            ))}
+                        </MenuList>
+                    </Menu>
 
                 </Flex>
 
-            </Box>
 
 
-            <Flex alignItems={'center'} justifyContent={'center'} direction="column" >
-                {(type || quantity || place) &&
-                    <Heading>Filtered By:</Heading>
-                }
-                {quantity &&
-                    <Flex direction="row"><Text>Quantity: {quantity}</Text><ClearIcon cursor="pointer" onClick={() => removeFilter("quantity")} /></Flex>
-                }
-                {type &&
-                    <Flex direction="row"><Text>Type: {type}</Text><ClearIcon cursor="pointer" onClick={() => removeFilter("type")} /></Flex>
-                }
-                {place &&
-                    <Flex direction="row"><Text>Place: {place}</Text><ClearIcon cursor="pointer" onClick={() => removeFilter("place")} /></Flex>
-                }
+                <Flex mb={{ md: "80px" }}>
+                    <Box position={{ sm: "center", md: "absolute" }}
+                        mt={"20px"} ml={{ md: "10%", lg: "10%", xl: "20%" }}
+
+                        alignItems={'center'}
+                        justifyContent={'center'}>
+                        <Button backgroundColor={"gold"} _hover={{ backgroundColor: "green.400" }} as="a" href="/fastbuy"> Fast Buy</Button>
+                    </Box>
+                </Flex>
+
             </Flex>
 
+        </Box>
 
-            <SimpleGrid columns={{ base: 3, lg: 3, md: 2, sm: 1 }} gap={5} mx={"10%"}>
-                {filteredProjects.map(project => <ProjectCardComponent key={project.id} project={project} />)}
-            </SimpleGrid>
 
-        </>)
+        <Flex alignItems={'center'} justifyContent={'center'} direction="column" >
+            {(type || quantity || place) &&
+                <Heading>Filtered By:</Heading>
+            }
+            {quantity &&
+                <Flex direction="row"><Text>Quantity: {quantity}</Text><ClearIcon cursor="pointer" onClick={() => removeFilter("quantity")} /></Flex>
+            }
+            {type &&
+                <Flex direction="row"><Text>Type: {type}</Text><ClearIcon cursor="pointer" onClick={() => removeFilter("type")} /></Flex>
+            }
+            {place &&
+                <Flex direction="row"><Text>Place: {place}</Text><ClearIcon cursor="pointer" onClick={() => removeFilter("place")} /></Flex>
+            }
+        </Flex>
+
+
+        <SimpleGrid columns={{ base: 3, lg: 3, md: 2, sm: 1 }} gap={5} mx={"10%"}>
+            {filteredProjects.map(project => <ProjectCardComponent key={project.id} project={project} />)}
+        </SimpleGrid>
+
+    </>)
 
 }
 

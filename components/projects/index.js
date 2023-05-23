@@ -12,8 +12,23 @@ import {
     MenuItem,
     useDisclosure,
     Link,
-    Stack
+    Text,
+    Heading,
+    Stack,
+    Input,
+    Center,
+    FormErrorMessage,
+    FormLabel,
+    FormControl,
+    NumberInput,
+    NumberInputField
 } from '@chakra-ui/react';
+
+import { useForm } from 'react-hook-form'
+
+import ClearIcon from '@mui/icons-material/Clear';
+
+import { useState, useEffect } from "react";
 
 import ProjectCardComponent from "./projectCard"
 
@@ -89,6 +104,10 @@ const FilterOpts = [{
     opts: ["Europe", "South America", "North America", "Antartica", "Asia", "Africa"]
 }]
 
+
+
+
+
 const NavLink = ({ children }) => (
     <Link
         px={2}
@@ -104,6 +123,7 @@ const NavLink = ({ children }) => (
     </Link>
 );
 
+/* 
 const Filter = () => (
     <Menu>
         <MenuButton
@@ -122,11 +142,120 @@ const Filter = () => (
         </MenuList>
     </Menu>
 );
-
-const Buy = ({projects}) => {
+*/
+const Buy = ({ projects }) => {
     const { isOpen, onOpen, onClose } = useDisclosure();
+
+    //Filter Properties
+    const [filteredProjects, setFilteredProjects] = useState(projects);
+    const [quantity, setQuantity] = useState("");
+    const [type, setType] = useState("");
+    const [place, setPlace] = useState("");
+
+
+    useEffect(() => {
+        var projectTemp = projects
+        if (type != "") {
+            console.log(type + "!=null")
+            projectTemp = projectTemp.filter((project) =>
+                project.project_type.name.toLowerCase().includes(type.toLowerCase())
+            )
+        }
+        //Filtra per location
+        if (place != "") {
+            projectTemp = projectTemp.filter((project) =>
+                project.projectLocation.toLowerCase().includes(place.toLowerCase())
+            )
+        }
+
+        //Filtra epr quantità
+        if (quantity != "") {
+            console.log(1)
+            projectTemp = projectTemp.filter((project) =>
+                project.unit >= parseInt(quantity))
+
+        }
+        console.log("qty: " + quantity, "type: " + type, "place: " + place)
+
+        setFilteredProjects(
+            projectTemp
+        );
+
+    }, [quantity, type, place]);
+
+
+    const {
+        handleSubmit,
+        register,
+        formState: { errors, isSubmitting },
+    } = useForm()
+
+    function onSubmitQuantity(values) {
+        console.log(values.quantity)
+        addFilter("quantity", values.quantity)
+    }
+
+
+    function addFilter(filterType, element) {
+        //Aggiungi l'elemento filtrato alle relative variabili
+        if (filterType == "type") {
+            setType(element)
+        }
+        else if (filterType == "place") {
+            setPlace(element)
+        }
+        else if (filterType == "quantity") {
+            console.log("abs")
+            setQuantity(element)
+        }
+    }
+
+    function removeFilter(filterType) {
+        if (filterType == "type") {
+            setType("")
+        }
+        else if (filterType == "place") {
+            setPlace("")
+        }
+        else if (filterType == "quantity") {
+            setQuantity("")
+        }
+
+
+    }
+
+
     return (
         <>
+
+
+            <Box
+                ml="50px"
+                position="fixed" zIndex={999}
+                bg={"primary"}
+                borderRadius={6}>
+                {(type || quantity || place) &&
+                    <Heading color="tertiary" p="15px">Filtered By:</Heading>
+                }
+                {quantity &&
+                    <Flex direction="row" alignItems={'center'} justifyContent={'center'}>
+                        <Text color="tertiary">Quantity: {quantity}</Text>
+                        <ClearIcon cursor="pointer" onClick={() => removeFilter("quantity")} />
+                    </Flex>
+                }
+                {type &&
+                    <Flex direction="row" alignItems={'center'} justifyContent={'center'}>
+                        <Text color="tertiary">Type: {type}</Text>
+                        <ClearIcon cursor="pointer" onClick={() => removeFilter("type")} /></Flex>
+                }
+                {place &&
+                    <Flex direction="row" alignItems={'center'} justifyContent={'center'}>
+                        <Text color="tertiary">Place: {place}</Text>
+                        <ClearIcon cursor="pointer" onClick={() => removeFilter("place")} />
+                    </Flex>
+                }
+            </Box>
+
             <Box px={4} mt={5}>
                 <Flex alignItems={'center'} justifyContent={'center'} direction={{ sm: "column", md: "row" }}>
                     <Flex alignItems={'center'} justifyContent={'center'} >
@@ -146,7 +275,7 @@ const Buy = ({projects}) => {
                                 ))}
                             </MenuList>
                         </Menu>
-                        
+
                         <Menu>
                             <MenuButton
                                 w={{ sm: "100px", md: "150px", lg: "200px" }}
@@ -157,13 +286,13 @@ const Buy = ({projects}) => {
                                 {FilterOpts[1].title}
                             </MenuButton>
                             <MenuList>
-                            <b>{FilterOpts[1].subtitle}</b>
+                                <b>{FilterOpts[1].subtitle}</b>
                                 {FilterOpts[1].opts.map((opt) => (
                                     <MenuItem key={opt}>{opt}</MenuItem>
                                 ))}
                             </MenuList>
                         </Menu>
-                        
+
                         <Menu >
                             <MenuButton
                                 w={{ sm: "100px", md: "150px", lg: "200px" }}
@@ -174,7 +303,7 @@ const Buy = ({projects}) => {
                                 {FilterOpts[2].title}
                             </MenuButton>
                             <MenuList alignItems={'center'} justifyContent={'center'}>
-                            <b>{FilterOpts[2].subtitle}</b>
+                                <b>{FilterOpts[2].subtitle}</b>
                                 {FilterOpts[2].opts.map((opt) => (
                                     <MenuItem key={opt}>{opt}</MenuItem>
                                 ))}
@@ -182,13 +311,13 @@ const Buy = ({projects}) => {
                         </Menu>
 
                     </Flex>
-                    <Flex  mb={{ md: "80px" }}>
+                    <Flex mb={{ md: "80px" }}>
                         <Box position={{ sm: "center", md: "absolute" }}
                             mt={"20px"} ml={{ md: "10%", lg: "10%", xl: "20%" }}
-                           
+
                             alignItems={'center'}
                             justifyContent={'center'}>
-                            <Button backgroundColor={"gold"} _hover={{backgroundColor:"green.400"}} as="a" href="/fastbuy"> Fast Buy</Button>
+                            <Button backgroundColor={"gold"} _hover={{ backgroundColor: "green.400" }} as="a" href="/fastbuy"> Fast Buy</Button>
                         </Box>
                     </Flex>
 
@@ -207,7 +336,20 @@ const Buy = ({projects}) => {
 
             </Box>
 
-
+            <Flex alignItems={'center'} justifyContent={'center'} direction="column" >
+                {(type || quantity || place) &&
+                    <Heading>Filtered By:</Heading>
+                }
+                {quantity &&
+                    <Flex direction="row"><Text>Quantity: {quantity}</Text><ClearIcon cursor="pointer" onClick={() => removeFilter("quantity")} /></Flex>
+                }
+                {type &&
+                    <Flex direction="row"><Text>Type: {type}</Text><ClearIcon cursor="pointer" onClick={() => removeFilter("type")} /></Flex>
+                }
+                {place &&
+                    <Flex direction="row"><Text>Place: {place}</Text><ClearIcon cursor="pointer" onClick={() => removeFilter("place")} /></Flex>
+                }
+            </Flex>
 
             <SimpleGrid columns={{ base: 3, lg: 3, md: 2, sm: 1 }} gap={5} mx={"10%"}>
                 {projects.map(project => <ProjectCardComponent key={project.id} project={project} />)}

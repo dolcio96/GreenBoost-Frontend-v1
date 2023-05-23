@@ -8,12 +8,15 @@ import {
 } from '@chakra-ui/react';
 import React, { useState } from 'react';
 import { uploadProjectService } from 'services';
-
+import { useSession } from "next-auth/react"
 import { useForm, FormProvider } from 'react-hook-form'
 import UploadProjectForm from "@components/createproject/uploadProjectForm"
 
 
 function onSubmit(project) {
+    //Add the seller ID
+    const { data: session } = useSession()
+    project.sellerID = session?.user?.id
     //return console.log(JSON.stringify(project, null, 4))
     return uploadProjectService.uploadProject(project).then((response) => {
         if (response.ok) {
@@ -27,7 +30,7 @@ function onSubmit(project) {
 
 const CreateProject = () => {
     const [files, setFiles] = useState([]);
-
+    
 
     const methods = useForm();
 

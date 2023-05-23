@@ -22,6 +22,13 @@ const typeOptions = [
     { value: 'Forestry', label: 'Forestry', color: '#40916c', isFixed: true },
 ];
 
+const conutryOptions = [
+    { value: 'Italy', label: 'Italy', color: '#40916c', isFixed: true },
+    { value: 'France', label: 'France', color: '#40916c' },
+    { value: 'England', label: 'England', color: '#40916c' },
+    { value: 'Iceland', label: 'Iceland', color: '#40916c', isFixed: true },
+];
+
 const FlexContainerIB = ({ children }) => {
     return <Flex direction={{ sm: "column" }}>{children}</Flex>;
 };
@@ -76,6 +83,31 @@ function UploadProjectForm() {
                 <Input align='center' mb='18px' mr='10px' variant='flushed' {...register('country')} />
             </FormControl>
         </FlexContainerIB>
+
+        <FlexContainerIB >
+            <TextIB>Country:</TextIB>
+            <Box color='#40916c' style={{ color: '#40916c' }} py={{ lg: "20px" }}>
+                <FormControl isRequired>
+                    <Controller
+                        control={control}
+                        name="country"
+                        render={({ field: { onChange, value, ref } }) => (
+                            <Select
+                                color="#40916c"
+                                bg={"#b7e4c7"}
+                                ref={ref}
+                                options={conutryOptions}
+                                value={value}
+                                onChange={onChange}
+                                classNamePrefix="select"
+                            />
+                        )}
+                    />
+                </FormControl>
+            </Box>
+        </FlexContainerIB>
+
+
         <FlexContainerIB>
             <TextIB>Latituede:</TextIB>
             <FormControl isRequired>
