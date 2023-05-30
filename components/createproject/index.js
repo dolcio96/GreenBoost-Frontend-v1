@@ -33,11 +33,13 @@ const CreateProject = () => {
        // console.log(pdf)
         project.sellerID = session?.user?.id
         project.file = files[0]
+        const form_data = new FormData()
+        form_data.append('file', files[0])
         console.log(project.file)
         var response
         try {
-            response = await axios.post('http://localhost:1234/api/project/upload', project, {
-              headers: { 'Content-Type': 'multipart/form-data' },
+            response = await axios.post('http://localhost:1234/api/project/upload', form_data, {
+              headers: { 'Content-Type': 'application/json' },
             });
           } catch (error) {
             console.error('Error uploading file:', error);
