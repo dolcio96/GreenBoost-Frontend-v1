@@ -12,7 +12,7 @@ export const fetchWrapper = {
 function post2(url, body) {
     const requestOptions = {
         method: 'POST',
-        headers: { 'Content-Type': 'multipart/form-data' },//, ...authHeader(url) },
+        headers: { 'Content-Type': 'application/json' },//, ...authHeader(url) },
         //credentials: 'include',
         body: JSON.stringify(body)
     };

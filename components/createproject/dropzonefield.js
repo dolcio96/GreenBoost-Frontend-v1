@@ -76,7 +76,7 @@ const Dropzone = ({
                 borderColor={borderColor}
                 {...getRootProps()}
             >
-                <input {...getInputProps({ onChange })} {...register("pdf")} />
+                <input {...getInputProps({ onChange })} />
                 <Icon as={AiFillFileAdd} mr={2} />
                 <p>{dropText}</p>
             </Center>

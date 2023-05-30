@@ -11,6 +11,7 @@ import { uploadProjectService } from 'services';
 import { useSession } from "next-auth/react"
 import { useForm, FormProvider } from 'react-hook-form'
 import UploadProjectForm from "@components/createproject/uploadProjectForm"
+import axios from 'axios';
 
 
 
@@ -32,14 +33,17 @@ const CreateProject = () => {
        // console.log(pdf)
         project.sellerID = session?.user?.id
         project.file = files[0]
-
-        return uploadProjectService.uploadProject(project).then((response) => {
-            if (response.ok) {
-                console.log("OK")
-            } else {
-                alert(response.status)
-            }
-        })
+        console.log(project.file)
+        var response
+        try {
+            response = await axios.post('http://localhost:1234/api/project/upload', project, {
+              headers: { 'Content-Type': 'multipart/form-data' },
+            });
+          } catch (error) {
+            console.error('Error uploading file:', error);
+          }
+      
+        return response
     }
 
 
