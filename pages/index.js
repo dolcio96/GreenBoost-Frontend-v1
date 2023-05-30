@@ -26,12 +26,12 @@ export default function Home() {
     return await response.json()
   }
 
-
+/*
   if (session) {
     sessionStorage.setItem("userData", getCustomerData());
   }
   console.log(sessionStorage)
-
+*/
   return (
     <>
       <Head
