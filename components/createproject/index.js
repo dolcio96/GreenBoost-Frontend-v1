@@ -26,12 +26,9 @@ const CreateProject = () => {
 
 
     function onSubmit(project) {
-
-        const formData = new FormData();
-
-        formData = formData.append("file", project.file[0]);
+        
         project.sellerID = session?.user?.id
-        return uploadProjectService.uploadProject(formData).then((response) => {
+        return uploadProjectService.uploadProject(project).then((response) => {
             if (response.ok) {
                 console.log("OK")
             } else {

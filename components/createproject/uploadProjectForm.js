@@ -168,13 +168,11 @@ function UploadProjectForm() {
             <Box py={{ lg: "20px" }}>
                 {/* <Dropzone getRootProps={getRootProps} getInputProps={getInputProps} isDragActive={isDragActive} />*/}
                 <FormControl isRequired>
-                    <DropzoneField files={files} setFiles={setFiles} {...register('pdf')}/>
+                    <DropzoneField files={files} setFiles={setFiles}/>
                 </FormControl >
             </Box>
             {thumbs}
         </FlexContainerIB>
-
-        <input type="file" {...register("file")} />
 
         <FlexContainerIB>
             <FormControl isRequired >

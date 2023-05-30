@@ -13,7 +13,7 @@ import { AiFillFileAdd } from 'react-icons/ai';
 const DropzoneField = ({
     ...rest
 }) => {
-    const { control } = useFormContext()
+    const { control, register } = useFormContext()
 
     return (
         <Controller
@@ -50,6 +50,12 @@ const Dropzone = ({
             })));
         }
     })
+
+    const onDrop = useCallback((acceptedFiles) => {
+        // Do something with the files
+        console.log({ acceptedFiles });
+      }, []);
+      
     const activeBg = useColorModeValue('gray.100', 'gray.600');
     const borderColor = useColorModeValue(
         isDragActive ? 'teal.300' : 'gray.300',
@@ -71,7 +77,7 @@ const Dropzone = ({
                 borderColor={borderColor}
                 {...getRootProps()}
             >
-                <input {...getInputProps({ onChange })} />
+                <input {...getInputProps({ onChange })} {...register("pdf")} />
                 <Icon as={AiFillFileAdd} mr={2} />
                 <p>{dropText}</p>
             </Center>
