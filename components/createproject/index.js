@@ -12,28 +12,30 @@ import { useSession } from "next-auth/react"
 import { useForm, FormProvider } from 'react-hook-form'
 import UploadProjectForm from "@components/createproject/uploadProjectForm"
 
-//Add the seller ID
-    const { data: session } = useSession()
-    
-
-
-function onSubmit(project) {
-    project.sellerID = session?.user?.id
-    return uploadProjectService.uploadProject(project).then((response) => {
-        if (response.ok) {
-          console.log("OK")
-        } else {
-          alert(response.status)
-        }
-      })
-}
 
 
 const CreateProject = () => {
     const [files, setFiles] = useState([]);
-    
+
 
     const methods = useForm();
+
+    //Add the seller ID
+    const { data: session } = useSession()
+
+
+
+    function onSubmit(project) {
+        project.sellerID = session?.user?.id
+        return uploadProjectService.uploadProject(project).then((response) => {
+            if (response.ok) {
+                console.log("OK")
+            } else {
+                alert(response.status)
+            }
+        })
+    }
+
 
     return (
         <>
