@@ -25,9 +25,14 @@ const CreateProject = () => {
 
 
 
-    function onSubmit(project) {
-        
+    async function onSubmit(project) {
+        //console.log(files)
+
+       // const pdf = await fetch(files[0].preview).then(async data => await data.blob() )
+       // console.log(pdf)
         project.sellerID = session?.user?.id
+        project.file = files[0]
+
         return uploadProjectService.uploadProject(project).then((response) => {
             if (response.ok) {
                 console.log("OK")
@@ -58,7 +63,7 @@ const CreateProject = () => {
 
                             <FormProvider {...methods}>
                                 <form onSubmit={methods.handleSubmit(onSubmit)}>
-                                    <UploadProjectForm />
+                                    <UploadProjectForm files={files} setFiles={setFiles}/>
                                     <Button
                                         //isLoading={isSubmitting} -->Capire dove prendere, se da methods
                                         type='submit'

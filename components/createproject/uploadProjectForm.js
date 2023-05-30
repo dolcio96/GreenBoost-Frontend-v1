@@ -42,10 +42,18 @@ const TextIB = ({ children }) => {
 
 
 
-function UploadProjectForm() {
-    const [files, setFiles] = useState([]);
-    
-    
+function UploadProjectForm({ files, setFiles }) {
+    //const [files, setFiles] = useState([]);
+
+
+ /* useEffect(() => {
+        console.log(files)
+
+    }, [files]);
+
+
+
+ */  
     const thumbs = files?.map(file => (
         <Box key={file.name} mb="15px">
             <Flex direction={"row"}>
@@ -168,7 +176,7 @@ function UploadProjectForm() {
             <Box py={{ lg: "20px" }}>
                 {/* <Dropzone getRootProps={getRootProps} getInputProps={getInputProps} isDragActive={isDragActive} />*/}
                 <FormControl isRequired>
-                    <DropzoneField files={files} setFiles={setFiles}/>
+                    <DropzoneField files={files} setFiles={setFiles} />
                 </FormControl >
             </Box>
             {thumbs}

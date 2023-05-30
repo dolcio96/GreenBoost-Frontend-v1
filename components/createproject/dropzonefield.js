@@ -47,15 +47,13 @@ const Dropzone = ({
         onDrop: acceptedFiles => {
             rest.setFiles(acceptedFiles.map(file => Object.assign(file, {
                 preview: URL.createObjectURL(file)
-            })));
+            }))
+            );
         }
     })
 
-    const onDrop = useCallback((acceptedFiles) => {
-        // Do something with the files
-        console.log({ acceptedFiles });
-      }, []);
-      
+
+
     const activeBg = useColorModeValue('gray.100', 'gray.600');
     const borderColor = useColorModeValue(
         isDragActive ? 'teal.300' : 'gray.300',
