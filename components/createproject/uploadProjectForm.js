@@ -44,6 +44,8 @@ const TextIB = ({ children }) => {
 
 function UploadProjectForm() {
     const [files, setFiles] = useState([]);
+    
+    
     const thumbs = files?.map(file => (
         <Box key={file.name} mb="15px">
             <Flex direction={"row"}>
@@ -171,6 +173,8 @@ function UploadProjectForm() {
             </Box>
             {thumbs}
         </FlexContainerIB>
+
+        <input type="file" {...register("file")} />
 
         <FlexContainerIB>
             <FormControl isRequired >
