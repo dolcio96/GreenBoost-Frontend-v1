@@ -12,12 +12,13 @@ import { useSession } from "next-auth/react"
 import { useForm, FormProvider } from 'react-hook-form'
 import UploadProjectForm from "@components/createproject/uploadProjectForm"
 
+//Add the seller ID
+    const { data: session } = useSession()
+    
+
 
 function onSubmit(project) {
-    //Add the seller ID
-    //const { data: session } = useSession()
-    //project.sellerID = session?.user?.id
-    //return console.log(JSON.stringify(project, null, 4))
+    project.sellerID = session?.user?.id
     return uploadProjectService.uploadProject(project).then((response) => {
         if (response.ok) {
           console.log("OK")
