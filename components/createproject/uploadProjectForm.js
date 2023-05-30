@@ -64,24 +64,12 @@ function UploadProjectForm() {
     });
 
     const { data: session } = useSession()
-    const sellerID = session?.user?.id
     const { control, register, formState: { errors, isSubmitting }, } = useFormContext(); // retrieve all hook methods
-    const [sid, setSellerID] = useState("");
 
-    useEffect(() => {
 
-        setSellerID(
-            sellerID
-        );
 
-    }, [sellerID]);
 
     return <>
-        <FlexContainerIB>
-            <FormControl isRequired>
-                <Input  value={sid} align='center' mb='18px' mr='10px' variant='flushed' {...register('sellerID')} />
-            </FormControl>
-        </FlexContainerIB>
         <FlexContainerIB>
             <TextIB>Company Name:</TextIB>
             <FormControl isRequired>
@@ -117,7 +105,6 @@ function UploadProjectForm() {
                 </FormControl>
             </Box>
         </FlexContainerIB>
-
 
         <FlexContainerIB>
             <TextIB>Latitude:</TextIB>
@@ -174,14 +161,12 @@ function UploadProjectForm() {
                 <Input align='center' mb='18px' mr='10px' variant='flushed' type="number" {...register('value')} />
             </FormControl>
         </FlexContainerIB>
-
-
         <FlexContainerIB>
             <TextIB>Upload Certification:</TextIB>
             <Box py={{ lg: "20px" }}>
                 {/* <Dropzone getRootProps={getRootProps} getInputProps={getInputProps} isDragActive={isDragActive} />*/}
                 <FormControl isRequired>
-                    <DropzoneField files={files} setFiles={setFiles} />
+                    <DropzoneField files={files} setFiles={setFiles} {...register('pdf')}/>
                 </FormControl >
             </Box>
             {thumbs}
