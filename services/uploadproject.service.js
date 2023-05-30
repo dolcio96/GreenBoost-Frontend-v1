@@ -5,5 +5,5 @@ export const uploadProjectService = {
 };
 
 function uploadProject(project_info) {
-   return fetchWrapper.post(`/backend/project/upload`, project_info);
+   return fetchWrapper.post2(`/backend/project/upload`, project_info);
 }

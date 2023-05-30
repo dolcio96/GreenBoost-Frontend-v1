@@ -3,9 +3,21 @@ import { userService } from 'services';
 export const fetchWrapper = {
     get,
     post,
+    post2
     //put,
     //delete: _delete
 };
+
+
+function post2(url, body) {
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'multipart/form-data' },//, ...authHeader(url) },
+        //credentials: 'include',
+        body: JSON.stringify(body)
+    };
+    return fetch(url, requestOptions).then(handleResponse);
+}
 
 
 function post(url, body) {

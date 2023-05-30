@@ -45,7 +45,8 @@ const Dropzone = ({
         maxFiles: 1,
         multiple: false,
         onDrop: acceptedFiles => {
-            rest.setFiles(acceptedFiles.map(file => Object.assign(file, {
+            rest.setFiles(acceptedFiles.map(file => 
+                Object.assign(file, {
                 preview: URL.createObjectURL(file)
             }))
             );
