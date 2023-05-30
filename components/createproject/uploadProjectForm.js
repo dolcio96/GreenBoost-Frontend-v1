@@ -66,10 +66,20 @@ function UploadProjectForm() {
     const { data: session } = useSession()
     const sellerID = session?.user?.id
     const { control, register, formState: { errors, isSubmitting }, } = useFormContext(); // retrieve all hook methods
+    const [sid, setSellerID] = useState("");
+
+    useEffect(() => {
+
+        setSellerID(
+            sellerID
+        );
+
+    }, [sellerID]);
+
     return <>
         <FlexContainerIB>
             <FormControl isRequired>
-                <Input  value={sellerID} align='center' mb='18px' mr='10px' variant='flushed' type="number" {...register('sellerID')} />
+                <Input  value={sid} align='center' mb='18px' mr='10px' variant='flushed' {...register('sellerID')} />
             </FormControl>
         </FlexContainerIB>
         <FlexContainerIB>
