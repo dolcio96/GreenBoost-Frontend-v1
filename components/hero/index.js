@@ -32,6 +32,7 @@ import {
 
 import BackgroudImage from "@public/Images/heroForest2.jpg"
 import BackgroudImage2 from "@public/Images/hero.png"
+import { useTranslation } from "react-i18next";
 
 const Hero = () => {
   const BGImage = BackgroudImage.src
@@ -40,6 +41,7 @@ const Hero = () => {
   const MotionText = motion(Text)
   const MotionStack = motion(Stack)
 
+  let { t} = useTranslation();
 
   return (
     <>
@@ -72,13 +74,13 @@ const Hero = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.5, ease: [0, 0.71, 0.2, 1.01] }}
               >
-                Offset our future.</MotionText>
+                {t('home.hero.title')}</MotionText>
               <MotionText as={'span'} color={'primary'} textShadow='2px 2px #344E41'
                 initial={{ opacity: 0, scale: 0.5 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 2, delay: 1, ease: [0, 0.71, 0.2, 1.01] }}>
-                Together.
+               {t('home.hero.title2')}
               </MotionText>
             </Heading>
             <MotionText borderRadius={"20px"} backgroundColor={"quaternary"} color={{ base: 'white', sm: 'white' }} fontSize={{ base: "lg", sm: "2xl" }}
@@ -88,7 +90,7 @@ const Hero = () => {
               transition={{ duration: 0.8, delay: 1.5, ease: [0, 0.71, 0.2, 1.01] }}
               p='10px'
             >
-              Take part to the green revolution and help us build a new ecosystem, a better one, with zero emissions.
+              {t('home.hero.description')}
 
             </MotionText>
             <MotionStack
@@ -117,8 +119,7 @@ const Hero = () => {
                 _focus={{ outline: "none" }}
 
               >
-                Stay tuned
-
+              {t('home.hero.button')}
               </Button>
              {/* <Box>
                 <Icon

@@ -22,7 +22,7 @@ import { Elements } from '@stripe/react-stripe-js';
 
 import CheckoutFormComponent from "@components/checkoutForm";
 import OrderComponent from "@components/order"
-
+import { useTranslation } from "react-i18next";
 
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
@@ -32,8 +32,11 @@ const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
 //To retrieve
 const tableContent = {}
 
-export default function Projects() {
+export default function Projects({ data }) {
+  let { t} = useTranslation();
 
+ console.log(data)
+  /* 
     const [clientSecret, setClientSecret] = React.useState("");
 
     React.useEffect(() => {
@@ -54,7 +57,7 @@ export default function Projects() {
       clientSecret,
       appearance,
     };
-
+*/
 
     return (
         <>
@@ -63,7 +66,8 @@ export default function Projects() {
                 description="GreenBoost: test"
             />
 
-            <TestComponent/>
+            <Box> {t('home.hero.title')}</Box>
+      
 
         </>
     )
@@ -73,5 +77,16 @@ Projects.getLayout = function getLayout(page) {
     return <Layout>{page}</Layout>
 }
 
+export const getServerSideProps = async (context) => {
+  const { locale } = context;
+ // const res = await fetch(`http://localhost:3000/${locale}`);
+  //console.log(locale)
+  //const data = await res.json();
 
+  return {
+    props: {
+      locale,
+    },
+  };
+};
 

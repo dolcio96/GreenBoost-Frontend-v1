@@ -6,7 +6,7 @@ import HomeComponent from "@components/home"
 import { useSession, getSession } from "next-auth/react"
 
 
-export default function Home() {
+export default function Home({props}) {
   const { data: session, status } = useSession()
 
   async function getCustomerData() {

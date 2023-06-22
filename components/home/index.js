@@ -4,7 +4,7 @@ import HomeBuySellCreate from "@components/homeBuySellCreate"
 import TeamComponent from "@components/team"
 import DescriptionComponent from "components/description"
 import Phrase from "@components/phrase"
-
+import { useTranslation } from "react-i18next";
 import {
     Box,
     Stack
@@ -37,27 +37,31 @@ const WaveComp = ({ rotate, bg }) => {
 }
 
 const Home = () => {
+    let { t} = useTranslation();
     return (
         <>
             <Stack spacing={25}>
                 <Box>
                     <Hero />
                     <Stack spacing={5} pt={20} bg={"primary"}>
-                        <Phrase text="Be part of our community, join GreenBoost marketplace." highlight={['community', 'marketplace']} />
-                        <Phrase text="Reduce you carbon footprint through voluntary carbon credit market." highlight={['']} />
+                      {/*  <Phrase text="Be part of our community, join GreenBoost marketplace." highlight={['community', 'marketplace']} />*/}
+                      <Phrase text={t('home.wave.wave1.phrase1')}  highlight={['']} />
+                        <Phrase text={t('home.wave.wave1.phrase2')} highlight={['']} />
                         <WaveComp bg={'white'} />
                     </Stack>
                 </Box>
                 <HomeBuySellCreate />
                 <Stack spacing={5} pt={20} mb={20} bg={"primary"}>
-                    <Phrase text='"We are on a highway to climate hell."' highlight={['']} />
-                    <Phrase text="Turn right and take with us the stairway to climate heaven." highlight={['']} />
+                    <Box mx="50px">
+                    <Phrase text={t('home.wave.wave2.phrase1')} highlight={['']} />
+                    <Phrase text={t('home.wave.wave2.phrase2')} highlight={['']} />
+                    </Box>
                     <WaveComp bg={'white'} />
                 </Stack>
                 <DescriptionComponent />
                 <Stack spacing={5} pt={20} mb={20} bg={"primary"}>
-                    <Phrase text="Despite yesterday, we act today because of tomorrow." highlight={['']} />
-                    <Phrase text="  Offset our future, Together. " highlight={['Offset our future']} />
+                    <Phrase text={t('home.wave.wave3.phrase1')} highlight={['']} />
+                    <Phrase text={t('home.wave.wave3.phrase2')} highlight={['']} />
                     <WaveComp bg={'white'} />
                 </Stack>
                 <TeamComponent />

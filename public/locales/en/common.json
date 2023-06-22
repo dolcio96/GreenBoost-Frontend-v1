@@ -1,0 +1,44 @@
+{
+    "HELLO_WORLD": "Hello, World!",
+    "home": {
+        "hero": {
+            "title": "Offset our future.",
+            "title2": "Together.",
+            "description": "Take part to the green revolution and help us build a new ecosystem, a better one, with zero impact.",
+            "button": "Stay tuned"
+        },
+        "sellbuycreate": {
+            "sell": "sell",
+            "buy": "buy",
+            "create": "crea"
+        },
+        "wave": {
+            "wave1": {
+                "phrase1": "Be part of our community, join GreenBoost marketplace.",
+                "phrase2": "Reduce your carbon footprint through voluntary carbon credit market."
+            },
+            "wave2": {
+                "phrase1": "Greenboost will help you offsetting emissions of the processes that are most difficult to decarbonize,",
+                "phrase2": "with a verifiable product that guarantees CO2 removal from the atmosphere."
+            },
+            "wave3": {
+                "phrase1": "Despite yesterday, we act today because of tomorrow.",
+                "phrase2": "Offset our future, Together."
+            }
+        },
+        "section": {
+            "section1": {
+                "title": "Easy and free access",
+                "description": "Access to the marketplace and offset your emissions in 3 easy click. We want to make our Marketplace accessible to everyone, in a very easy and autonomously way, with the will to make voluntary market grow as much as possible"
+            },
+            "section2": {
+                "title": "Carbon Credit supply gatherer",
+                "description": "We don't choose you, you choose us! List your projects on GreenBoos and become a member of our ecosystem. This will bring to the creation of a market with the greatest selection ever, where you can find every kind of VCC from all over the world."
+            },
+            "section3": {
+                "title": "Build our zero Co2 future",
+                "description": "And that’s not all! GreenBoost wants to reinvest constantly in the development of new green projects, every year, to reduce Co2 emissions as much as we can. Our community will join us in this adventure, taking part in the choice of future projects and building our new ecosystem, together"
+            }
+        }
+    }
+}

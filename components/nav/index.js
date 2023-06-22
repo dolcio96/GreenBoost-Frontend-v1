@@ -28,6 +28,7 @@ const Links = ['About Us', 'test'];
 
 import LogoGB from '@public/logoGB.png'
 import Message from "@components/modal/message"
+import LanguageSelector from './languageSelector';
 
 
 const NavLink = ({ children }) => (
@@ -119,10 +120,15 @@ const DropDownMenu = () => {
 
 const Nav = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
-    const { 
-        isOpen: isOpenModal, 
-        onOpen: onOpenModal, 
-        onClose: onCloseModal 
+    var defaultLang = "IT"
+    const [lang, setLang] = useState(defaultLang);
+
+
+
+    const {
+        isOpen: isOpenModal,
+        onOpen: onOpenModal,
+        onClose: onCloseModal
     } = useDisclosure()
     const { data: session } = useSession()
     const router = useRouter()
@@ -150,7 +156,17 @@ const Nav = () => {
             }, '/order')
         }
         else
-       onOpenModal()
+            onOpenModal()
+    }
+
+
+    function onChangeLanguage() {
+        if (lang == "IT") {
+            setLang("EN")
+        }
+        else {
+            setLang("IT")
+        }
     }
 
     return (
@@ -193,6 +209,10 @@ const Nav = () => {
 
                     </HStack>
                     <Flex alignItems={'center'}>
+                        <Center color={"primary"}>
+                            <LanguageSelector/>
+                            {/*  <Button bg="none" _hover={{ bg: "none" }}  onClick={onChangeLanguage}>{lang}</Button>*/}
+                              </Center>
                         <Center mx="10px" color={"primary"}>
                             <Button bg={"none"} _hover={{ bg: "none" }} onClick={onBuy}>
                                 <ShoppingCart fontSize="large" />
@@ -219,7 +239,7 @@ const Nav = () => {
                             </MenuButton>
                             <MenuList>
                                 {session ? <MenuItem onClick={() => signOut()}>Logout</MenuItem> : <MenuItem onClick={() => signIn()}>Login</MenuItem>}
-                                <MenuItem as="a" href="/auth/signup">Signup</MenuItem>
+                                {!session && <MenuItem as="a" href="/auth/signup">Signup</MenuItem>}
                                 <MenuItem as="a" href="/profile/profile-overview">Profile</MenuItem>
                             </MenuList>
                         </Menu>
@@ -236,7 +256,7 @@ const Nav = () => {
                     </Box>
                 ) : null}
             </Box>
-            <Message isOpen={isOpenModal} onClose={onCloseModal} header="The Chart is Empty" bgColor={"primary"}/>
+            <Message isOpen={isOpenModal} onClose={onCloseModal} header="The Chart is Empty" bgColor={"primary"} />
         </>
     );
 
