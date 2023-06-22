@@ -1,0 +1,44 @@
+{
+    "HELLO_WORLD": "Ciao, mondo!",
+    "home": {
+        "hero": {
+            "title": "Prendi parte al cambiamento ",
+            "title2": "per un domani ad impatto zero.",
+            "description": "Scegli il Marketplace GreenBoost, il tuo partner di fiducia per la compensazione delle emissioni",
+            "button": "Resta Aggiornato"
+        },
+        "sellbuycreate": {
+            "sell": "vendi",
+            "buy": "compra",
+            "create": "crea"
+        },
+        "wave": {
+            "wave1": {
+                "phrase1": "Entra a far parte del nostro ecosistema, scegli il marketplace GreenBoost.",
+                "phrase2": "Riduci la tua carbon footprint grazie al mercato dei crediti di carbonio volontari."
+            },
+            "wave2": {
+                "phrase1": "Greenboost vi accompagnerà nel percorso di compensazione delle emissioni dei processi più difficilmente decarbonizzabili,",
+                "phrase2": "offrendovi un prodotto che certifica e garantisce l’effettiva rimozione di CO2 dall’atmosfera."
+            },
+            "wave3": {
+                "phrase1": "Agiamo oggi per un domani migliore.",
+                "phrase2": "Compensiamo il nostro futuro, insieme."
+            }
+        },
+        "section": {
+            "section1": {
+                "title": "Vuoi compensare le emissioni delle tue attività?",
+                "description": "Accedi al marketplace GreenBoost, aperto a tutti, e compensa le tue emissioni o riduci l’impronta carbonica dei tuoi prodotti, acquistando crediti di carbonio di alta qualità in 3 semplici click, garantendo sempre un reale assorbimento della CO2 compensata"
+            },
+            "section2": {
+                "title": "Vuoi vendere i tuoi Crediti di Carbonio o certificare un progetto di cattura CO2?",
+                "description": "We don't choose you, you choose us! List your projects on GreenBoos and become a member of our ecosystem. This will bring to the creation of a market with the greatest selection ever, where you can find every kind of VCC from all over the world."
+            },
+            "section3": {
+                "title": "ComPensa! Per il futuro di tutti noi",
+                "description": "Crea con noi un futuro ad impatto zero, attraverso la realizzazione di un ecosistema italiano volto alla riduzione e all’assorbimento delle emissioni. Scegli GreenBoost, il tuo partner per la compensazione"
+            }
+        }
+    }
+}
