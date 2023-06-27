@@ -69,7 +69,7 @@ export async function getServerSideProps(context) {
   console.log(session.user.id)
   const res = await getCartServices.getCart(session?.user.id);
 
-  console.log(res)
+  console.log(res.body)
   const cart = await res.json()
 
   //const userInfo = {"id":"id","name":"name"}
