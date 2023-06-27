@@ -131,6 +131,7 @@ const Nav = () => {
         onClose: onCloseModal
     } = useDisclosure()
     const { data: session } = useSession()
+    console.log(session)
     const router = useRouter()
     const [scrolled, setScrolled] = useState(false)
     useEffect(_ => {
@@ -148,7 +149,7 @@ const Nav = () => {
     }, [])
 
     function onBuy() {
-
+      
 
         if (session?.user?.cart) {
             router.push({
