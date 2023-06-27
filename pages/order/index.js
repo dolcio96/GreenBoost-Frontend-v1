@@ -5,13 +5,16 @@ import { Elements } from '@stripe/react-stripe-js';
 import Head from "@components/head"
 import Layout from "@components/layout"
 
+import { getSession } from 'next-auth/client';
 import CheckoutFormComponent from "@components/checkoutForm";
 import OrderComponent from "@components/order"
 
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
 
-export default function Order() {
+export default function Order({ data }) {
+
+  console.log(data)
 
   const [clientSecret, setClientSecret] = React.useState("");
 
@@ -54,4 +57,23 @@ export default function Order() {
 
 Order.getLayout = function getLayout(page) {
   return <Layout>{page}</Layout>
+}
+
+export async function getServerSideProps(context) {
+  // Fetch data from external API
+
+  const session = await getSession(context.req);
+  const { user } = session;
+  const res = await fetch(
+    process.env.DATABASE_URL + ":" + process.env.DATABASE_PORT + "/api/cart",
+    {
+      method: "POST",
+      headers: { 'Content-Type': 'application/json' },
+      body: user.id
+    }
+  )
+  const data = await res.json()
+
+  // Pass data to the page via props
+  return { props: { data } }
 }
