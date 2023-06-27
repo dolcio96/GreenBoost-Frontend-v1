@@ -5,5 +5,5 @@ export const getCartServices = {
 };
 
 function getCart(buyerId) {
-   return fetchWrapper.post(`/backend/cart`, orderID);
+   return fetchWrapper.post(`/backend/cart`, buyerId);
 }
