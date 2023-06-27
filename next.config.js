@@ -9,7 +9,7 @@ const nextConfig = {
 
 
 module.exports = nextConfig
-/*
+
 
 module.exports = {
   async rewrites() {
@@ -20,4 +20,4 @@ module.exports = {
       }
     ]
   }
-}*/
+}
