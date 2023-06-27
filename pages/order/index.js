@@ -19,7 +19,7 @@ export default async function Order() {
   var cart = await  fetch("/api/cart", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(session?.user.id),
+    body: session?.user.id,
   })
     .then((res) => res.json())
 
