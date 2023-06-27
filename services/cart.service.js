@@ -1,6 +1,6 @@
 import { fetchWrapper } from 'helpers';
 
-export const orderService = {
+export const getCartServices = {
    getCart,
 };
 
