@@ -36,11 +36,9 @@ const { getChartService } = require('services');
 
 const ProjectDetails = (props) => {
     const project = props.project
-    const price_per_unit = project?.carbon_credits[0].price_per_unit
+    const price= project?.price_per_unit
     const n_available = project?.carbon_credits.length
-    console.log(project)
     const [quantity, setQuantity] = React.useState(n_available)
-    const [price, setPrice] = React.useState(price_per_unit)
     const handleChange = (v) => setQuantity(v)
     const router = useRouter()
     const { data: session, status } = useSession()
