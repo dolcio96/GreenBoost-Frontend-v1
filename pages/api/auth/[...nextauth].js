@@ -35,6 +35,7 @@ export default NextAuth({
         delete resp.projects
         delete resp.carbon_credits
         delete resp.buyers
+        
         return resp
       }
     }),
