@@ -66,7 +66,6 @@ export async function getServerSideProps(context) {
 
   const { getCartServices } = require('services');
 
-  console.log(session.user.id)
   const res = await getCartServices.getCart(session?.user.id);
 
   console.log(res.body)
