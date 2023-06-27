@@ -5,7 +5,7 @@ import { Elements } from '@stripe/react-stripe-js';
 import Head from "@components/head"
 import Layout from "@components/layout"
 
-import { useSession } from 'next-auth/react';
+import { useSession, getSession } from 'next-auth/react';
 import CheckoutFormComponent from "@components/checkoutForm";
 import OrderComponent from "@components/order"
 
