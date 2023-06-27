@@ -63,6 +63,7 @@ export async function getServerSideProps(context) {
   // Fetch data from external API
 
   const session = await getSession(context.req);
+  console.log(session)
   const { user } = session;
   const res = await fetch(
     process.env.DATABASE_URL + ":" + process.env.DATABASE_PORT + "/api/cart",
