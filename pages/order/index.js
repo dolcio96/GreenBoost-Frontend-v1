@@ -12,11 +12,16 @@ import OrderComponent from "@components/order"
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
 
-export default function Order() {
+export default async function Order() {
 
   const { data: session, status } = useSession();
 
-  var cart = {}
+  var cart = await  fetch("/api/cart", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(session?.user.id),
+  })
+    .then((res) => res.json())
 
   const [clientSecret, setClientSecret] = React.useState("");
 
@@ -32,12 +37,6 @@ export default function Order() {
       .then((res) => res.json())
       .then((data) => setClientSecret(data.clientSecret));
 
-    cart = await fetch("/api/cart", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(session?.user.id),
-    })
-      .then((res) => res.json())
   }, []);
 
 
