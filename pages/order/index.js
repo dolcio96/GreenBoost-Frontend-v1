@@ -22,7 +22,7 @@ export default function Order() {
 
   const [orderItems, setOrderItem] = React.useState("");
 
-  React.useEffect(() => {
+  React.useEffect(async () => {
     // Create PaymentIntent as soon as the page loads
     fetch("/api/stripe/create-payment-intent", {
       method: "POST",
@@ -32,7 +32,7 @@ export default function Order() {
       .then((res) => res.json())
       .then((data) => setClientSecret(data.clientSecret));
 
-    cart = fetch("/api/cart", {
+    cart = await fetch("/api/cart", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(session?.user.id),
