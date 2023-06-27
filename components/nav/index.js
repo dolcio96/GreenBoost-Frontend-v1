@@ -151,7 +151,7 @@ const Nav = () => {
     function onBuy() {
       
 
-        if (session?.user?.cart) {
+        if (session?.user?.cart_id) {
             router.push({
                 pathname: '/order'
             }, '/order')
