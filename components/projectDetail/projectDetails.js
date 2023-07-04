@@ -17,7 +17,8 @@ import {
     Center,
     GridItem,
     Grid,
-    useRadioGroup
+    useRadioGroup,
+    useDisclosure,
 } from '@chakra-ui/react'
 import RecommendIcon from '@mui/icons-material/Recommend';
 import ForestIcon from '@mui/icons-material/Forest';
@@ -36,13 +37,13 @@ const { getChartService } = require('services');
 
 const ProjectDetails = (props) => {
     const project = props.project
-    const price= project?.price_per_unit
+    const price = project?.price_per_unit
     const n_available = project?.carbon_credits.length
     const [quantity, setQuantity] = React.useState(n_available)
     const handleChange = (v) => setQuantity(v)
     const router = useRouter()
     const { data: session, status } = useSession()
-
+    const { isOpen, onOpen, onClose } = useDisclosure()
     function onBuyNow() {
         router.push({
             pathname: '/order',
@@ -64,10 +65,14 @@ const ProjectDetails = (props) => {
         if (!response.ok) {
             throw new Error(response.statusText);
         }
-        return await response.json()
+        else {
+            onOpen()
+            return await response.json()
+        }
     }
 
     return (<>
+      <Message isOpen={isOpen} onOpen={onOpen} onClose={onClose} header={"The product has been added to cart!"} bgColor={"primary"}></Message>
         <Box
             ml="50px" mr="50px">
             <Box

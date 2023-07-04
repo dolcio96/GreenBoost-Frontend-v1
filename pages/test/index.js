@@ -32,32 +32,8 @@ const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
 //To retrieve
 const tableContent = {}
 
-export default function Projects({ data }) {
-  let { t} = useTranslation();
+export default function Projects() {
 
- console.log(data)
-  /* 
-    const [clientSecret, setClientSecret] = React.useState("");
-
-    React.useEffect(() => {
-      // Create PaymentIntent as soon as the page loads
-      fetch("/api/stripe/account", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ items: [{ id: "xl-tshirt" }] }),
-      })
-        .then((res) => res.json())
-        .then((data) => setClientSecret(data.clientSecret));
-    }, []);
-  
-    const appearance = {
-      theme: 'stripe',
-    };
-    const options = {
-      clientSecret,
-      appearance,
-    };
-*/
 
     return (
         <>
@@ -66,7 +42,7 @@ export default function Projects({ data }) {
                 description="GreenBoost: test"
             />
 
-            <Box> {t('home.hero.title')}</Box>
+           <TestComponent/>
       
 
         </>
@@ -76,17 +52,3 @@ export default function Projects({ data }) {
 Projects.getLayout = function getLayout(page) {
     return <Layout>{page}</Layout>
 }
-
-export const getServerSideProps = async (context) => {
-  const { locale } = context;
- // const res = await fetch(`http://localhost:3000/${locale}`);
-  //console.log(locale)
-  //const data = await res.json();
-
-  return {
-    props: {
-      locale,
-    },
-  };
-};
-
