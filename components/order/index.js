@@ -19,6 +19,7 @@ import { orderService } from 'services';
 import PopUp from "@components/modal/message"
 
 const Order = ({cart}) => {
+    console.log(cart)
     const { isOpen, onOpen, onClose } = useDisclosure()
 
     const router = useRouter();
@@ -57,6 +58,9 @@ const Order = ({cart}) => {
 
     return (
         <>
+        {cart.cart_row.map(row => {
+            return row.quantity
+        })}
             <Box my="20">
                 <Center>
                     <Flex direction={"column"} w="50%" gap={"10"}>

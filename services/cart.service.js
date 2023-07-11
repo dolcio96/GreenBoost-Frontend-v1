@@ -5,6 +5,5 @@ export const getCartServices = {
 };
 
 function getCart(buyerId) {
-   console.log(buyerId)
-   return fetchWrapper.post(process.env.DATABASE_URL + ":" + process.env.DATABASE_PORT + `/api/cart`, {"buyer_id": buyerId});
+   return fetchWrapper.post(process.env.DATABASE_URL + ":" + process.env.DATABASE_PORT + `/api/cart`, buyerId);
 }

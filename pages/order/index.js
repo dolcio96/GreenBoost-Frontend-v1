@@ -12,10 +12,9 @@ import OrderComponent from "@components/order"
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
 
-export default async function Order({ props }) {
+export default function Order(props) {
 
   const { data: session, status } = useSession();
-  console.log(cart)
   const [clientSecret, setClientSecret] = React.useState("");
 
   const [orderItems, setOrderItem] = React.useState("");
@@ -48,7 +47,7 @@ export default async function Order({ props }) {
       />
       {clientSecret && (
         <Elements options={options} stripe={stripePromise}>
-          <OrderComponent cart={cart} />
+          <OrderComponent cart={props.cart} />
         </Elements>
       )}
 
@@ -65,11 +64,9 @@ export async function getServerSideProps(context) {
 
   const { getCartServices } = require('services');
 
-  const res = await getCartServices.getCart(session?.user.id);
+  const res = await getCartServices.getCart({"buyer_id": session?.user.id});
 
-  //console.log(res.body)
   const cart = await res.json()
-
   //const userInfo = {"id":"id","name":"name"}
   return {
     props: {
