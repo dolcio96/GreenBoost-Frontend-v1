@@ -12,7 +12,7 @@ import OrderComponent from "@components/order"
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
 
-export default async function Order({ cart }) {
+export default async function Order({ props }) {
 
   const { data: session, status } = useSession();
   console.log(cart)
@@ -72,7 +72,8 @@ export async function getServerSideProps(context) {
 
   //const userInfo = {"id":"id","name":"name"}
   return {
-    cart
-
+    props: {
+      cart
+    }
   };
 }
