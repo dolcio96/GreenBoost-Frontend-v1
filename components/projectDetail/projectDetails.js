@@ -21,6 +21,7 @@ import {
     useDisclosure,
     Img,
     Heading,
+    HStack,
 } from '@chakra-ui/react'
 import RecommendIcon from '@mui/icons-material/Recommend';
 import ForestIcon from '@mui/icons-material/Forest';
