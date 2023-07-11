@@ -72,8 +72,7 @@ export async function getServerSideProps(context) {
 
   //const userInfo = {"id":"id","name":"name"}
   return {
-    props: {
-      cart
-    }
+    cart
+
   };
 }
