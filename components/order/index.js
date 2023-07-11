@@ -19,12 +19,14 @@ import { orderService } from 'services';
 import PopUp from "@components/modal/message"
 
 const Order = ({cart}) => {
-    console.log(cart)
     const { isOpen, onOpen, onClose } = useDisclosure()
 
     const router = useRouter();
     const { data: session, status } = useSession()
-
+    var project_list = {}
+    cart.cart_row.map(({key,row}) =>(
+        project_list[key] = row.project
+    ))
     const project = router.query.project ?  JSON.parse(router.query.project) : 'undefined'
     const buyer = session?.user.company.company_id
     const price = router.query.price
@@ -65,7 +67,7 @@ const Order = ({cart}) => {
                 <Center>
                     <Flex direction={"column"} w="50%" gap={"10"}>
                         <Box>
-                            <OrderRecap project={project} price={price} quantity={quantity} />
+                            <OrderRecap project_list={project_list} price={price} quantity={quantity} />
                         </Box>
                         <Box>
                             <Text textAlign="center" fontSize={"3xl"}>
