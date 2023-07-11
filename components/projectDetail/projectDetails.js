@@ -19,11 +19,13 @@ import {
     Grid,
     useRadioGroup,
     useDisclosure,
+    Img,
+    Heading,
 } from '@chakra-ui/react'
 import RecommendIcon from '@mui/icons-material/Recommend';
 import ForestIcon from '@mui/icons-material/Forest';
 import EmojiNatureIcon from '@mui/icons-material/EmojiNature';
-import ProjectDetailHeaderComponent from "./headerComponent"
+//import ProjectDetailHeaderComponent from "./headerComponent"
 //import ProjectDetailGalleryComponent from "./galleryComponentOLD"
 import ProjectDetailGalleryComponent from "./imgGalleryComponent"
 import Message from '@components/modal/message'
@@ -34,9 +36,13 @@ import { useSession } from "next-auth/react"
 
 const { getChartService } = require('services');
 
+import Img2 from "@public/Images/foresta3.jpg"
+
+import { mapIcon } from "@lib/mapIcon";
 
 
 const ProjectDetails = (props) => {
+    const [selectedImg, setSelectedImg] = useState(null);
     const project = props.project
     const price = project?.price_per_unit
     const n_available = project?.carbon_credits.length
@@ -73,9 +79,8 @@ const ProjectDetails = (props) => {
     }
 
     return (<>
-      <Message isOpen={isOpen} onOpen={onOpen} onClose={onClose} header={"The product has been added to cart!"} bgColor={"primary"}></Message>
-        <Box
-            ml="50px" mr="50px">
+        <Message isOpen={isOpen} onOpen={onOpen} onClose={onClose} header={"The product has been added to cart!"} bgColor={"primary"}></Message>
+        <Center ml="50px" mr="50px" h="85vh">
             <Box
                 align='center'
                 boxShadow='0px 2px 5.5px rgba(0, 0, 0, 0.3)'
@@ -83,70 +88,56 @@ const ProjectDetails = (props) => {
                 mt="10px"
                 mb="10px"
                 borderRadius={5}
+                bg="tertiary"
+
             >
-                <Grid templateColumns={{ base: "1fr", lg: "repeat(4, 1fr)" }} gap='22px' justifyContent={"center"}>
-                    <GridItem colSpan={{ base: 4, lg: 3 }} justifyContent={"center"}>
-
-                        <Flex direction="row"
-                            justifyContent="space-between"
-                        >
-                            <Flex direction='row' maxWidth='100%' my={{ sm: "14px" }}>
-                                <Text fontSize={{ sm: "lg", lg: "xl" }}
-                                    fontWeight='bold'>Project Manager</Text>
-                            </Flex>
-                            <Flex direction='row' maxWidth='100%' my={{ sm: "14px" }}>
-                                <RecommendIcon style={{ color: 'green' }} /> Certified By: Verra
-                            </Flex>
-                        </Flex>
-                        <Divider borderColor='green' orientation='horizontal' />
-                        <Flex fontSize={{ sm: "lg", lg: "xl" }}
-                            direction="row"
-                            justifyContent="space-between" >
-                            <Flex direction='row' maxWidth='100%' my={{ sm: "14px" }}>
-                                Quantity Available:
-                            </Flex>
-                            <Flex direction='row' maxWidth='100%' my={{ sm: "14px" }}>
-                                {n_available}
-                            </Flex>
-                        </Flex>
-                        <Flex
-                            direction={{ sm: "column", md: "row" }}
-                            justifyContent={{ sm: "center", md: "space-between" }}>
-                            <Flex direction='row' maxWidth='100%' my={{ sm: "14px" }}>
-                                {props.project?.description}
-                            </Flex>
-                        </Flex>
-                        <Flex
-                            direction={{ sm: "column", md: "row" }}
-                            justifyContent={{ sm: "center", md: "space-between" }}>
-                            <Flex direction='row' maxWidth='100%' my={{ sm: "14px" }}>
-                                Features and SDG:
-                            </Flex>
-                        </Flex>
-                        <Flex direction={{ sm: "column", md: "row" }} justifyContent={{ sm: "center", md: "space-between" }}>
-                            <Text><ForestIcon style={{ color: 'green' }} /><EmojiNatureIcon style={{ color: 'green' }} /></Text>
-                            <Text>More Info</Text>
-                            <Text>Links</Text>
-                        </Flex>
-
-
+                <Grid templateColumns={{ base: "1fr", lg: "repeat(5, 1fr)" }} h="60vh" >
+                    <GridItem colSpan={{ base: 5, lg: 4 }} justifyContent={"center"} >
+                        <Grid templateColumns={{ base: "1fr", lg: "repeat(2, 1fr)" }} h="60vh" >
+                            <GridItem colSpan={{ base: 2, lg: 1 }} justifyContent={"center"} m={2}>
+                                {/* <ResponsiveCarousel /> */}
+                                <Img src={Img2.src} display={"grid"} minW={"100%"} minH={"100%"}
+                                    maxW={"100%"} position={"absolut"} top={"0"} left={"0"} objectFit="cover" borderRadius={5} />
+                            </GridItem>
+                            <GridItem colSpan={{ base: 2, lg: 1 }} justifyContent={"center"} m={2}>
+                                <VStack justifyContent="space-between" h="full">
+                                    <Center>
+                                        <Heading color="primary">
+                                            NOME PROGETTO
+                                        </Heading>
+                                    </Center>
+                                    <Text>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nisl libero, semper nec hendrerit eu, laoreet at ante. Donec sed urna tempus, facilisis mi non, placerat ligula. Mauris interdum egestas eleifend. Aenean ut libero elementum, pulvinar enim nec, feugiat ipsum. Vestibulum ullamcorper augue ante, ut pharetra mi sollicitudin id. Praesent commodo ante sed justo elementum ullamcorper. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
+                                    </Text>
+                                    <Center>
+                                        <Text fontSize={30} color="primary">
+                                            Available Quantity: 30 CC
+                                        </Text>
+                                    </Center>
+                                    <Box w="full" display={"flex"}>
+                                        <Box flex="1">
+                                            <Text>Start 30/04/2024</Text>
+                                            <Text>End 31/12/2024</Text>
+                                        </Box>
+                                        <Center>
+                                            <Box flex="1"> {mapIcon("forest", "48px", "green")}</Box>
+                                        </Center>
+                                        <Center flex="1">
+                                            <Text cursor={"pointer"} >US Carolina</Text>
+                                        </Center>
+                                    </Box>
+                                </VStack>
+                            </GridItem>
+                        </Grid>
                     </GridItem>
-                    <GridItem colSpan={{ base: 4, lg: 1 }} justifyContent={"center"}>
-                        {status == 'authenticated' && session?.user.customer_type == "buyer" ?
-                            <Box
-                                minH="180px"
-                                direction="column"
-                                m="5px"
-                                p="5px"
-                                boxShadow='0px 2px 5.5px rgba(0, 0, 0, 0.3)'
-                                backgroundColor={"tertiary"}
-                                borderRadius={5}
-                            >
-                                <Flex direction="row" justifyContent="space-between">
+                    <GridItem colSpan={{ base: 5, lg: 1 }} justifyContent={"center"} m={2} >
+                        <Center bg="primary" h="full" borderRadius={5} color="tertiary" >
+                            <VStack justifyContent="space-between" m={2} fontSize={24}>
+                                <HStack w="full" justifyContent="space-between">
                                     <Text>Price:</Text>
                                     <Text>{price} €/CC</Text>
-                                </Flex>
-                                <Flex direction="row" justifyContent="space-between">
+                                </HStack>
+                                <HStack w="full" justifyContent="space-between">
                                     <Center><Text>Amount:</Text></Center>
                                     <NumberInput w='50%' variant="flushed" min={1} max={n_available} quantity={quantity} onChange={handleChange} >
                                         <NumberInputField textAlign={'right'} />
@@ -155,39 +146,26 @@ const ProjectDetails = (props) => {
                                             <NumberDecrementStepper />
                                         </NumberInputStepper>
                                     </NumberInput>
-                                </Flex>
-                                <Flex direction="row" justifyContent="space-between">
+                                </HStack>
+                                <HStack w="full" justifyContent="space-between">
                                     <Text>Costs (10%):</Text>
                                     <Text>{(quantity * price * 0.1).toFixed(2)} €</Text>
-                                </Flex>
+                                </HStack>
                                 <Divider />
-                                <Flex direction="row" justifyContent="space-between">
-                                    <Text>Total:</Text>
+                                <HStack fontWeight={"bold"} w="full" justifyContent="space-between">
+                                    <Text >Total:</Text>
                                     <Text>{(quantity * price * 1.1).toFixed(2)} €</Text>
-                                </Flex>
-                                <Button backgroundColor="green.300" onClick={addToChart}>Add to chart</Button>
-                            </Box> :
-                            <Flex
-                                h="100%"
-                                direction="column"
-                                justifyContent={{ sm: "center" }}
-                                textAlign={{ sm: "center" }}>
-
-                                <Text fontWeight={"bold"}>
-                                    For Buying CC  login as Buyer
-                                </Text>
-
-                            </Flex>
-                        }
-
-
-
+                                </HStack>
+                                <Button backgroundColor="tertiary" color="primary" onClick={addToChart}>Add to chart</Button>
+                            </VStack>
+                        </Center>
                     </GridItem>
-
                 </Grid>
 
             </Box>
-        </Box>
+
+
+        </Center>
     </>)
 
 }

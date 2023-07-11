@@ -12,7 +12,7 @@ import OrderComponent from "@components/order"
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
 
-export default async function Order({cart}) {
+export default async function Order({ cart }) {
 
   const { data: session, status } = useSession();
   console.log(cart)
@@ -40,7 +40,6 @@ export default async function Order({cart}) {
     clientSecret,
     appearance,
   };
-  console.log(cart)
   return (
     <>
       <Head
@@ -49,7 +48,7 @@ export default async function Order({cart}) {
       />
       {clientSecret && (
         <Elements options={options} stripe={stripePromise}>
-          <OrderComponent />
+          <OrderComponent cart={cart} />
         </Elements>
       )}
 

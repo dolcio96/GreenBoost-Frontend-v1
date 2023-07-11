@@ -12,7 +12,8 @@ import {
 
 import ProjectDetailHeaderComponent from "./headerComponent"
 import ProjectDetailGalleryComponent from "./imgGalleryComponent"
-import ProjectDetailsComponent from "./projectDetails"
+import ProjectDetailsComponent from "./projectdetail";
+//import ProjectDetailsComponent from "./projectDetailsOLD"
 
 
 const ProjectDetail = (props) => {

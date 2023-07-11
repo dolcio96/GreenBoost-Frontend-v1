@@ -10,7 +10,7 @@ import Layout from "@components/layout"
 import Head from "@components/head"
 import TestComponent from "@components/test"
 
-import ProjectDetailComponent from "@components/projectDetail/projectDetails.js"
+import ProjectDetailComponent from "@components/projectDetail/projectDetailsOLD.js"
 import ChooseVCCComponent from "@components/projects"
 import ProjectCard from "@components/projects/projectCard"
 import ProfileBuyer from "@components/profile/profileOverviewBuyer"

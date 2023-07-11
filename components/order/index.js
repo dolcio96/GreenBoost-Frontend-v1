@@ -18,7 +18,7 @@ import { useSession } from "next-auth/react"
 import { orderService } from 'services';
 import PopUp from "@components/modal/message"
 
-const Order = () => {
+const Order = ({cart}) => {
     const { isOpen, onOpen, onClose } = useDisclosure()
 
     const router = useRouter();
