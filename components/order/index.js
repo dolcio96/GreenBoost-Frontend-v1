@@ -23,9 +23,9 @@ const Order = ({cart}) => {
 
     const router = useRouter();
     const { data: session, status } = useSession()
-    var project_list = {}
+    var project_list = []
     cart.cart_row.map((key,row) =>(
-        project_list[key] = row.project
+        project_list.push(row.project)
     ))
     const project = router.query.project ?  JSON.parse(router.query.project) : 'undefined'
     const buyer = session?.user.company.company_id
