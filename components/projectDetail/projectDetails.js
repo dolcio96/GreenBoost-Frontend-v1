@@ -40,6 +40,7 @@ const { getChartService } = require('services');
 import Img2 from "@public/Images/foresta3.jpg"
 
 import { mapIcon } from "@lib/mapIcon";
+const { update } = useSession();
 
 
 const ProjectDetails = (props) => {
@@ -75,6 +76,7 @@ const ProjectDetails = (props) => {
         }
         else {
             onOpen()
+            update()
             return await response.json()
         }
     }
