@@ -27,6 +27,7 @@ const Order = ({cart}) => {
     cart.cart_row.map((key,row) =>(
         project_list.push(row.project)
     ))
+    console.log(project_list)
     const project = router.query.project ?  JSON.parse(router.query.project) : 'undefined'
     const buyer = session?.user.company.company_id
     const price = router.query.price
