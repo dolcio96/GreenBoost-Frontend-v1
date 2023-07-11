@@ -40,10 +40,12 @@ const { getChartService } = require('services');
 import Img2 from "@public/Images/foresta3.jpg"
 
 import { mapIcon } from "@lib/mapIcon";
-const { update } = useSession();
+
 
 
 const ProjectDetails = (props) => {
+
+    const { update } = useSession();
     const [selectedImg, setSelectedImg] = useState(null);
     const project = props.project
     const price = project?.price_per_unit
