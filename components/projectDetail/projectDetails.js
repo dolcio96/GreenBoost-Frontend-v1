@@ -112,7 +112,7 @@ const ProjectDetails = (props) => {
                                     </Text>
                                     <Center>
                                         <Text fontSize={30} color="primary">
-                                            Available Quantity: 30 CC
+                                            Available Quantity: {n_available}
                                         </Text>
                                     </Center>
                                     <Box w="full" display={"flex"}>

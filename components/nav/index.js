@@ -149,8 +149,6 @@ const Nav = () => {
     }, [])
 
     function onBuy() {
-      
-
         if (session?.user?.cart.cart_row[0]) {
             router.push({
                 pathname: '/order'
