@@ -18,17 +18,17 @@ import { useSession } from "next-auth/react"
 import { orderService } from 'services';
 import PopUp from "@components/modal/message"
 
-const Order = ({cart}) => {
+const Order = ({ cart }) => {
     const { isOpen, onOpen, onClose } = useDisclosure()
 
     const router = useRouter();
     const { data: session, status } = useSession()
     var project_list = []
-    cart.cart_row.map((key,row) =>(
+    cart.cart_row.map(row => (
         project_list.push(row.project)
     ))
     console.log(project_list)
-    const project = router.query.project ?  JSON.parse(router.query.project) : 'undefined'
+    const project = router.query.project ? JSON.parse(router.query.project) : 'undefined'
     const buyer = session?.user.company.company_id
     const price = router.query.price
     const quantity = router.query.quantity
@@ -61,9 +61,9 @@ const Order = ({cart}) => {
 
     return (
         <>
-        {cart.cart_row.map(row => {
-            return row.quantity
-        })}
+            {cart.cart_row.map(row => {
+                return row.quantity
+            })}
             <Box my="20">
                 <Center>
                     <Flex direction={"column"} w="50%" gap={"10"}>
@@ -76,7 +76,7 @@ const Order = ({cart}) => {
                             </Text>
                         </Box>
                         <Box >
-                            <CheckoutFormComponent/>
+                            <CheckoutFormComponent />
                         </Box>
                     </Flex>
                 </Center>
