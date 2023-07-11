@@ -27,7 +27,7 @@ const OrderRecap = ({ project_list, price, quantity }) => {
                 <Flex direction="row" justifyContent="center">
                     <Text>Lista dei Progetti</Text>
                     {project_list.map(project => (<Text>
-                        project.name
+                        {project.name}
                     </Text>))}
                 </Flex>
                 <Flex direction="row" justifyContent="space-between">
