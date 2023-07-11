@@ -26,6 +26,7 @@ import EmojiNatureIcon from '@mui/icons-material/EmojiNature';
 import ProjectDetailHeaderComponent from "./headerComponent"
 //import ProjectDetailGalleryComponent from "./galleryComponentOLD"
 import ProjectDetailGalleryComponent from "./imgGalleryComponent"
+import Message from '@components/modal/message'
 import Modal from "./modal"
 
 import { useRouter } from "next/router";
