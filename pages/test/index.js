@@ -1,54 +1,39 @@
-
-import { ReactElement } from "react"
+import React from 'react';
 import {
-    Box,
-    Grid,
-    SimpleGrid,
-    Input
+  Box,
+  Center,
+  Flex,
 } from "@chakra-ui/react";
 import Layout from "@components/layout"
 import Head from "@components/head"
-import TestComponent from "@components/test"
+import OrderRecapComponent from "@components/order/orderRecap"
+import BackgroundAnimatedComponent from "@components/test/backgroundAnimated"
 
-import ProjectDetailComponent from "@components/projectDetail/projectDetailsOLD.js"
-import ChooseVCCComponent from "@components/projects"
-import ProjectCard from "@components/projects/projectCard"
-import ProfileBuyer from "@components/profile/profileOverviewBuyer"
-
-
-import React from 'react';
-import { loadStripe } from '@stripe/stripe-js';
-import { Elements } from '@stripe/react-stripe-js';
-
-import CheckoutFormComponent from "@components/checkoutForm";
-import OrderComponent from "@components/order"
-import { useTranslation } from "react-i18next";
-
-
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
-
-
-
-//To retrieve
-const tableContent = {}
+const project_rows = [
+  { "quantity": 3, "project": { "name": "nome1", "price_per_unit": 8.5 } },
+  { "quantity": 4, "project": { "name": "nome2", "price_per_unit": 6 } },
+  { "quantity": 5, "project": { "name": "nome3", "price_per_unit": 8 } }
+];
 
 export default function Projects() {
-
-
-    return (
-        <>
-            <Head
-                title="GreenBoost: test"
-                description="GreenBoost: test"
-            />
-
-           <TestComponent/>
-      
-
-        </>
-    )
+  return (
+    <>
+      <Head
+        title="GreenBoost: test"
+        description="GreenBoost: test"
+      />
+      <Box position="relative" height="100vh"> {/* Add position: relative and height: 100vh to the container */}
+        <BackgroundAnimatedComponent />
+        <Center position="absolute" top={0} left={0} right={0} bottom={0}> {/* Use position: absolute and set top, left, right, and bottom to 0 */}
+          <Flex direction={"column"} w="50%" gap={"10"}>
+            <OrderRecapComponent project_rows={project_rows} />
+          </Flex>
+        </Center>
+      </Box>
+    </>
+  );
 }
 
 Projects.getLayout = function getLayout(page) {
-    return <Layout>{page}</Layout>
+  return <Layout>{page}</Layout>
 }

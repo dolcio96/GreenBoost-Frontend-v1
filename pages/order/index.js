@@ -24,7 +24,8 @@ export default function Order(props) {
     fetch("/api/stripe/create-payment-intent", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ items: [{ id: "xl-tshirt" }] }),
+      //body: JSON.stringify({ items: [{ id: "xl-tshirt" }] }),
+      body: JSON.stringify({ items: [props.cart.cart_row] })
     })
       .then((res) => res.json())
       .then((data) => setClientSecret(data.clientSecret));
@@ -64,7 +65,7 @@ export async function getServerSideProps(context) {
 
   const { getCartServices } = require('services');
 
-  const res = await getCartServices.getCart({"buyer_id": session?.user.id});
+  const res = await getCartServices.getCart({ "buyer_id": session?.user.id });
 
   const cart = await res.json()
   //const userInfo = {"id":"id","name":"name"}

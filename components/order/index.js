@@ -20,19 +20,30 @@ import PopUp from "@components/modal/message"
 
 const Order = ({ cart }) => {
     const { isOpen, onOpen, onClose } = useDisclosure()
-
     const router = useRouter();
     const { data: session, status } = useSession()
-    var project_list = []
+
+    var project_rows = []
+    var totalQuantity = 0
+    var totalValue = 0
+    var totalValueWithFee = 0
+
     cart.cart_row.map(row => (
-        project_list.push(row.project)
+        project_rows.push(row)
+
     ))
-    console.log(project_list)
-    const project = router.query.project ? JSON.parse(router.query.project) : 'undefined'
+    cart.cart_row.map(row => (
+        totalQuantity = totalQuantity + row.quantity
+    ))
+    cart.cart_row.map(row => (
+        totalValue = totalValue + (row.quantity * row.project.price_per_unit)
+    ))
+
+    totalValueWithFee = (totalValue * 1.1).toFixed(2)
+
+
     const buyer = session?.user.company.company_id
-    const price = router.query.price
-    const quantity = router.query.quantity
-    const value = (quantity * price * 1.1).toFixed(2)
+
     const today = new Date();
 
     function Checkout() {
@@ -40,7 +51,7 @@ const Order = ({ cart }) => {
             Seller: project.seller.company.company_name,
             Buyer: buyer,
             Project: project.id,
-            CC: quantity,
+            CC: totalQuantity,
             Type: ["Forest", "Biochimic"],
             Location: "USA",
             Date: today,
@@ -61,14 +72,11 @@ const Order = ({ cart }) => {
 
     return (
         <>
-            {cart.cart_row.map(row => {
-                return row.quantity
-            })}
             <Box my="20">
                 <Center>
                     <Flex direction={"column"} w="50%" gap={"10"}>
                         <Box>
-                            <OrderRecap project_list={project_list} price={price} quantity={quantity} />
+                       {/*    <OrderRecap project_rows={project_rows} totalQuantity={totalQuantity} totalValue={totalValue} />*/} 
                         </Box>
                         <Box>
                             <Text textAlign="center" fontSize={"3xl"}>
