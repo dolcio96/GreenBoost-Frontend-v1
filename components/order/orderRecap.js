@@ -99,8 +99,8 @@ const OrderRecap = ({ project_rows_array }) => {
                                                 <Td><Center><Text>{i + 1}</Text></Center></Td>
                                                 <Td><Center><Text>{row.project.name}</Text></Center></Td>
                                                 <Td><Center><Text> {row.quantity} </Text></Center></Td>
-                                                <Td><Center><Text> {row.project.price_per_unit.toFixed(2)}</Text></Center></Td>
-                                                <Td><Center><Text> {(row.project.price_per_unit * row.quantity).toFixed(2)}</Text></Center></Td>
+                                                <Td><Center><Text> {+(row.project.price_per_unit)}</Text></Center></Td>
+                                                <Td><Center><Text> {+(row.project.price_per_unit * row.quantity)}</Text></Center></Td>
                                                 <Td>
                                                     <Center cursor={"pointer"}>
                                                         <motion.box

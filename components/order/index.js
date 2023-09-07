@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {
+    Heading,
     Box,
     Center,
     Flex,
@@ -11,7 +12,7 @@ import { useRouter } from 'next/router'
 
 import CheckoutFormComponent from "@components/checkoutForm";
 //import PaypalComponet from "@components/paypal"
-import OrderRecap from "@components/order/orderRecap"
+import OrderRecapComponent from "@components/order/orderRecap"
 
 import { useSession } from "next-auth/react"
 
