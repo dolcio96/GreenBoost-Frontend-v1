@@ -55,11 +55,31 @@ const OrderRecap = ({ project_rows_array }) => {
     }, [project_rows]);
 
 
-    function removeItem(i) {
+    async function removeItem(i) {
+       const removeBool = await removeFromCart(project_rows[i].id)
         //Scrivere la funzione che rimuove dal carrello l'item
+
         setProjectRows(project_rows.splice(i + 1));
     }
 
+    async function removeFromCart(rowId) {
+
+        //const buyerID = session.user.id;
+
+        const response = await fetch("/api/backend/cart/delete", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ rowId: rowId}),
+        });
+        console.log(response)
+
+        if (!response.ok) {
+            return false
+        }
+        else {
+            return true
+        }
+    }
 
     return (
         <>
