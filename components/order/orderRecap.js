@@ -8,7 +8,7 @@ import {
     Heading,
     VStack,
     HStack,
-     Table,
+    Table,
     Thead,
     Tbody,
     Tfoot,
@@ -45,7 +45,7 @@ const OrderRecap = ({ project_rows_array }) => {
     function setValue() {
         var value = 0;
         project_rows.map((row, i) => (
-            value += row.quantity*row.project.price_per_unit
+            value += row.quantity * row.project.price_per_unit
         ))
         setTotalValue(value)
     }
@@ -56,10 +56,11 @@ const OrderRecap = ({ project_rows_array }) => {
 
 
     async function removeItem(i) {
-       const removeBool = await removeFromCart(project_rows[i].id)
+        const removeBool = await removeFromCart(project_rows[i].id)
         //Scrivere la funzione che rimuove dal carrello l'item
-
-        setProjectRows(project_rows.splice(i + 1));
+        if (removeBool) {
+            setProjectRows(project_rows.splice(i + 1));
+        }
     }
 
     async function removeFromCart(rowId) {
@@ -69,7 +70,7 @@ const OrderRecap = ({ project_rows_array }) => {
         const response = await fetch("/api/backend/cart/delete", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ rowId: rowId}),
+            body: JSON.stringify({ rowId: rowId }),
         });
         console.log(response)
 
@@ -155,7 +156,7 @@ const OrderRecap = ({ project_rows_array }) => {
                                     </Tr>
                                     <Tr>
                                         <Td><Text>Costs (10%)</Text></Td>
-                                        <Td><Text textAlign={"right"}>{(totalValue*0.1).toFixed(2)} €</Text></Td>
+                                        <Td><Text textAlign={"right"}>{(totalValue * 0.1).toFixed(2)} €</Text></Td>
                                     </Tr>
                                     <Tr>
                                         <Td><Text fontWeight={"bold"}>Total</Text></Td>
