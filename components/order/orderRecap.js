@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from 'react';
 import {
     Box,
     Center,
@@ -7,11 +7,12 @@ import {
     Divider,
     Heading,
     VStack,
-    HStack
-    , Table,
+    HStack,
+     Table,
     Thead,
     Tbody,
     Tfoot,
+    Button,
     Tr,
     Th,
     Td,
@@ -20,8 +21,44 @@ import {
 } from "@chakra-ui/react";
 import { DeleteOutline } from "@mui/icons-material";
 import { motion } from "framer-motion"
+import { useRouter } from 'next/router'
 
-const OrderRecap = ({ project_rows, totalQuantity = 10, totalValue = 40 }) => {
+
+
+
+
+const OrderRecap = ({ project_rows_array }) => {
+    const router = useRouter()
+
+    const [project_rows, setProjectRows] = useState(project_rows_array);
+    const [totalQuantity, setTotalQuantity] = useState(0);
+    const [totalValue, setTotalValue] = useState(0);
+
+    function setQuantity() {
+        var quantity = 0;
+        project_rows.map((row, i) => (
+            quantity += row.quantity
+        ))
+        setTotalQuantity(quantity)
+    }
+
+    function setValue() {
+        var value = 0;
+        project_rows.map((row, i) => (
+            value += row.quantity*row.project.price_per_unit
+        ))
+        setTotalValue(value)
+    }
+    useEffect(() => {
+        setQuantity()
+        setValue()
+    }, [project_rows]);
+
+
+    function removeItem(i) {
+        //Scrivere la funzione che rimuove dal carrello l'item
+        setProjectRows(project_rows.splice(i + 1));
+    }
 
 
     return (
@@ -57,20 +94,21 @@ const OrderRecap = ({ project_rows, totalQuantity = 10, totalValue = 40 }) => {
                                     </Thead>
 
                                     <Tbody>
-                                        {project_rows.map((row, i) => (
+                                        {project_rows && project_rows.map((row, i) => (
                                             <Tr>
                                                 <Td><Center><Text>{i + 1}</Text></Center></Td>
                                                 <Td><Center><Text>{row.project.name}</Text></Center></Td>
                                                 <Td><Center><Text> {row.quantity} </Text></Center></Td>
                                                 <Td><Center><Text> {row.project.price_per_unit.toFixed(2)}</Text></Center></Td>
                                                 <Td><Center><Text> {(row.project.price_per_unit * row.quantity).toFixed(2)}</Text></Center></Td>
-                                                <Td><Center cursor={"pointer"}>
-                                                    <motion.box
-                                                        whileHover={{ scale: 1.1 }}
-                                                        whileTap={{ scale: 0.9 }}>
-                                                        <DeleteOutline />
-                                                    </motion.box>
-                                                </Center>
+                                                <Td>
+                                                    <Center cursor={"pointer"}>
+                                                        <motion.box
+                                                            whileHover={{ scale: 1.1 }}
+                                                            whileTap={{ scale: 0.9 }}>
+                                                            <DeleteOutline onClick={() => removeItem(i)} />
+                                                        </motion.box>
+                                                    </Center>
                                                 </Td>
                                             </Tr>))}
                                     </Tbody>
@@ -97,7 +135,7 @@ const OrderRecap = ({ project_rows, totalQuantity = 10, totalValue = 40 }) => {
                                     </Tr>
                                     <Tr>
                                         <Td><Text>Costs (10%)</Text></Td>
-                                        <Td><Text textAlign={"right"}>{totalValue.toFixed(2)} €</Text></Td>
+                                        <Td><Text textAlign={"right"}>{(totalValue*0.1).toFixed(2)} €</Text></Td>
                                     </Tr>
                                     <Tr>
                                         <Td><Text fontWeight={"bold"}>Total</Text></Td>
@@ -107,6 +145,10 @@ const OrderRecap = ({ project_rows, totalQuantity = 10, totalValue = 40 }) => {
 
                             </Table>
                         </TableContainer>
+
+                    </Center>
+                    <Center>
+                        <Button color={"primary"} onClick={() => router.push('/checkout')}>Checkout</Button>
                     </Center>
                 </VStack>
             </Flex>

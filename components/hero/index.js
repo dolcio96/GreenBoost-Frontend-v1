@@ -41,7 +41,7 @@ const Hero = () => {
   const MotionText = motion(Text)
   const MotionStack = motion(Stack)
 
-  let { t} = useTranslation();
+  let { t } = useTranslation();
 
   return (
     <>
@@ -68,19 +68,22 @@ const Hero = () => {
             >
               <MotionText
                 color={'quaternary'}
-                textShadow='2px 2px #588157'
+                textShadow='1px 1px #ffffff'
                 initial={{ opacity: 0, scale: 0.5 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.5, ease: [0, 0.71, 0.2, 1.01] }}
               >
                 {t('home.hero.title')}</MotionText>
-              <MotionText as={'span'} color={'primary'} textShadow='2px 2px #344E41'
+              <MotionText as={'span'}
+                color={'primary'}
+                //textShadow='2px 2px #344E41'
+                textShadow='1px 1px #ffffff'
                 initial={{ opacity: 0, scale: 0.5 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 2, delay: 1, ease: [0, 0.71, 0.2, 1.01] }}>
-               {t('home.hero.title2')}
+                {t('home.hero.title2')}
               </MotionText>
             </Heading>
             <MotionText borderRadius={"20px"} backgroundColor={"quaternary"} color={{ base: 'white', sm: 'white' }} fontSize={{ base: "lg", sm: "2xl" }}
@@ -119,9 +122,9 @@ const Hero = () => {
                 _focus={{ outline: "none" }}
 
               >
-              {t('home.hero.button')}
+                {t('home.hero.button')}
               </Button>
-             {/* <Box>
+              {/* <Box>
                 <Icon
                   as={Arrow}
                   color={"white"}
