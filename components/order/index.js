@@ -74,21 +74,20 @@ const Order = ({ cart }) => {
     return (
         <>
 
-<Box position="relative" height="100vh"> {/* Add position: relative and height: 100vh to the container */}
-        {/*  <BackgroundAnimatedComponent />*/}
-        <Center gap={"10"}>
-          <Heading fontSize={48} color={"primary"}>
-            ORDER RECAP
-          </Heading>
-        </Center>
-        <Center > {/* Use position: absolute and set top, left, right, and bottom to 0 */}
-          <Flex direction={"column"} w="50%" gap={"10"}>
-
-            <OrderRecapComponent project_rows_array={project_rows_array} />
-          </Flex>
-        </Center>
-      </Box>
-           {/* <Box my="20">
+            <Box position="relative" height="100vh"> {/* Add position: relative and height: 100vh to the container */}
+                {/*  <BackgroundAnimatedComponent />*/}
+                <Center gap={"10"}>
+                    <Heading fontSize={48} color={"primary"}>
+                        ORDER RECAP
+                    </Heading>
+                </Center>
+                <Center > {/* Use position: absolute and set top, left, right, and bottom to 0 */}
+                    <Flex direction={"column"} w="50%" gap={"10"}>
+                        {project_rows_array.length > 0 ? <OrderRecapComponent project_rows_array={project_rows_array} /> : 'vuoto'}
+                    </Flex>
+                </Center>
+            </Box>
+            {/* <Box my="20">
                 <Center>
                     <Flex direction={"column"} w="50%" gap={"10"}>
                         <Box>

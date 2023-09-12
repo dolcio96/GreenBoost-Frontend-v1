@@ -19,7 +19,7 @@ import {
 } from "@chakra-ui/react";
 
 import React, { useState } from "react";
-
+import CheckoutFormComponent from "@components/checkoutForm"
 
 
 function Checkout() {
@@ -33,9 +33,7 @@ function Checkout() {
                         </Heading>
                     </Center>
                     <Center>
-                        <Text>
-                            Coming Soon
-                        </Text>
+                        <CheckoutFormComponent />
                     </Center>
                 </Flex>
             </Box>

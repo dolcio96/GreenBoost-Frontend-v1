@@ -1,3 +1,5 @@
+import item from "@components/projectDetail/item";
+
 // This is your test secret API key.
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
@@ -5,7 +7,7 @@ const calculateOrderAmount = (items) => {
   var totalValue = 0
   var totalValueWithFee = 0
   items.map(row => (
-    totalValue = totalValue + (row.quantity * row.project.price_per_unit)
+    totalValue = totalValue + (row.quantity * (+(row.project.price_per_unit)))
   ))
   //Add Fees
 
@@ -16,6 +18,7 @@ const calculateOrderAmount = (items) => {
 
 export default async function handler(req, res) {
   const { items } = req.body;
+  console.log(items)
 
   // Create a PaymentIntent with the order amount and currency
   const paymentIntent = await stripe.paymentIntents.create({

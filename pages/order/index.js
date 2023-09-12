@@ -6,8 +6,6 @@ import Layout from "@components/layout"
 import Head from "@components/head"
 import OrderComponent from "@components/order"
 export default function Order(props) {
-  console.log(props.cart.cart_row[0].project)
-
   return (
     <>
       <Head

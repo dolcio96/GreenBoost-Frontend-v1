@@ -58,9 +58,21 @@ const OrderRecap = ({ project_rows_array }) => {
     async function removeItem(i) {
         const removeBool = await removeFromCart(project_rows[i].id)
         //Scrivere la funzione che rimuove dal carrello l'item
+        //console.log(project_rows)
         if (removeBool) {
-            setProjectRows(project_rows.splice(i + 1));
+            router.reload()
+            // project_rows = project_rows.filter(function (row) {
+            //     console.log(row.id)
+            //     console.log(project_rows[i].id)
+            //     if (row.id == project_rows[i].id) {
+            //         return false;
+            //     }
+            //     return true;
+            // });
+
+            //setProjectRows(project_rows.splice(i + 1));
         }
+        //console.log(project_rows)
     }
 
     async function removeFromCart(rowId) {
@@ -72,7 +84,7 @@ const OrderRecap = ({ project_rows_array }) => {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ rowId: rowId }),
         });
-        console.log(response)
+        //console.log(response)
 
         if (!response.ok) {
             return false

@@ -25,7 +25,7 @@ export default function Order(props) {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       //body: JSON.stringify({ items: [{ id: "xl-tshirt" }] }),
-      body: JSON.stringify({ items: [props.cart.cart_row] })
+      body: JSON.stringify({ items: props.cart.cart_row })
     })
       .then((res) => res.json())
       .then((data) => setClientSecret(data.clientSecret));
