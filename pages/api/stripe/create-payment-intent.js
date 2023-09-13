@@ -12,8 +12,9 @@ const calculateOrderAmount = (items) => {
   //Add Fees
 
   totalValueWithFee = (totalValue * 1.1).toFixed(2) * 100//Moltiplicato per 100 perchè sono centesimi
-
+  console.log(totalValueWithFee)
   return totalValueWithFee;
+
 };
 
 export default async function handler(req, res) {
@@ -22,7 +23,7 @@ export default async function handler(req, res) {
 
   // Create a PaymentIntent with the order amount and currency
   const paymentIntent = await stripe.paymentIntents.create({
-    amount:1111,// calculateOrderAmount(items),
+    amount: ~~(calculateOrderAmount(items)/1000000), //REMOVE!
     currency: "eur",
     automatic_payment_methods: {
       enabled: true,
