@@ -27,7 +27,7 @@ function Checkout() {
         <>
             <Box minH={"80vh"}>
                 <Flex direction={"column"}>
-                    <Center>
+                    <Center m={5}>
                         <Heading>
                             CHECKOUT
                         </Heading>

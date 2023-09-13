@@ -201,16 +201,18 @@ function Checkout() {
     return (
         <>
             <Box minH={"80vh"}>
-                <Flex direction={"column"}>
-                    <Center>
-                        <Heading>
-                            CHECKOUT
-                        </Heading>
-                    </Center>
-                    <Center>
-                        <CheckoutFormComponent />
-                    </Center>
-                </Flex>
+                <Center>
+                    <Flex direction={"column"}>
+                        <Center>
+                            <Heading>
+                                CHECKOUT
+                            </Heading>
+                        </Center>
+                        <Center>
+                            <CheckoutFormComponent />
+                        </Center>
+                    </Flex>
+                </Center>
             </Box>
         </>
     );
