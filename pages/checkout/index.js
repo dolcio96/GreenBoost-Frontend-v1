@@ -12,7 +12,7 @@ import CheckoutComponent from "@components/checkout"
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
 
-export default function Order(props) {
+export default function Checkout(props) {
 
   const { data: session, status } = useSession();
   const [clientSecret, setClientSecret] = React.useState("");
@@ -56,7 +56,7 @@ export default function Order(props) {
   )
 }
 
-Order.getLayout = function getLayout(page) {
+Checkout.getLayout = function getLayout(page) {
   return <Layout>{page}</Layout>
 }
 

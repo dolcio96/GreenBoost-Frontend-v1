@@ -1,47 +1,78 @@
 import React from 'react';
-import {
-  Box,
-  Center,
-  Button,
-  Flex,
-  Heading,
-} from "@chakra-ui/react";
-import Layout from "@components/layout"
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
+
 import Head from "@components/head"
-import OrderRecapComponent from "@components/order/orderRecap"
-import BackgroundAnimatedComponent from "@components/test/backgroundAnimated"
+import Layout from "@components/layout"
 
-const project_rows_array = [
-  { "quantity": 3, "project": { "name": "nome1", "price_per_unit": 8.5 } },
-  { "quantity": 4, "project": { "name": "nome2", "price_per_unit": 6 } },
-  { "quantity": 5, "project": { "name": "nome3", "price_per_unit": 8 } }
-];
+import { useSession, getSession } from 'next-auth/react';
+import CheckoutFormComponent from "@components/checkoutForm";
+import CheckoutComponent from "@components/checkout"
 
-export default function Projects() {
+
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
+
+export default function Checkout(props) {
+
+  const { data: session, status } = useSession();
+  const [clientSecret, setClientSecret] = React.useState("");
+
+  const [orderItems, setOrderItem] = React.useState("");
+
+  React.useEffect(async () => {
+    // Create PaymentIntent as soon as the page loads
+    fetch("/api/stripe/create-payment-intent", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      //body: JSON.stringify({ items: [{ id: "xl-tshirt" }] }),
+      body: JSON.stringify({ id: "xl-tshirt" })
+    })
+      .then((res) => res.json())
+      .then((data) => setClientSecret(data.clientSecret));
+
+  }, []);
+
+
+  const appearance = {
+    theme: 'stripe',
+  };
+  const options = {
+    clientSecret,
+    appearance,
+  };
   return (
     <>
       <Head
-        title="GreenBoost: test"
-        description="GreenBoost: test"
+        title="GreenBoost: Order"
+        description="GreenBoost: Order"
       />
-      <Box position="relative" height="100vh"> {/* Add position: relative and height: 100vh to the container */}
-        {/*  <BackgroundAnimatedComponent />*/}
-        <Center gap={"10"}>
-          <Heading fontSize={48} color={"primary"}>
-            ORDER RECAP
-          </Heading>
-        </Center>
-        <Center > {/* Use position: absolute and set top, left, right, and bottom to 0 */}
-          <Flex direction={"column"} w="50%" gap={"10"}>
+      {clientSecret && (
+        <Elements options={options} stripe={stripePromise}>
+          <CheckoutComponent cart={props.cart} />
+        </Elements>
+      )}
 
-            <OrderRecapComponent project_rows_array={project_rows_array} />
-          </Flex>
-        </Center>
-      </Box>
     </>
-  );
+  )
 }
 
-Projects.getLayout = function getLayout(page) {
+Checkout.getLayout = function getLayout(page) {
   return <Layout>{page}</Layout>
 }
+/* 
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+
+  const { getCartServices } = require('services');
+
+  const res = await getCartServices.getCart({ "buyer_id": session?.user.id });
+
+  const cart = await res.json()
+  //const userInfo = {"id":"id","name":"name"}
+  return {
+    props: {
+      cart
+    }
+  };
+}
+*/
