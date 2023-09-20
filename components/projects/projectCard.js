@@ -58,7 +58,7 @@ const ProjectCard = ({project}) => {
                             color="gray.800"
                             fontWeight='bold'
                             mb='10px'>
-                            {project.country.name}
+                            {project.country?.name}
                         </Text>
                         <Text fontSize='md' color='gray.400' fontWeight='400' mb='20px' noOfLines={2}>
                             {project.description}
