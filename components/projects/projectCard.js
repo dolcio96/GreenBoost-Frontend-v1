@@ -10,15 +10,17 @@ import {
     Avatar,
     LinkBox,
     LinkOverlay,
-
+    Tooltip,
     useDisclosure,
 } from '@chakra-ui/react';
+
 import { useAnimation, motion } from "framer-motion"
 
 import ImageArchitect1 from "@public/Images/bamboo.jpg";
 
 import { EolicIcon, TrashIcon, BambooIcon, NuclearIcon, ForestIcon, LeafIcon, ChemicalIcon } from "@lib/icons";
 
+import { mapIcon } from "@lib/mapIcon";
 
 const iconSize = 36
 
@@ -48,7 +50,7 @@ const ProjectCard = ({project}) => {
                     <Flex direction='column' px="15px">
                         <Center>
                             <Text fontSize='2xl' color='black' fontWeight='600' mb='10px'>
-                                project name {project.id}
+                                {project.name}
                             </Text>
                         </Center>
                         <Text
@@ -56,21 +58,21 @@ const ProjectCard = ({project}) => {
                             color="gray.800"
                             fontWeight='bold'
                             mb='10px'>
-                            West America
+                            {project.contry.name}
                         </Text>
                         <Text fontSize='md' color='gray.400' fontWeight='400' mb='20px' noOfLines={2}>
                             {project.description}
                         </Text>
                         <Flex justifyContent='center' gap={3} >
-                          <EolicIcon/>
+                         {/*  <EolicIcon/>
                           <ForestIcon/>
                           <LeafIcon/>
-                        {/*}  
-                            {Icons[Math.floor(Math.random() * (Icons.length - 0 + 1)) + 0]}
-                            {Icons[Math.floor(Math.random() * (Icons.length - 0 + 1)) + 0]}
-                            {Icons[Math.floor(Math.random() * (Icons.length - 0 + 1)) + 0]}
-                            {Icons[Math.floor(Math.random() * (Icons.length - 0 + 1)) + 0]}
- */}
+                       */}
+                     
+                     {mapIcon(project.project_type.name,"48px", "green")?
+                     mapIcon(project.project_type.name,"48px", "green"):
+                     <LeafIcon/>}
+
                         </Flex>
                     </Flex>
                 </LinkOverlay>

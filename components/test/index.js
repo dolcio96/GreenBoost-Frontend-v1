@@ -1,221 +1,362 @@
-/*import React, { useEffect, useState } from "react";
 import {
-    Text,
     Flex,
-    Button,
-    Icon,
-    Box,
-    VStack,
-    HStack,
-    NumberInput,
-    NumberInputField,
-    NumberInputStepper,
-    NumberIncrementStepper,
-    NumberDecrementStepper,
-    Divider,
-    Center,
-    GridItem,
     Grid,
-    useRadioGroup,
-    Img,
+    GridItem,
+    Box,
+    SimpleGrid,
+    Button,
+    Menu,
+    MenuButton,
+    MenuList,
+    MenuDivider,
+    MenuItem,
+    useDisclosure,
+    Link,
+    Text,
     Heading,
+    Stack,
+    Input,
+    Center,
+    FormErrorMessage,
+    FormLabel,
+    FormControl,
+    NumberInput,
+    NumberInputField
+} from '@chakra-ui/react';
 
-} from '@chakra-ui/react'
-import RecommendIcon from '@mui/icons-material/Recommend';
+import { useForm } from 'react-hook-form'
+
+import ClearIcon from '@mui/icons-material/Clear';
+
+import { useState, useEffect } from "react";
+
+import ProjectCardComponent from "@components/projects/projectCard"
+
 import ForestIcon from '@mui/icons-material/Forest';
 import EmojiNatureIcon from '@mui/icons-material/EmojiNature';
+/*
+const projects = [
+    {
+        imageURL:
+            'https://images.hdqwalls.com/wallpapers/sunbeams-morning-forest-4k-j7.jpg',
+        name: '1',
+        description: 'Descrizione progetto in due righe',
+        icons: [ForestIcon, EmojiNatureIcon],
+        href: '/buy/buynow',
+    },
+    {
+        imageURL:
+            'https://images.hdqwalls.com/wallpapers/sunbeams-morning-forest-4k-j7.jpg',
+        name: '2',
+        description: 'Descrizione progetto in due righe',
+        icons: [ForestIcon, EmojiNatureIcon],
+        href: '/buy/buynow',
+    },
+    {
+        imageURL:
+            'https://images.hdqwalls.com/wallpapers/sunbeams-morning-forest-4k-j7.jpg',
+        name: '3',
+        description: 'Descrizione progetto in due righe',
+        icons: [ForestIcon, EmojiNatureIcon],
+        href: '/buy/buynow',
+    },
+    {
+        imageURL:
+            'https://images.hdqwalls.com/wallpapers/sunbeams-morning-forest-4k-j7.jpg',
+        name: '4',
+        description: 'Descrizione progetto in due righe',
+        icons: [ForestIcon, EmojiNatureIcon],
+        href: '/buy/buynow',
+    },
+    {
+        imageURL:
+            'https://images.hdqwalls.com/wallpapers/sunbeams-morning-forest-4k-j7.jpg',
+        name: '5',
+        description: 'Descrizione progetto in due righe',
+        icons: [ForestIcon, EmojiNatureIcon],
+        href: '/buy/buynow',
+    },
+    {
+        imageURL:
+            'https://images.hdqwalls.com/wallpapers/sunbeams-morning-forest-4k-j7.jpg',
+        name: '6',
+        description: 'Descrizione progetto in due righe',
+        icons: [ForestIcon, EmojiNatureIcon],
+        href: '/buy/buynow',
+    },
 
-import { useRouter } from "next/router";
-import { useSession } from "next-auth/react"
-
-const { getChartService } = require('services');
-
-import ProjectDetailGalleryComponent from "@components/projectDetail/imgGalleryComponent"
-import Modal from "@components/projectDetail/modal"
-import Img2 from "@public/Images/foresta3.jpg"
-
-import { mapIcon } from "@lib/mapIcon";
-import ResponsiveCarousel from "@components/carousel/responsieCarousel"
-
-const Test = (props) => {
-    const [selectedImg, setSelectedImg] = useState(null);
-
-
-
-
-    const project = props.project
-    const price = project?.price_per_unit
-    const n_available = project?.carbon_credits.length
-    const [quantity, setQuantity] = React.useState(n_available)
-    const handleChange = (v) => setQuantity(v)
-    const router = useRouter()
-    const { data: session, status } = useSession()
-
-    function onBuyNow() {
-        router.push({
-            pathname: '/order',
-            query: { project: JSON.stringify(props.project), price: price, quantity: quantity }
-        }, '/order')
-    }
-
-    async function addToChart() {
-
-        const buyerID = session.user.id;
-
-        const response = await fetch("/api/backend/cart/add", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ buyerID: buyerID, projectID: project.id, quantity: quantity }),
-        });
-        console.log(response)
-
-        if (!response.ok) {
-            throw new Error(response.statusText);
-        }
-        return await response.json()
-    }
-
-    return (<>
-
-        <Center ml="50px" mr="50px" h="85vh">
-            <Box
-                align='center'
-                boxShadow='0px 2px 5.5px rgba(0, 0, 0, 0.3)'
-                p="5px"
-                mt="10px"
-                mb="10px"
-                borderRadius={5}
-                bg="tertiary"
-
-            >
-                <Grid templateColumns={{ base: "1fr", lg: "repeat(5, 1fr)" }} h="60vh" >
-                    <GridItem colSpan={{ base: 5, lg: 4 }} justifyContent={"center"} >
-                        <Grid templateColumns={{ base: "1fr", lg: "repeat(2, 1fr)" }} h="60vh" >
-                            <GridItem colSpan={{ base: 2, lg: 1 }} justifyContent={"center"} m={2}>
-                                
-                                <Img src={Img2.src} display={"grid"} minW={"100%"} minH={"100%"}
-                                    maxW={"100%"} position={"absolut"} top={"0"} left={"0"} objectFit="cover" borderRadius={5} />
-                            </GridItem>
-                            <GridItem colSpan={{ base: 2, lg: 1 }} justifyContent={"center"} m={2}>
-                                <VStack justifyContent="space-between" h="full">
-                                    <Center>
-                                        <Heading color="primary">
-                                            NOME PROGETTO
-                                        </Heading>
-                                    </Center>
-                                    <Text>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nisl libero, semper nec hendrerit eu, laoreet at ante. Donec sed urna tempus, facilisis mi non, placerat ligula. Mauris interdum egestas eleifend. Aenean ut libero elementum, pulvinar enim nec, feugiat ipsum. Vestibulum ullamcorper augue ante, ut pharetra mi sollicitudin id. Praesent commodo ante sed justo elementum ullamcorper. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
-                                    </Text>
-                                    <Center>
-                                        <Text fontSize={30} color="primary">
-                                            Available Quantity: 30 CC
-                                        </Text>
-                                    </Center>
-                                    <Box w="full" display={"flex"}>
-                                        <Box flex="1">
-                                            <Text>Start 30/04/2024</Text>
-                                            <Text>End 31/12/2024</Text>
-                                        </Box>
-                                        <Center>
-                                            <Box flex="1"> {mapIcon("forest", "48px", "green")}</Box>
-                                        </Center>
-                                        <Center flex="1">
-                                            <Text  cursor={"pointer"} >US Carolina</Text>
-                                        </Center>
-                                    </Box>
-                                </VStack>
-                            </GridItem>
-                        </Grid>
-                    </GridItem>
-                    <GridItem colSpan={{ base: 5, lg: 1 }} justifyContent={"center"} m={2} >
-                        <Center bg="primary" h="full" borderRadius={5} color="tertiary" >
-                            <VStack justifyContent="space-between" m={2} fontSize={24}>
-                                <HStack w="full" justifyContent="space-between">
-                                    <Text>Price:</Text>
-                                    <Text>{price} €/CC</Text>
-                                </HStack>
-                                <HStack w="full" justifyContent="space-between">
-                                    <Center><Text>Amount:</Text></Center>
-                                    <NumberInput w='50%' variant="flushed" min={1} max={n_available} quantity={quantity} onChange={handleChange} >
-                                        <NumberInputField textAlign={'right'} />
-                                        <NumberInputStepper>
-                                            <NumberIncrementStepper />
-                                            <NumberDecrementStepper />
-                                        </NumberInputStepper>
-                                    </NumberInput>
-                                </HStack>
-                                <HStack w="full" justifyContent="space-between">
-                                    <Text>Costs (10%):</Text>
-                                    <Text>{(quantity * price * 0.1).toFixed(2)} €</Text>
-                                </HStack>
-                                <Divider />
-                                <HStack fontWeight={"bold"} w="full" justifyContent="space-between">
-                                    <Text >Total:</Text>
-                                    <Text>{(quantity * price * 1.1).toFixed(2)} €</Text>
-                                </HStack>
-                                <Button backgroundColor="tertiary" color="primary" onClick={addToChart}>Add to chart</Button>
-                            </VStack>
-                        </Center>
-                    </GridItem>
-                </Grid>
-
-            </Box>
-
-
-        </Center>
-
-    </>)
-
-}
-
-export default Test
+];
 
 */
+const FilterOpts = [{
+    title: "How Many?",
+    subtitle: "Select the quantity you want",
+    opts: ["0-100", "+100", "+1000"]
+},
+{
+    title: "Which?",
+    subtitle: "Select the type you want",
+    opts: ["Forest", "Ren. Ener.", "Agricolture", "Recyce", "Co2 Storage", "Chemical"]
+},
+{
+    title: "Where?",
+    subtitle: "Search by Reagion",
+    opts: ["Europe", "South America", "North America", "Antartica", "Asia", "Africa"]
+}]
 
 
-// Chakra imports
-import {
-    Avatar,
-    AvatarGroup,
-    Box,
-    Button,
-    Flex,
-    Center,
-    Grid,
-    Image,
-    Text,
-    useColorMode,
-    useColorModeValue,
-    Heading,
-    GridItem,
-    VStack,
-    useDisclosure,
-    Icon,
-} from "@chakra-ui/react";
-
-import React, { useState } from "react";
-import CheckoutFormComponent from "@components/checkoutForm"
 
 
-function Checkout() {
+
+const NavLink = ({ children }) => (
+    <Link
+        px={2}
+        py={1}
+        rounded={'md'}
+        _hover={{
+            textDecoration: 'none',
+            bg: "primary",
+            color: "white"
+        }}
+        href={'/' + children.toString().replace('&', '').replace(/\s/g, '').toLowerCase()}>
+        {children}
+    </Link>
+);
+
+/* 
+const Filter = () => (
+    <Menu>
+        <MenuButton
+            w={{ sm: "100px", md: "150px", lg: "200px" }}
+            as={Button}
+            variant={'solid'}
+            cursor={'pointer'}
+            minW={0}>
+            How Many?
+        </MenuButton>
+        <MenuList>
+            <MenuItem>Link 1</MenuItem>
+            <MenuItem>Link 2</MenuItem>
+            <MenuDivider />
+            <MenuItem>Link 3</MenuItem>
+        </MenuList>
+    </Menu>
+);
+*/
+const Buy = ({ projects }) => {
+    const { isOpen, onOpen, onClose } = useDisclosure();
+
+    //Filter Properties
+    const [filteredProjects, setFilteredProjects] = useState(projects);
+    const [quantity, setQuantity] = useState("");
+    const [type, setType] = useState("");
+    const [place, setPlace] = useState("");
+
+
+    useEffect(() => {
+        var projectTemp = projects
+        if (type != "") {
+            console.log(type + "!=null")
+            projectTemp = projectTemp.filter((project) =>
+                project.project_type.name.toLowerCase().includes(type.toLowerCase())
+            )
+        }
+        //Filtra per location
+        if (place != "") {
+            projectTemp = projectTemp.filter((project) =>
+                project.projectLocation.toLowerCase().includes(place.toLowerCase())
+            )
+        }
+
+        //Filtra epr quantità
+        if (quantity != "") {
+            console.log(1)
+            projectTemp = projectTemp.filter((project) =>
+                project.unit >= parseInt(quantity))
+
+        }
+        console.log("qty: " + quantity, "type: " + type, "place: " + place)
+
+        setFilteredProjects(
+            projectTemp
+        );
+
+    }, [quantity, type, place]);
+
+
+    const {
+        handleSubmit,
+        register,
+        formState: { errors, isSubmitting },
+    } = useForm()
+
+    function onSubmitQuantity(values) {
+        console.log(values.quantity)
+        addFilter("quantity", values.quantity)
+    }
+
+
+    function addFilter(filterType, element) {
+        //Aggiungi l'elemento filtrato alle relative variabili
+        if (filterType == "type") {
+            setType(element)
+        }
+        else if (filterType == "place") {
+            setPlace(element)
+        }
+        else if (filterType == "quantity") {
+            console.log("abs")
+            setQuantity(element)
+        }
+    }
+
+    function removeFilter(filterType) {
+        if (filterType == "type") {
+            setType("")
+        }
+        else if (filterType == "place") {
+            setPlace("")
+        }
+        else if (filterType == "quantity") {
+            setQuantity("")
+        }
+
+
+    }
+
+
     return (
         <>
-            <Box minH={"80vh"}>
-                <Center>
-                    <Flex direction={"column"}>
-                        <Center>
-                            <Heading>
-                                CHECKOUT
-                            </Heading>
-                        </Center>
-                        <Center>
-                            <CheckoutFormComponent />
-                        </Center>
+
+
+            <Box
+                ml="50px"
+                position="fixed" zIndex={999}
+                bg={"primary"}
+                borderRadius={6}>
+                {(type || quantity || place) &&
+                    <Heading color="tertiary" p="15px">Filtered By:</Heading>
+                }
+                {quantity &&
+                    <Flex direction="row" alignItems={'center'} justifyContent={'center'}>
+                        <Text color="tertiary">Quantity: {quantity}</Text>
+                        <ClearIcon cursor="pointer" onClick={() => removeFilter("quantity")} />
                     </Flex>
-                </Center>
+                }
+                {type &&
+                    <Flex direction="row" alignItems={'center'} justifyContent={'center'}>
+                        <Text color="tertiary">Type: {type}</Text>
+                        <ClearIcon cursor="pointer" onClick={() => removeFilter("type")} /></Flex>
+                }
+                {place &&
+                    <Flex direction="row" alignItems={'center'} justifyContent={'center'}>
+                        <Text color="tertiary">Place: {place}</Text>
+                        <ClearIcon cursor="pointer" onClick={() => removeFilter("place")} />
+                    </Flex>
+                }
             </Box>
-        </>
-    );
+
+            <Box px={4} mt={5}>
+                <Flex alignItems={'center'} justifyContent={'center'} direction={{ sm: "column", md: "row" }}>
+                    <Flex alignItems={'center'} justifyContent={'center'} >
+                        <Menu>
+                            <MenuButton
+                                w={{ sm: "100px", md: "150px", lg: "200px" }}
+                                as={Button}
+                                variant={'solid'}
+                                cursor={'pointer'}
+                                minW={0}>
+                                {FilterOpts[0].title}
+                            </MenuButton>
+                            <MenuList>
+                                <b>{FilterOpts[0].subtitle}</b>
+                                {FilterOpts[0].opts.map((opt) => (
+                                    <MenuItem key={opt}>{opt}</MenuItem>
+                                ))}
+                            </MenuList>
+                        </Menu>
+
+                        <Menu>
+                            <MenuButton
+                                w={{ sm: "100px", md: "150px", lg: "200px" }}
+                                as={Button}
+                                variant={'solid'}
+                                cursor={'pointer'}
+                                minW={0}>
+                                {FilterOpts[1].title}
+                            </MenuButton>
+                            <MenuList>
+                                <b>{FilterOpts[1].subtitle}</b>
+                                {FilterOpts[1].opts.map((opt) => (
+                                    <MenuItem key={opt}>{opt}</MenuItem>
+                                ))}
+                            </MenuList>
+                        </Menu>
+
+                        <Menu >
+                            <MenuButton
+                                w={{ sm: "100px", md: "150px", lg: "200px" }}
+                                as={Button}
+                                variant={'solid'}
+                                cursor={'pointer'}
+                                minW={0}>
+                                {FilterOpts[2].title}
+                            </MenuButton>
+                            <MenuList alignItems={'center'} justifyContent={'center'}>
+                                <b>{FilterOpts[2].subtitle}</b>
+                                {FilterOpts[2].opts.map((opt) => (
+                                    <MenuItem key={opt}>{opt}</MenuItem>
+                                ))}
+                            </MenuList>
+                        </Menu>
+
+                    </Flex>
+                    <Flex mb={{ md: "80px" }}>
+                        <Box position={{ sm: "center", md: "absolute" }}
+                            mt={"20px"} ml={{ md: "10%", lg: "10%", xl: "20%" }}
+
+                            alignItems={'center'}
+                            justifyContent={'center'}>
+                            <Button backgroundColor={"gold"} _hover={{ backgroundColor: "green.400" }} as="a" href="/fastbuy"> Fast Buy</Button>
+                        </Box>
+                    </Flex>
+
+                </Flex>
+
+                {isOpen ? (
+                    <Box pb={4} display={{ md: 'none' }} >
+                        <Stack as={'nav'} spacing={4}>
+                            {Links.map((link) => (
+                                <NavLink key={link}>{link}</NavLink>
+                            ))}
+                        </Stack>
+                    </Box>
+                ) : null}
+
+
+            </Box>
+
+            <Flex alignItems={'center'} justifyContent={'center'} direction="column" >
+                {(type || quantity || place) &&
+                    <Heading>Filtered By:</Heading>
+                }
+                {quantity &&
+                    <Flex direction="row"><Text>Quantity: {quantity}</Text><ClearIcon cursor="pointer" onClick={() => removeFilter("quantity")} /></Flex>
+                }
+                {type &&
+                    <Flex direction="row"><Text>Type: {type}</Text><ClearIcon cursor="pointer" onClick={() => removeFilter("type")} /></Flex>
+                }
+                {place &&
+                    <Flex direction="row"><Text>Place: {place}</Text><ClearIcon cursor="pointer" onClick={() => removeFilter("place")} /></Flex>
+                }
+            </Flex>
+
+            <SimpleGrid columns={{ base: 3, lg: 3, md: 2, sm: 1 }} gap={5} mx={"10%"}>
+                {projects.map(project => <ProjectCardComponent key={project.id} project={project} />)}
+            </SimpleGrid>
+
+        </>)
+
 }
 
-export default Checkout;
+export default Buy
