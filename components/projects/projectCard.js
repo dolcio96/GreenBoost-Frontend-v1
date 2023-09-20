@@ -30,8 +30,7 @@ const Icons = [<EolicIcon key={1} size={36} />, <TrashIcon key={2} size={36} />,
 
 
 const ProjectCard = ({project}) => {
-console.log(project)
-    //console.log(project)
+
     const MotionFlex = motion(Flex)
 
     return (<>
@@ -70,8 +69,8 @@ console.log(project)
                           <LeafIcon/>
                        */}
                      
-                     {mapIcon(project.project_type.name,"48px", "green")?
-                     mapIcon(project.project_type.name,"48px", "green"):
+                     {mapIcon(project.project_type?.name,"48px", "green")?
+                     mapIcon(project.project_type?.name,"48px", "green"):
                      <LeafIcon/>}
 
                         </Flex>
