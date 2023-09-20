@@ -32,7 +32,7 @@ Projects.getLayout = function getLayout(page) {
 export async function getServerSideProps() {
     // Fetch data from external API
     const res = await fetch(
-        process.env.DATABASE_URL+":"+process.env.DATABASE_PORT+"/api/crud/project",
+        process.env.DATABASE_URL+":"+process.env.DATABASE_PORT+"/api/crud/project/list",
         {
             method: "GET",
             headers: { 'Content-Type': 'application/json' }
