@@ -54,7 +54,7 @@ const ProjectDetailHeader = (props) => {
                             background="primary"
                             fontSize={{ sm: "sm", md: "md" }}
                             fontWeight='semibold'
-                            onClick={() =>showInMapClicked("45.4131712","10.2825984")}
+                            onClick={() =>showInMapClicked(props.project.latitude,props.project.longitude)}
                         >
                             <PlaceIcon />
                             Posizione

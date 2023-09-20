@@ -19,6 +19,7 @@ import dynamic from 'next/dynamic';
 const ApexCharts = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 function setChartOptions(projects) {
+    console.log(projects)
 
     var chartOpts = {
 

@@ -38,7 +38,7 @@ const ProfileNav = () => {
     const emailColor = useColorModeValue("gray.400", "gray.300");
     const router = useRouter()
     const { data: session, status } = useSession()
-    //console.log(session?.user.company)
+    console.log(session?.user.company)
     return (<>
 
         <Flex direction='column' pt={{ base: "64px", md: "64px", lg: "64px" }}  >

@@ -12,6 +12,7 @@ import {
     LinkOverlay,
     Tooltip,
     useDisclosure,
+    HStack,
 } from '@chakra-ui/react';
 
 import { useAnimation, motion } from "framer-motion"
@@ -29,12 +30,12 @@ const Icons = [<EolicIcon key={1} size={36} />, <TrashIcon key={2} size={36} />,
 
 
 
-const ProjectCard = ({project}) => {
+const ProjectCard = ({ project }) => {
 
     const MotionFlex = motion(Flex)
 
     return (<>
-        <MotionFlex direction='column'  p='10px' borderRadius='10px' whileHover={{ scale: 1.05 }}>
+        <MotionFlex direction='column' p='10px' borderRadius='10px' whileHover={{ scale: 1.05 }}>
             <LinkBox  >
                 <LinkOverlay href={'/projects/' + project.id}>
                     <Box mb='20px' position='relative' borderRadius='10px' bg="gray.200">
@@ -53,25 +54,32 @@ const ProjectCard = ({project}) => {
                                 {project.name}
                             </Text>
                         </Center>
-                        <Text
-                            fontSize='md'
-                            color="gray.800"
-                            fontWeight='bold'
-                            mb='10px'>
-                            {project.country?.name}
-                        </Text>
+                        <HStack mb='10px'>
+                            <Text
+                                fontSize='md'
+                                color="gray.800"
+                                fontWeight='bold'>
+                                {project.country?.name}
+                            </Text>
+                            <Text
+                                fontSize='md'
+                                color="gray.800"
+                                fontWeight='bold'>
+                                {project._count.carbon_credits} CC
+                            </Text>
+                        </HStack>
                         <Text fontSize='md' color='gray.400' fontWeight='400' mb='20px' noOfLines={2}>
                             {project.description}
                         </Text>
                         <Flex justifyContent='center' gap={3} >
-                         {/*  <EolicIcon/>
+                            {/*  <EolicIcon/>
                           <ForestIcon/>
                           <LeafIcon/>
                        */}
-                     
-                     {mapIcon(project.project_type?.name,"48px", "green")?
-                     mapIcon(project.project_type?.name,"48px", "green"):
-                     <LeafIcon/>}
+
+                            {mapIcon(project.project_type?.name, "48px", "green") ?
+                                mapIcon(project.project_type?.name, "48px", "green") :
+                                <LeafIcon />}
 
                         </Flex>
                     </Flex>

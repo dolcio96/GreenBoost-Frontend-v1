@@ -108,11 +108,11 @@ const ProjectDetails = (props) => {
                                 <VStack justifyContent="space-between" h="full">
                                     <Center>
                                         <Heading color="primary">
-                                            NOME PROGETTO
+                                            {props.project.name}
                                         </Heading>
                                     </Center>
                                     <Text>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nisl libero, semper nec hendrerit eu, laoreet at ante. Donec sed urna tempus, facilisis mi non, placerat ligula. Mauris interdum egestas eleifend. Aenean ut libero elementum, pulvinar enim nec, feugiat ipsum. Vestibulum ullamcorper augue ante, ut pharetra mi sollicitudin id. Praesent commodo ante sed justo elementum ullamcorper. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
+                                        {props.project.description}
                                     </Text>
                                     <Center>
                                         <Text fontSize={30} color="primary">
@@ -121,14 +121,16 @@ const ProjectDetails = (props) => {
                                     </Center>
                                     <Box w="full" display={"flex"}>
                                         <Box flex="1">
-                                            <Text>Start 30/04/2024</Text>
-                                            <Text>End 31/12/2024</Text>
+                                            <Text>FROM: {new Date(props.project.valid_from).toLocaleDateString()}</Text>
+                                            <Text>TO: {new Date(props.project.valid_to).toLocaleDateString()}</Text>
                                         </Box>
                                         <Center>
-                                            <Box flex="1"> {mapIcon("forest", "48px", "green")}</Box>
+                                            <Box flex="1"> {mapIcon(project.project_type?.name, "48px", "green") ?
+                                                mapIcon(project.project_type?.name, "48px", "green") :
+                                                <LeafIcon />}</Box>
                                         </Center>
                                         <Center flex="1">
-                                            <Text cursor={"pointer"} >US Carolina</Text>
+                                            <Text cursor={"pointer"} >{props.project.country.name}</Text>
                                         </Center>
                                     </Box>
                                 </VStack>

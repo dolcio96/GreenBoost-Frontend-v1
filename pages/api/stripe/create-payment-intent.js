@@ -19,16 +19,23 @@ const calculateOrderAmount = (items) => {
 
 export default async function handler(req, res) {
   const { items } = req.body;
-  console.log(items)
 
   // Create a PaymentIntent with the order amount and currency
   const paymentIntent = await stripe.paymentIntents.create({
-    amount: ~~(calculateOrderAmount(items)/1000000), //REMOVE!
+    amount: ~~(calculateOrderAmount(items) / 1000000), //REMOVE!
     currency: "eur",
     automatic_payment_methods: {
       enabled: true,
     },
   });
+  console.log((async () => {
+    const { paymentIntent } = await stripe.retrievePaymentIntent(paymentIntent.clientSecret);
+    if (paymentIntent && paymentIntent.status === 'succeeded') {
+      // Handle successful payment here
+    } else {
+      // Handle unsuccessful, processing, or canceled payments and API errors here
+    }
+  })())
 
   res.send({
     clientSecret: paymentIntent.client_secret,

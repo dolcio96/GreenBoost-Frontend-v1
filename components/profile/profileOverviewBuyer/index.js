@@ -189,8 +189,8 @@ function ProfileOverviewBuyer({userInfo}) {
                             </Heading>
                         </Flex>
                     </Box>
-                    <ProjectRow />
-                    <ProjectRow />
+                    {/* <ProjectRow />
+                    <ProjectRow /> */}
                 </Box>
 
 
