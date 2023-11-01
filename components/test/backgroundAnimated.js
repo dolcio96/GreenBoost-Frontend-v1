@@ -1,3 +1,5 @@
+/*
+
 import React, { useEffect, useState } from 'react';
 import { mapIcon } from '@lib/mapIcon';
 
@@ -111,3 +113,5 @@ const MyComponent = () => {
 };
 
 export default MyComponent;
+
+*/
