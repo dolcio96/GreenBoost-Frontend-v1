@@ -43,6 +43,7 @@ import { mapIcon } from "@lib/mapIcon";
 
 
 
+
 const ProjectDetails = (props) => {
 
     const { update } = useSession();
@@ -127,7 +128,7 @@ const ProjectDetails = (props) => {
                                         <Center>
                                             <Box flex="1"> {mapIcon(project.project_type?.name, "48px", "green") ?
                                                 mapIcon(project.project_type?.name, "48px", "green") :
-                                                <LeafIcon />}</Box>
+                                                mapIcon("leaf", "48px", "green")}</Box>
                                         </Center>
                                         <Center flex="1">
                                             <Text cursor={"pointer"} >{props.project.country.name}</Text>
