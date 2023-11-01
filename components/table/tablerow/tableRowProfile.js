@@ -25,7 +25,7 @@ function TableRowProfile({ info }) {
 
                     )
                 })}
-                <Td><a href={txLink}><ExternalLinkIcon boxSize={8} cursor={"pointer"} /></a></Td>
+                <Td key="1000"><a href={txLink}><ExternalLinkIcon boxSize={8} cursor={"pointer"} /></a></Td>
         </Tr>
     );
 }
