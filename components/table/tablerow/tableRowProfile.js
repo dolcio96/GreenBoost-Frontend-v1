@@ -21,7 +21,7 @@ function TableRowProfile({ info }) {
             {
                 rowInfo.map((El, index) => {
                     return (
-                        <Td> {El}</Td>
+                        <Td key={index}> {El}</Td>
 
                     )
                 })}
