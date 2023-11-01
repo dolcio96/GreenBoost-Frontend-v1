@@ -42,7 +42,7 @@ function Tables({ tablesData }) {
                   {
                     tablesData.header.map((El, index) => {
                       return (
-                        <Th borderColor={borderColor} color="gray.200" >{El}</Th>
+                        <Th key={index} borderColor={borderColor} color="gray.200" >{El}</Th>
 
                       )
                     })}
