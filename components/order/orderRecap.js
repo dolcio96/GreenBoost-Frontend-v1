@@ -128,13 +128,13 @@ const OrderRecap = ({ project_rows_array }) => {
 
                                     <Tbody>
                                         {project_rows && project_rows.map((row, i) => (
-                                            <Tr>
-                                                <Td><Center><Text>{i + 1}</Text></Center></Td>
-                                                <Td><Center><Text>{row.project.name}</Text></Center></Td>
-                                                <Td><Center><Text> {row.quantity} </Text></Center></Td>
-                                                <Td><Center><Text> {+(row.project.price_per_unit)}</Text></Center></Td>
-                                                <Td><Center><Text> {+(row.project.price_per_unit * row.quantity)}</Text></Center></Td>
-                                                <Td>
+                                            <Tr key={i}>
+                                                <Td key={concat(1,i)}><Center><Text>{i + 1}</Text></Center></Td>
+                                                <Td key={concat(2+i)}><Center><Text>{row.project.name}</Text></Center></Td>
+                                                <Td key={concat(3+i)}><Center><Text> {row.quantity} </Text></Center></Td>
+                                                <Td key={concat(4+i)}><Center><Text> {+(row.project.price_per_unit)}</Text></Center></Td>
+                                                <Td key={concat(5+i)}><Center><Text> {+(row.project.price_per_unit * row.quantity)}</Text></Center></Td>
+                                                <Td key={concat(6+i)}>
                                                     <Center cursor={"pointer"}>
                                                         <motion.box
                                                             whileHover={{ scale: 1.1 }}
