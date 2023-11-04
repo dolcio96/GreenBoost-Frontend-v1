@@ -37,38 +37,54 @@ const WaveComp = ({ rotate, bg }) => {
 }
 
 const Home = () => {
-    let { t} = useTranslation();
+    let { t } = useTranslation();
     return (
         <>
             <Stack spacing={25}>
                 <Box>
                     <Hero />
-                    <Stack spacing={5} pt={20} bg={"primary"}>
-                      {/*  <Phrase text="Be part of our community, join GreenBoost marketplace." highlight={['community', 'marketplace']} />*/}
-                      <Phrase text={t('home.wave.wave1.phrase1')}  highlight={['']} />
-                        <Phrase text={t('home.wave.wave1.phrase2')} highlight={['']} />
-                        <WaveComp bg={'white'} />
-                    </Stack>
-                </Box>
-                <HomeBuySellCreate />
-                <Stack spacing={5} pt={20} mb={20} bg={"primary"}>
-                    <Box mx="50px">
-                    <Phrase text={t('home.wave.wave2.phrase1')} highlight={['']} />
-                    <Phrase text={t('home.wave.wave2.phrase2')} highlight={['']} />
+                    <Box bg={"primary"}>
+                        <Stack spacing={5} py={20} px={5} >
+                            <Phrase text={t('home.wave.wave1.phrase1')} highlight={[' Unisciti a GreenBoost ']} />
+                            <Phrase text={t('home.wave.wave1.phrase2')} highlight={['']} />
+                        </Stack>
                     </Box>
-                    <WaveComp bg={'white'} />
-                </Stack>
+                    <WaveComp />
+                </Box>
+
+                <HomeBuySellCreate />
+
+                <Box>
+                    <Box bg={"primary"}>
+                        <Stack spacing={5} py={20} px={5}>
+                            <Phrase text={t('home.wave.wave2.phrase1')} highlight={['']} />
+                          
+                        </Stack>
+                    </Box>
+                    <WaveComp />
+                </Box>
+
                 <DescriptionComponent />
-                <Stack spacing={5} pt={20} mb={20} bg={"primary"}>
-                    <Phrase text={t('home.wave.wave3.phrase1')} highlight={['']} />
-                    <Phrase text={t('home.wave.wave3.phrase2')} highlight={['']} />
-                    <WaveComp bg={'white'} />
-                </Stack>
+
+                <Box>
+                    <Box bg={"primary"}>
+                        <Stack spacing={5} py={20} px={5}>
+                            <Phrase text={t('home.wave.wave3.phrase1')} highlight={['']} />
+                            <Phrase text={t('home.wave.wave3.phrase2')} highlight={['']} />
+                        </Stack>
+                    </Box>
+                    <WaveComp />
+                </Box>
+
                 <TeamComponent />
-                <Stack spacing={5} pb={20} bg={"primary"} zIndex={-100}>
-                    <WaveComp rotate={true} bg={'white'} />
-                    <Phrase text="We are GreenBoost, we are an ecosystem, not just a marketplace." highlight={['ecosystem', 'marketplace']} />
-                </Stack>
+                <Box>
+                    <WaveComp rotate={true} />
+                    <Box bg={"primary"}>
+                        <Stack spacing={5} py={20} px={5} zIndex={-100}>
+                            <Phrase text={t('home.wave.wave4.phrase1')} highlight={['']} />
+                        </Stack>
+                    </Box>
+                </Box>
             </Stack>
         </>
     )

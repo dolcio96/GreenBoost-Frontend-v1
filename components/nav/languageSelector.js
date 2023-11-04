@@ -10,9 +10,9 @@ export default function LanguageSelector() {
   };
 
   return (
-    <Select defaultValue={i18n.language} onChange={handleChangeLanguage}>
-      <option value="en">English</option>
-      <option value="it">Italiano</option>
+    <Select  defaultValue={i18n.language} onChange={handleChangeLanguage}>
+      <option style={{ color: 'black' }}  value="en">English</option>
+      <option style={{ color: 'black' }}  value="it">Italiano</option>
     </Select>
   );
 }

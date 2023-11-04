@@ -19,8 +19,8 @@ import TommasoAvatar from "@public/Images/team/tommaso.jpg"
 
 import BackgroudImage from "@public/Images/heroForest2.jpg"
 const team = {
-    ludovico: { nome: "Ludovico Dolcini", role: "Frontend Developer", desc: "descrizione", linkedin: "https://www.linkedin.com/in/ldolcini/", img: LudovicoAvatar },
-    giovanni: { nome: "Giovanni Misso", role: "Backend Developer", desc: "descrizione", linkedin: "https://www.linkedin.com/in/giovannimisso/", img: GiovanniAvatar },
+    ludovico: { nome: "Ludovico Dolcini", role: "Web Design Architect", desc: "descrizione", linkedin: "https://www.linkedin.com/in/ldolcini/", img: LudovicoAvatar },
+    giovanni: { nome: "Giovanni Misso", role: "Backend Integration Specialist", desc: "descrizione", linkedin: "https://www.linkedin.com/in/giovannimisso/", img: GiovanniAvatar },
     arturo: { nome: "Arturo Sorgato", role: "CTO", desc: "descrizione", linkedin: "https://www.linkedin.com/in/arturo-sorgato-555b05215/", img: ArturoAvatar },
     tommaso: { nome: "Tommaso Marinelli", role: "CEO", desc: "descrizione", linkedin: "https://www.linkedin.com/in/tommaso-marinelli1/", img: TommasoAvatar },
     enrico: { nome: "Enrico Martini", role: "COO", desc: "descrizione", linkedin: "https://www.linkedin.com/in/enrico-martini-070696/", img: EnricoAvatar },
@@ -60,12 +60,12 @@ const Team = () => {
                 {/*<Bubbles />*/}
 
                 <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} spacing={10} py={0}>
-                    <TeamCard info={team.ludovico} />
-                    <TeamCard info={team.giovanni} />
+                    <TeamCard info={team.enrico} />
                     <TeamCard info={team.arturo} />
                     <TeamCard info={team.tommaso} />
-                    <TeamCard info={team.enrico} />
                     <TeamCard info={team.andrea} />
+                    <TeamCard info={team.ludovico} />
+                    <TeamCard info={team.giovanni} />
                 </SimpleGrid>
             </Stack>
         </>

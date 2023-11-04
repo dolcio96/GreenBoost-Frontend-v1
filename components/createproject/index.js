@@ -31,8 +31,6 @@ const CreateProject = () => {
     //Add the seller ID
     const { data: session } = useSession()
 
-
-
     async function onSubmit(project) {
         //console.log(files)
 
@@ -65,13 +63,10 @@ const CreateProject = () => {
 
     return (
         <>
-
             {(!session || session?.user.customer_type == "buyer") &&
                 <Message isOpen={isOpen} onOpen={onOpen} onClose={onClose} header={"For Create a Project Login as Seller"} bgColor={"danger"}></Message>
 
             }
-
-
             <Container bg="#b7e4c7" maxW="full" mt={0} centerContent overflow="hidden">
                 <Flex >
 

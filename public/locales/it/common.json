@@ -2,10 +2,9 @@
     "HELLO_WORLD": "Ciao, mondo!",
     "home": {
         "hero": {
-            "title": "Prendi parte al cambiamento ",
-            "title2": "per un domani ad impatto zero.",
-            "description": "Scegli il Marketplace GreenBoost, il tuo partner di fiducia per la compensazione delle emissioni",
-            "button": "Resta Aggiornato"
+            "title": "Offset Our Future.",
+            "description": "Il tuo partner di fiducia per la compensazione delle emissioni",
+            "button": "Rimani Aggiornato"
         },
         "sellbuycreate": {
             "sell": "vendi",
@@ -14,16 +13,19 @@
         },
         "wave": {
             "wave1": {
-                "phrase1": "Entra a far parte del nostro ecosistema, scegli il marketplace GreenBoost.",
-                "phrase2": "Riduci la tua carbon footprint grazie al mercato dei crediti di carbonio volontari."
+                "phrase1": "Unisciti a GreenBoost ",
+                "phrase2": "Compensa le tue emissioni tramite crediti di carbonio di alta qualità. Garantisci la rimozione di CO2 dall’atmosfera."
             },
             "wave2": {
-                "phrase1": "Greenboost vi accompagnerà nel percorso di compensazione delle emissioni dei processi più difficilmente decarbonizzabili,",
-                "phrase2": "offrendovi un prodotto che certifica e garantisce l’effettiva rimozione di CO2 dall’atmosfera."
+                "phrase1": "GreenBoost accompagna realtà nazionali ed internazionali nella realizzazione della strategia di compensazione di lungo periodo, fornendo un portafoglio di soluzioni in grado di soddisfare la necessità di raggiungere gli obbiettivi di decarbonizzazione.",
+                "phrase2": ""
             },
             "wave3": {
                 "phrase1": "Agiamo oggi per un domani migliore.",
                 "phrase2": "Compensiamo il nostro futuro, insieme."
+            },
+            "wave4": {
+                "phrase1": "GreenBoost non un semplice marketplace!"
             }
         },
         "section": {

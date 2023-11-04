@@ -201,9 +201,6 @@ const Nav = () => {
                             spacing={4}
                             display={{ base: 'none', md: 'flex' }}>
                             < DropDownMenu />
-
-
-
                             {Links.map((link) => (
                                 <NavLink key={link}>{link}</NavLink>
                             ))}
@@ -212,11 +209,10 @@ const Nav = () => {
 
                     </HStack>
                     <Flex alignItems={'center'}>
-                        <Center color={"primary"}>
-                            <LanguageSelector/>
-                            {/*  <Button bg="none" _hover={{ bg: "none" }}  onClick={onChangeLanguage}>{lang}</Button>*/}
+                        <Center color={!scrolled ? "tertiary" : "primary"}>
+                            <LanguageSelector />
                               </Center>
-                        <Center mx="10px" color={"primary"}>
+                        <Center mx="10px" color={!scrolled ? "tertiary" : "primary"}>
                             <Button bg={"none"} _hover={{ bg: "none" }} onClick={onBuy}>
                                 <ShoppingCart fontSize="large" />
                             </Button>
@@ -236,7 +232,10 @@ const Nav = () => {
                                         }
                                     /> : <Avatar
                                         size={'sm'}
-                                        backgroundColor="primary"
+                                        backgroundColor={!scrolled ? "primary" : "primary"}
+                                        borderColor="black"
+                                        border={!scrolled ? "4px solid #EBF0EA" : "4px solid #588157"}
+
                                     />}
 
                             </MenuButton>

@@ -9,37 +9,36 @@ import {
   Text,
   Button,
   Stack,
-  Icon,
-  useColorModeValue,
   createIcon,
-  Image,
   Flex,
-  Center,
   Modal,
   ModalContent,
   ModalHeader,
-  ModalCloseButton,
   ModalBody,
   ModalFooter,
   ModalOverlay,
   FormControl,
-  FormLabel,
   Input,
   Radio,
-  RadioGroup
+  RadioGroup,
+  Image
 
 } from '@chakra-ui/react';
 
-import BackgroudImage from "@public/Images/heroForest2.jpg"
-import BackgroudImage2 from "@public/Images/hero.png"
+import BackgroudImage from "@public/Images/torbiere1.jpg"
+import LogoGB from '@public/logoGB.png'
+//import BackgroudImage from "@public/Images/heroForest2.jpg"
 import { useTranslation } from "react-i18next";
 
 const Hero = () => {
   const BGImage = BackgroudImage.src
+  const LogoImage = LogoGB.src
+
   const { isOpen, onOpen, onClose } = useDisclosure()
 
   const MotionText = motion(Text)
   const MotionStack = motion(Stack)
+  const MotionImage = motion(Image)
 
   let { t } = useTranslation();
 
@@ -66,15 +65,24 @@ const Hero = () => {
               color={'quaternary'}
 
             >
-              <MotionText
+               <MotionImage src = {LogoImage} textShadow='2px 2px #588157'
+              initial={{ opacity: 0, scale: 0.5 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.5, ease: [0, 0.71, 0.2, 1.01]
+              
+              
+              }}/>
+
+              {/*<MotionText
                 color={'quaternary'}
                 textShadow='1px 1px #ffffff'
                 initial={{ opacity: 0, scale: 0.5 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.5, ease: [0, 0.71, 0.2, 1.01] }}
-              >
-                {t('home.hero.title')}</MotionText>
+              >   {t('home.hero.title')}</MotionText>*/ }
+              
               <MotionText as={'span'}
                 color={'primary'}
                 //textShadow='2px 2px #344E41'
@@ -82,8 +90,8 @@ const Hero = () => {
                 initial={{ opacity: 0, scale: 0.5 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 2, delay: 1, ease: [0, 0.71, 0.2, 1.01] }}>
-                {t('home.hero.title2')}
+                transition={{ duration: 0.8, delay: 1, ease: [0, 0.71, 0.2, 1.01] }}>
+                {t('home.hero.title')}
               </MotionText>
             </Heading>
             <MotionText borderRadius={"20px"} backgroundColor={"quaternary"} color={{ base: 'white', sm: 'white' }} fontSize={{ base: "lg", sm: "2xl" }}

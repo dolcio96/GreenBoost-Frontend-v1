@@ -2,8 +2,7 @@
     "HELLO_WORLD": "Hello, World!",
     "home": {
         "hero": {
-            "title": "Offset our future.",
-            "title2": "Together.",
+            "title": "Offset Our Future.",
             "description": "Take part to the green revolution and help us build a new ecosystem, a better one, with zero impact.",
             "button": "Stay tuned"
         },
@@ -24,6 +23,9 @@
             "wave3": {
                 "phrase1": "Despite yesterday, we act today because of tomorrow.",
                 "phrase2": "Offset our future, Together."
+            },
+            "wave4": {
+                "phrase1": "GreenBoost non un semplice marketplace!"
             }
         },
         "section": {
