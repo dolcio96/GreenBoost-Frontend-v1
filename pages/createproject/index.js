@@ -3,7 +3,6 @@ import { ReactElement } from "react"
 import Layout from "@components/layout"
 import Head from "@components/head"
 import CreateProjectComponent from "@components/createproject"
-import Test from "@components/createproject/test"
 export default function CreateProject() {
   return (
     <>

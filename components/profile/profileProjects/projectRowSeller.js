@@ -18,7 +18,7 @@ import BuyersTableComponent from "@components/table"
 import {formatDate} from "@lib/parser"
 // Custom components
 import {compareDate} from "@lib/dateFunctions"
-
+import { mapIcon } from "@lib/mapIcon";
 import { ChevronDownIcon, ChevronUpIcon, ExternalLinkIcon } from '@chakra-ui/icons'
 
 const TitleComponent = ({ title }) => {
@@ -67,7 +67,8 @@ function ProjectRowSeller({ project }) {
                         <TitleComponent title="Project Type" />
                         <ElementComponent>
                             <Flex gap={3} >
-                            {project.project_type.type_name}
+                            
+                           { mapIcon(project.project_type.type_name, "36px", "#ffffff")}
                                 {/*project.project_type.map((pt, index) => {
                                     return (pt.type_name)
                                 })*/}

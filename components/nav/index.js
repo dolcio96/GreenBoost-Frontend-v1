@@ -31,6 +31,8 @@ import Message from "@components/modal/message"
 import LanguageSelector from './languageSelector';
 
 
+
+
 const NavLink = ({ children }) => (
     <Link
         px={2}
@@ -122,8 +124,8 @@ const Nav = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
     var defaultLang = "IT"
     const [lang, setLang] = useState(defaultLang);
-
-
+    const router = useRouter()
+    const isHome = router.pathname === "/" ? true : false;
 
     const {
         isOpen: isOpenModal,
@@ -132,7 +134,8 @@ const Nav = () => {
     } = useDisclosure()
     const { data: session } = useSession()
     console.log(session)
-    const router = useRouter()
+
+    
     const [scrolled, setScrolled] = useState(false)
     useEffect(_ => {
         const handleScroll = _ => {
@@ -209,10 +212,10 @@ const Nav = () => {
 
                     </HStack>
                     <Flex alignItems={'center'}>
-                        <Center color={!scrolled ? "tertiary" : "primary"}>
+                        <Center color={!scrolled && isHome ? "tertiary" : "primary"}>
                             <LanguageSelector />
                               </Center>
-                        <Center mx="10px" color={!scrolled ? "tertiary" : "primary"}>
+                        <Center mx="10px" color={!scrolled && isHome ? "tertiary" : "primary"}>
                             <Button bg={"none"} _hover={{ bg: "none" }} onClick={onBuy}>
                                 <ShoppingCart fontSize="large" />
                             </Button>
@@ -232,9 +235,9 @@ const Nav = () => {
                                         }
                                     /> : <Avatar
                                         size={'sm'}
-                                        backgroundColor={!scrolled ? "primary" : "primary"}
+                                        backgroundColor={!scrolled && isHome ? "primary" : "primary"}
                                         borderColor="black"
-                                        border={!scrolled ? "4px solid #EBF0EA" : "4px solid #588157"}
+                                        border={!scrolled && isHome ? "4px solid #EBF0EA" : "4px solid #588157"}
 
                                     />}
 

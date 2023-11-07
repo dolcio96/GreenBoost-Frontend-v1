@@ -20,7 +20,14 @@ const ApexCharts = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 function setChartOptions(projects) {
     console.log(projects)
+    var qtaList = [];
+    var typeList = []
 
+    projects.map((project, index) => {
+        return (
+            typeList.push(project.project_type.type_name)
+        )
+    })
     var chartOpts = {
 
         series: [44, 55, 13],
@@ -103,7 +110,7 @@ function ProfileProjectsBuyer({ userInfo }) {
                             <Center>
                                 <Flex direction={"column"}>
                                     <Center>
-                                        <ApexCharts options={chartOptions.options} series={chartOptions.series} type="pie" width={500} />
+                                        <ApexCharts options={chartOptions.options} series={chartOptions.series}  type="pie" width={500} />
                                     </Center>
                                 </Flex>
                             </Center>

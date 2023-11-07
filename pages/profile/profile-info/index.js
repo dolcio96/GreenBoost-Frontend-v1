@@ -5,8 +5,9 @@ import {
 } from '@chakra-ui/react';
 
 import Head from "@components/head"
-import ProfileInfoBuyerComponet from "@components/profile/profileInfoBuyer"
-import ProfileInfoSellerComponet from "@components/profile/profileInfoSeller"
+
+import ProfileInfoSellerComponet from "@components/profile/profileInfo/indexSeller"
+import ProfileInfoBuyerComponet from "@components/profile/profileInfo/indexBuyer"
 import ProfileLayout from "@components/layout/profileLayout"
 import { useSession } from "next-auth/react"
 
@@ -39,3 +40,6 @@ export default function ProfileInfo() {
 ProfileInfo.getLayout = function getLayout(page) {
   return <ProfileLayout>{page}</ProfileLayout>
 }
+
+
+//inserire funzione che fa il fetch per i PDF dell'utente

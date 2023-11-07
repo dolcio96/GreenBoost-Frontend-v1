@@ -3,14 +3,17 @@ import { ReactElement } from "react"
 import {
     Container,
 } from "@chakra-ui/react";
-import Layout from "@components/layout"
+import Layout from "@components/layout/profileLayout"
 import Head from "@components/head"
 import TableComponet from "@components/table"
 import ProjectComponent from "@components/projects"
+import ProfileProjectComponent from "@components/profile/profileProjects/indexSeller"
 
 import ForestIcon from '@mui/icons-material/Forest';
 import EmojiNatureIcon from '@mui/icons-material/EmojiNature';
 //To retrieve
+
+
 const data = [
   {
       imageURL:
@@ -75,7 +78,56 @@ const data = [
 
 ];
 
-
+const userinfo = {
+    projects: [
+      {
+        id: "Project ID 1",
+        project_type: {
+          type_name: "eolic"
+        },
+        carbon_credits: [
+          {
+            credit_id: 1,
+            credit_value: 100
+          },
+          {
+            credit_id: 2,
+            credit_value: 200
+          }
+        ],
+        update_timestamp: "2023-01-01T00:00:00.000Z",
+        tablesData: [
+          {
+            buyer_name: "Buyer 1",
+            purchased_credits: 50
+          },
+          {
+            buyer_name: "Buyer 2",
+            purchased_credits: 75
+          }
+        ]
+      },
+      {
+        id: "Project ID 2",
+        project_type: {
+        type_name: "forest"
+        },
+        carbon_credits: [
+          {
+            credit_id: 3,
+            credit_value: 150
+          }
+        ],
+        update_timestamp: "2023-02-01T00:00:00.000Z",
+        tablesData: [
+          {
+            buyer_name: "Buyer 3",
+            purchased_credits: 30
+          }
+        ]
+      }
+    ]
+  }
 export default function Projects() {
     return (
         <>
@@ -83,8 +135,8 @@ export default function Projects() {
                 title="GreenBoost: Projects"
                 description="GreenBoost: Projects"
             />
-
-            <ProjectComponent projects={data} />
+                <ProfileProjectComponent userInfo={userinfo}/>
+        {/*     <ProjectComponent projects={data} />*/}
         </>
     )
 }

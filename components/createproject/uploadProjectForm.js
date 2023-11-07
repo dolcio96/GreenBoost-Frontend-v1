@@ -12,7 +12,7 @@ import { useDropzone } from 'react-dropzone'
 import Select from 'react-select';
 import { useForm, Controller, FormProvider, useFormContext } from 'react-hook-form'
 import Dropzone from "@components/createproject/dropzone";
-import DropzoneField from "@components/createproject/dropzoneField";
+import DropzoneField from "@components/createproject/dropzonefield";
 import { VscFilePdf } from "react-icons/vsc";
 
 import { useSession } from "next-auth/react"
