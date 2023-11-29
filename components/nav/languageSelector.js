@@ -1,12 +1,29 @@
+import React, { ReactNode, useEffect, useState } from 'react';
 import { Select } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
-
+import { useLanguage} from '@context/LanguageContext'
 export default function LanguageSelector() {
+
+
+  const { language, changeLanguage  } = useLanguage();
+
+  useEffect(() => {
+    // Set the language in i18n when it changess
+    console.log('Language:', language); 
+    i18n.changeLanguage(language);
+    console.log(789);
+  }, [language]);
+
+
+
+
   const { i18n } = useTranslation();
 
   const handleChangeLanguage = (event) => {
     const selectedLanguage = event.target.value;
-    i18n.changeLanguage(selectedLanguage);
+    console.log(456);
+    changeLanguage(selectedLanguage);
+    //i18n.changeLanguage(selectedLanguage);
   };
 
   return (

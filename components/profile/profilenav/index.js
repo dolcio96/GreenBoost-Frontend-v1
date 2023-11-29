@@ -91,12 +91,12 @@ const ProfileNav = () => {
                     </Flex>
                 </Flex>
                 <Flex
-                    direction={{ sm: "column", lg: "row" }}
-                    w={{ sm: "100%", md: "50%", lg: "auto" }}>
+                    direction={{ sm: "column", md: "row" }}
+                    w={{ sm: "100%", md: "auto", lg: "auto" }}>
                     <Button p='0px' bg='transparent' variant='no-effects' as="a" href="/profile/profile-overview">
                         <Flex
                             align='center'
-                            w={{ sm: "100%", lg: "135px" }}
+                            w={{ sm: "100%", md: "135px" }}
                             borderRadius='8px'
                             justifyContent='center'
                             py='10px'
@@ -112,7 +112,7 @@ const ProfileNav = () => {
                     <Button p='0px' bg='transparent' variant='no-effects' as="a" href="/profile/profile-projects">
                         <Flex
                             align='center'
-                            w={{ sm: "100%", lg: "135px" }}
+                            w={{ sm: "100%",  md: "135px" }}
                             borderRadius='8px'
                             justifyContent='center'
                             bg={router.pathname === "/profile/profile-projects" ? 'white' : 'none'}
@@ -128,7 +128,7 @@ const ProfileNav = () => {
                     <Button p='0px' bg='transparent' variant='no-effects' as="a" href="/profile/profile-info">
                         <Flex
                             align='center'
-                            w={{ sm: "100%", lg: "135px" }}
+                            w={{ sm: "100%",  md: "135px" }}
                             borderRadius='8px'
                             justifyContent='center'
                             bg={router.pathname === "/profile/profile-info" ? 'white' : 'none'}

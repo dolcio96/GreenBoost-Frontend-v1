@@ -5,13 +5,6 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   i18n,
-}
-
-
-module.exports = nextConfig
-
-
-module.exports = {
   async rewrites() {
     return [
       {
@@ -21,3 +14,17 @@ module.exports = {
     ]
   }
 }
+
+
+module.exports = nextConfig
+
+/*module.exports = {
+  async rewrites() {
+    return [
+      {
+        source: '/backend/:path*',
+        destination: 'http://localhost:1234/api/:path*' // Proxy to Backend
+      }
+    ]
+  }
+}*/

@@ -23,17 +23,16 @@ const ProjectDetailHeader = (props) => {
     
     };
     return (<>
-        <Flex direction='column' pt={{ base: "10px", md: "10px", lg: "10px" }}>
+        <Flex direction='column' pt={{ base: "10px", md: "10px"}}>
             <Flex
                 direction={{ sm: "column", md: "row" }}
-                mb='24px'
+                mb={2}
                 maxH='330px'
                 justifyContent={{ sm: "center", md: "space-between" }}
                 align='center'
                 boxShadow='0px 2px 5.5px rgba(0, 0, 0, 0.2)'
                 p='5px'
-                pl='24px'
-                pr='24px'
+                px='24px'
                 borderRadius='20px'>
                 <Flex
                     align='center'
@@ -67,7 +66,7 @@ const ProjectDetailHeader = (props) => {
                     justifyContent={{ sm: "center"}}
 
                     w={{ sm: "100%", md: "50%", lg: "auto" }}>
-                    <Button p='0px' bg='transparent' variant='no-effects' as="a" href="/profile/profile-overview">
+                    <Button p='0px' bg='transparent' variant='no-effects' as="a" href="/">
                         <Flex
                             align='center'
                             w={{ sm: "100%", lg: "135px" }}
@@ -81,7 +80,7 @@ const ProjectDetailHeader = (props) => {
                             </Text>
                         </Flex>
                     </Button>
-                    <Button p='0px' bg='transparent' variant='no-effects' as="a" href="/profile/profile-projects">
+                    <Button p='0px' bg='transparent' variant='no-effects' as="a" href="/">
                         <Flex
                             align='center'
                             w={{ sm: "100%", lg: "135px" }}

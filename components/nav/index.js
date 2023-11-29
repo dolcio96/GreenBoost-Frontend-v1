@@ -30,7 +30,7 @@ import LogoGB from '@public/logoGB.png'
 import Message from "@components/modal/message"
 import LanguageSelector from './languageSelector';
 
-
+import i18n from "../../i18n";
 
 
 const NavLink = ({ children }) => (
@@ -135,6 +135,10 @@ const Nav = () => {
     const { data: session } = useSession()
     console.log(session)
 
+
+   
+  
+ 
     
     const [scrolled, setScrolled] = useState(false)
     useEffect(_ => {

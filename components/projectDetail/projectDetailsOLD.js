@@ -17,7 +17,7 @@ import {
     Center,
     GridItem,
     Grid,
-    AbsoluteCenter,
+    useRadioGroup,
     useDisclosure,
     Img,
     Heading,
@@ -97,61 +97,60 @@ const ProjectDetails = (props) => {
                 bg="tertiary"
 
             >
-
-                <Grid
-                    templateColumns={{ base: '1fr', lg: 'repeat(5, 1fr)' }}
-                    gap={4} m={2} minH={"50vh"}
-                >
-                    <GridItem order={{ base: 3, lg: 1 }} colSpan={{ base: 1, lg: 2 }} >
-                        <Center justifyContent={"center"} h="full">
-
-                            <Img src={Img2.src} objectFit="cover" borderRadius={5} />
-
-                        </Center>
+                {/* */}
+                <Grid templateColumns={{ base: "1fr", lg: "repeat(5, 1fr)" }} h="60vh" >
+                    <GridItem colSpan={{ base: 5, lg: 4 }} justifyContent={"center"} >
+                        <Grid templateColumns={{ base: "1fr", lg: "repeat(2, 1fr)" }} h="60vh" >
+                            <GridItem colSpan={{ base: 2, lg: 1 }} justifyContent={"center"} m={2}>
+                                {/* <ResponsiveCarousel /> */}
+                                <Img src={Img2.src} display={"grid"} minW={"100%"} minH={"100%"}
+                                    maxW={"100%"} position={"absolut"} top={"0"} left={"0"} objectFit="cover" borderRadius={5} />
+                            </GridItem>
+                            <GridItem colSpan={{ base: 2, lg: 1 }} justifyContent={"center"} m={2}>
+                                <VStack justifyContent="space-between" h="full">
+                                    <Center>
+                                        <Heading color="primary">
+                                            {props.project.name}
+                                        </Heading>
+                                    </Center>
+                                    <Text>
+                                        {props.project.description}
+                                    </Text>
+                                    <Center>
+                                        <Text fontSize={30} color="primary">
+                                            Available Quantity: {n_available}
+                                        </Text>
+                                    </Center>
+                                    <Box w="full" display={"flex"}>
+                                        <Box flex="1">
+                                            <Text>FROM: {new Date(props.project.valid_from).toLocaleDateString()}</Text>
+                                            <Text>TO: {new Date(props.project.valid_to).toLocaleDateString()}</Text>
+                                        </Box>
+                                        <Center>
+                                            <Box flex="1"> {mapIcon(project.project_type?.name, "48px", "green") ?
+                                                mapIcon(project.project_type?.name, "48px", "green") :
+                                                mapIcon("leaf", "48px", "green")}</Box>
+                                        </Center>
+                                        <Center flex="1">
+                                            <Text cursor={"pointer"} >{props.project.country.name}</Text>
+                                        </Center>
+                                    </Box>
+                                </VStack>
+                            </GridItem>
+                        </Grid>
                     </GridItem>
-                    <GridItem order={{ base: 1, lg: 2 }} colSpan={{ base: 1, lg: 2 }}>
-                        <VStack justifyContent="space-between" h="full">
-                            <Center>
-                                <Heading color="primary">
-                                    {props.project.name}
-                                </Heading>
-                            </Center>
-                            <Text>
-                                {props.project.description}
-                            </Text>
-                            <Center>
-                                <Text fontSize={30} color="primary">
-                                    Available Quantity: {n_available}
-                                </Text>
-                            </Center>
-                            <Box w="full" display={"flex"}>
-                                <Box flex="1">
-                                    <Text>FROM: {new Date(props.project.valid_from).toLocaleDateString()}</Text>
-                                    <Text>TO: {new Date(props.project.valid_to).toLocaleDateString()}</Text>
-                                </Box>
-                                <Center>
-                                    <Box flex="1"> {mapIcon(project.project_type?.name, "48px", "green") ?
-                                        mapIcon(project.project_type?.name, "48px", "green") :
-                                        mapIcon("leaf", "48px", "green")}</Box>
-                                </Center>
-                                <Center flex="1">
-                                    <Text cursor={"pointer"} >{props.project.country.name}</Text>
-                                </Center>
-                            </Box>
-                        </VStack>
-                    </GridItem>
-                    <GridItem order={{ base: 2, lg: 3 }} colSpan={{ base: 1, lg: 1 }}>
-                        <Center bg="primary" h="full" w="full" borderRadius={5} color="tertiary" >
-                            <VStack justifyContent="space-between" p={2} py={5} spacing={3}>
+                    <GridItem colSpan={{ base: 5, lg: 1 }} justifyContent={"center"} m={2} >
+                        <Center bg="primary" h="full" borderRadius={5} color="tertiary" >
+                            <VStack justifyContent="space-between" m={2} fontSize={24}>
                                 <HStack w="full" justifyContent="space-between">
                                     <Text>Price:</Text>
-                                    <Box><Text display={"inline"} fontSize={24}>{price} </Text><Text display={"inline"}> €/CC </Text></Box>
+                                    <Text>{price} €/CC</Text>
                                 </HStack>
                                 <HStack w="full" justifyContent="space-between">
                                     <Center><Text>Amount:</Text></Center>
-                                    <NumberInput w='50%' variant="filled"  min={1} max={n_available} quantity={quantity} onChange={handleChange} fontSize={24}>
-                                        <NumberInputField style={{ border: "2px solid", borderColor:"white"}} textAlign={'right'} bg="primary" _hover={{bg:"primary"}}/>
-                                        <NumberInputStepper bg="white" color="primary" borderRadius={4}>
+                                    <NumberInput w='50%' style={{ border: "1px solid"}} variant="flushed" min={1} max={n_available} quantity={quantity} onChange={handleChange} >
+                                        <NumberInputField style={{border: "1px solid"}} textAlign={'right'} />
+                                        <NumberInputStepper>
                                             <NumberIncrementStepper />
                                             <NumberDecrementStepper />
                                         </NumberInputStepper>
@@ -159,17 +158,13 @@ const ProjectDetails = (props) => {
                                 </HStack>
                                 <HStack w="full" justifyContent="space-between">
                                     <Text>Costs (10%):</Text>
-                                    <Box><Text display={"inline"} fontSize={24}>{(quantity * price * 0.1).toFixed(2)} </Text><Text display={"inline"}> €</Text></Box>
+                                    <Text>{(quantity * price * 0.1).toFixed(2)} €</Text>
                                 </HStack>
-                                <Box position='relative' padding={4} w="100%">
-                                    <Divider variant={"solid"} colorScheme={"blue"} />
-                                    <AbsoluteCenter  px='4'  bg={"primary"} fontWeight={"bold"}>
-                                        Total
-                                    </AbsoluteCenter>
-                                </Box>
-                                <Center fontWeight={"bold"} w="full" >
-                                    <Text fontSize={24}>{(quantity * price * 1.1).toFixed(2)} €</Text>
-                                </Center>
+                                <Divider />
+                                <HStack fontWeight={"bold"} w="full" justifyContent="space-between">
+                                    <Text >Total:</Text>
+                                    <Text>{(quantity * price * 1.1).toFixed(2)} €</Text>
+                                </HStack>
                                 <Button backgroundColor="tertiary" color="primary" onClick={addToChart}>Add to chart</Button>
                             </VStack>
                         </Center>

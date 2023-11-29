@@ -19,10 +19,11 @@ import {
 } from "@chakra-ui/react";
 
 import React, { useState } from "react";
-
+import { useTranslation } from "react-i18next";
 
 
 function AboutUs() {
+    let { t } = useTranslation();
     return (
         <>
             <Box minH={"80vh"}>
@@ -35,6 +36,7 @@ function AboutUs() {
                     <Center>
                         <Text>
                             Coming Soon
+                            {t('HELLO_WORLD')}
                         </Text>
                     </Center>
                 </Flex>

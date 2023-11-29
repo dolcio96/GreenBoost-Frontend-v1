@@ -1,0 +1,58 @@
+{
+    "details": {
+      "forest": {
+        "title": "Forest",
+        "title1": "Protecting forests",
+        "description1": "Projects in the Up2You Forest package are concerned with protecting and restoring forests, woodlands and natural parks, which without our help are at risk of serious damage.The world's forests, from tropical ones in the Amazon to those in Borneo, are threatened by acid rain, deforestation, fires and degradation.",
+        "title2": "Reforestation and forest protection means:",
+        "description2": "Defeating deforestation and logging by strengthening security, Reforest degraded areas affected by deforestation, Preventing the occurrence of fires and preserving the most fragile ecosystems",
+        "bg_color": "#70D6FF",
+        "color": "#0A739D"
+      },
+      "biodiversity": {
+        "title": "Biodiversity",
+        "title1": "Sustainable Development Goals",
+        "description1": "Projects in the Up2You SDG mix package ensure maximum coverage of the Sustainable Development Goals across the three pillars of sustainability: environmental, social and economic.",
+        "title2": "Project areas",
+        "description2": "Project areas are rich in biodiversity at risk of disappearance. These species interact in ecosystems to maintain balance and sustain life.",
+        "bg_color": "#B8A3D3",
+        "color": "#8051BD"
+      },
+      "sdgmix": {
+        "title": "SDG mix",
+        "title1": "Protecting forests",
+        "description1": "Projects in the Up2You Forest package are concerned with protecting and restoring forests, woodlands and natural parks, which without our help are at risk of serious damage.The world's forests, from tropical ones in the Amazon to those in Borneo, are threatened by acid rain, deforestation, fires and degradation.",
+        "title2": "A package for development",
+        "description2": "The package, being composed of both nature-based and technology-based projects, makes it possible to fund initiatives that touch on forest protection and the development of renewable energy sources in particularly disadvantaged regions where they can play a key role in the progress of local communities.",
+        "bg_color": "#FF70A6",
+        "color": "#D61961"
+      },
+      "technology": {
+        "title": "Technology",
+        "title1": "Technological innovation projects",
+        "description1": "Projects in the Up2You Technology package enhance the use of technology to generate environmental benefits. Through various technological solutions, it is possible to combat climate change by supporting initiatives that can reduce our emissions.",
+        "title2": "Project area",
+        "description2": "Supporting technology projects, such as those related to renewable energy, means encouraging the use of clean energy, enabling the reduction ofCO2 emissions into the atmosphere.",
+        "bg_color": "#FF9770",
+        "color": "#E25826"
+      },
+      "bluecarbon": {
+        "title": "Blue carbon",
+        "title1": "Save the waters",
+        "description1": "Projects in the Up2You Blue carbon package protect and develop coastal ecosystems by bringing many benefits, including improving waters and protecting endangered marine species.",
+        "title2": "The impact",
+        "description2": "Although blue carbon ecosystems cover only about 1 percent of the planet, they are responsible for half of theCO2 absorbed by the oceans. That's why it's critical to preserve them.",
+        "bg_color": "#FFD670",
+        "color": "#DFA410"
+      },
+      "socialimpact": {
+        "title": "Social impact",
+        "title1": "Helping local communities",
+        "description1": "Projects in the Up2You Social impact package are not only limited to capturing or avoidingCO2 leakage, but also bring concrete benefits to the local communities in the project areas.",
+        "title2": "Certified projects",
+        "description2": "Implementing a certified project guarantees the employment of several people, both for the planning or construction phase and to ensure the smooth running of the project or operation of the plant.",
+        "bg_color": "#E9FF70",
+        "color": "#C2DF20"
+      }
+    }
+  }

@@ -20,10 +20,10 @@ const ProjectDetail = (props) => {
 
     return (
         <>
-            <Box
+            <Box minH={"100vh"}
                 ml="50px" mr="50px">
-                <ProjectDetailHeaderComponent {...props} />
-                <ProjectDetailGalleryComponent setSelectedImg={setSelectedImg} />
+               <ProjectDetailHeaderComponent {...props} />
+               {/*  <ProjectDetailGalleryComponent setSelectedImg={setSelectedImg} />*/}
                 {selectedImg && <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg} />}
                 <ProjectDetailsComponent {...props} />
             </Box>

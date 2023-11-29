@@ -8,7 +8,7 @@ import Head from "@components/head"
 import TableComponet from "@components/table"
 import ProjectComponent from "@components/projects"
 import ProfileProjectComponent from "@components/profile/profileProjects/indexSeller"
-
+import ProjectDetailComponent from "@components/projectDetail"
 import ForestIcon from '@mui/icons-material/Forest';
 import EmojiNatureIcon from '@mui/icons-material/EmojiNature';
 //To retrieve
@@ -128,6 +128,26 @@ const userinfo = {
       }
     ]
   }
+
+  const project= {
+    id: "someId",
+    name: "Project Name",
+    latitude: 123.456,
+    longitude: 789.012,
+    description: "Project Description",
+    price_per_unit: 10,
+    carbon_credits: [
+      // Carbon credits details if needed
+    ],
+    valid_from: "2023-01-01",
+    valid_to: "2023-12-31",
+    project_type: {
+      name: "Some Project Type"
+    },
+    country: {
+      name: "Some Country"
+    }
+  };
 export default function Projects() {
     return (
         <>
@@ -135,7 +155,8 @@ export default function Projects() {
                 title="GreenBoost: Projects"
                 description="GreenBoost: Projects"
             />
-                <ProfileProjectComponent userInfo={userinfo}/>
+            <ProjectDetailComponent project={project}/>
+         {/* <ProfileProjectComponent userInfo={userinfo}/>*/} 
         {/*     <ProjectComponent projects={data} />*/}
         </>
     )
