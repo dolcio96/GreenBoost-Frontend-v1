@@ -23,7 +23,7 @@ import { useSpring, animated } from "react-spring";
 
 import logoPuro from "@public/Images/logoPuro.png"
 import forest from "@public/Images/forest.jpg"
-import biochar from "@public/Images/biochar.jpg"
+import biochar from "@public/Images/Biochar.jpg"
 import NextImage from 'next/image';
 import { useAnimation, motion } from "framer-motion"
 

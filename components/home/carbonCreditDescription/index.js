@@ -20,7 +20,7 @@ import {
 } from "@chakra-ui/react";
 
 
-import Img1 from "@public/Images/CarbonCreditProcess.png"
+import Img1 from "@public/Images/carbonCreditProcess.png"
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 
