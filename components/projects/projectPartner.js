@@ -10,40 +10,45 @@ const ProjectPartner = ({ partnerImages }) => {
   const controls = useAnimation();
   const containerRef = useRef(null);
 
- 
+
 
   return (
-    <Center flexDirection="column">
-      <Heading mb={6}>I Nostri Partner</Heading>
-      <CarouselProvider
-        naturalSlideWidth={200}
-        naturalSlideHeight={100}
-        totalSlides={partnerImages.length}
-        visibleSlides={4}
-        infinite
-        isPlaying
-      >
-        <Slider ref={containerRef}>
-          {partnerImages.map((image, index) => (
-            <Slide key={index} index={index}>
+    <Center>
+
+      <Box width="80%">
+        <Center>
+          <Heading mb={6}>I Nostri Partner</Heading>
+        </Center>
+        <CarouselProvider
+          naturalSlideWidth={200}
+          naturalSlideHeight={100}
+          interval={3000}
+          totalSlides={partnerImages.length}
+          visibleSlides={3}
+          isPlaying
+        >
+          <Slider ref={containerRef}>
+            {partnerImages.map((image, index) => (
+              <Slide key={index} index={index}>
 
                 <img
                   src={image.src}
                   alt={`Partner ${index + 1}`}
                   style={{
-                    width: "100%",
+                    width: "98%",
                     height: "100%",
                     objectFit: "cover",
                     borderRadius: "10px",
                   }}
                 />
-              
-            </Slide>
-          ))}
-        </Slider>
-        <ButtonBack>{<MdChevronLeft size={30} color="#fff" />}</ButtonBack>
-        <ButtonNext>{<MdChevronRight size={30} color="#fff" />}</ButtonNext>
-      </CarouselProvider>
+
+              </Slide>
+            ))}
+          </Slider>
+          {/* <ButtonBack>{<MdChevronLeft size={30} color="#fff" />}</ButtonBack>
+          <ButtonNext>{<MdChevronRight size={30} color="#fff" />}</ButtonNext> */}
+        </CarouselProvider>
+      </Box>
     </Center>
   );
 };

@@ -28,9 +28,11 @@ const Card = (props) => {
                 rounded="xl"
                 shadow="xl"
                 position="relative"
-                href={props.lk}
+                // href={props.lk}
                 bg="white">
-                <LinkOverlay href={props.lk}>
+                <LinkOverlay
+                // href={props.lk}
+                >
                     <Image
                         h={'250px'}
                         w={'full'}

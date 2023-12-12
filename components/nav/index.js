@@ -24,7 +24,7 @@ import { useRouter } from "next/router";
 
 import { ShoppingCart } from "@mui/icons-material"
 
-const Links = ['Projects', 'Sell', 'Create'];
+const Links = ['Projects']//, 'Sell', 'Create'];
 
 import LogoGB from '@public/logoGB.png'
 import Message from "@components/modal/message"
@@ -133,7 +133,7 @@ const Nav = () => {
                         <Center color={!scrolled && isHome ? "tertiary" : "primary"}>
                             <LanguageSelector />
                         </Center>
-                        <Center mx="10px" color={!scrolled && isHome ? "tertiary" : "primary"}>
+                        {/* <Center mx="10px" color={!scrolled && isHome ? "tertiary" : "primary"}>
                             <Button bg={"none"} _hover={{ bg: "none" }} >
                                 <ShoppingCart fontSize="large" />
                             </Button>
@@ -155,7 +155,7 @@ const Nav = () => {
                                 />
 
                             </MenuButton>
-                        </Menu>
+                        </Menu> */}
                     </Flex>
                 </Flex>
 
