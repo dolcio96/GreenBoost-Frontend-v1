@@ -1,0 +1,34 @@
+{
+    "projects": {
+      "uno": {
+        "title": "Biochar",
+        "description": "The package designed to combat climate change by acting on forests",
+        "bg_color": "#70D6FF",
+        "color": "#0A739D"
+      },
+      "due": {
+        "title": "ERW",
+        "description": "Supports projects focused on species preservation and animal and plant protection.",
+        "bg_color": "#B8A3D3",
+        "color": "#8051BD"
+      },
+      "tre": {
+        "title": "Carbonated Materials",
+        "description": "Ensures coverage of the Sustainable Development Goals: environmental, social, and economic sustainability.",
+        "bg_color": "#FF70A6",
+        "color": "#D61961"
+      },
+      "quattro": {
+        "title": "BECCS ",
+        "description": "Values the use of technology to generate environmental benefits and combat climate change.",
+        "bg_color": "#FF9770",
+        "color": "#E25826"
+      },
+      "cinque": {
+        "title": "DACCS",
+        "description": "The package dedicated to projects that protect and develop coastal ecosystems.",
+        "bg_color": "#FFD670",
+        "color": "#DFA410"
+      }
+    }
+  }

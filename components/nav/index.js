@@ -10,7 +10,7 @@ import {
     Menu,
     MenuButton,
     MenuList,
-    MenuItem,
+    Text,
     Image,
     useDisclosure,
     useColorModeValue,
@@ -24,13 +24,11 @@ import { useRouter } from "next/router";
 
 import { ShoppingCart } from "@mui/icons-material"
 
-const Links = ['About Us', 'test'];
+const Links = ['Projects', 'Sell', 'Create'];
 
 import LogoGB from '@public/logoGB.png'
 import Message from "@components/modal/message"
 import LanguageSelector from './languageSelector';
-
-import i18n from "../../i18n";
 
 
 const NavLink = ({ children }) => (
@@ -44,79 +42,9 @@ const NavLink = ({ children }) => (
             color: "white"
         }}
         href={'/' + children.toString().replace('&', '').replace(/\s/g, '').toLowerCase()}>
-        {children}
+            <Text fontSize={18}>{children}</Text>
     </Link>
 );
-
-const DropDownMenu = () => {
-    const { isOpen, onOpen, onClose } = useDisclosure();
-
-    return (<>
-        <Menu isOpen={isOpen}>
-            <MenuButton
-                py={1}
-                onMouseEnter={onOpen}
-                onMouseLeave={onClose}
-                as={Button}
-                border="none"
-                borderStyle="none"
-                variant={'link'}
-                color="black"
-                fontWeight="normal"
-                outline="none"
-                textDecoration="none"
-                _hover={{
-                    textDecoration: 'none',
-                    bg: "primary",
-                    color: "white",
-                    outline: "none",
-                    border: "none",
-                    borderStyle: "none"
-                }}
-                _active={{ textDecoration: "none", outline: "none", border: "none", borderStyle: "none" }}
-                _visited={{ textDecoration: 'none', outline: "none", border: "none", borderStyle: "none" }}
-                _after={{ textDecoration: 'none', outline: "none", border: "none", borderStyle: "none" }}
-                _focusVisible={{ borderStyle: "none" }}
-                minW={0}
-                cursor={'pointer'}>
-                <Link
-                    px={2}
-                    py={1}
-                    rounded={'md'}
-                    _hover={{
-                        bg: "primary",
-                        color: "white",
-                        borderStyle: "none"
-                    }}
-                    href='/buy'
-                >
-                    Marketplace  {isOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}
-                </Link>
-            </MenuButton>
-            <MenuList onMouseEnter={onOpen} onMouseLeave={onClose} >
-                <MenuItem as="a" href="/projects"
-                    _hover={{
-                        bg: "primary",
-                        color: "white",
-                    }}>Buy</MenuItem>
-                <MenuItem as="a" href="/createproject"
-                    _hover={{
-                        bg: "primary",
-                        color: "white",
-                    }}>Sell</MenuItem>
-                <MenuItem as="a" href="/create"
-                    _hover={{
-                        bg: "primary",
-                        color: "white",
-                    }}>Create</MenuItem>
-            </MenuList>
-        </Menu>
-
-
-
-    </>)
-
-}
 
 
 
@@ -132,14 +60,8 @@ const Nav = () => {
         onOpen: onOpenModal,
         onClose: onCloseModal
     } = useDisclosure()
-    const { data: session } = useSession()
-    console.log(session)
 
 
-   
-  
- 
-    
     const [scrolled, setScrolled] = useState(false)
     useEffect(_ => {
         const handleScroll = _ => {
@@ -155,21 +77,6 @@ const Nav = () => {
         }
     }, [])
 
-    function onBuy() {
-        router.push({
-            pathname: '/order'
-        }, '/order')
-
-        // if (session?.user?.cart.cart_row[0]) {
-        //     router.push({
-        //         pathname: '/order'
-        //     }, '/order')
-        // }
-        // else
-        //     onOpenModal()
-    }
-
-
     function onChangeLanguage() {
         if (lang == "IT") {
             setLang("EN")
@@ -184,6 +91,8 @@ const Nav = () => {
             <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4} position="fixed" w="100%" zIndex={200}
                 backgroundColor={!scrolled ? "rgba(232, 232, 232, 0)" : "white"}
             >
+
+
                 <Flex h={16} alignItems={'center'} justifyContent={'space-between'} >
                     <IconButton
                         size={'md'}
@@ -203,24 +112,29 @@ const Nav = () => {
                             <Image w={"100%"} src={LogoGB.src} />
                         </Box>
 
+
+
+
                         <HStack
                             as={'nav'}
                             spacing={4}
                             display={{ base: 'none', md: 'flex' }}>
-                            < DropDownMenu />
+
                             {Links.map((link) => (
                                 <NavLink key={link}>{link}</NavLink>
                             ))}
                         </HStack>
 
 
+
+
                     </HStack>
                     <Flex alignItems={'center'}>
                         <Center color={!scrolled && isHome ? "tertiary" : "primary"}>
                             <LanguageSelector />
-                              </Center>
+                        </Center>
                         <Center mx="10px" color={!scrolled && isHome ? "tertiary" : "primary"}>
-                            <Button bg={"none"} _hover={{ bg: "none" }} onClick={onBuy}>
+                            <Button bg={"none"} _hover={{ bg: "none" }} >
                                 <ShoppingCart fontSize="large" />
                             </Button>
                         </Center>
@@ -231,26 +145,16 @@ const Nav = () => {
                                 variant={'link'}
                                 cursor={'pointer'}
                                 minW={0}>
-                                {session ?
-                                    <Avatar
-                                        size={'sm'}
-                                        src={
-                                            ' https://bit.ly/sage-adebayo'
-                                        }
-                                    /> : <Avatar
-                                        size={'sm'}
-                                        backgroundColor={!scrolled && isHome ? "primary" : "primary"}
-                                        borderColor="black"
-                                        border={!scrolled && isHome ? "4px solid #EBF0EA" : "4px solid #588157"}
 
-                                    />}
+                                <Avatar
+                                    size={'sm'}
+                                    backgroundColor={!scrolled && isHome ? "primary" : "primary"}
+                                    borderColor="black"
+                                    border={!scrolled && isHome ? "4px solid #EBF0EA" : "4px solid #588157"}
+
+                                />
 
                             </MenuButton>
-                            <MenuList>
-                                {session ? <MenuItem onClick={() => signOut()}>Logout</MenuItem> : <MenuItem onClick={() => signIn()}>Login</MenuItem>}
-                                {!session && <MenuItem as="a" href="/auth/signup">Signup</MenuItem>}
-                                <MenuItem as="a" href="/profile/profile-overview">Profile</MenuItem>
-                            </MenuList>
                         </Menu>
                     </Flex>
                 </Flex>

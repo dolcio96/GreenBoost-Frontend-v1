@@ -1,9 +1,13 @@
 import React from "react";
-import Hero from "@components/hero"
-import HomeBuySellCreate from "@components/homeBuySellCreate"
+import Hero from "@components/home/hero"
+import HomeBuySellCreate from "@components/home/homeBuySellCreate"
 import TeamComponent from "@components/team"
-import DescriptionComponent from "components/description"
-import Phrase from "@components/phrase"
+import DescriptionComponent from "@components/home/description"
+import QualityFramework from "@components/home/qualityFramework";
+import ReasonForBuy from "@components/home/reasonForBuy";
+import CarbonCreditDescription from "@components/home/carbonCreditDescription";
+import OurProduct from "@components/home/ourProduct";
+import Phrase from "@components/home/phrase"
 import { useTranslation } from "react-i18next";
 import {
     Box,
@@ -58,14 +62,46 @@ const Home = () => {
                     <Box bg={"primary"}>
                         <Stack spacing={5} py={20} px={5}>
                             <Phrase text={t('home.wave.wave2.phrase1')} highlight={['']} />
-                          
+
                         </Stack>
                     </Box>
                     <WaveComp />
                 </Box>
 
-                <DescriptionComponent />
+                <OurProduct />
+                <Box>
+                    <Box bg={"primary"}>
+                        <Stack spacing={5} py={20} px={5}>
+                            <Phrase text={t('home.wave.wave2.phrase1')} highlight={['']} />
 
+                        </Stack>
+                    </Box>
+                    <WaveComp />
+                </Box>
+                {/* 
+                <DescriptionComponent />
+                */}
+                <CarbonCreditDescription />
+                <Box>
+                    <Box bg={"primary"}>
+                        <Stack spacing={5} py={20} px={5}>
+                            <Phrase text={t('home.wave.wave3.phrase1')} highlight={['']} />
+                            <Phrase text={t('home.wave.wave3.phrase2')} highlight={['']} />
+                        </Stack>
+                    </Box>
+                    <WaveComp />
+                </Box>
+                <QualityFramework />
+                <Box>
+                    <Box bg={"primary"}>
+                        <Stack spacing={5} py={20} px={5}>
+                            <Phrase text={t('home.wave.wave3.phrase1')} highlight={['']} />
+                            <Phrase text={t('home.wave.wave3.phrase2')} highlight={['']} />
+                        </Stack>
+                    </Box>
+                    <WaveComp />
+                </Box>
+                <ReasonForBuy />
                 <Box>
                     <Box bg={"primary"}>
                         <Stack spacing={5} py={20} px={5}>

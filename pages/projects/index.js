@@ -6,13 +6,27 @@ import {
 import Layout from "@components/layout"
 import Head from "@components/head"
 import TableComponet from "@components/table"
-import BuyComponent from "@components/projects"
+import ProjectsComponent from "@components/projects"
+
+const color1 = "#70D6FF"
+const color1s = "#0A739D"
+const color2 = "#B8A3D3"
+const color2s = "#8051BD"
+const color3 = "#FF70A6"
+const color3s = "#D61961"
+const color4 = "#FF9770"
+const color4s = "#E25826"
+const color5 = "#FFD670"
+const color5s = "#DFA410"
+const color6 = "#E9FF70"
+const color6s = "#C2DF20"
+
+import {projects} from "@public/json/project.json";
 
 
-//To retrieve
-const tableContent = {}
 
-export default function Projects({ data }) {
+
+export default function Projects() {
     return (
         <>
             <Head
@@ -20,26 +34,11 @@ export default function Projects({ data }) {
                 description="GreenBoost: Projects"
             />
 
-            <BuyComponent projects={data} />
+            <ProjectsComponent projects={projects} />
         </>
     )
 }
 
 Projects.getLayout = function getLayout(page) {
     return <Layout>{page}</Layout>
-}
-
-export async function getServerSideProps() {
-    // Fetch data from external API
-    const res = await fetch(
-        process.env.DATABASE_URL+":"+process.env.DATABASE_PORT+"/api/project/list",
-        {
-            method: "GET",
-            headers: { 'Content-Type': 'application/json' }
-        }
-    )
-    const data = await res.json()
-
-    // Pass data to the page via props
-    return { props: { data } }
 }
