@@ -38,8 +38,8 @@ function CarbonCreditDescription() {
                     </GridItem>
                     <GridItem order={{ base: 1, lg: 2 }}>
                         <Center flexDirection={"column"} gap={6} h="full">
-                            <Heading textAlign={"center"} color="primary">Cosa sono i Crediti di Carbonio "di alta qualità"?</Heading>
-                            <Text textAlign={"center"}>Si tratta di certificati negoziabili rappresentanti la rimozione di 1 tonnellata di CO₂, o altri gas equivalenti, per 100+ anni dall'atmosfera.</Text>
+                            <Heading textAlign={"center"} color="primary">Cosa sono i Crediti di Carbonio di alta qualità?</Heading>
+                            <Text textAlign={"center"}>Si tratta di certificati negoziabili rappresentanti la rimozione di 1 tonnellata di CO2, o altri gas equivalenti, per 100+ anni dall'atmosfera.</Text>
                             <Button color="tertiary" bg="primary" _hover={{ color: "tertiary", bg: "quaternary" }}> Scopri quali sono le metodologie che garantiscono un tale risultato!</Button>
                         </Center>
                     </GridItem>
