@@ -44,7 +44,7 @@ function QualityFramework() {
                             <List spacing={3}>
                                 <ListItem>
                                     <ListIcon as={MdCheckCircle} color='primary' />
-                                   <span style={{fontWeight:"bold"}}> QU </span> (quantification): misurazione accurata dell\'effettiva cattura della CO₂
+                                   <span style={{fontWeight:"bold"}}> QU </span> (quantification): misurazione accurata dell{'\''}effettiva cattura della CO₂
                                 </ListItem>
                                 <ListItem>
                                     <ListIcon as={MdCheckCircle} color='primary' />
@@ -56,7 +56,7 @@ function QualityFramework() {
                                 </ListItem>
                                 <ListItem>
                                     <ListIcon as={MdCheckCircle} color='primary' />
-                                    <span style={{fontWeight:"bold"}}> ITY </span>  (sustainability): allineamento con i «sustainable development Goals» dell\'Onu
+                                    <span style={{fontWeight:"bold"}}> ITY </span>  (sustainability): allineamento con i «sustainable development Goals» dell{'\''}Onu
                                 </ListItem>
                             </List>
                         </Center>
