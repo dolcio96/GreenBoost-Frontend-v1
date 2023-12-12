@@ -25,7 +25,7 @@ import { MdCheckCircle } from "react-icons/md";
 
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
-import Img1 from "@public/Images/CarbonCreditProcess.png"
+import Img1 from "@public/Images/carbonCreditProcess.png"
 
 function ReasonForBuy() {
     let { t } = useTranslation();
