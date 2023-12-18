@@ -15,7 +15,7 @@ import EnricoAvatar from "@public/Images/team/enrico.jpeg"
 import ArturoAvatar from "@public/Images/team/arturo.jpeg"
 import AndreaAvatar from "@public/Images/team/andrea.jpg"
 import TommasoAvatar from "@public/Images/team/tommaso.jpg"
-
+import { useTranslation } from "react-i18next";
 
 import BackgroudImage from "@public/Images/heroForest2.jpg"
 const team = {
@@ -43,6 +43,7 @@ const Bubbles = () => {
 
 const Team = () => {
     const MotionHeading = motion(Heading)
+    let { t } = useTranslation();
     return (
         <>
             <Stack
@@ -55,7 +56,7 @@ const Team = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.8, delay: 0.5, ease: [0, 0.71, 0.2, 1.01] }}
                 >
-                    <Center>GreenBoost Team</Center>
+                    <Center>{t('home.team.title')}</Center>
                 </MotionHeading>
                 {/*<Bubbles />*/}
 

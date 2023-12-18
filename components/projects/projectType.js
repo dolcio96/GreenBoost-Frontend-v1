@@ -25,7 +25,7 @@ import NextImage from 'next/image';
 import LogoGB from '@public/logoGB.png'
 import BackgroudImage from "@public/Images/torbiere1.jpg"
 
-
+import { useTranslation } from "react-i18next";
 
 import TaskAltIcon from '@mui/icons-material/TaskAlt';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
@@ -38,7 +38,9 @@ import PublicIcon from '@mui/icons-material/Public';
 const ListItems = ({ Icon, list }) => {
     const MotionBox = motion(Box)
     const renderList = (item) => {
+        console.log(item);
         if (typeof item === 'string') {
+            
             return <Text> {item}</Text>;
         } else if (typeof item === 'object') {
             // Se l'elemento è un oggetto, crea una lista
@@ -67,11 +69,11 @@ const ListItems = ({ Icon, list }) => {
     </>)
 }
 
-const ProjectType = ({ projectDetails }) => {
-
+const ProjectType = ({ project }) => {
+    let { t } = useTranslation();
 
     const MotionBox = motion(Box)
-    const imagePath = `Images/${projectDetails.title.trim()}.jpg`;
+    const imagePath = `Images/${project.trim().toLowerCase()}.jpg`;
     const projectImage = require(`../../public/${imagePath}`).default;
     return (
         <>
@@ -82,7 +84,7 @@ const ProjectType = ({ projectDetails }) => {
                     </Center>
                     <Center>
                         <Heading fontSize={"50px"} color={"primary"}>
-                            {projectDetails.title}
+                            {t('project_type.'+project.trim().toLowerCase()+'.title')}
                         </Heading>
                     </Center>
                 </Box>
@@ -94,24 +96,24 @@ const ProjectType = ({ projectDetails }) => {
                         <GridItem w="full" h="full">
                             <Center h="full" flexDirection="column">
                                 <MotionBox initial={{ opacity: 0, scale: 0.5 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.3, delay: 0.5, ease: [0, 0.71, 0.2, 1.01] }}>
-                                    <Heading>{projectDetails.title1}</Heading>
-                                    <Text textAlign={"justify"}>{projectDetails.description1}</Text>
+                                    <Heading>  {t('project_type.'+project.trim().toLowerCase()+'.title_description1')}</Heading>
+                                    <Text textAlign={"justify"}>{t('project_type.'+project.trim().toLowerCase()+'.description1')}</Text>
                                 </MotionBox>
                             </Center>
                         </GridItem>
                     </Grid>
                     <Grid templateColumns={{ base: '1fr', xl: 'repeat(2, 1fr)' }} gap={20} my={20} py={10} borderRadius={"10px"}>
-                        <GridItem w="full" h="full"><ListItems Icon={TaskAltIcon} list={projectDetails.list1} /></GridItem>
-                        <GridItem w="full" h="full"><ListItems Icon={AccessTimeIcon} list={projectDetails.list2} /></GridItem>
-                        <GridItem w="full" h="full"><ListItems Icon={AddCircleOutlineIcon} list={projectDetails.list3} /></GridItem>
-                        <GridItem w="full" h="full"><ListItems Icon={PublicIcon} list={projectDetails.list4} /></GridItem>
+                        <GridItem w="full" h="full"><ListItems Icon={TaskAltIcon} list={t('project_type.'+project.trim().toLowerCase()+'.list_item1', { returnObjects: true})} /></GridItem>
+                        <GridItem w="full" h="full"><ListItems Icon={AccessTimeIcon} list={t('project_type.'+project.trim().toLowerCase()+'.list_item2', { returnObjects: true})} /></GridItem>
+                        <GridItem w="full" h="full"><ListItems Icon={AddCircleOutlineIcon} list={t('project_type.'+project.trim().toLowerCase()+'.list_item3', { returnObjects: true})} /></GridItem>
+                        <GridItem w="full" h="full"><ListItems Icon={PublicIcon} list={t('project_type.'+project.trim().toLowerCase()+'.list_item4', { returnObjects: true})} /></GridItem>
                     </Grid>
                     <Grid templateColumns={{ base: '1fr', lg: 'repeat(2, 1fr)' }} gap={40} >
                         <GridItem w="full">
                             <Center h="full" flexDirection="column">
                                 <MotionBox initial={{ opacity: 0, scale: 0.5 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.3, delay: 0.5, ease: [0, 0.71, 0.2, 1.01] }}>
-                                    <Heading>{projectDetails.title2}</Heading>
-                                    <Text textAlign={"justify"}>{projectDetails.description2}</Text>
+                                    <Heading>{t('project_type.'+project.trim().toLowerCase()+'.title_description2')}</Heading>
+                                    <Text textAlign={"justify"}>{t('project_type.'+project.trim().toLowerCase()+'.description2')}</Text>
                                 </MotionBox>
                             </Center>
                         </GridItem>

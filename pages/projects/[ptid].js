@@ -10,17 +10,18 @@ import {details} from "@public/json/projectDetails.json";
 
 
 export default function ProjectTypeDetails(props) {
-    console.log(props);
+    //console.log(props);
+    const prj = props.ptid;
     const projectDetails = details[props.ptid];
     console.log(projectDetails);
     return (
 
         <>
             <Head
-                title={"GreenBoost: " + `${projectDetails.title}`}
-                description={"GreenBoost: " + `${projectDetails.title}`}
+                title={"GreenBoost: " + `${prj}`}
+                description={"GreenBoost: " + `${prj}`}
             />
-            <ProjectTypeDetailComponent projectDetails={projectDetails} />
+            <ProjectTypeDetailComponent project={prj} />
         </>
     )
 }

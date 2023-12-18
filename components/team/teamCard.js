@@ -15,12 +15,12 @@ import { useAnimation, motion } from "framer-motion"
 
 import { useRouter } from "next/router"
 import { FaLinkedin } from 'react-icons/fa';
-
+import { useTranslation } from "react-i18next";
 
 
 
 const TeamCard = ({ info }) => {
-
+    let { t } = useTranslation();
     const MotionBox = motion(Box)
     const openLinkedin = () => {
         const newWindow = window.open(info.linkedin, '_blank', 'noopener,noreferrer')
@@ -78,7 +78,7 @@ const TeamCard = ({ info }) => {
                                 onClick={() => openLinkedin()}
 
                             >
-                                Follow on Linkedin
+                               {t('home.team.linkedin')}
                             </Button>
                         </Stack>
 

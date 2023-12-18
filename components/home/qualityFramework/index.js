@@ -40,23 +40,23 @@ function QualityFramework() {
                     </GridItem>
                     <GridItem order={{ base: 1, lg: 2 }} colSpan={{ base: 3, lg: 2 }}>
                         <Center flexDirection={"column"} gap={6} h="full">
-                            <Heading textAlign={"center"} color="primary" fontSize={24}>GreenBoost offre crediti di carbonio che certificano la rimozione di CO₂ per 100+ anni, in accordo con il nuovo EU framework  QU.A.L.ITY:​</Heading>
+                            <Heading textAlign={"center"} color="primary" fontSize={24}>{t('home.quality_framework.title')}</Heading>
                             <List spacing={3}>
                                 <ListItem>
                                     <ListIcon as={MdCheckCircle} color='primary' />
-                                   <span style={{fontWeight:"bold"}}> QU </span> (quantification): misurazione accurata dell{'\''}effettiva cattura della CO₂
+                                   <span style={{fontWeight:"bold"}}> {t('home.quality_framework.quantification.title')} </span> {t('home.quality_framework.quantification.description')}
                                 </ListItem>
                                 <ListItem>
                                     <ListIcon as={MdCheckCircle} color='primary' />
-                                    <span style={{fontWeight:"bold"}}> A </span>  (additionality): addizionalità rispetto allo status quo
+                                    <span style={{fontWeight:"bold"}}> {t('home.quality_framework.additionality.title')} </span>  {t('home.quality_framework.additionality.description')}
                                 </ListItem>
                                 <ListItem>
                                     <ListIcon as={MdCheckCircle} color='primary' />
-                                    <span style={{fontWeight:"bold"}}> L </span>  (long term storage): possibilità di verificare lo storage permanente della CO₂ a seguito della cattura
+                                    <span style={{fontWeight:"bold"}}> {t('home.quality_framework.long_term_storage.title')} </span>  {t('home.quality_framework.long_term_storage.description')}
                                 </ListItem>
                                 <ListItem>
                                     <ListIcon as={MdCheckCircle} color='primary' />
-                                    <span style={{fontWeight:"bold"}}> ITY </span>  (sustainability): allineamento con i «sustainable development Goals» dell{'\''}Onu
+                                    <span style={{fontWeight:"bold"}}> {t('home.quality_framework.sustainability.title')} </span>  {t('home.quality_framework.sustainability.description')}
                                 </ListItem>
                             </List>
                         </Center>

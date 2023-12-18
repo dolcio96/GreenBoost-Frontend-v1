@@ -23,21 +23,21 @@ import { useSpring, animated } from "react-spring";
 
 import logoPuro from "@public/Images/logoPuro.png"
 import forest from "@public/Images/forest.jpg"
-import biochar from "@public/Images/Biochar.jpg"
+import biochar from "@public/Images/biochar.jpg"
 import NextImage from 'next/image';
 import { useAnimation, motion } from "framer-motion"
 
-import Img1 from "@public/Images/BECCS.jpg"
-import Img2 from "@public/Images/DACCS.jpg"
-import Img3 from "@public/Images/ERW.jpg"
-import Img4 from "@public/Images/Biochar.jpg"
+import Img1 from "@public/Images/beccs.jpg"
+import Img2 from "@public/Images/daccs.jpg"
+import Img3 from "@public/Images/erw.jpg"
+import Img4 from "@public/Images/biochar.jpg"
 import ProjectPartner from "./projectPartner";
-
+import { useTranslation } from "react-i18next";
 
 const TypeCard = ({ info }) => {
-    
+    let { t } = useTranslation();
     const MotionBox = motion(Box)
-    const imagePath = `Images/${info.title.trim()}.jpg`;
+    const imagePath = `Images/${(info.title.trim().toLowerCase())}.jpg`;
     const projectImage = require(`../../public/${imagePath}`).default;
     return (
         <MotionBox maxW="sm" borderWidth="2px" borderRadius="30px" overflow="hidden" h="500px" borderColor={"#24541A"}
@@ -47,16 +47,16 @@ const TypeCard = ({ info }) => {
             <Flex direction="column" justify="space-between" h="45%">
                 <Box p="6">
                     <Text fontSize="2xl" fontWeight="bold">
-                        {info.title}
+                        {t('projects.'+info.title.toLowerCase()+'.title')}
                     </Text>
                     <Text mt="2" color="gray.600">
-                        {info.description}
+                    {t('projects.'+info.title.toLowerCase()+'.description')}
                     </Text>
                 </Box>
                 <Center>
                     <Button mt="4" color={"#ffffff"} backgroundColor={"#24541A"}>
                         <Link href={'/projects/' + info.title.trim().toLowerCase()} >
-                            More Info</Link>
+                        {t('projects.more_info')}</Link>
                     </Button>
                 </Center>
 

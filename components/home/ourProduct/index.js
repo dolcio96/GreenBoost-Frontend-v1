@@ -57,10 +57,10 @@ function OurProduct() {
     
               <GridItem>
                 <Flex flexDirection={"column"} gap={6}>
-                  <TextBox title={"ALTA QUALITA'"} description={"GreenBoost offre Crediti di Carbonio certificati secondo i più elevati standard di mercato"} />
-                  <TextBox title={"REALE RIMOZIONE"} description={" La rimozione di carbonio avviene grazie a processi ingegnerizzati, capaci di garantire la reale rimozione di CO₂ dall'atmosfera"} />
-                  <TextBox title={" STOCCAGGIO NEL TEMPO"} description={" La CO₂ sequestrata viene trasformata, convertita in una forma più stabile e stoccata o riutilizzata all'interno di altri materiali"} />
-                  <TextBox title={"CERTIFICAZIONE"} description={"La certificazione dei Crediti di Carbonio offerti da GreenBoost garantisce uno stoccaggio della CO₂ fino a 100+ anni"} />
+                  <TextBox title={t('home.our_product.high_quality.title')} description={t('home.our_product.high_quality.description')} />
+                  <TextBox title={t('home.our_product.remove.title')} description={t('home.our_product.remove.description')} />
+                  <TextBox title={t('home.our_product.durability.title')} description={t('home.our_product.durability.description')} />
+                  <TextBox title={t('home.our_product.certification.title')} description={t('home.our_product.certification.description')} />
                 </Flex>
               </GridItem>
             </Grid>

@@ -36,27 +36,27 @@ function ReasonForBuy() {
                     
                     <GridItem order={ 1 }>
                         <Center flexDirection={"column"} gap={6} h="full">
-                            <Heading textAlign={"center"} color="primary" fontSize={24}>Acquistare un credito di carbonio di alta qualità significa non solo rimuovere una tonnellata di CO2 per 100+ anni, ma anche:</Heading>
+                            <Heading textAlign={"center"} color="primary" fontSize={24}>{t('home.reason_for_buy.title')}</Heading>
                             <List spacing={3}>
                                 <ListItem>
                                     <ListIcon as={MdCheckCircle} color='primary' />
-                                   <span style={{fontWeight:"bold"}}>Rafforzare il Tuo Marchio: </span> Eleva la tua identità aziendale, posizionando il tuo marchio come leader sostenibile
+                                   <span style={{fontWeight:"bold"}}>{t('home.reason_for_buy.reason1.title')}</span> {t('home.reason_for_buy.reason1.description')}
                                 </ListItem>
                                 <ListItem>
                                     <ListIcon as={MdCheckCircle} color='primary' />
-                                    <span style={{fontWeight:"bold"}}> Anticipare la Concorrenza: </span>  Distinguiti e guida la tua azienda verso una gestione responsabile
+                                    <span style={{fontWeight:"bold"}}>{t('home.reason_for_buy.reason2.title')}</span>  {t('home.reason_for_buy.reason2.description')}
                                 </ListItem>
                                 <ListItem>
                                     <ListIcon as={MdCheckCircle} color='primary' />
-                                    <span style={{fontWeight:"bold"}}> Allinearti con le Richieste di Mercato: </span>  Soddisfa le aspettative del mercato moderno, attirando consumatori e fornitori
+                                    <span style={{fontWeight:"bold"}}>{t('home.reason_for_buy.reason3.title')}</span>  {t('home.reason_for_buy.reason3.description')}
                                 </ListItem>
                                 <ListItem>
                                     <ListIcon as={MdCheckCircle} color='primary' />
-                                    <span style={{fontWeight:"bold"}}> Supportare le Comunità Locali: </span>  Fai la differenza e sostieni comunità in cui si sviluppano i progetti virtuosi
+                                    <span style={{fontWeight:"bold"}}>{t('home.reason_for_buy.reason4.title')}</span>  {t('home.reason_for_buy.reason4.description')}
                                 </ListItem>
                                 <ListItem>
                                     <ListIcon as={MdCheckCircle} color='primary' />
-                                    <span style={{fontWeight:"bold"}}> Costruire un Futuro Sostenibile: </span>  Investi e aiuta a plasmare un mondo dove la responsabilità aziendale è alla base di ogni decisione.
+                                    <span style={{fontWeight:"bold"}}> {t('home.reason_for_buy.reason5.title')} </span>  {t('home.reason_for_buy.reason4.description')}
                                 </ListItem>
                             </List>
                         </Center>

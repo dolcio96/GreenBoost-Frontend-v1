@@ -11,37 +11,38 @@ import {
     Highlight
 } from '@chakra-ui/react';
 import { useAnimation, motion } from "framer-motion"
-
+import { useTranslation } from "react-i18next";
 import imageBuy from "@public/Images/imageBuy.jpg"
 import imageSell from "@public/Images/imageSell.jpg"
 import imageCreate from "@public/Images/imageCreate.jpg"
 
 import Card from "@components/home/homeBuySellCreate/card";
 
-const data = [{
-    title: "BUY",
-    img: imageBuy,
-    lk: "/projects",
-    desc: "One place to find them all"
-},
-{
-    title: "SELL",
-    img: imageSell,
-    lk: "/sell",
-    desc: "One place to sell them"
-},
-{
-    title: "CREATE",
-    img: imageCreate,
-    lk: "/create",
-    desc: "One place to \"rule\" them, with infos and guidelines"
 
-},
-]
 
 const HomeBuySellCreate = () => {
     const MotionHeading = motion(Heading)
-
+    let { t } = useTranslation();
+    const data = [{
+        title: t('home.sell_buy_create.buy.title'),
+        img: imageBuy,
+        lk: "/projects",
+        desc: t('home.sell_buy_create.buy.description')
+    },
+    {
+        title: t('home.sell_buy_create.sell.title'),
+        img: imageSell,
+        lk: "/sell",
+        desc: t('home.sell_buy_create.sell.description')
+    },
+    {
+        title: t('home.sell_buy_create.create.title'),
+        img: imageCreate,
+        lk: "/create",
+        desc: t('home.sell_buy_create.create.description')
+    
+    },
+    ]
     return (<>
 
 
