@@ -72,41 +72,22 @@ const Home = () => {
                 <Box>
                     <Box bg={"primary"}>
                         <Stack spacing={5} py={20} px={5}>
-                            <Phrase text={t('home.wave.wave2.phrase1')} highlight={['']} />
+                            <Phrase text={t('home.wave.wave3.phrase1')} highlight={['']} />
 
                         </Stack>
                     </Box>
                     <WaveComp />
                 </Box>
-                {/* 
-                <DescriptionComponent />
-                */}
                 <CarbonCreditDescription />
-                <Box>
-                    <Box bg={"primary"}>
-                        <Stack spacing={5} py={20} px={5}>
-                            <Phrase text={t('home.wave.wave3.phrase1')} highlight={['']} />
-                            <Phrase text={t('home.wave.wave3.phrase2')} highlight={['']} />
-                        </Stack>
-                    </Box>
-                    <WaveComp />
-                </Box>
+
                 <QualityFramework />
-                <Box>
-                    <Box bg={"primary"}>
-                        <Stack spacing={5} py={20} px={5}>
-                            <Phrase text={t('home.wave.wave3.phrase1')} highlight={['']} />
-                            <Phrase text={t('home.wave.wave3.phrase2')} highlight={['']} />
-                        </Stack>
-                    </Box>
-                    <WaveComp />
-                </Box>
+                
                 <ReasonForBuy />
                 <Box>
                     <Box bg={"primary"}>
                         <Stack spacing={5} py={20} px={5}>
-                            <Phrase text={t('home.wave.wave3.phrase1')} highlight={['']} />
-                            <Phrase text={t('home.wave.wave3.phrase2')} highlight={['']} />
+                            <Phrase text={t('home.wave.wave4.phrase1')} highlight={['']} />
+                            <Phrase text={t('home.wave.wave4.phrase2')} highlight={['']} />
                         </Stack>
                     </Box>
                     <WaveComp />
@@ -117,7 +98,7 @@ const Home = () => {
                     <WaveComp rotate={true} />
                     <Box bg={"primary"}>
                         <Stack spacing={5} py={20} px={5} zIndex={-100}>
-                            <Phrase text={t('home.wave.wave4.phrase1')} highlight={['']} />
+                            <Phrase text={t('home.wave.wave5.phrase1')} highlight={['']} />
                         </Stack>
                     </Box>
                 </Box>

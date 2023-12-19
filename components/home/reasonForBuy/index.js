@@ -32,11 +32,11 @@ function ReasonForBuy() {
     return (
         <>
            <Box>
-                <Grid templateColumns={{ base: '1fr', lg: 'repeat(2, 1fr)' }} gap={{ base: 20, lg: 40 }} my={10} mx={40} >
+                <Grid templateColumns={{ base: '1fr', lg: 'repeat(2, 1fr)' }} gap={{ base: 20, lg: 40 }} my={10} mx={{base: 5, lg: 20 }} >
                     
-                    <GridItem order={ 1 }>
+                    <GridItem order={ 2 }>
                         <Center flexDirection={"column"} gap={6} h="full">
-                            <Heading textAlign={"center"} color="primary" fontSize={24}>{t('home.reason_for_buy.title')}</Heading>
+                           
                             <List spacing={3}>
                                 <ListItem>
                                     <ListIcon as={MdCheckCircle} color='primary' />
@@ -61,9 +61,9 @@ function ReasonForBuy() {
                             </List>
                         </Center>
                     </GridItem>
-                    <GridItem order={ 2 } >
+                    <GridItem order={ 1 } >
                         <Center h="full">
-                            <Image src={Img1.src} borderRadius={10} />
+                        <Heading textAlign={"center"} color="primary" fontSize={24}>{t('home.reason_for_buy.title')}</Heading>
                         </Center>
                     </GridItem>
                 </Grid>

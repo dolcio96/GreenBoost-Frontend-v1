@@ -106,6 +106,10 @@
                 "phrase2": ""
             },
             "wave4": {
+                "phrase1": "Agiamo oggi per un domani migliore.",
+                "phrase2": "Compensiamo il nostro futuro, insieme."
+            },
+            "wave5": {
                 "phrase1": "GreenBoost non un semplice marketplace!"
             }
         },
