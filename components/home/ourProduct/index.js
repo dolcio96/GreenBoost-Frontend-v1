@@ -22,7 +22,7 @@ import {
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import Img1 from "@public/Images/BECCS.jpg"
+import Img1 from "@public/Images/beccs.jpg"
 import NextImage from 'next/image';
 const TextBox = ({ title, description }) => {
 
