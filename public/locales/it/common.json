@@ -130,7 +130,7 @@
     },
     "projects": {
         "powered_by": "Partner",
-        "more_info":"Scopri",
+        "more_info": "Scopri",
         "biochar": {
             "title": "Biochar",
             "description": "Desc Biochar"
@@ -160,11 +160,15 @@
             "title_description2": "Produzione e Carbon removal",
             "description2": "Il processo di produzione del biochar, noto come pirolisi, coinvolge il riscaldamento di diversi tipi di biomassa vegetale in un ambiente privo di ossigeno. Questo processo avviene a temperature elevate, tipicamente tra 350°C e 700°C. In queste condizioni, la biomassa si decompone termicamente senza bruciare completamente, creando una forma di carbonio stabile chiamata carbone vegetale o biochar. Durante la pirolisi, il biochar assorbe il carbonio dalla biomassa e lo intrappola nel suo reticolo strutturale, impedendone il rilascio nell'atmosfera come anidride carbonica (CO2).",
             "list_item1": {
-                "item1": "Location indipendent: gli impianti DAC possono essere posizionati in qualsiasi luogo poiché la CO₂ nell'aria è uniformemente distribuita globalmente.",
-                "item2": "Estrema precisione nella misurazione della CO₂ assorbita e stoccata."
+                "item1": "Migliora la produttività agricola aiutando i terreni a trattenere l'acqua e i nutrienti",
+                "item2": "Riduce l'impatto ambientale dei processi produttivi industriali",
+                "item3": "Genera energia rinnovabile attraverso il processo di pirolisi"
             },
-            "list_item2": "Garantisce la rimozione di CO₂ per oltre 1000 anni.",
-            "list_item3": "Favorisce lo sviluppo e la ricerca di nuove tecnologie volte alla cattura e rimozione della CO₂ dall'atmosfera.",
+            "list_item2": "Garantisce la rimozione di CO₂ per oltre 100 anni.",
+            "list_item3": {
+                "item1": "Contribuisce allo sviluppo di 12 dei 17 UN Sustainable Development Goals",
+                "item2": "RFavorisce lo sviluppo di co-benefici come il sostegno alle comunità e alle piccole imprese"
+            },
             "list_item4": "La CO₂ catturata può essere convertita in carburanti sintetici, riducendo la dipendenza dai combustibili fossili."
         },
         "erw": {
@@ -176,7 +180,7 @@
             "list_item1": {
                 "item1": "Migliora la produttività agricola",
                 "item2": "Riduce l'erosione del suolo",
-                "item3":"Diminuisce sensibilemte l'utilizzo di fertilizzanti e pesticidi"
+                "item3": "Diminuisce sensibilemte l'utilizzo di fertilizzanti e pesticidi"
             },
             "list_item2": "Garantisce la rimozione di CO₂ per oltre 1000 anni",
             "list_item3": "Trasforma gli scarti in rimozione di CO₂: le rocce residue provenienti da altre operazioni industriali vengono utilizzate in modo vantaggioso per gli ERW",
