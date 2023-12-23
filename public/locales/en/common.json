@@ -1,46 +1,250 @@
 {
-    "HELLO_WORLD": "Hello, World!",
+    "HELLO_WORLD": "Ciao, mondo!",
+    "nav_bar": {
+        "list": [
+            {
+                "title": "Progetti",
+                "link": "projects"
+            }
+        ]
+    },
     "home": {
         "hero": {
             "title": "Offset Our Future.",
-            "description": "Take part to the green revolution and help us build a new ecosystem, a better one, with zero impact.",
-            "button": "Stay tuned"
+            "description": "Dai un Boost all rimozione della CO₂",
+            "button": "Contattaci"
         },
-        "sellbuycreate": {
-            "sell": "sell",
-            "buy": "buy",
-            "create": "crea"
+        "pop_up_contact_us": {
+            "title": "Rimani Aggiornato",
+            "description":"Condividi con noi la tua mail se sei interessato al progetto",
+            "choose":"Sei un",
+            "seller":"Venditore",
+            "buyer":"Compartore",
+            "button":"Iscriviti Ora"
+        },
+        "sell_buy_create": {
+            "sell": {
+                "title": "VENDI",
+                "description": "Acquista crediti certificati secondo i migliori standard"
+            },
+            "buy": {
+                "title": "COMPRA",
+                "description": "Sviluppa nuove opportunità di mercato grazie ai Crediti di Carbonio"
+            },
+            "create": {
+                "title": "CREA",
+                "description": "Accelera il processo di certificazione del tuo progetto Carbon Removal"
+            }
+        },
+        "carbon_credit_description": {
+            "title": "Cosa sono i Crediti di Carbonio di alta qualità?",
+            "description": "Si tratta di certificati negoziabili rappresentanti la rimozione di 1 tonnellata di CO₂ o altri gas equivalenti per 100+ anni dall'atmosfera.",
+            "btn": "Scopri quali sono le metodologie che garantiscono un tale risultato!"
+        },
+        "our_product": {
+            "high_quality": {
+                "title": "ALTA QUALITA'",
+                "description": "GreenBoost offre Crediti di Carbonio certificati secondo i più elevati standard di mercato"
+            },
+            "remove": {
+                "title": "REALE RIMOZIONE",
+                "description": "La rimozione di carbonio avviene grazie a processi ingegnerizzati, capaci di garantire la reale rimozione di CO₂ dall'atmosfera"
+            },
+            "durability": {
+                "title": "STOCCAGGIO NEL TEMPO",
+                "description": "La CO₂ sequestrata viene trasformata, convertita in una forma più stabile e stoccata o riutilizzata all'interno di altri materiali"
+            },
+            "certification": {
+                "title": "CERTIFICAZIONE",
+                "description": "La certificazione dei Crediti di Carbonio offerti da GreenBoost garantisce uno stoccaggio della CO₂ fino a 100+ anni"
+            }
+        },
+        "quality_framework": {
+            "title": "GreenBoost offre crediti di carbonio che certificano la rimozione di CO₂ per 100+ anni, in accordo con il nuovo EU framework  QU.A.L.ITY:",
+            "quantification": {
+                "title": "QU",
+                "description": "(quantification): misurazione accurata dell'effettiva cattura della CO₂"
+            },
+            "additionality": {
+                "title": "A",
+                "description": "(additionality): addizionalità rispetto allo status quo"
+            },
+            "long_term_storage": {
+                "title": "L",
+                "description": "(long term storage): possibilità di verificare lo storage permanente della CO₂ a seguito della cattura"
+            },
+            "sustainability": {
+                "title": "ITY",
+                "description": "(sustainability): allineamento con i «sustainable development Goals» dell'Onu"
+            }
+        },
+        "reason_for_buy": {
+            "title": "Acquistare un credito di carbonio di alta qualità significa non solo rimuovere una tonnellata di CO2 per 100+ anni, ma anche:",
+            "reason1": {
+                "title": "Rafforzare il Tuo Marchio:",
+                "description": "Eleva la tua identità aziendale, posizionando il tuo marchio come leader sostenibile"
+            },
+            "reason2": {
+                "title": "Anticipare la Concorrenza:",
+                "description": "Distinguiti e guida la tua azienda verso una gestione responsabile"
+            },
+            "reason3": {
+                "title": "Allinearti con le Richieste di Mercato:",
+                "description": "Soddisfa le aspettative del mercato moderno, attirando consumatori e fornitori"
+            },
+            "reason4": {
+                "title": "Supportare le Comunità Locali:",
+                "description": "Fai la differenza e sostieni comunità in cui si sviluppano i progetti virtuosi"
+            },
+            "reason5": {
+                "title": "Costruire un Futuro Sostenibile:",
+                "description": "Investi e aiuta a plasmare un mondo dove la responsabilità aziendale è alla base di ogni decisione."
+            }
+        },
+        "team": {
+            "title": "La nostra squadra",
+            "linkedin": "Segui su Linkedin"
         },
         "wave": {
             "wave1": {
-                "phrase1": "Be part of our community, join GreenBoost marketplace.",
-                "phrase2": "Reduce your carbon footprint through voluntary carbon credit market."
+                "phrase1": "Unisciti a GreenBoost ",
+                "phrase2": "Compensa le tue emissioni tramite Crediti di Carbonio di alta qualità. Garantisci la rimozione di CO₂ dall'atmosfera per più di 100 anni."
             },
             "wave2": {
-                "phrase1": "Greenboost will help you offsetting emissions of the processes that are most difficult to decarbonize,",
-                "phrase2": "with a verifiable product that guarantees CO2 removal from the atmosphere."
+                "phrase1": "GreenBoost, il tuo marketplace di fiducia per i crediti di alta qualità.",
+                "phrase2": ""
             },
             "wave3": {
-                "phrase1": "Despite yesterday, we act today because of tomorrow.",
-                "phrase2": "Offset our future, Together."
+                "phrase1": "Accelera il cambiamento. Investi nel futuro del nostro pianeta e acquista responsabilemente con GreenBoost",
+                "phrase2": ""
             },
             "wave4": {
+                "phrase1": "Agiamo oggi per un domani migliore.",
+                "phrase2": "Compensiamo il nostro futuro, insieme."
+            },
+            "wave5": {
                 "phrase1": "GreenBoost non un semplice marketplace!"
             }
         },
         "section": {
             "section1": {
-                "title": "Easy and free access",
-                "description": "Access to the marketplace and offset your emissions in 3 easy click. We want to make our Marketplace accessible to everyone, in a very easy and autonomously way, with the will to make voluntary market grow as much as possible"
+                "title": "Vuoi compensare le emissioni delle tue attività?",
+                "description": "Accedi al marketplace GreenBoost, aperto a tutti, e compensa le tue emissioni o riduci l’impronta carbonica dei tuoi prodotti, acquistando crediti di carbonio di alta qualità in 3 semplici click, garantendo sempre un reale assorbimento della CO2 compensata"
             },
             "section2": {
-                "title": "Carbon Credit supply gatherer",
+                "title": "Vuoi vendere i tuoi Crediti di Carbonio o certificare un progetto di cattura CO2?",
                 "description": "We don't choose you, you choose us! List your projects on GreenBoos and become a member of our ecosystem. This will bring to the creation of a market with the greatest selection ever, where you can find every kind of VCC from all over the world."
             },
             "section3": {
-                "title": "Build our zero Co2 future",
-                "description": "And that’s not all! GreenBoost wants to reinvest constantly in the development of new green projects, every year, to reduce Co2 emissions as much as we can. Our community will join us in this adventure, taking part in the choice of future projects and building our new ecosystem, together"
+                "title": "ComPensa! Per il futuro di tutti noi",
+                "description": "Crea con noi un futuro ad impatto zero, attraverso la realizzazione di un ecosistema italiano volto alla riduzione e all’assorbimento delle emissioni. Scegli GreenBoost, il tuo partner per la compensazione"
             }
+        }
+    },
+    "projects": {
+        "powered_by": "Partner",
+        "more_info": "Scopri",
+        "biochar": {
+            "title": "Biochar",
+            "description": "Desc Biochar"
+        },
+        "erw": {
+            "title": "ERW",
+            "description": " Desc ERW"
+        },
+        "carbonated": {
+            "title": "Carbonated Materials",
+            "description": "Desc Carbonated Materials"
+        },
+        "beccs": {
+            "title": "BECCS",
+            "description": "Desc BECCS"
+        },
+        "daccs": {
+            "title": "DACCS",
+            "description": "Desc DACCS"
+        }
+    },
+    "project_type": {
+        "biochar": {
+            "title": "Biochar",
+            "subtitle": "",
+            "title_description1": "Metodologia e Destinazione",
+            "description1": "Il biochar viene prodotto a partire da biomasse o rifiuti organici, attraverso la pirolisi (riscaldamento ad alte temperature in assenza di ossigeno), un processo che permette di concentrare il carbonio e renderlo resistente alla decomposizione biologica. Il Biochar ha molteplici usi commerciali: per esempio viene utilizzato come ammendante agricolo, nel trattamento delle acque reflue e in diversi settori industriali (e.g pneumatici, asfalto, etc).",
+            "title_description2": "Produzione e Carbon removal",
+            "description2": "Il processo di produzione del biochar, noto come pirolisi, coinvolge il riscaldamento di diversi tipi di biomassa vegetale in un ambiente privo di ossigeno. Questo processo avviene a temperature elevate, tipicamente tra 350°C e 700°C. In queste condizioni, la biomassa si decompone termicamente senza bruciare completamente, creando una forma di carbonio stabile chiamata carbone vegetale o biochar. Durante la pirolisi, il biochar assorbe il carbonio dalla biomassa e lo intrappola nel suo reticolo strutturale, impedendone il rilascio nell'atmosfera come anidride carbonica (CO2).",
+            "list_item1": {
+                "item1": "Migliora la produttività agricola aiutando i terreni a trattenere l'acqua e i nutrienti",
+                "item2": "Riduce l'impatto ambientale dei processi produttivi industriali",
+                "item3": "Genera energia rinnovabile attraverso il processo di pirolisi"
+            },
+            "list_item2": "Garantisce la rimozione di CO₂ per oltre 100 anni.",
+            "list_item3": {
+                "item1": "Contribuisce allo sviluppo di 12 dei 17 UN Sustainable Development Goals",
+                "item2": "RFavorisce lo sviluppo di co-benefici come il sostegno alle comunità e alle piccole imprese"
+            },
+            "list_item4": "La CO₂ catturata può essere convertita in carburanti sintetici, riducendo la dipendenza dai combustibili fossili."
+        },
+        "erw": {
+            "title": "ERW",
+            "subtitle": "Enhanched Rock Weathering",
+            "title_description1": "Metodologia e Destinazione",
+            "description1": "L'invecchiamento naturale delle rocce è un processo geologico, estremamente lento, che rimuove dall'atmosfera circa 1,1 Gt di CO₂ ogni anno: quando le rocce di silicato si degradano, catturano il carbonio dall'atmosfera in modo permanente. L'Enhanced Rock Weathering (ERW) accelera questo processo, frantumando grandi rocce di silicato in particelle fini o raccogliendo rocce residue da altri processi ed applicandole al suolo, con notevoli benefici: migliora la fertilità, neutralizza l'acidità e riduce l'erosione del suolo, oltre a diminuire l'utilizzo dei fertilizzanti.",
+            "title_description2": "Produzione e Carbon removal",
+            "description2": "In natura, le rocce e i minerali catturano il biossido di carbonio atmosferico attraverso un processo chiamato meteorizzazione. In questo processo, la CO₂ si dissolve inizialmente nell'acqua e quando questa acqua carbonatica entra in contatto con le rocce, reagisce con i minerali in esse contenuti. Questa reazione chimica causa lo scioglimento lento dei minerali nel corso di lunghi periodi di tempo, impedendo il rilascio di CO₂ nell'atmosfera. L'Enhanced Rock Weathering (ERW) sfrutta questo principio selezionando rocce di silicato come il basalto, triturandole in particelle fini simili alla farina e applicandole al suolo agricolo. Quando esposte all'aria e all'acqua, queste particelle reagiscono con la CO₂ attraverso la carbonatazione, trasformando la CO₂ in composti solidi come il carbonato di calcio (CaCO₃) e catturando il carbonio nel suolo.",
+            "list_item1": {
+                "item1": "Migliora la produttività agricola",
+                "item2": "Riduce l'erosione del suolo",
+                "item3": "Diminuisce sensibilemte l'utilizzo di fertilizzanti e pesticidi"
+            },
+            "list_item2": "Garantisce la rimozione di CO₂ per oltre 1000 anni",
+            "list_item3": "Trasforma gli scarti in rimozione di CO₂: le rocce residue provenienti da altre operazioni industriali vengono utilizzate in modo vantaggioso per gli ERW",
+            "list_item4": "L'ERW utilizza risorse abbondanti e tecnologie consolidate. Questo approccio offre un potenziale rilevante per rimuovere il carbonio a livello globale."
+        },
+        "carbonated": {
+            "title": "Carbonated Materials",
+            "subtitle": "",
+            "title_description1": "Metodologia e Destinazione",
+            "description1": "I carbonated materials rappresentano una classe di sostanze innovative con un impatto netto positivo nella lotta contro i cambiamenti climatici. Infatti, attraverso la “carbonatazione” è possibile creare nuovi minerali chiamati carbonati ionici, i quali intrappolano la CO₂ e la rendono inoffensiva per l'atmosfera. Questi materiali, come il carbonato di calcio, vengono applicati non solo nell'industria del cemento, ma anche in polimeri, resine e prodotti ceramici, offrendo così soluzioni sostenibili in una vasta gamma di applicazioni industriali.",
+            "title_description2": "Produzione e Carbon removal",
+            "description2": "Il processo di produzione dei carbonated materials coinvolge la selezione di sostanze come il calcare o il basalto, ricche di minerali reattivi come il calcio e il magnesio. La rimozione della CO2 avviene attraverso la carbonatazione, una reazione chimica tra CO₂ e idrossidi o ossidi metallici (ad esempio, CaOH, MgOH, CaO, MgO) in presenza di acqua, che porta alla formazione di minerali carbonatici ionici (ad esempio, CaCO3, MgCO3). Questo processo di carbonatazione può avvenire naturalmente o essere accelerato artificialmente, aumentando così l'efficienza nella rimozione del carbonio. Una volta prodotti, i carbonated materials intrappolano il CO₂ nel loro reticolo molecolare, impedendone il rilascio nell'atmosfera per lunghi periodi di tempo e con una probabilità molto bassa di inversione dovuta al processo chimico sopra menzionato.",
+            "list_item1": {
+                "item1": "Produzione di calcestruzzo sostenibile",
+                "item2": "Integrazione in materiali industriali come polimeri e resine"
+            },
+            "list_item2": "Garantisce la rimozione di CO₂ per oltre 1000 anni",
+            "list_item3": "Riducendo l'uso di materiali tradizionali ad alto impatto di carbonio, i carbonated materials aiutano a limitare la dipendenza dalle risorse fossili",
+            "list_item4": "I minerali utilizzati nella produzione di carbonated materials sono abbondanti e acilmente reperibili, rendendo questo approccio sostenibile e praticabile su vasta scala."
+        },
+        "beccs": {
+            "title": "BECCS",
+            "subtitle": "BIOENERGY CARBON CAPTURE & STORAGE",
+            "title_description1": "Metodologia e Destinazione",
+            "description1": "BECCS è un approccio innovativo che, combinando tre tecnologie come bioenergia, cattura del carbonio e stoccaggio del carbonio, contribuisce alla riduzione netta delle emissioni di CO₂ dall'atmosfera. Si tratta di una tecnologia che abbina all'utilizzo della biomassa come fonte di energia pulita per la produzione di elettricità e calore, la cattura e lo stoccaggio dei gas di scarico prodotti sotto terra o in altri depositi sicuri, in modo che non vengano liberati nell'atmosfera.",
+            "title_description2": "Produzione e Carbon removal",
+            "description2": "Il processo inizia con la produzione di biomassa, che può includere coltivazioni dedicate o residui agricoli e forestali. Queste piante assorbono la CO₂ attraverso il processo difotosintesi, immagazzinandola nei loro tessuti. La biomassa viene quindi convertita in energia attraverso processi di combustione o conversione termo-chimica, generando calore o elettricità. Durante questa fase, la biomassa libera il carbonio precedentemente immagazzinato sotto forma di CO₂ nell'atmosfera. In questa fase, la CO₂ emessa durante la combustione o la conversione viene catturata prima che possa essere rilasciata nell'atmosfera. La CO₂ catturata viene compressa in forma liquida per facilitarne il trasporto. Questo può essere fatto tramite tubazioni o camion specializzati. La CO₂ compressa viene iniettata nel sottosuolo attraverso un processo chiamato stoccaggio del carbonio. La CO₂ viene quindi intrappolata in formazioni geologiche, impedendone il rilascio nell'atmosfera.",
+            "list_item1": {
+                "item1": "Utilizzando biomasse come fonte energetica, si riduce la dipendenza dai combustibili fossili",
+                "item2": "Possibile nuova fonte di reddito per gli agricoltori"
+            },
+            "list_item2": "Garantisce la rimozione di CO₂ per oltre 1000 anni",
+            "list_item3": "Favorisce lo sviluppo economico attraverso la creazione di posti di lavoro legati alla produzione di biomasse, alla gestione delle foreste e alle infrastrutture di cattura e stoccaggio del carbonio.",
+            "list_item4": "La gestione sostenibile delle foreste e dell'agricoltura per la produzione di biomasse favorisce la conservazione della biodiversità"
+        },
+        "daccs": {
+            "title": "DACCS",
+            "subtitle": "DIRECT AIR CARBON CAPTURE AND STORAGE",
+            "title_description1": "Metodologia e Destinazione",
+            "description1": "DACCS è una tecnologia che cattura direttamente la CO₂ dall'aria e la immagazzina in modo sicuro per prevenirne il rilascio nell'atmosfera. La metodologia coinvolge l'assorbimento selettivo di CO₂ da parte di materiali speciali, seguito dalla compressione del gas catturato in forma liquida e dal suo deposito in giacimenti geologici sotterranei. La principale applicazione commerciale è la compensazione delle emissioni in settori difficili da decarbonizzare, come l'aviazione e l'industria, contribuendo così al raggiungimento degli obiettivi di neutralità carbonica.",
+            "title_description2": "Produzione e Carbon removal",
+            "description2": "Il processo di DACCS inizia con l'assorbimento dell'aria: questa viene aspirata da una ventola situata all'interno del collettore. Una volta aspirata, passa attraverso un “filtro” pecifico che trattiene le particelle di anidride carbonica. Una volta catturata una quantità significativa di CO₂, il collettore si chiude e viene applicata una bassa pressione o una variazione di temperatura per 'desorbire' la CO₂ dai materiali filtranti. Questo processo libera la CO₂ concentrata e la prepara ad essere stoccata. La CO₂ liberata viene compressa in forma liquida e trasportata a siti di stoccaggio sicuri, come giacimenti geologici o formazioni saline sotterranee. Qui, la CO₂ viene iniettata nel terreno e intrappolata in modo sicuro, impedendone il rilascio nell'atmosfera per lunghi periodi di tempo. È essenziale monitorare costantemente il sito di stoccaggio per garantire che la CO₂ rimanga intrappolata e non sfugga nell'atmosfera. La verifica continua è fondamentale per garantire l'efficacia a lungo termine di DACCS.",
+            "list_item1": {
+                "item1": "Location indipendent: gli impianti DAC possono essere posizionati in qualsiasi luogo poiché la CO₂ nell'aria è uniformemente distribuita globalmente",
+                "item2": "Estrema precisione nella misurazione della CO₂ assorbita e stoccata."
+            },
+            "list_item2": "Garantisce la rimozione di CO₂ per oltre 1000 anni",
+            "list_item3": "Favorisce lo sviluppo e la ricerca di nuove tecnologie volte alla cattura e rimozione della CO₂ dall'atmosfera.",
+            "list_item4": "La CO₂ catturata può essere convertita in carburanti sintetici, riducendo la dipendenza dai combustibili fossili."
         }
     }
 }

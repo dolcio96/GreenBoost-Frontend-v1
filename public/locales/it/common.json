@@ -1,13 +1,26 @@
 {
     "HELLO_WORLD": "Ciao, mondo!",
     "nav_bar": {
-        "list": "Progetti"
+        "list": [
+            {
+                "title": "Progetti",
+                "link": "projects"
+            }
+        ]
     },
     "home": {
         "hero": {
             "title": "Offset Our Future.",
             "description": "Dai un Boost all rimozione della CO₂",
             "button": "Contattaci"
+        },
+        "pop_up_contact_us": {
+            "title": "Rimani Aggiornato",
+            "description":"Condividi con noi la tua mail se sei interessato al progetto",
+            "choose":"Sei un",
+            "seller":"Venditore",
+            "buyer":"Compartore",
+            "button":"Iscriviti Ora"
         },
         "sell_buy_create": {
             "sell": {
@@ -95,10 +108,10 @@
         "wave": {
             "wave1": {
                 "phrase1": "Unisciti a GreenBoost ",
-                "phrase2": "Compensa le tue emissioni tramite Crediti di Carbonio di alta qualità, 'Garantisci la rimozione di CO₂ dall'atmosfera per più di 100 anni'"
+                "phrase2": "Compensa le tue emissioni tramite Crediti di Carbonio di alta qualità. Garantisci la rimozione di CO₂ dall'atmosfera per più di 100 anni."
             },
             "wave2": {
-                "phrase1": "GreenBoost, il tuo marketplace di fiducia per i crediti di alta qualità",
+                "phrase1": "GreenBoost, il tuo marketplace di fiducia per i crediti di alta qualità.",
                 "phrase2": ""
             },
             "wave3": {
@@ -155,6 +168,7 @@
     "project_type": {
         "biochar": {
             "title": "Biochar",
+            "subtitle": "",
             "title_description1": "Metodologia e Destinazione",
             "description1": "Il biochar viene prodotto a partire da biomasse o rifiuti organici, attraverso la pirolisi (riscaldamento ad alte temperature in assenza di ossigeno), un processo che permette di concentrare il carbonio e renderlo resistente alla decomposizione biologica. Il Biochar ha molteplici usi commerciali: per esempio viene utilizzato come ammendante agricolo, nel trattamento delle acque reflue e in diversi settori industriali (e.g pneumatici, asfalto, etc).",
             "title_description2": "Produzione e Carbon removal",
@@ -173,6 +187,7 @@
         },
         "erw": {
             "title": "ERW",
+            "subtitle": "Enhanched Rock Weathering",
             "title_description1": "Metodologia e Destinazione",
             "description1": "L'invecchiamento naturale delle rocce è un processo geologico, estremamente lento, che rimuove dall'atmosfera circa 1,1 Gt di CO₂ ogni anno: quando le rocce di silicato si degradano, catturano il carbonio dall'atmosfera in modo permanente. L'Enhanced Rock Weathering (ERW) accelera questo processo, frantumando grandi rocce di silicato in particelle fini o raccogliendo rocce residue da altri processi ed applicandole al suolo, con notevoli benefici: migliora la fertilità, neutralizza l'acidità e riduce l'erosione del suolo, oltre a diminuire l'utilizzo dei fertilizzanti.",
             "title_description2": "Produzione e Carbon removal",
@@ -188,6 +203,7 @@
         },
         "carbonated": {
             "title": "Carbonated Materials",
+            "subtitle": "",
             "title_description1": "Metodologia e Destinazione",
             "description1": "I carbonated materials rappresentano una classe di sostanze innovative con un impatto netto positivo nella lotta contro i cambiamenti climatici. Infatti, attraverso la “carbonatazione” è possibile creare nuovi minerali chiamati carbonati ionici, i quali intrappolano la CO₂ e la rendono inoffensiva per l'atmosfera. Questi materiali, come il carbonato di calcio, vengono applicati non solo nell'industria del cemento, ma anche in polimeri, resine e prodotti ceramici, offrendo così soluzioni sostenibili in una vasta gamma di applicazioni industriali.",
             "title_description2": "Produzione e Carbon removal",
@@ -201,7 +217,8 @@
             "list_item4": "I minerali utilizzati nella produzione di carbonated materials sono abbondanti e acilmente reperibili, rendendo questo approccio sostenibile e praticabile su vasta scala."
         },
         "beccs": {
-            "title": "BIOENERGY CARBON CAPTURE & STORAGE",
+            "title": "BECCS",
+            "subtitle": "BIOENERGY CARBON CAPTURE & STORAGE",
             "title_description1": "Metodologia e Destinazione",
             "description1": "BECCS è un approccio innovativo che, combinando tre tecnologie come bioenergia, cattura del carbonio e stoccaggio del carbonio, contribuisce alla riduzione netta delle emissioni di CO₂ dall'atmosfera. Si tratta di una tecnologia che abbina all'utilizzo della biomassa come fonte di energia pulita per la produzione di elettricità e calore, la cattura e lo stoccaggio dei gas di scarico prodotti sotto terra o in altri depositi sicuri, in modo che non vengano liberati nell'atmosfera.",
             "title_description2": "Produzione e Carbon removal",
@@ -215,7 +232,8 @@
             "list_item4": "La gestione sostenibile delle foreste e dell'agricoltura per la produzione di biomasse favorisce la conservazione della biodiversità"
         },
         "daccs": {
-            "title": "DIRECT AIR CARBON CAPTURE AND STORAGE",
+            "title": "DACCS",
+            "subtitle": "DIRECT AIR CARBON CAPTURE AND STORAGE",
             "title_description1": "Metodologia e Destinazione",
             "description1": "DACCS è una tecnologia che cattura direttamente la CO₂ dall'aria e la immagazzina in modo sicuro per prevenirne il rilascio nell'atmosfera. La metodologia coinvolge l'assorbimento selettivo di CO₂ da parte di materiali speciali, seguito dalla compressione del gas catturato in forma liquida e dal suo deposito in giacimenti geologici sotterranei. La principale applicazione commerciale è la compensazione delle emissioni in settori difficili da decarbonizzare, come l'aviazione e l'industria, contribuendo così al raggiungimento degli obiettivi di neutralità carbonica.",
             "title_description2": "Produzione e Carbon removal",

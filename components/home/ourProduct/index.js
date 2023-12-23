@@ -22,7 +22,7 @@ import {
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import Img1 from "@public/Images/beccs.jpg"
+import Pc from "@public/Images/pc.png"
 import NextImage from 'next/image';
 const TextBox = ({ title, description }) => {
 
@@ -48,7 +48,7 @@ function OurProduct() {
             <Grid templateColumns={{ base: '1fr', lg: 'repeat(2, 1fr)' }} gap={20} my={10} mx={20}>
               <GridItem>
                 <Center h="full">
-                  <Image src={Img1.src} borderRadius={10} />
+                  <Image src={Pc.src} borderRadius={10} />
                 </Center>
               </GridItem>
     

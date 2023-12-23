@@ -21,8 +21,8 @@ import {
   Input,
   Radio,
   RadioGroup,
-  Image
-
+  Image,
+  Center
 } from '@chakra-ui/react';
 
 import BackgroudImage from "@public/Images/torbiere1.jpg"
@@ -160,22 +160,24 @@ const Hero = () => {
           backdropFilter='blur(3px) hue-rotate(50deg)'
         />
         <ModalContent >
-          <ModalHeader ustifyContent={"center"} textAlign={"center"}>Stay Tuned, Subscribe Now!</ModalHeader>
+          <ModalHeader ustifyContent={"center"} textAlign={"center"}>{t('home.pop_up_contact_us.title')}</ModalHeader>
 
           <ModalBody>
             <Stack direction={'column'} spacing={6}>
-              <Text>Send us your email if you are interested in the project</Text>
+              <Text>{t('home.pop_up_contact_us.description')}</Text>
               <FormControl>
                 <Input placeholder='Email' className="inputFieldNormal" />
               </FormControl>
-              <Stack direction='row'>
-                <Text>Chose your side</Text>
+              <Stack direction='column' textAlign={"center"}>
+                <Text>{t('home.pop_up_contact_us.choose')}</Text>
+                <Center>
                 <RadioGroup >
                   <Stack direction='row'>
-                    <Radio value='Seller'>Seller</Radio>
-                    <Radio value='Buyer'>Buyer</Radio>
+                    <Radio value='Seller'>{t('home.pop_up_contact_us.seller')}</Radio>
+                    <Radio value='Buyer'>{t('home.pop_up_contact_us.buyer')}</Radio>
                   </Stack>
                 </RadioGroup>
+                </Center>
 
               </Stack>
             </Stack>
@@ -183,7 +185,7 @@ const Hero = () => {
           <ModalFooter justifyContent={"center"}>
 
             <Button variant={"normalButton"} mr={3} justifyContent={"center"}>
-              Subscribe Now
+            {t('home.pop_up_contact_us.button')}
             </Button>
 
           </ModalFooter>

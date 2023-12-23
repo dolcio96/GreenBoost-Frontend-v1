@@ -18,7 +18,7 @@ import {
     Icon,
     Divider
 } from "@chakra-ui/react";
-
+import { useRouter } from 'next/router'
 
 import Img1 from "@public/Images/carbonCreditProcess.png"
 import React, { useState } from "react";
@@ -27,6 +27,7 @@ import { useTranslation } from "react-i18next";
 
 function CarbonCreditDescription() {
     let { t } = useTranslation();
+    const router = useRouter()
     return (
         <>
             <Box>
@@ -44,7 +45,7 @@ function CarbonCreditDescription() {
                             <Text textAlign={"center"}>
                                 {t('home.carbon_credit_description.description')}
                             </Text>
-                            <Button p={{ base: 2, lg: 3 }}  whiteSpace="normal" height="auto" blockSize="auto" color="tertiary" bg="primary" _hover={{ color: "tertiary", bg: "quaternary" }}>
+                            <Button p={{ base: 2, lg: 3 }}  whiteSpace="normal" height="auto" blockSize="auto" color="tertiary" bg="primary" _hover={{ color: "tertiary", bg: "quaternary" }} onClick={() => router.push('/projects')}>
                               {t('home.carbon_credit_description.btn')}  
                             </Button>
                         </Center>

@@ -77,19 +77,22 @@ const ProjectType = ({ project }) => {
     const projectImage = require(`../../public/${imagePath}`).default;
     return (
         <>
-            <Box m={10}>
+            <Box m={{base:"0", lg:"10"}}>
                 <Box my={10}>
                     <Center>
                         <Image src={LogoGB.src} textShadow='2px 2px #588157' w={"50%"} />
                     </Center>
-                    <Center>
+                    <Center flexDirection={"column"}>
                         <Heading fontSize={"50px"} color={"primary"}>
                             {t('project_type.'+project.trim().toLowerCase()+'.title')}
+                        </Heading>
+                        <Heading fontSize={"25px"} color={"primary"} textAlign={"center"} mx="3">
+                            {t('project_type.'+project.trim().toLowerCase()+'.subtitle')}
                         </Heading>
                     </Center>
                 </Box>
                 <Center mx={20} flexDirection={"column"}>
-                    <Grid templateColumns={{ base: '1fr', lg: 'repeat(2, 1fr)' }} gap={40} >
+                    <Grid templateColumns={{ base: '1fr', lg: 'repeat(2, 1fr)' }} gap={{base:"10", lg:"40"}}  >
                         <GridItem w="full" h="full"><MotionBox initial={{ opacity: 0, scale: 0.5 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.3, delay: 0.5, ease: [0, 0.71, 0.2, 1.01] }}>
                             <NextImage style={{ borderRadius: "60px" }} w="full" h="full" borderRadius={"10px"} src={projectImage} />
                         </MotionBox></GridItem>
@@ -108,7 +111,7 @@ const ProjectType = ({ project }) => {
                         <GridItem w="full" h="full"><ListItems Icon={AddCircleOutlineIcon} list={t('project_type.'+project.trim().toLowerCase()+'.list_item3', { returnObjects: true})} /></GridItem>
                         <GridItem w="full" h="full"><ListItems Icon={PublicIcon} list={t('project_type.'+project.trim().toLowerCase()+'.list_item4', { returnObjects: true})} /></GridItem>
                     </Grid>
-                    <Grid templateColumns={{ base: '1fr', lg: 'repeat(2, 1fr)' }} gap={40} >
+                    <Grid templateColumns={{ base: '1fr', lg: 'repeat(2, 1fr)' }} gap={{base:"10", lg:"40"}} >
                         <GridItem w="full">
                             <Center h="full" flexDirection="column">
                                 <MotionBox initial={{ opacity: 0, scale: 0.5 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.3, delay: 0.5, ease: [0, 0.71, 0.2, 1.01] }}>

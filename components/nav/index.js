@@ -21,17 +21,17 @@ import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { useSession, signIn, signOut } from "next-auth/react"
 import { ChevronDownIcon, ChevronUpIcon } from '@chakra-ui/icons'
 import { useRouter } from "next/router";
-
+import { useTranslation } from "react-i18next";
 import { ShoppingCart } from "@mui/icons-material"
 
-const Links = ['Projects']//, 'Sell', 'Create'];
+
 
 import LogoGB from '@public/logoGB.png'
 import Message from "@components/modal/message"
 import LanguageSelector from './languageSelector';
 
 
-const NavLink = ({ children }) => (
+const NavLink = ({ listItem }) => (
     <Link
         px={2}
         py={1}
@@ -41,19 +41,24 @@ const NavLink = ({ children }) => (
             bg: "primary",
             color: "white"
         }}
-        href={'/' + children.toString().replace('&', '').replace(/\s/g, '').toLowerCase()}>
-            <Text fontSize={18}>{children}</Text>
+        href={'/' + listItem.link.toString().replace('&', '').replace(/\s/g, '').toLowerCase()
+        }>
+            <Text fontSize={18}>{listItem.title}</Text>
     </Link>
 );
 
 
 
 const Nav = () => {
+    let { t } = useTranslation();
     const { isOpen, onOpen, onClose } = useDisclosure();
     var defaultLang = "IT"
     const [lang, setLang] = useState(defaultLang);
     const router = useRouter()
     const isHome = router.pathname === "/" ? true : false;
+
+    const ListItems = t('nav_bar.list', { returnObjects: true })//, 'Sell', 'Create'];
+    const Links = t('nav_bar.list', { returnObjects: true })//, 'Sell', 'Create'];
 
     const {
         isOpen: isOpenModal,
@@ -120,8 +125,8 @@ const Nav = () => {
                             spacing={4}
                             display={{ base: 'none', md: 'flex' }}>
 
-                            {Links.map((link) => (
-                                <NavLink key={link}>{link}</NavLink>
+                            {Links.map((ListItem) => (
+                                <NavLink key={ListItem.title} listItem={ListItem}/>
                             ))}
                         </HStack>
 
@@ -162,8 +167,9 @@ const Nav = () => {
                 {isOpen ? (
                     <Box pb={4} display={{ md: 'none' }}>
                         <Stack as={'nav'} spacing={4}>
-                            {Links.map((link) => (
-                                <NavLink key={link}>{link}</NavLink>
+                          
+                        {Links.map((ListItem) => (
+                                <NavLink key={ListItem.title} listItem={ListItem}/>
                             ))}
                         </Stack>
                     </Box>

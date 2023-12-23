@@ -86,7 +86,7 @@ const Create = ({ projects }) => {
                 <Center p={2} flexDirection={"column"} gap={10} >
 
                     <Flex justify="center" align="center" direction="column">
-                        <Center w={"full"} flexDirection={{ sm: "column", lg: "row" }}>
+                        <Center w={"full"} flexDirection={{ base: "column", lg: "row" }}>
                             <Box p={10} borderStyle="3px "  > <TypeCard info={projects.uno} /></Box>
 
                             <Box p={10} borderStyle="3px " ><TypeCard info={projects.due} /></Box>
@@ -95,7 +95,7 @@ const Create = ({ projects }) => {
 
                         </Center>
 
-                        <Center w={"full"} flexDirection={{ sm: "column", lg: "row" }} >
+                        <Center w={"full"} flexDirection={{ base: "column", lg: "row" }} >
 
                             <Box p={10} borderStyle="3px " maxW={{ sm: "100%" }}><TypeCard info={projects.quattro} /></Box>
 
