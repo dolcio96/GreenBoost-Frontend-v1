@@ -6,6 +6,7 @@ import {
     Heading,
     Button,
     useDisclosure,
+    Text
 } from '@chakra-ui/react';
 import React, { useState, useEffect } from 'react';
 
