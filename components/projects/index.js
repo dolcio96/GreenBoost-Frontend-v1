@@ -70,7 +70,7 @@ const TypeCard = ({ info }) => {
 const Create = ({ projects }) => {
 
     // const MotionTypeCard = motion(TypeCard)
-    var partnerImages = [Img1, Img2, Img3, Img4, Img3, Img4, Img3, Img4]
+    var partnerImages = [logoPuro, Img2, Img3, Img4, Img3, Img4, Img3, Img4]
     return (
         <>
             <Box mb={10}>

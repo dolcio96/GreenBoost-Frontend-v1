@@ -32,13 +32,13 @@ function QualityFramework() {
     return (
         <>
             <Box>
-                <Grid templateColumns={{ base: '1fr', lg: 'repeat(3, 1fr)' }} gap={{ base: 20, lg: 40 }} my={10} mx={{base: 5, lg: 20 }} >
-                    <GridItem order={{ base: 2, lg: 1 }} colSpan={{ base: 3, lg: 1 }}>
+                <Grid templateColumns={{ base: '1fr', lg: 'repeat(2, 1fr)' }} gap={{ base: 20, lg: 40 }} my={10} mx={{base: 5, lg: 20 }} >
+                    <GridItem order={{ base: 2, lg: 2 }} colSpan={{ base: 2, lg: 1 }}>
                         <Center h="full">
                             <Image src={Img1.src} borderRadius={10} />
                         </Center>
                     </GridItem>
-                    <GridItem order={{ base: 1, lg: 2 }} colSpan={{ base: 3, lg: 2 }}>
+                    <GridItem order={{ base: 1, lg: 1 }} colSpan={{ base: 2, lg: 1 }}>
                         <Center flexDirection={"column"} gap={6} h="full">
                             <Heading textAlign={"center"} color="primary" fontSize={24}>{t('home.quality_framework.title')}</Heading>
                             <List spacing={3}>
