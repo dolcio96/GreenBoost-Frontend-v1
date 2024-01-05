@@ -11,7 +11,7 @@ import {
     Highlight,
     Flex,
     Button,
-    Link
+    Grid
 } from '@chakra-ui/react';
 import { useAnimation, motion } from "framer-motion"
 import { useTranslation } from "react-i18next";
@@ -50,7 +50,7 @@ const HomeBuySellCreate = () => {
 
 
         <Box py={{ base: "20px", md: "40px" }}>
-            <SimpleGrid columns={[1, 1, 1, 3]} gap={0}>
+            <Grid templateColumns={{ base: '1fr', lg: 'repeat(2, 1fr)', xl: 'repeat(3, 1fr)' }}  gap={0}>
                 {data.map((e, index) => <GridItem key={index}>
                     <motion.div
                         initial={{ opacity: 0, scale: 0.5 }}
@@ -65,7 +65,7 @@ const HomeBuySellCreate = () => {
                         </Center>
                     </motion.div>
                 </GridItem>)}
-            </SimpleGrid>
+            </Grid>
         </Box>
     </>)
 

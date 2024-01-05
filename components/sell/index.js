@@ -19,7 +19,7 @@ import Message from '@components/modal/message'
 
 
 const CreateProject = () => {
-    const [files, setFiles] = useState([]);
+    /*const [files, setFiles] = useState([]);
     const { isOpen, onOpen, onClose } = useDisclosure()
 
     useEffect(() => {
@@ -59,9 +59,22 @@ const CreateProject = () => {
             <Message isOpen={isOpen} onOpen={onOpen} onClose={onClose} header={"For Create a Project Login as Seller"} bgColor={"danger"}></Message>
         }
     }
-
+*/
 
     return (
+        <>
+         <Box mb={10}>
+                <Center p={2} flexDirection={"column"}>
+                    <Heading>SELL</Heading>
+                    <Text>Coming Soon</Text>
+                </Center>
+            </Box>
+        
+        
+        {
+
+            
+            /*
         <>
             {(!session || session?.user.customer_type == "buyer") &&
                 <Message isOpen={isOpen} onOpen={onOpen} onClose={onClose} header={"For Create a Project Login as Seller"} bgColor={"danger"}></Message>
@@ -100,7 +113,7 @@ const CreateProject = () => {
                 </Flex>
             </Container>
 
-        </>)
+        </>  */} </>)
 
 }
 

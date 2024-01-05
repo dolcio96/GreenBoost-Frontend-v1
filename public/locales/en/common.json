@@ -43,19 +43,19 @@
         },
         "our_product": {
             "high_quality": {
-                "title": "ALTA QUALITA'",
+                "title": "Alta Qualità",
                 "description": "GreenBoost offre Crediti di Carbonio certificati secondo i più elevati standard di mercato"
             },
             "remove": {
-                "title": "REALE RIMOZIONE",
+                "title": "Reale Rimozione",
                 "description": "La rimozione di carbonio avviene grazie a processi ingegnerizzati, capaci di garantire la reale rimozione di CO₂ dall'atmosfera"
             },
             "durability": {
-                "title": "STOCCAGGIO NEL TEMPO",
+                "title": "Stoccaggio nel Tempo",
                 "description": "La CO₂ sequestrata viene trasformata, convertita in una forma più stabile e stoccata o riutilizzata all'interno di altri materiali"
             },
             "certification": {
-                "title": "CERTIFICAZIONE",
+                "title": "Certificazione",
                 "description": "La certificazione dei Crediti di Carbonio offerti da GreenBoost garantisce uno stoccaggio della CO₂ fino a 100+ anni"
             }
         },
@@ -146,23 +146,23 @@
         "more_info": "Scopri",
         "biochar": {
             "title": "Biochar",
-            "description": "Desc Biochar"
+            "description": "Trasforma i rifiuti organici in risorse con il Biochar! Scopri come è possibile catturare il carbonio e rivoluzionare l'agricoltura, rendendo il nostro pianeta più verde."
         },
         "erw": {
             "title": "ERW",
-            "description": " Desc ERW"
+            "description": " Scopri il potere dell'ERW, un metodo pionieristico che cattura il carbonio e rigenera il suolo. Diamo vita a un futuro più sostenibile, un granello di roccia alla volta!"
         },
         "carbonated": {
             "title": "Carbonated Materials",
-            "description": "Desc Carbonated Materials"
+            "description": "Trasforma la CO₂ in una risorsa preziosa! I materiali carbonatati offrono soluzioni innovative per l'industria e l'ambiente. Approfondisci questa tecnologia per costruire un domani carbon neutral."
         },
         "beccs": {
             "title": "BECCS",
-            "description": "Desc BECCS"
+            "description": "Energizza il tuo impatto ambientale con la tecnologia BECCS! Combina energia pulita con la cattura del carbonio per un futuro sostenibile."
         },
         "daccs": {
             "title": "DACCS",
-            "description": "Desc DACCS"
+            "description": "Cattura la CO₂ direttamente dall'aria! La tecnologia DACCS apre la strada a un futuro più sostenibile. Respira un'aria più pulita e contribuisci a un domani migliore."
         }
     },
     "project_type": {
@@ -181,9 +181,9 @@
             "list_item2": "Garantisce la rimozione di CO₂ per oltre 100 anni.",
             "list_item3": {
                 "item1": "Contribuisce allo sviluppo di 12 dei 17 UN Sustainable Development Goals",
-                "item2": "RFavorisce lo sviluppo di co-benefici come il sostegno alle comunità e alle piccole imprese"
+                "item2": "Favorisce lo sviluppo di co-benefici come il sostegno alle comunità e alle piccole imprese"
             },
-            "list_item4": "La CO₂ catturata può essere convertita in carburanti sintetici, riducendo la dipendenza dai combustibili fossili."
+            "list_item4": "Disponibilità da progetti in Europa, Nord e Sud America, Est Asia e Oceania"
         },
         "erw": {
             "title": "ERW",

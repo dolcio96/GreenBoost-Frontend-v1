@@ -39,7 +39,7 @@ function CarbonCreditDescription() {
                     </GridItem>
                     <GridItem order={{ base: 1, lg: 1 }}>
                         <Center flexDirection={"column"} gap={6} h="full">
-                            <Heading textAlign={"center"} color="primary">
+                            <Heading textAlign={"center"} color="primary" fontSize={24}>
                                 {t('home.carbon_credit_description.title')}
                             </Heading>
                             <Text textAlign={"center"}>

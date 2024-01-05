@@ -41,22 +41,22 @@ const TypeCard = ({ info }) => {
     const projectImage = require(`../../public/${imagePath}`).default;
     return (
         <MotionBox maxW="sm" borderWidth="2px" borderRadius="30px" overflow="hidden" h="500px" borderColor={"#24541A"}
-        initial={{ opacity: 0, scale: 0.5 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.3, delay: 0.5, ease: [0, 0.71, 0.2, 1.01] }}>
+            initial={{ opacity: 0, scale: 0.5 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.3, delay: 0.5, ease: [0, 0.71, 0.2, 1.01] }}>
 
-            <NextImage  w="full" maxH="50%" src={projectImage} alt="Descrizione dell'immagine" />
+            <NextImage w="full" maxH="50%" src={projectImage} alt="Descrizione dell'immagine" />
             <Flex direction="column" justify="space-between" h="45%">
                 <Box p="6">
                     <Text fontSize="2xl" fontWeight="bold">
-                        {t('projects.'+info.title.toLowerCase()+'.title')}
+                        {t('projects.' + info.title.toLowerCase() + '.title')}
                     </Text>
-                    <Text mt="2" color="gray.600">
-                    {t('projects.'+info.title.toLowerCase()+'.description')}
+                    <Text fontSize="sm" mt="2" color="gray.600">
+                        {t('projects.' + info.title.toLowerCase() + '.description')}
                     </Text>
                 </Box>
                 <Center>
                     <Button mt="4" color={"#ffffff"} backgroundColor={"#24541A"}>
                         <Link href={'/projects/' + info.title.trim().toLowerCase()} >
-                        {t('projects.more_info')}</Link>
+                            {t('projects.more_info')}</Link>
                     </Button>
                 </Center>
 
@@ -69,8 +69,8 @@ const TypeCard = ({ info }) => {
 
 const Create = ({ projects }) => {
 
-   // const MotionTypeCard = motion(TypeCard)
-   var partnerImages=[Img1, Img2, Img3, Img4, Img3, Img4, Img3, Img4]
+    // const MotionTypeCard = motion(TypeCard)
+    var partnerImages = [Img1, Img2, Img3, Img4, Img3, Img4, Img3, Img4]
     return (
         <>
             <Box mb={10}>
@@ -80,7 +80,7 @@ const Create = ({ projects }) => {
                     </Heading>
                 </Center>
                 <Center my={2} mx={10}>
-                    <Image  maxW={"220px"}  src={logoPuro.src} />
+                    <Image maxW={"220px"} src={logoPuro.src} />
                 </Center>
 
                 <Center p={2} flexDirection={"column"} gap={10} >

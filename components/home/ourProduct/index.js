@@ -31,7 +31,7 @@ const TextBox = ({ title, description }) => {
             <Heading color={"primary"}>
                 {title}
             </Heading>
-            <Text>
+            <Text fontSize={{base:"md", xl:"lg"}}>
                 {description}
             </Text>
         </Box>
@@ -45,7 +45,7 @@ function OurProduct() {
     return (
         <>
           <Box>
-            <Grid templateColumns={{ base: '1fr', lg: 'repeat(2, 1fr)' }} gap={20} my={10} mx={20}>
+            <Grid templateColumns={{ base: '1fr', lg: 'repeat(2, 1fr)' }} gap={20} my={10} mx={{base: 5, lg: 20 }}>
               <GridItem>
                 <Center h="full">
                   <Image src={Pc.src} borderRadius={10} />
