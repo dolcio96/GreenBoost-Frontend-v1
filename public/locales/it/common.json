@@ -23,12 +23,12 @@
             "button":"Iscriviti Ora"
         },
         "sell_buy_create": {
-            "sell": {
-                "title": "VENDI",
-                "description": "Acquista crediti certificati secondo i migliori standard"
-            },
             "buy": {
                 "title": "COMPRA",
+                "description": "Acquista crediti certificati secondo i migliori standard"
+            },
+            "sell": {
+                "title": "VENDI",
                 "description": "Sviluppa nuove opportunità di mercato grazie ai Crediti di Carbonio"
             },
             "create": {
