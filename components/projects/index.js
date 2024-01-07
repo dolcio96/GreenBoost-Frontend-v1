@@ -4,35 +4,24 @@ import {
     Button,
     Flex,
     Center,
-    Grid,
     Image,
     Text,
     Heading,
-    GridItem,
-    VStack,
-    useDisclosure,
-    Icon,
     Link,
-    color,
-    Spacer
 } from "@chakra-ui/react";
 import React from 'react';
-
-import Card from "@components/card/Card"
-import CardBody from "@components/card/CardBody"
-import CardHeader from "@components/card/CardHeader"
 import { useSpring, animated } from "react-spring";
 
 import logoPuro from "@public/Images/logoPuro.png"
-import forest from "@public/Images/forest.jpg"
-import biochar from "@public/Images/biochar.jpg"
+//import forest from "@public/Images/forest.jpg"
+//import biochar from "@public/Images/biochar.jpg"
 import NextImage from 'next/image';
 import { useAnimation, motion } from "framer-motion"
 
-import Img1 from "@public/Images/beccs.jpg"
-import Img2 from "@public/Images/daccs.jpg"
-import Img3 from "@public/Images/erw.jpg"
-import Img4 from "@public/Images/biochar.jpg"
+//import Img1 from "@public/Images/beccs.jpg"
+//import Img2 from "@public/Images/daccs.jpg"
+//import Img3 from "@public/Images/erw.jpg"
+//import Img4 from "@public/Images/biochar.jpg"
 import ProjectPartner from "./projectPartner";
 import { useTranslation } from "react-i18next";
 
@@ -44,26 +33,24 @@ const TypeCard = ({ info }) => {
     return (
         <MotionBox maxW="sm" borderWidth="2px" borderRadius="30px" overflow="hidden" h="500px" borderColor={"#24541A"}
             initial={{ opacity: 0, scale: 0.5 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.3, delay: 0.5, ease: [0, 0.71, 0.2, 1.01] }}>
-        <Flex direction={"column"} h="100%">
-            <NextImage w="full"  src={projectImage} alt="Descrizione dell'immagine" />
-            <Flex direction="column" display={"flex"} h="70%" justifyContent={"space-between"} >
-             
-                <Box p="4" >
-                    <Text fontSize="2xl" fontWeight="bold">
-                        {t('projects.' + info.title.toLowerCase() + '.title')}
-                    </Text>
-                    <Text fontSize="sm" mt="2" color="gray.600">
-                        {t('projects.' + info.title.toLowerCase() + '.description')}
-                    </Text>
-                </Box>
-                <Center p="4" >
-                    <Button  color={"#ffffff"} backgroundColor={"quaternary"}  _hover={{color:"quaternary", backgroundColor:"#ffffff",borderWidth:"2px", borderColor:"quaternary"}}>
-                        <Link href={'/projects/' + info.title.trim().toLowerCase()}  _hover={{ textDecoration: "none" }}>
-                            {t('projects.more_info')}</Link>
-                    </Button>
-                </Center>
-
-            </Flex>
+            <Flex direction={"column"} h="100%">
+                <NextImage w="full" src={projectImage} alt="Descrizione dell'immagine" />
+                <Flex direction="column" display={"flex"} h="70%" justifyContent={"space-between"} >
+                    <Box p="4" >
+                        <Text fontSize="2xl" fontWeight="bold">
+                            {t('projects.' + info.title.toLowerCase() + '.title')}
+                        </Text>
+                        <Text fontSize="sm" mt="2" color="gray.600">
+                            {t('projects.' + info.title.toLowerCase() + '.description')}
+                        </Text>
+                    </Box>
+                    <Center p="4" >
+                        <Button color={"#ffffff"} backgroundColor={"quaternary"} _hover={{ color: "quaternary", backgroundColor: "#ffffff", borderWidth: "2px", borderColor: "quaternary" }}>
+                            <Link href={'/projects/' + info.title.trim().toLowerCase()} _hover={{ textDecoration: "none" }}>
+                                {t('projects.more_info')}</Link>
+                        </Button>
+                    </Center>
+                </Flex>
             </Flex>
         </MotionBox>
     )
@@ -71,7 +58,7 @@ const TypeCard = ({ info }) => {
 
 
 
-const Create = ({ projects }) => {
+const Projects = ({ projects }) => {
 
     // const MotionTypeCard = motion(TypeCard)
     var partnerImages = [logoPuro]
@@ -115,4 +102,4 @@ const Create = ({ projects }) => {
     );
 }
 
-export default Create
+export default Projects
