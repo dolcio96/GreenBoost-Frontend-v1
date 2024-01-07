@@ -56,12 +56,14 @@ function OurProduct() {
               {/*<Divider orientation="vertical"  variant="solid" bg="primary" borderColor="primary"  border="1px solid" borderRadius={10}/>*/}
     
               <GridItem>
-                <Flex flexDirection={"column"} gap={6}>
+                <Center flexDirection={"column"} gap={6} h={"full"}>
+                  <Box gap={6}>
                   <TextBox title={t('home.our_product.high_quality.title')} description={t('home.our_product.high_quality.description')} />
                   <TextBox title={t('home.our_product.remove.title')} description={t('home.our_product.remove.description')} />
                   <TextBox title={t('home.our_product.durability.title')} description={t('home.our_product.durability.description')} />
                   <TextBox title={t('home.our_product.certification.title')} description={t('home.our_product.certification.description')} />
-                </Flex>
+                  </Box>
+                </Center>
               </GridItem>
             </Grid>
           </Box>

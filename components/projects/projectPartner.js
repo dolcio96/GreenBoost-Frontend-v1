@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Center, Heading, Box } from "@chakra-ui/react";
+import { Center, Heading, Box, Flex } from "@chakra-ui/react";
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from "pure-react-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
 import { motion, useAnimation } from "framer-motion";
@@ -11,6 +11,26 @@ const ProjectPartner = ({ partnerImages }) => {
   const containerRef = useRef(null);
 
 
+  const calculateVisibleSlides = () => {
+    // const screenWidth = window.innerWidth;
+    const minVisibleSlides = 1; // Set a minimum number of visible slides
+    const maxVisibleSlides = Math.min(partnerImages.length, 3); // Set a maximum number of visible slides
+
+    // Adjust the number of visible slides based on screen width
+    /*   if (screenWidth < 600) {
+        return Math.min(minVisibleSlides, maxVisibleSlides);
+      } else if (screenWidth < 900) {
+        return Math.min(2, maxVisibleSlides);
+      } else {
+        return maxVisibleSlides;
+      }
+   */
+    return maxVisibleSlides;
+  };
+
+
+  const visibleSlides = calculateVisibleSlides();
+
 
   return (
     <Center>
@@ -21,27 +41,33 @@ const ProjectPartner = ({ partnerImages }) => {
         </Center>
         <CarouselProvider
           naturalSlideWidth={200}
-          naturalSlideHeight={100}
+          naturalSlideHeight={80}
           interval={3000}
           totalSlides={partnerImages.length}
-          visibleSlides={3}
+          visibleSlides={visibleSlides}
           isPlaying
         >
-          <Slider ref={containerRef}>
+          <Slider ref={containerRef} >
             {partnerImages.map((image, index) => (
               <Slide key={index} index={index}>
-
-                <img
-                  src={image.src}
-                  alt={`Partner ${index + 1}`}
-                  style={{
-                    width: "98%",
-                    height: "100%",
-                    objectFit: "cover",
-                    borderRadius: "10px",
-                  }}
-                />
-
+                <Flex
+                  align="center"
+                  justify="center"
+                  h="100%"
+                  w="80%"
+                  mx="auto"
+                >
+                  <img
+                    src={image.src}
+                    alt={`Partner ${index + 1}`}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "scale-down", //objectFit: "cover",
+                      borderRadius: "10px",
+                    }}
+                  />
+                </Flex>
               </Slide>
             ))}
           </Slider>

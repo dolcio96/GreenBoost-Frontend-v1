@@ -13,6 +13,8 @@ import {
     useDisclosure,
     Icon,
     Link,
+    color,
+    Spacer
 } from "@chakra-ui/react";
 import React from 'react';
 
@@ -42,10 +44,11 @@ const TypeCard = ({ info }) => {
     return (
         <MotionBox maxW="sm" borderWidth="2px" borderRadius="30px" overflow="hidden" h="500px" borderColor={"#24541A"}
             initial={{ opacity: 0, scale: 0.5 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.3, delay: 0.5, ease: [0, 0.71, 0.2, 1.01] }}>
-
-            <NextImage w="full" maxH="50%" src={projectImage} alt="Descrizione dell'immagine" />
-            <Flex direction="column" justify="space-between" h="45%">
-                <Box p="6">
+        <Flex direction={"column"} h="100%">
+            <NextImage w="full"  src={projectImage} alt="Descrizione dell'immagine" />
+            <Flex direction="column" display={"flex"} h="70%" justifyContent={"space-between"} >
+             
+                <Box p="4" >
                     <Text fontSize="2xl" fontWeight="bold">
                         {t('projects.' + info.title.toLowerCase() + '.title')}
                     </Text>
@@ -53,13 +56,14 @@ const TypeCard = ({ info }) => {
                         {t('projects.' + info.title.toLowerCase() + '.description')}
                     </Text>
                 </Box>
-                <Center>
-                    <Button mt="4" color={"#ffffff"} backgroundColor={"#24541A"}>
-                        <Link href={'/projects/' + info.title.trim().toLowerCase()} >
+                <Center p="4" >
+                    <Button  color={"#ffffff"} backgroundColor={"quaternary"}  _hover={{color:"quaternary", backgroundColor:"#ffffff",borderWidth:"2px", borderColor:"quaternary"}}>
+                        <Link href={'/projects/' + info.title.trim().toLowerCase()}  _hover={{ textDecoration: "none" }}>
                             {t('projects.more_info')}</Link>
                     </Button>
                 </Center>
 
+            </Flex>
             </Flex>
         </MotionBox>
     )
@@ -70,7 +74,7 @@ const TypeCard = ({ info }) => {
 const Create = ({ projects }) => {
 
     // const MotionTypeCard = motion(TypeCard)
-    var partnerImages = [logoPuro, Img2, Img3, Img4, Img3, Img4, Img3, Img4]
+    var partnerImages = [logoPuro]
     return (
         <>
             <Box mb={10}>

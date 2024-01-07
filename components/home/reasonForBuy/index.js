@@ -56,7 +56,7 @@ function ReasonForBuy() {
                                 </ListItem>
                                 <ListItem>
                                     <ListIcon as={MdCheckCircle} color='primary' />
-                                    <span style={{fontWeight:"bold"}}> {t('home.reason_for_buy.reason5.title')} </span>  {t('home.reason_for_buy.reason4.description')}
+                                    <span style={{fontWeight:"bold"}}> {t('home.reason_for_buy.reason5.title')} </span>  {t('home.reason_for_buy.reason5.description')}
                                 </ListItem>
                             </List>
                         </Center>
