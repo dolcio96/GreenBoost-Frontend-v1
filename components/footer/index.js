@@ -14,6 +14,7 @@ import {
   IconButton,
   Image,
   useColorModeValue,
+  Center
 } from '@chakra-ui/react';
 
 import LogoGB from '@public/logoGB.png'
@@ -65,67 +66,20 @@ const Footer = () => {
       bg={useColorModeValue('gray.50', 'gray.900')}
       color={useColorModeValue('gray.700', 'gray.200')}>
       <Container as={Stack} maxW={'6xl'} py={10}>
-        <SimpleGrid
-          templateColumns={{ sm: '1fr 1fr', md: '2fr 1fr 1fr 2fr' }}
-          spacing={8}>
-          <Stack spacing={6}>
-            <Box w={"70%"} as={"a"} href={"/"}>
-              <Image src={LogoGB.src} color={useColorModeValue('gray.700', 'white')} alt="LogoFooter" />
-            </Box>
-            <Text fontSize={'sm'}>
-              © {new Date().getFullYear()} GreenBoost. All rights reserved
-            </Text>
-            <Stack direction={'row'} spacing={6}>
-              <SocialButton label={'Twitter'} href={'#'} bgColor={"#00acee"}>
-                <FaTwitter />
-              </SocialButton>
-              <SocialButton label={'YouTube'} href={'#'} bgColor={"#0077B5"}>
-                <FaLinkedin />
-              </SocialButton>
-              <SocialButton label={'Instagram'} href={'#'} bgColor={"#E1306C"}>
-                <FaInstagram />
-              </SocialButton>
-            </Stack>
-          </Stack>
-          <Stack align={'flex-start'}>
-            <ListHeader>Company</ListHeader>
-            <Link href={'/aboutus'}>About us</Link>
-            <Link href={'#'}>Blog</Link>
-            <Link href={'/contactus'}>Contact us</Link>
-            <Link href={'/pricing'}>Pricing</Link>
-            <Link href={'/testimonials'}>Testimonials</Link>
-          </Stack>
-          <Stack align={'flex-start'}>
-            <ListHeader>Support</ListHeader>
-            <Link href={'#'}>Help Center</Link>
-            <Link href={'#'}>Terms of Service</Link>
-            <Link href={'#'}>Legal</Link>
-            <Link href={'#'}>Privacy Policy</Link>
-            <Link href={'#'}>Satus</Link>
-          </Stack>
-          <Stack align={'flex-start'}>
-            <ListHeader>Stay up to date</ListHeader>
-            <Stack direction={'row'}>
-              <Input
-                placeholder={'Your email address'}
-                bg={useColorModeValue('blackAlpha.100', 'whiteAlpha.100')}
-                border={0}
-                _focus={{
-                  bg: 'whiteAlpha.300',
-                }}
-              />
-              <IconButton
-                bg="primary"
-                color={useColorModeValue('white', 'gray.800')}
-                _hover={{
-                  bg: 'green.600',
-                }}
-                aria-label="Subscribe"
-                icon={<BiMailSend />}
-              />
-            </Stack>
-          </Stack>
-        </SimpleGrid>
+        <Center gap={2} flexDirection={"column"}>
+          <Box w={"50%"} as={"a"} href={"/"} display={"flex"} flexDirection={"row"}>
+            <Image src={LogoGB.src} color={useColorModeValue('gray.700', 'white')} alt="LogoFooter" />
+          </Box>
+          <Text fontSize={'sm'}>
+            © {new Date().getFullYear()} GreenBoost. All rights reserved
+          </Text>
+          <Center flexDirection={"column"} gap={2}>
+            <Text> Visita il nostro profilo Linkedin</Text>
+            <SocialButton label={'YouTube'} href={"https://www.linkedin.com/company/greenboost/"} bgColor={"#0077B5"}>
+              <FaLinkedin />
+            </SocialButton>
+          </Center>
+        </Center>
       </Container>
     </Box>
   </>)
