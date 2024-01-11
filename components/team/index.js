@@ -50,7 +50,7 @@ const Team = () => {
                 direction={"column"}
                 backgroundColor={"white"}
             >
-                <MotionHeading pb="20px" color="primary" fontSize={{ base: "3xl", md: "5xl" }}
+                <MotionHeading pb="20px" color="primary" fontSize={{ base: "3xl", md: "4xl" }}
                     initial={{ opacity: 0, scale: 0.5 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}

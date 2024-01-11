@@ -99,7 +99,7 @@ const Projects = ({ projects }) => {
                     </Flex>
                 </Center>
 
-                <ProjectPartner partnerImages={partnerImages} />
+              {/*  <ProjectPartner partnerImages={partnerImages} /> */}
             </Box>
         </>
     );

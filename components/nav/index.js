@@ -136,7 +136,7 @@ const Nav = () => {
                     </HStack>
                     <Flex alignItems={'center'}>
                         <Center color={!scrolled && isHome ? "tertiary" : "primary"}>
-                            <LanguageSelector />
+                         {/*   <LanguageSelector /> */}
                         </Center>
                         {/* <Center mx="10px" color={!scrolled && isHome ? "tertiary" : "primary"}>
                             <Button bg={"none"} _hover={{ bg: "none" }} >

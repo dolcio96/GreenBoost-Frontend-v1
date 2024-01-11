@@ -47,7 +47,7 @@ const ProjectPartner = () => {
 
             <Box width="80%">
                 <Center>
-                    <Heading mb={6} color="primary" fontSize={{ base: "3xl", md: "5xl" }}>I Nostri Partner</Heading>
+                    <Heading mb={6} color="primary" fontSize={{ base: "3xl", md: "4xl" }}>I Nostri Partner</Heading>
                 </Center>
                 <CarouselProvider
                     naturalSlideWidth={200}
