@@ -1,6 +1,7 @@
 import React from "react";
 import Hero from "@components/home/hero"
 import HomeBuySellCreate from "@components/home/homeBuySellCreate"
+import PartnerCarouselComponent from "@components/partner"
 import TeamComponent from "@components/team"
 import DescriptionComponent from "@components/home/description"
 import QualityFramework from "@components/home/qualityFramework";
@@ -14,7 +15,9 @@ import {
     Stack
 } from '@chakra-ui/react';
 
-
+import logoPuro from "@public/Images/partner/logo_Puro.png"
+import logoCSMT from "@public/Images/partner/logo_CSMT.png"
+import logoGMAmbiente from "@public/Images/partner/logo_GM_Ambiente.png"
 
 const WaveComp = ({ rotate, bg }) => {
     return (
@@ -42,6 +45,8 @@ const WaveComp = ({ rotate, bg }) => {
 
 const Home = () => {
     let { t } = useTranslation();
+    const partnerLogos =[{img:logoPuro},logoCSMT,logoGMAmbiente]
+
     return (
         <>
             <Stack spacing={25}>
@@ -57,7 +62,9 @@ const Home = () => {
                 </Box>
 
                 <HomeBuySellCreate />
-
+                <Box p={12}>
+                <PartnerCarouselComponent/>
+                </Box>
                 <Box>
                     <Box bg={"primary"}>
                         <Stack spacing={5} py={20} px={5}>

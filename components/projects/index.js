@@ -12,7 +12,10 @@ import {
 import React from 'react';
 import { useSpring, animated } from "react-spring";
 
-import logoPuro from "@public/Images/logoPuro.png"
+import logoPuro from "@public/Images/partner/logo_Puro.png"
+import logoCSMT from "@public/Images/partner/logo_CSMT.png"
+import logoGMAmbiente from "@public/Images/partner/logo_GM_Ambiente.png"
+
 //import forest from "@public/Images/forest.jpg"
 //import biochar from "@public/Images/biochar.jpg"
 import NextImage from 'next/image';
@@ -61,7 +64,7 @@ const TypeCard = ({ info }) => {
 const Projects = ({ projects }) => {
 
     // const MotionTypeCard = motion(TypeCard)
-    var partnerImages = [logoPuro]
+    var partnerImages = [logoPuro,logoCSMT,logoGMAmbiente]
     return (
         <>
             <Box mb={10}>

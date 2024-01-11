@@ -16,8 +16,6 @@ import {
 } from "@chakra-ui/react";
 import React from 'react';
 
-import logoPuro from "@public/Images/logoPuro.png"
-import forest from "@public/Images/forest.jpg"
 
 import { useAnimation, motion } from "framer-motion"
 
