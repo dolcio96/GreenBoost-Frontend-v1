@@ -47,9 +47,7 @@ const ProjectPartner = () => {
 
 
     return (
-        <Center>
-
-            <Box width="80%">
+            <Box width="100%">
                 <Center>
                     <Heading mb={6} color="primary" fontSize={{ base: "3xl", md: "4xl" }}>I Nostri Partner</Heading>
                 </Center>
@@ -91,7 +89,6 @@ const ProjectPartner = () => {
           <ButtonNext>{<MdChevronRight size={30} color="#fff" />}</ButtonNext> */}
                 </CarouselProvider>
             </Box>
-        </Center>
     );
 };
 

@@ -57,8 +57,8 @@ const PopUp = ({ isOpen, onOpen, onClose }) => {
             onClose();
             toast({
               position: 'bottom-left',
-              title: "Thank you!",
-              description: "We will contact you soon.",
+              title: "Grazie per la sottoscrizione!",
+              description: "Vi contatteremo presto.",
               status: "success",
               duration: 5000,
               isClosable: true,
@@ -72,8 +72,8 @@ const PopUp = ({ isOpen, onOpen, onClose }) => {
           onClose();
           toast({
             position: 'bottom-left',
-            title: "Error!",
-            description: error.message || "Something went wrong.",
+            title: "Errore!",
+            description: error.message || "Qualcosa è andato storto, riprova più tardi.",
             status: "error",
             duration: 5000,
             isClosable: true,

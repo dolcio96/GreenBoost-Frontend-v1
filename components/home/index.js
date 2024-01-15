@@ -62,7 +62,7 @@ const Home = () => {
                 </Box>
 
                 <HomeBuySellCreate />
-                <Box p={12}>
+                <Box p={{base:2,lg:12}}>
                 <PartnerCarouselComponent/>
                 </Box>
                 <Box>
