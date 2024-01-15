@@ -21,8 +21,8 @@ export default async function handler(req, res) {
             },
           ],
           Subject: "Subject of the email",
-          TextPart: `Email :  ${email}, Type :  ${type}!`,
-          HTMLPart: `<p>Email :  ${email}, Type :  ${type}!</p>`,
+          TextPart: `L'untente ${email} ha effettuato l'iscrizione a GreenBoost come  ${type}!`,
+          HTMLPart: `<p>L'untente ${email} ha effettuato l'iscrizione a GreenBoost come  ${type}!</p>`,
         },
       ],
     };
