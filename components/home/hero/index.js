@@ -25,6 +25,8 @@ import {
   Center
 } from '@chakra-ui/react';
 
+import PopUp from "@components/home/hero/popUp"
+
 import BackgroudImage from "@public/Images/torbiere1.jpg"
 import LogoGB from '@public/logoGB.png'
 //import BackgroudImage from "@public/Images/heroForest2.jpg"
@@ -155,12 +157,14 @@ const Hero = () => {
       </Flex>
 
 
+      <PopUp isOpen={isOpen} onClose={onClose}/>
+{/*
       <Modal isOpen={isOpen} onClose={onClose} isCentered >
         <ModalOverlay
           backdropFilter='blur(3px) hue-rotate(50deg)'
         />
         <ModalContent >
-          <ModalHeader ustifyContent={"center"} textAlign={"center"}>{t('home.pop_up_contact_us.title')}</ModalHeader>
+          <ModalHeader justifyContent={"center"} textAlign={"center"}>{t('home.pop_up_contact_us.title')}</ModalHeader>
 
           <ModalBody>
             <Stack direction={'column'} spacing={6}>
@@ -190,7 +194,7 @@ const Hero = () => {
 
           </ModalFooter>
         </ModalContent>
-      </Modal>
+      </Modal> */}
     </>)
 
 }
