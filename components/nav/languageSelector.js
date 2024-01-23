@@ -5,32 +5,31 @@ import { useLanguage} from '@context/LanguageContext'
 export default function LanguageSelector() {
 
 
-  // const { language, changeLanguage  } = useLanguage();
+  const { language, changeLanguage  } = useLanguage();
 
-  // useEffect(() => {
-  //   // Set the language in i18n when it changess
-  //   console.log('Language:', language); 
-  //   i18n.changeLanguage(language);
-  //   console.log(789);
-  // }, [language]);
-
-
+  useEffect(() => {
+    // Set the language in i18n when it changess
+    console.log('Language:', language); 
+    i18n.changeLanguage(language);
+    console.log(789);
+  }, [language]);
 
 
-  // const { i18n } = useTranslation();
 
-  // const handleChangeLanguage = (event) => {
-  //   const selectedLanguage = event.target.value;
-  //   console.log(456);
-  //   changeLanguage(selectedLanguage);
-  //   //i18n.changeLanguage(selectedLanguage);
-  // };
+
+  const { i18n } = useTranslation();
+
+  const handleChangeLanguage = (event) => {
+    const selectedLanguage = event.target.value;
+    console.log(456);
+    changeLanguage(selectedLanguage);
+    //i18n.changeLanguage(selectedLanguage);
+  };
 
   return (
-    <></>
-    // <Select  defaultValue={i18n.language} onChange={handleChangeLanguage}>
-    //   <option style={{ color: 'black' }}  value="en">English</option>
-    //   <option style={{ color: 'black' }}  value="it">Italiano</option>
-    // </Select>
+    <Select  defaultValue={i18n.language} onChange={handleChangeLanguage}>
+      <option style={{ color: 'black' }}  value="en">English</option>
+      <option style={{ color: 'black' }}  value="it">Italiano</option>
+    </Select>
   );
 }
