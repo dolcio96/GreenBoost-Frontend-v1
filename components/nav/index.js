@@ -43,7 +43,7 @@ const NavLink = ({ listItem }) => (
         }}
         href={'/' + listItem.link.toString().replace('&', '').replace(/\s/g, '').toLowerCase()
         }>
-            <Text fontSize={18}>{listItem.title}</Text>
+        <Text fontSize={18}>{listItem.title}</Text>
     </Link>
 );
 
@@ -126,7 +126,7 @@ const Nav = () => {
                             display={{ base: 'none', md: 'flex' }}>
 
                             {Links.map((ListItem) => (
-                                <NavLink key={ListItem.title} listItem={ListItem}/>
+                                <NavLink key={ListItem.title} listItem={ListItem} />
                             ))}
                         </HStack>
 
@@ -136,8 +136,29 @@ const Nav = () => {
                     </HStack>
                     <Flex alignItems={'center'}>
                         <Center color={!scrolled && isHome ? "tertiary" : "primary"}>
-                         {/*   <LanguageSelector /> */}
+                            {/*   <LanguageSelector /> */}
                         </Center>
+                        <Button
+                            color={"quaternary"}
+                            bg={"tertiary"}
+                            rounded={'full'}
+                            px={6}
+                            borderColor={"quaternary"}
+                            border="2px"
+                            _hover={{
+                                color: 'tertiary',
+                                bg: 'quaternary',
+                            }}
+                            onClick={onOpen}
+                            _focus={{ outline: "none" }}
+
+                        >
+                            <>
+                                <a href="https://www.iubenda.com/privacy-policy/59609447" class="iubenda-black iubenda-noiframe iubenda-embed iubenda-noiframe " title="Privacy Policy ">Privacy Policy</a>
+                                <script type="text/javascript" src='./script.js'></script>
+                            </>
+                        </Button>
+
                         {/* <Center mx="10px" color={!scrolled && isHome ? "tertiary" : "primary"}>
                             <Button bg={"none"} _hover={{ bg: "none" }} >
                                 <ShoppingCart fontSize="large" />
@@ -167,15 +188,16 @@ const Nav = () => {
                 {isOpen ? (
                     <Box pb={4} display={{ md: 'none' }}>
                         <Stack as={'nav'} spacing={4}>
-                          
-                        {Links.map((ListItem) => (
-                                <NavLink key={ListItem.title} listItem={ListItem}/>
+
+                            {Links.map((ListItem) => (
+                                <NavLink key={ListItem.title} listItem={ListItem} />
                             ))}
                         </Stack>
                     </Box>
                 ) : null}
             </Box>
             <Message isOpen={isOpenModal} onClose={onCloseModal} header="The Chart is Empty" bgColor={"primary"} />
+
         </>
     );
 
