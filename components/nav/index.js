@@ -199,7 +199,7 @@ const Nav = () => {
 
                                     >
                                         <a href="https://www.iubenda.com/privacy-policy/59609447" class="iubenda-black iubenda-noiframe iubenda-embed iubenda-noiframe " title="Privacy Policy ">Check Privacy Policy</a>
-                                        <script type="text/javascript" src='./script.js'></script>
+                                        {/* <script type="text/javascript" src='./script.js'></script> */}
                                     </Button>
                                 </PopoverFooter>
                             </PopoverContent>
