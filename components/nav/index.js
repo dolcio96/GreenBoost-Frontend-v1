@@ -24,7 +24,17 @@ import { useRouter } from "next/router";
 import { useTranslation } from "react-i18next";
 import { ShoppingCart } from "@mui/icons-material"
 
-
+import {
+    Popover,
+    PopoverTrigger,
+    PopoverContent,
+    PopoverHeader,
+    PopoverBody,
+    PopoverFooter,
+    PopoverArrow,
+    PopoverCloseButton,
+    PopoverAnchor,
+} from '@chakra-ui/react'
 
 import LogoGB from '@public/logoGB.png'
 import Message from "@components/modal/message"
@@ -138,26 +148,63 @@ const Nav = () => {
                         <Center color={!scrolled && isHome ? "tertiary" : "primary"}>
                             {/*   <LanguageSelector /> */}
                         </Center>
-                        <Button
-                            color={"quaternary"}
-                            bg={"tertiary"}
-                            rounded={'full'}
-                            px={6}
-                            borderColor={"quaternary"}
-                            border="2px"
-                            _hover={{
-                                color: 'tertiary',
-                                bg: 'quaternary',
-                            }}
-                            onClick={onOpen}
-                            _focus={{ outline: "none" }}
-
+                        <Popover
+                            placement='bottom'
+                            closeOnBlur={false}
                         >
-                            <>
-                                <a href="https://www.iubenda.com/privacy-policy/59609447" class="iubenda-black iubenda-noiframe iubenda-embed iubenda-noiframe " title="Privacy Policy ">Privacy Policy</a>
-                                <script type="text/javascript" src='./script.js'></script>
-                            </>
-                        </Button>
+                            <PopoverTrigger>
+                                <Button
+                                    color={"quaternary"}
+                                    bg={"tertiary"}
+                                    rounded={'full'}
+                                    px={6}
+                                    borderColor={"quaternary"}
+                                    border="2px"
+                                    _hover={{
+                                        color: 'tertiary',
+                                        bg: 'quaternary',
+                                    }}>
+                                    Cookies and Provacy Policy
+                                </Button>
+                            </PopoverTrigger>
+                            <PopoverContent color='white' bg='quaternary' borderColor='quaternary'>
+                                {/* <PopoverHeader pt={4} fontWeight='bold' border='0'>
+                                    Cookies and privacy policy
+                                </PopoverHeader> */}
+                                <PopoverArrow bg='quaternary' />
+                                <PopoverCloseButton />
+                                <PopoverBody>
+                                    This website do not collects any kind cookies except the ones needed for functioning.
+                                </PopoverBody>
+                                <PopoverFooter
+                                    border='0'
+                                    display='flex'
+                                    alignItems='center'
+                                    justifyContent='space-between'
+                                    pb={4}
+                                >
+                                    <Button
+                                        color={"tertiary"}
+                                        bg={"quaternary"}
+                                        rounded={'full'}
+                                        px={6}
+                                        borderColor={"quaternary"}
+                                        border="2px"
+                                        _hover={{
+                                            color: 'quaternary',
+                                            bg: 'tertiary',
+                                        }}
+                                        onClick={onOpen}
+                                        _focus={{ outline: "none" }}
+
+                                    >
+                                        <a href="https://www.iubenda.com/privacy-policy/59609447" class="iubenda-black iubenda-noiframe iubenda-embed iubenda-noiframe " title="Privacy Policy ">Check Privacy Policy</a>
+                                        <script type="text/javascript" src='./script.js'></script>
+                                    </Button>
+                                </PopoverFooter>
+                            </PopoverContent>
+                        </Popover>
+
 
                         {/* <Center mx="10px" color={!scrolled && isHome ? "tertiary" : "primary"}>
                             <Button bg={"none"} _hover={{ bg: "none" }} >
