@@ -10,6 +10,8 @@ import logoCSMT from "@public/Images/partner/logo_CSMT.png"
 import logoGMAmbiente from "@public/Images/partner/logo_GM_Ambiente.png"
 import logoNet0 from "@public/Images/partner/logo_net0.png"
 import logoBiocarbon from "@public/Images/partner/logo_Biocarbon_1.png"
+import logoNovocarbo from "@public/Images/partner/logo_Novocarbo.png"
+import logoExomad from "@public/Images/partner/logo_Exomad_1.png"
 
 const ProjectPartner = () => {
 
@@ -18,7 +20,9 @@ const ProjectPartner = () => {
         { img: logoCSMT, link: "https://www.csmt.it/it/innovative-contamination-hub" },
         { img: logoGMAmbiente, link: "https://www.gmambiente.eu/" },
         { img: logoNet0, link: "https://www.goingnetzero.it" },
-        { img: logoBiocarbon, link: "https://www.bcbiocarbon.com/" }]
+        { img: logoBiocarbon, link: "https://www.bcbiocarbon.com/" },
+        { img: logoNovocarbo, link: "https://www.novocarbo.com/ " },
+        { img: logoExomad, link: "https://www.exomadgreen.com/" }]
 
     const [currentIndex, setCurrentIndex] = useState(0);
     const controls = useAnimation();
