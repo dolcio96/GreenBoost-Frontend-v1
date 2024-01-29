@@ -11,7 +11,7 @@ import logoGMAmbiente from "@public/Images/partner/logo_GM_Ambiente.png"
 import logoNet0 from "@public/Images/partner/logo_net0.png"
 import logoBiocarbon from "@public/Images/partner/logo_Biocarbon_1.png"
 import logoNovocarbo from "@public/Images/partner/logo_Novocarbo.png"
-import logoExomad from "@public/Images/partner/logo_Exomad_1.png"
+import logoExomad from "@public/Images/partner/logo_Exomad_3.png"
 
 const ProjectPartner = () => {
 
