@@ -5,10 +5,14 @@
             {
                 "title": "Progetti",
                 "link": "projects"
+            },
+            {
+                "title": "Il Nostro Approccio",
+                "link": "approach"
             }
         ],
         "cookies":{
-            "button":"Cookies and Provacy Policy",
+            "button":"Cookies and Privacy Policy",
             "popup":{
                 "description":"Questo sito non colleziona nessun tipo di cookie fuorchè quelli necessari per funzionare.",
                 "button":"Controlla la Privacy Policy"
@@ -254,6 +258,67 @@
             "list_item2": "Garantisce la rimozione di CO₂ per oltre 1000 anni",
             "list_item3": "Favorisce lo sviluppo e la ricerca di nuove tecnologie volte alla cattura e rimozione della CO₂ dall'atmosfera.",
             "list_item4": "La CO₂ catturata può essere convertita in carburanti sintetici, riducendo la dipendenza dai combustibili fossili."
+        }
+    },
+    "our_approach": {
+        "title": "Il Nostro Approccio",
+        "description": "In GreenBoost, l'obiettivo principale è promuovere un futuro sostenibile attraverso la rimozione efficace del carbonio. Crediamo fermamente che per affrontare la sfida del cambiamento climatico, sia necessario adottare un approccio scientificamente valido, trasparente e responsabile. Ecco perché abbiamo sviluppato un processo di due diligence rigoroso per valutare e listare progetti di rimozione del carbonio che non solo soddisfino, ma superino i nostri elevati standard di sostenibilità e integrità.",
+        "criteria": {
+            "title": "Criteri di Selezione",
+            "description": "Per garantire l'efficacia e la sostenibilità dei progetti che promuoviamo, ci atteniamo ai seguenti criteri standard:",
+            "list": [
+                {
+                    "title": "Durabilità: ",
+                    "description": "Ogni progetto deve garantire la rimozione di carbonio per almeno 100 anni, minimizzando il rischio di rilascio futuro nell'atmosfera."
+                },
+                {
+                    "title": "Addizionalità: ",
+                    "description": "I progetti devono produrre una rimozione netta di carbonio, che in assenza degli stessi non si sarebbe verificata."
+                },
+                {
+                    "title": "Negatività Netta: ",
+                    "description": "I progetti devono conseguire una riduzione netta delle emissioni di CO2, andando oltre la semplice neutralità carbonica."
+                },
+                {
+                    "title": "Verificabilità: ",
+                    "description": "si richiede l'uso di metodi validi e trasparenti per monitorare e verificare l'impatto dei progetti."
+                },
+                {
+                    "title": "Co-Benefits: ",
+                    "description": "si valuta anche l'importanza dei benefici collaterali, come il miglioramento della biodiversità e i vantaggi per le comunità locali, in linea con gli “Sustainable Development Goals” dell'ONU."
+                }
+            ]
+        },
+        "process": {
+            "title": "Processo di Due Diligence",
+            "description": "Il nostro processo per valutare e listare i progetti include:",
+            "list": [
+                {
+                    "title": "Presentazione e Certificazione: ",
+                    "description": "Valutazione iniziale basata su documentazione dettagliata e certificazioni."
+                },
+                {
+                    "title": "Verifica della Certificazione: ",
+                    "description": "Controllo dell'autenticità e attualità delle certificazioni presentate."
+                },
+                {
+                    "title": "Valutazione di Coerenza: ",
+                    "description": "Analisi dettagliata per assicurare il rispetto dei criteri GreenBoost."
+                },
+                {
+                    "title": "Revisione Interna e Decisione: ",
+                    "description": "Un comitato di esperti prende decisioni informate sull'ammissibilità dei progetti."
+                },
+                {
+                    "title": "Onboarding e Listing: ",
+                    "description": "I progetti approvati vengono listati su GreenBoost."
+                }
+            ]
+        },
+        "commitment": {
+            "title": "Impegno per la Sostenibilità",
+            "description": "Il nostro rigoroso processo di selezione dimostra l'impegno di GreenBoost a promuovere soluzioni responsabili ed efficaci per combattere il cambiamento climatico. Crediamo che attraverso la promozione di progetti che soddisfano i nostri criteri possiamo fare una differenza significativa. Siamo dedicati a sostenere iniziative che non solo aiutano a mitigare gli effetti del cambiamento climatico, ma che offrono anche benefici tangibili per l'ambiente e le comunità. Unisciti a noi in questo viaggio verso un futuro più verde e sostenibile.",
+            "list": []
         }
     }
 }
