@@ -6,7 +6,14 @@
                 "title": "Progetti",
                 "link": "projects"
             }
-        ]
+        ],
+        "cookies":{
+            "button":"Cookies and Provacy Policy",
+            "popup":{
+                "description":"Questo sito non colleziona nessun tipo di cookie fuorchè quelli necessari per funzionare.",
+                "button":"Controlla la Privacy Policy"
+            }
+        }
     },
     "home": {
         "hero": {
@@ -19,8 +26,9 @@
             "description":"Condividi con noi la tua mail se sei interessato al progetto",
             "choose":"Sei un",
             "seller":"Venditore",
-            "buyer":"Compartore",
-            "button":"Iscriviti Ora"
+            "buyer":"Compratore",
+            "button":"Iscriviti Ora",
+            "terms_and_conditions":"Accetta i termini e condizioni"
         },
         "sell_buy_create": {
             "buy": {
@@ -123,7 +131,8 @@
                 "phrase2": "Compensiamo il nostro futuro, insieme."
             },
             "wave5": {
-                "phrase1": "GreenBoost non un semplice marketplace!"
+                "phrase1": "GreenBoost",
+                "phrase2": "Offset our Future"
             }
         },
         "section": {

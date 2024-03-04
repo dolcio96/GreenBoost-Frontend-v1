@@ -16,15 +16,6 @@ import {
     useColorModeValue,
     Stack,
     Center,
-} from '@chakra-ui/react';
-import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
-import { useSession, signIn, signOut } from "next-auth/react"
-import { ChevronDownIcon, ChevronUpIcon } from '@chakra-ui/icons'
-import { useRouter } from "next/router";
-import { useTranslation } from "react-i18next";
-import { ShoppingCart } from "@mui/icons-material"
-
-import {
     Popover,
     PopoverTrigger,
     PopoverContent,
@@ -34,7 +25,14 @@ import {
     PopoverArrow,
     PopoverCloseButton,
     PopoverAnchor,
-} from '@chakra-ui/react'
+} from '@chakra-ui/react';
+import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
+import { useSession, signIn, signOut } from "next-auth/react"
+import { ChevronDownIcon, ChevronUpIcon } from '@chakra-ui/icons'
+import { useRouter } from "next/router";
+import { useTranslation } from "react-i18next";
+import { ShoppingCart } from "@mui/icons-material"
+
 
 import LogoGB from '@public/logoGB.png'
 import Message from "@components/modal/message"
@@ -158,13 +156,17 @@ const Nav = () => {
                                     bg={"tertiary"}
                                     rounded={'full'}
                                     px={6}
+                                    py={4}
                                     borderColor={"quaternary"}
                                     border="2px"
+                                    size={{base:'xs',md:'md'}}
+                                    whiteSpace='initial'
                                     _hover={{
                                         color: 'tertiary',
                                         bg: 'quaternary',
                                     }}>
-                                    Cookies and Provacy Policy
+                                    
+                                    {t('nav_bar.cookies.button')}
                                 </Button>
                             </PopoverTrigger>
                             <PopoverContent color='white' bg='quaternary' borderColor='quaternary'>
@@ -174,7 +176,7 @@ const Nav = () => {
                                 <PopoverArrow bg='quaternary' />
                                 <PopoverCloseButton />
                                 <PopoverBody>
-                                    This website do not collects any kind cookies except the ones needed for functioning.
+                                {t('nav_bar.cookies.popup.description')}
                                 </PopoverBody>
                                 <PopoverFooter
                                     border='0'
@@ -198,7 +200,7 @@ const Nav = () => {
                                         _focus={{ outline: "none" }}
 
                                     >
-                                        <a href="https://www.iubenda.com/privacy-policy/59609447" class="iubenda-black iubenda-noiframe iubenda-embed iubenda-noiframe " title="Privacy Policy ">Check Privacy Policy</a>
+                                        <a href="https://www.iubenda.com/privacy-policy/59609447" class="iubenda-black iubenda-noiframe iubenda-embed iubenda-noiframe " title="Privacy Policy ">{t('nav_bar.cookies.popup.button')}</a>
                                         {/* <script type="text/javascript" src='./script.js'></script> */}
                                     </Button>
                                 </PopoverFooter>
