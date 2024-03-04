@@ -26,7 +26,7 @@ import { useTranslation } from "react-i18next";
 
 const ContentBox = ({ title, description, list }) => {
     return (<>
-        <Box my={8} mx={48} bg="primary" borderRadius={"xl"} px="12" py="4">
+        <Box my={{base:4, md:8}} mx={{base:4, md:48}} bg="primary" borderRadius={"xl"} px="12" py="4">
             <Center m={4}>
                 <Heading size={"lg"}> {title}</Heading>
             </Center>
