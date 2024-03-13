@@ -23,9 +23,11 @@ import { useAnimation, motion } from "framer-motion"
 
 import { useTranslation } from "react-i18next";
 
+import funnelImg from "@public/Images/funnel.jpeg"
 
 
-const ContentBox = ({ title, description, list }) => {
+
+const ContentBox1 = ({ title, description, list }) => {
     return (<>
         <Box my={{ base: 4, md: 8 }} mx={{ base: 4, md: 48 }} bg="primary" borderRadius={"xl"} px="12" py="4">
             <Center m={4}>
@@ -49,6 +51,17 @@ const ContentBox = ({ title, description, list }) => {
     </>);
 };
 
+const ContentBox2 = ({ img }) => {
+    return (<>
+        <Box my={{ base: 4, md: 8 }} mx={{ base: 4, md: 48 }} px="12" py="4">
+            <Box>
+               <Image src={img.src}/>
+            </Box>
+        </Box>
+    </>);
+};
+
+
 
 const OurApproach = ({ }) => {
     let { t } = useTranslation();
@@ -57,13 +70,13 @@ const OurApproach = ({ }) => {
             <Box  >
                 <Center>
                     <VStack spacing={10} px={{base:8, lg:40}}>
-                        <Heading textAlign={"center"}> {t('our_approach.title')}</Heading>
-                        <Text> {t('our_approach.description')}</Text>
+                        <Heading textAlign={"center"}> {t('services.title')}</Heading>
+                        {/*<Button> {t('services.button')}</Button>*/}
                     </VStack>
                 </Center>
-                <ContentBox title={t('our_approach.criteria.title')} description={t('our_approach.criteria.description')} list={(t('our_approach.criteria.list', { returnObjects: true }))} />
-                <ContentBox title={t('our_approach.process.title')} description={t('our_approach.process.description')} list={(t('our_approach.process.list', { returnObjects: true }))} />
-                <ContentBox title={t('our_approach.commitment.title')} description={t('our_approach.commitment.description')} list={(t('our_approach.commitment.list', { returnObjects: true }))} />
+                <ContentBox1 title={t('services.highQualityCarbon.title')} description={t('services.highQualityCarbon.description')} list={(t('services.highQualityCarbon.list', { returnObjects: true }))} />
+                <ContentBox2 img = {funnelImg} />
+                <ContentBox1 title={t('services.endToEnd.title')} description={t('services.endToEnd.description')} list={(t('services.endToEnd.list', { returnObjects: true }))} />
 
             </Box>
         </>

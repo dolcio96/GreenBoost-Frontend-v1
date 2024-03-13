@@ -7,8 +7,12 @@
                 "link": "projects"
             },
             {
-                "title": "Il Nostro Approccio",
+                "title": "Due Diligence",
                 "link": "approach"
+            },
+            {
+                "title": "Servizi",
+                "link": "services"
             }
         ],
         "cookies": {
@@ -261,7 +265,7 @@
         }
     },
     "our_approach": {
-        "title": "Il Nostro Approccio",
+        "title": "L'Integrità dei Nostri Crediti: Il Processo di Selezione",
         "description": "In GreenBoost, l'obiettivo principale è promuovere un futuro sostenibile attraverso la rimozione efficace del carbonio. Crediamo fermamente che per affrontare la sfida del cambiamento climatico, sia necessario adottare un approccio scientificamente valido, trasparente e responsabile. Ecco perché abbiamo sviluppato un processo di due diligence rigoroso per valutare e listare progetti di rimozione del carbonio che non solo soddisfino, ma superino i nostri elevati standard di sostenibilità e integrità.",
         "criteria": {
             "title": "Criteri di Selezione",
@@ -319,6 +323,62 @@
             "title": "Impegno per la Sostenibilità",
             "description": "Il nostro rigoroso processo di selezione dimostra l'impegno di GreenBoost a promuovere soluzioni responsabili ed efficaci per combattere il cambiamento climatico. Crediamo che attraverso la promozione di progetti che soddisfano i nostri criteri possiamo fare una differenza significativa. Siamo dedicati a sostenere iniziative che non solo aiutano a mitigare gli effetti del cambiamento climatico, ma che offrono anche benefici tangibili per l'ambiente e le comunità. Unisciti a noi in questo viaggio verso un futuro più verde e sostenibile.",
             "list": []
+        }
+    },
+    "services": {
+        "title": "La decarbonizzazione su misura",
+        "button": "Contattaci",
+        "highQualityCarbon": {
+            "title": "Il Primo Marketplace Italiano per i Crediti di Carbonio di Alta Qualità",
+            "description": "GreenBoost si distingue come il primo marketplace in Italia specializzato in Crediti di Carbonio di elevata qualità. Il nostro rigoroso processo assicura che ogni credito soddisfi gli standard di mercato più elevati, garantendo la reale rimozione di della CO₂ dall'atmosfera.",
+            "list": [
+                {
+                    "title": "Stoccaggio di Lungo Termine: ",
+                    "description": "Non ci limitiamo a rimuovere la CO₂: la trasformiamo e la convertiamo in una forma più stabile per uno stoccaggio sicuro o per il riutilizzo in altri materiali, con una garanzia di durata per più di mille anni."
+                },
+                {
+                    "title": "Rimozione Certificata: ",
+                    "description": "La qualità delle certificazioni a cui facciamo affidamento non lascia spazio a dubbi: la reale rimozione, tramite processi fisico-chimici ingegnerizzati, di una tonnellata di CO₂ dall'atmosfera."
+                },
+                {
+                    "title": "Compensazioni Immediate e Efficaci: ",
+                    "description": "Acquista certificati di rimozione, attraverso le metodologie più avanzate e affidabili, di CO₂, già stoccata in forma stabile e duratura al momento dell'acquisto."
+                },
+                {
+                    "title": "Approccio Focalizzato sull'Emissione: ",
+                    "description": "Non ci limitiamo a ridurre le emissioni, ma le rimuoviamo. Identifichiamo le emissioni meno gestibili e più ardue da ridurre per un'azienda, e offriamo soluzioni solide e affidabili per un offsetting responsabile."
+                }
+            ]
+        },
+        "mantra": {
+            "title": "Il Nostro Mantra: 'DON'T BUY CARBON CREDITS'"
+        },
+        "endToEnd": {
+            "title": "Il Tuo Percorso End-to-End di Decarbonizzazione",
+            "description": "Come possiamo assisterti con il supporto dei Nostri Partner:",
+            "list": [
+                {
+                    "title": "Definizione della Strategia a Lungo Termine: ",
+                    "description": "ti guidiamo nella creazione di un piano d'azione sostenibile."
+                },
+                {
+                    "title": "Obiettivi e Milestones: ",
+                    "description": "stabiliamo insieme traguardi concreti per monitorare i progressi."
+                },
+                {
+                    "title": "Monitoraggio delle Emissioni e Calcolo della Carbon Footprint: ",
+                    "description": "utilizziamo tecnologie avanzate per un'analisi precisa dell'impatto ambientale."
+                },
+                {
+                    "title": "Implementazione di Misure per la Riduzione delle Emissioni: ",
+                    "description": "identifichiamo le migliori pratiche per minimizzare l'impatto climatico."
+                },
+                {
+                    "title": "Gestione del Carbon Removal Portfolio: ",
+                    "description": "offriamo un portafoglio di crediti di carbonio di alta qualità da progetti che adottano tecnologie avanzate per una rimozione effettiva della CO₂."
+                }
+            ],
+            "description2":"Con GreenBoost, ridurre le emissioni non è mai stato così accessibile e affidabile. Contattaci oggi per iniziare a fare la differenza nel tuo viaggio verso la sostenibilità."
         }
     }
 }
