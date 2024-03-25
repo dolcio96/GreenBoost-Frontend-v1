@@ -28,10 +28,10 @@ const TextBox = ({ title, description }) => {
 
     return (<>
         <Box>
-            <Heading color={"primary"} fontSize={{base:"2xl", xl:"3xl"}}>
+            <Heading color={"primary"} fontSize={{base:"xl", xl:"2xl"}} pt="20px">
                 {title}
             </Heading>
-            <Text fontSize={{base:"md", xl:"lg"}}>
+            <Text fontSize={{base:"sm", xl:"md"}}>
                 {description}
             </Text>
         </Box>
