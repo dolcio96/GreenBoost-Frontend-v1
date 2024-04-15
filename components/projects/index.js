@@ -16,7 +16,10 @@ import logoPuro from "@public/Images/partner/logo_Puro.png"
 import logoCSMT from "@public/Images/partner/logo_CSMT.png"
 import logoGMAmbiente from "@public/Images/partner/logo_GM_Ambiente.png"
 
-import PopUpContactUs from '@components/popupContactUs'
+//import PopUpContactUs from '@components/popupContactUs'
+import PopUpContactUs from '@components/home/hero/popUp'
+
+
 //import forest from "@public/Images/forest.jpg"
 //import biochar from "@public/Images/biochar.jpg"
 import NextImage from 'next/image';

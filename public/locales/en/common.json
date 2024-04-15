@@ -31,11 +31,11 @@
         },
         "pop_up_contact_us": {
             "title": "Rimani Aggiornato",
-            "description": "Condividi con noi la tua mail se sei interessato al progetto",
+            "description": "Compila il Form se sei interessato al progetto",
             "choose": "Sei un",
             "seller": "Venditore",
             "buyer": "Compratore",
-            "button": "Iscriviti Ora",
+            "button": "Vai al Form 📄",
             "terms_and_conditions": "Accetta i termini e condizioni"
         },
         "sell_buy_create": {
@@ -380,5 +380,13 @@
             ],
             "description2":"Con GreenBoost, ridurre le emissioni non è mai stato così accessibile e affidabile. Contattaci oggi per iniziare a fare la differenza nel tuo viaggio verso la sostenibilità."
         }
+    },
+    "footer":{
+        "company":"GreenBoost S.R.L.",
+        "vat":"P.IVA: 04510270988",
+        "address":"Brescia (BS), Viale Sant'Eufemia, 34  CAP 25135",
+        "socialEquity":"Capitale sociale versato €10.000",
+        "reaNumber":"Numero REA: BS - 619949",
+        "privacyPolicy":"Privacy Policy"
     }
 }

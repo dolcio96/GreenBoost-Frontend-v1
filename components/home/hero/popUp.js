@@ -86,7 +86,35 @@ const PopUp = ({ isOpen, onOpen, onClose }) => {
 
 
 
+    return (
+        <>
+            <Modal isOpen={isOpen} onClose={onClose} isCentered >
+                <ModalOverlay
+                    backdropFilter='blur(3px) hue-rotate(50deg)'
+                />
+                <ModalContent >
+                
+                        <ModalHeader justifyContent={"center"} textAlign={"center"}>{t('home.pop_up_contact_us.title')}</ModalHeader>
+                        <ModalBody>
+                        <Center>
+                                <Text>{t('home.pop_up_contact_us.description')}</Text>
+                          
+                                </Center>
+                        </ModalBody>
+                        <ModalFooter justifyContent={"center"}>
 
+                            <Button variant={"normalButton"} mr={3} justifyContent={"center"} onClick={() => window.open("https://docs.google.com/forms/d/e/1FAIpQLSeVoJ5wr8YC6xumFZZ8WSbxRR5Skf7Rwc0enn9mCBUrlgDf2A/viewform?usp=sf_link", "_blank")}>
+                                {t('home.pop_up_contact_us.button')}
+                            </Button>
+
+                        </ModalFooter>
+           
+                </ModalContent>
+            </Modal>
+        </>)
+
+
+/* 
 
     return (
         <>
@@ -144,6 +172,8 @@ const PopUp = ({ isOpen, onOpen, onClose }) => {
                 </ModalContent>
             </Modal>
         </>)
+
+*/
 
 }
 

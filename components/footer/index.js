@@ -17,6 +17,8 @@ import {
   Center
 } from '@chakra-ui/react';
 
+import { useTranslation } from "react-i18next";
+
 import LogoGB from '@public/logoGB.png'
 
 import { FaInstagram, FaTwitter, FaLinkedin } from 'react-icons/fa';
@@ -61,6 +63,7 @@ const ListHeader = ({ children }) => {
 };
 
 const Footer = () => {
+  let { t } = useTranslation();
   return (<>
     <Box
       bg={useColorModeValue('gray.50', 'gray.900')}
@@ -73,6 +76,19 @@ const Footer = () => {
           <Text fontSize={'sm'}>
             © {new Date().getFullYear()} GreenBoost. All rights reserved
           </Text>
+        
+            <Center flexDirection={"column"} gap={1}>
+              <Text>{t('footer.company')}</Text>
+              <Text>{t('footer.vat')}</Text>
+              <Text>{t('footer.address')}</Text>
+              <Text>{t('footer.socialEquity')}</Text>
+              <Text>{t('footer.reaNumber')}</Text>
+              <Link href="https://www.iubenda.com/privacy-policy/59609447" isExternal>
+                <Text>{t('footer.privacyPolicy')}</Text></Link>
+            </Center>
+           
+
+       
           <Center flexDirection={"column"} gap={2}>
             <Text> Visita il nostro profilo Linkedin</Text>
             <SocialButton label={'YouTube'} href={"https://www.linkedin.com/company/greenboost/"} bgColor={"#0077B5"}>

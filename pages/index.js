@@ -5,7 +5,6 @@ import Head from "@components/head"
 import HomeComponent from "@components/home"
 import { useSession, getSession } from "next-auth/react"
 
-
 export default function Home({props}) {
   const { data: session, status } = useSession()
 /*
@@ -37,6 +36,7 @@ export default function Home({props}) {
       <Head
         title="GreenBoost"
         description="GreenBoost."
+        //image= ""
       />
 
       <HomeComponent />
