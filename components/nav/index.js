@@ -16,15 +16,7 @@ import {
     useColorModeValue,
     Stack,
     Center,
-    Popover,
-    PopoverTrigger,
-    PopoverContent,
-    PopoverHeader,
-    PopoverBody,
-    PopoverFooter,
-    PopoverArrow,
-    PopoverCloseButton,
-    PopoverAnchor,
+    MenuItem
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { useSession, signIn, signOut } from "next-auth/react"
@@ -59,6 +51,7 @@ const NavLink = ({ listItem }) => (
 
 const Nav = () => {
     let { t } = useTranslation();
+    const session = false;
     const { isOpen, onOpen, onClose } = useDisclosure();
     var defaultLang = "IT"
     const [lang, setLang] = useState(defaultLang);
@@ -143,76 +136,18 @@ const Nav = () => {
 
                     </HStack>
                     <Flex alignItems={'center'}>
+                        {/* 
                         <Center color={!scrolled && isHome ? "tertiary" : "primary"}>
-                            {/*   <LanguageSelector /> */}
+                               <LanguageSelector /> 
                         </Center>
-                        <Popover
-                            placement='bottom'
-                            closeOnBlur={false}
-                        >
-                            <PopoverTrigger>
-                                <Button
-                                    color={"quaternary"}
-                                    bg={"tertiary"}
-                                    rounded={'full'}
-                                    px={6}
-                                    py={4}
-                                    borderColor={"quaternary"}
-                                    border="2px"
-                                    size={{base:'xs',md:'md'}}
-                                    whiteSpace='initial'
-                                    _hover={{
-                                        color: 'tertiary',
-                                        bg: 'quaternary',
-                                    }}>
-                                    
-                                    {t('nav_bar.cookies.button')}
-                                </Button>
-                            </PopoverTrigger>
-                            <PopoverContent color='white' bg='quaternary' borderColor='quaternary'>
-                                {/* <PopoverHeader pt={4} fontWeight='bold' border='0'>
-                                    Cookies and privacy policy
-                                </PopoverHeader> */}
-                                <PopoverArrow bg='quaternary' />
-                                <PopoverCloseButton />
-                                <PopoverBody>
-                                {t('nav_bar.cookies.popup.description')}
-                                </PopoverBody>
-                                <PopoverFooter
-                                    border='0'
-                                    display='flex'
-                                    alignItems='center'
-                                    justifyContent='space-between'
-                                    pb={4}
-                                >
-                                    <Button
-                                        color={"tertiary"}
-                                        bg={"quaternary"}
-                                        rounded={'full'}
-                                        px={6}
-                                        borderColor={"quaternary"}
-                                        border="2px"
-                                        _hover={{
-                                            color: 'quaternary',
-                                            bg: 'tertiary',
-                                        }}
-                                        onClick={onOpen}
-                                        _focus={{ outline: "none" }}
+                       
 
-                                    >
-                                        <a href="https://www.iubenda.com/privacy-policy/59609447" class="iubenda-black iubenda-noiframe iubenda-embed iubenda-noiframe " title="Privacy Policy ">{t('nav_bar.cookies.popup.button')}</a>
-                                        {/* <script type="text/javascript" src='./script.js'></script> */}
-                                    </Button>
-                                </PopoverFooter>
-                            </PopoverContent>
-                        </Popover>
-
-
-                        {/* <Center mx="10px" color={!scrolled && isHome ? "tertiary" : "primary"}>
+                         <Center mx="10px" color={!scrolled && isHome ? "tertiary" : "primary"}>
                             <Button bg={"none"} _hover={{ bg: "none" }} >
                                 <ShoppingCart fontSize="large" />
                             </Button>
                         </Center>
+                        */}
                         <Menu>
                             <MenuButton
                                 as={Button}
@@ -226,11 +161,15 @@ const Nav = () => {
                                     backgroundColor={!scrolled && isHome ? "primary" : "primary"}
                                     borderColor="black"
                                     border={!scrolled && isHome ? "4px solid #EBF0EA" : "4px solid #588157"}
-
                                 />
-
+                                
                             </MenuButton>
-                        </Menu> */}
+                            <MenuList>
+                                {session ? <MenuItem onClick={() => signOut()}>Logout</MenuItem> : <MenuItem onClick={() => signIn()}>Login</MenuItem>}
+                                {!session && <MenuItem as="a" href="/auth/signup">Signup</MenuItem>}
+                                <MenuItem as="a" href="/profile/profile-overview">Profile</MenuItem>
+                            </MenuList>
+                        </Menu> 
                     </Flex>
                 </Flex>
 

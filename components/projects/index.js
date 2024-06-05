@@ -102,7 +102,7 @@ const Projects = ({ projects }) => {
                         toggleAnimation();
                     }}><Text fontSize={20}> Compensa ora le tue emissioni 🌍</Text></Button>
                 </Center>
-                {/* Il componente PopUpContactUs, chiamato solo se isPopUpOpen è true */}
+               
                 <PopUpContactUs isOpen={isPopUpOpen} onClose={togglePopUp} />
 
                 <Center  flexDirection={"column"} gap={10} >

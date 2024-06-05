@@ -6,7 +6,8 @@ import {
     Heading,
     Button,
     useDisclosure,
-    Text
+    Text,
+    Link
 } from '@chakra-ui/react';
 import React, { useState, useEffect } from 'react';
 
@@ -16,10 +17,12 @@ import UploadProjectForm from "@components/sell/uploadProjectForm"
 import axios from 'axios';
 
 import Message from '@components/modal/message'
+import PopUpContactUs from '@components/home/hero/popUp'
 
-
+import { useTranslation } from "react-i18next";
 
 const CreateProject = () => {
+
     /*const [files, setFiles] = useState([]);
     const { isOpen, onOpen, onClose } = useDisclosure()
 
@@ -61,20 +64,39 @@ const CreateProject = () => {
         }
     }
 */
+    let { t } = useTranslation();
+    const [isPopUpOpen, setIsPopUpOpen] = useState(false);
 
+    const togglePopUp = () => {
+        setIsPopUpOpen(!isPopUpOpen);
+    };
+    const [animateComponents, setAnimateComponents] = useState(false);
+    const toggleAnimation = () => {
+        setAnimateComponents(!animateComponents);
+    };
     return (
         <>
-         <Box mb={10}>
+        <Center minH={"90vh"}>
+            <Box>
+            <Box mb={1} >
                 <Center p={2} flexDirection={"column"}>
                     <Heading>SELL</Heading>
                     <Text>Coming Soon</Text>
                 </Center>
             </Box>
-        
-        
-        {
+            <Center p="4" >
+                <Button rounded="full" h={"50px"} color={"#ffffff"} backgroundColor={"quaternary"} _hover={{ color: "quaternary", backgroundColor: "#ffffff", borderWidth: "2px", borderColor: "quaternary" }} onClick={() => {
+                    togglePopUp();
+                    toggleAnimation();
+                }}><Text fontSize={20}> Compensa ora le tue emissioni 🌍</Text></Button>
+            </Center>
 
-            
+            <PopUpContactUs isOpen={isPopUpOpen} onClose={togglePopUp} />
+            </Box>
+            </Center>
+            {
+
+
             /*
         <>
             {(!session || session?.user.customer_type == "buyer") &&

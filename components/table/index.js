@@ -10,9 +10,9 @@ import {
   Center
 } from "@chakra-ui/react";
 
-import Card from "@components/card/Card.js";
-import CardBody from "@components/card/CardBody.js";
-import CardHeader from "@components/card/CardHeader.js";
+//import Card from "@components/card/Card.js";
+//import CardBody from "@components/card/CardBody.js";
+//import CardHeader from "@components/card/CardHeader.js";
 
 import TableRowProfileComponent from "@components/table/tablerow/tableRowProfile";
 import React from "react";

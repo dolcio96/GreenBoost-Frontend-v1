@@ -12,12 +12,106 @@ import Phrase from "@components/home/phrase"
 import { useTranslation } from "react-i18next";
 import {
     Box,
-    Stack
+    Button,
+    Stack,
+    Popover,
+    PopoverTrigger,
+    PopoverContent,
+    PopoverHeader,
+    PopoverBody,
+    PopoverFooter,
+    PopoverArrow,
+    PopoverCloseButton,
+    PopoverAnchor,
+    useDisclosure
 } from '@chakra-ui/react';
 
 import logoPuro from "@public/Images/partner/logo_Puro.png"
 import logoCSMT from "@public/Images/partner/logo_CSMT.png"
 import logoGMAmbiente from "@public/Images/partner/logo_GM_Ambiente.png"
+
+const FloatingActionButton = ({ onClick }) => {
+    let { t } = useTranslation();
+    const { isOpen, onOpen, onClose } = useDisclosure();
+    return (
+        <>
+
+            <Popover
+                placement='bottom'
+                closeOnBlur={false}
+            >
+                <PopoverTrigger>
+                    <Button
+                        color={"quaternary"}
+                        bg={"tertiary"}
+                        rounded={'full'}
+                        px={6}
+                        py={4}
+                        borderColor={"quaternary"}
+                        border="2px"
+                        //size={{ base: 'xs', md: 'md' }}
+                        whiteSpace='initial'
+                        position="fixed"
+                        bottom="4"
+                        right="4"
+                        size="lg"
+                        colorScheme="teal"
+                        borderRadius="full"
+                        onClick={onClick}
+                        boxShadow="lg"
+                        zIndex="999"
+                        _hover={{
+                            color: 'tertiary',
+                            bg: 'quaternary',
+                            
+                        }}>
+
+                        {t('nav_bar.cookies.button')}
+                    </Button>
+
+                  
+                </PopoverTrigger>
+                <PopoverContent color='white' bg='quaternary' borderColor='quaternary'>
+                    {/* <PopoverHeader pt={4} fontWeight='bold' border='0'>
+                Cookies and privacy policy
+            </PopoverHeader> */}
+                    <PopoverArrow bg='quaternary' />
+                    <PopoverCloseButton />
+                    <PopoverBody>
+                        {t('nav_bar.cookies.popup.description')}
+                    </PopoverBody>
+                    <PopoverFooter
+                        border='0'
+                        display='flex'
+                        alignItems='center'
+                        justifyContent='space-between'
+                        pb={4}
+                    >
+                        <Button
+                            color={"tertiary"}
+                            bg={"quaternary"}
+                            rounded={'full'}
+                            px={6}
+                            borderColor={"quaternary"}
+                            border="2px"
+                            _hover={{
+                                color: 'quaternary',
+                                bg: 'tertiary',
+                            }}
+                            onClick={onOpen}
+                            _focus={{ outline: "none" }}
+
+                        >
+                            <a href="https://www.iubenda.com/privacy-policy/59609447" class="iubenda-black iubenda-noiframe iubenda-embed iubenda-noiframe " title="Privacy Policy ">{t('nav_bar.cookies.popup.button')}</a>
+                            {/* <script type="text/javascript" src='./script.js'></script> */}
+                        </Button>
+                    </PopoverFooter>
+                </PopoverContent>
+            </Popover>
+
+        </>
+    );
+};
 
 const WaveComp = ({ rotate, bg }) => {
     return (
@@ -45,7 +139,7 @@ const WaveComp = ({ rotate, bg }) => {
 
 const Home = () => {
     let { t } = useTranslation();
-    const partnerLogos =[{img:logoPuro},logoCSMT,logoGMAmbiente]
+    const partnerLogos = [{ img: logoPuro }, logoCSMT, logoGMAmbiente]
 
     return (
         <>
@@ -62,8 +156,8 @@ const Home = () => {
                 </Box>
 
                 <HomeBuySellCreate />
-                <Box p={{base:2,lg:12}}>
-                <PartnerCarouselComponent/>
+                <Box p={{ base: 2, lg: 12 }}>
+                    <PartnerCarouselComponent />
                 </Box>
                 <Box>
                     <Box bg={"primary"}>
@@ -88,7 +182,7 @@ const Home = () => {
                 <CarbonCreditDescription />
 
                 <QualityFramework />
-                
+
                 <ReasonForBuy />
                 <Box>
                     <Box bg={"primary"}>
@@ -111,6 +205,8 @@ const Home = () => {
                     </Box>
                 </Box>
             </Stack>
+
+            <FloatingActionButton />
         </>
     )
 
