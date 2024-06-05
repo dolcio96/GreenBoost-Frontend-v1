@@ -44,7 +44,7 @@ const Create = () => {
                         <Button rounded="full" h={"50px"} color={"#ffffff"} backgroundColor={"quaternary"} _hover={{ color: "quaternary", backgroundColor: "#ffffff", borderWidth: "2px", borderColor: "quaternary" }} onClick={() => {
                             togglePopUp();
                             toggleAnimation();
-                        }}><Text fontSize={20}> Compensa ora le tue emissioni 🌍</Text></Button>
+                        }}><Text fontSize={20}> Entra nell'ecosistema GreenBoost 🌍</Text></Button>
                     </Center>
 
                     <PopUpContactUs isOpen={isPopUpOpen} onClose={togglePopUp} />
