@@ -7,8 +7,8 @@ import {
 import { ReactElement } from "react"
 import Layout from "@components/layout"
 import Head from "@components/head"
-import ProfileProjectSellerComponet from "@components/profile/profileProjects/indexSeller"
-import ProfileProjectBuyerComponent from "@components/profile/profileProjects/indexBuyer"
+import ProfileProjectSellerComponet from "@components/profile/profileProjectsSeller"
+import ProfileProjectBuyerComponent from "@components/profile/profileProjectsBuyer"
 import ProfileLayout from "@components/layout/profileLayout"
 import { useRouter } from 'next/router';
 import { useSession,getSession } from "next-auth/react"

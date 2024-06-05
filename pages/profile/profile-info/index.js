@@ -6,8 +6,8 @@ import {
 
 import Head from "@components/head"
 
-import ProfileInfoSellerComponet from "@components/profile/profileInfo/indexSeller"
-import ProfileInfoBuyerComponet from "@components/profile/profileInfo/indexBuyer"
+import ProfileInfoSellerComponet from "@components/profile/profileInfoSeller"
+import ProfileInfoBuyerComponet from "@components/profile/profileInfoBuyer"
 import ProfileLayout from "@components/layout/profileLayout"
 import { useSession } from "next-auth/react"
 
