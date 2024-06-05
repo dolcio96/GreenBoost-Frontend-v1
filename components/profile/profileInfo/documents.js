@@ -25,23 +25,10 @@ import CardBody from "@components/card/CardBody";
 import CardHeader from "@components/card/CardHeader";
 import { VscFilePdf } from "react-icons/vsc";
 import { truncateStringLength } from "@lib/truncateStringLength"
-//import DropzoneField from "@components/createproject/dropzonefield"
-import UserInfo from '@components/profile/profileInfo/userInfo';
-import Documentations from "@components/profile/profileInfo/documentations"
 
-const pdfList = [{ name: "Nome1", url: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" }, { name: "Nome2", url: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" }]
 
-const FlexContainerIB = ({ children }) => {
-    return <Flex direction={{ sm: "column" }}>{children}</Flex>;
-};
+//const pdfList = [{ name: "Nome1", url: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" }, { name: "Nome2", url: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" }]
 
-const TextDesc = ({ children }) => {
-    return <Text w={{ md: "50%" }} fontWeight='bold' fontSize="15px" mr={{ sm: "0px", md: "20px" }}>{children}</Text>;
-};
-
-const TextValue = ({ children }) => {
-    return <Text color="gray.400" mt={"9px"} mb='18px' >{children}</Text>;
-};
 
 const handleDownload = async (PDF_URL, PDF_Name) => {
     const pdfUrl = PDF_URL;
@@ -79,7 +66,12 @@ const handleDownload = async (PDF_URL, PDF_Name) => {
 const PDFComponent = ({ name, url }) => {
     return <GridItem colSpan={1} key={name}>
         <Box height="100px">
-            <Button w={"100%"} h={"100%"} p={3} color="primary" sx={{ _hover: { backgroundColor: "primary", color: "tertiary" } }} onClick={() => handleDownload(url, name)}>
+            <Button w={"100%"} h={"100%"} p={3} 
+            color="primary" borderColor={"primary"} 
+            border={"2px"}
+            sx={{ _hover: { backgroundColor: "primary", color: "tertiary",borderColor:"tertiary", border:"2px"  } }}
+            
+            onClick={() => handleDownload(url, name)}>
                 <VStack >
                     <VscFilePdf size={30} />
                     <Text noOfLines={2} >{truncateStringLength(name, 5)}</Text>
@@ -92,42 +84,29 @@ const PDFComponent = ({ name, url }) => {
 
 
 
-function ProfileInfoSeller() {
-    const [files, setFiles] = useState([]);
-    console.log(files);
-    const methods = useForm();
-
-    const thumbs = files?.map(file => (
-        <Box key={file.name} mb="15px">
-            <Flex direction={"row"} color="primary">
-                <VscFilePdf style={{ marginRight: "20px" }} size="30px" />
-                <Text>{file.name}</Text>
-            </Flex>
-        </Box>
-    ));
-
-    async function onSubmit() {
-        return console.log(files);
-    }
-    var { data: session, status } = useSession()
-
-    console.log(status)
-    console.log(session)
+function Documents({pdfList}) {
     return (
         <>
-        <Box>
-        </Box>
-            <Flex direction='column'  >
-                <Grid templateColumns={{ sm: "1fr", xl: "repeat(2, 1fr)" }} gap='22px'>
-                <UserInfo/>
-                <Documentations pdfList={pdfList}/>
-                </Grid>
-
-            </Flex>
-
-
+                    <Card p='16px' my={{ sm: "24px", md: "0px" }} >
+                        <Flex direction='column'  >
+                            <CardHeader p='12px 5px' mb={{ sm: '12px', md: '0px' }}>
+                                <Text fontSize='25px' fontWeight='bold'>
+                                    Documentations
+                                </Text>
+                                {pdfList.length >0 ?<Text>Click on the PDF to download it</Text>:<Text>No documents available</Text>}
+                            </CardHeader>
+                            <CardBody>
+                               
+                                <Grid templateColumns="repeat(3, 1fr)" gap={4}>
+                                    {pdfList.map((pdfItem) => (
+                                        <PDFComponent key={pdfItem.name} name={pdfItem.name} url={pdfItem.url} />
+                                    ))}
+                                </Grid>
+                            </CardBody>
+                        </Flex>
+                    </Card>
         </>
     );
 }
 
-export default ProfileInfoSeller;
+export default Documents;
