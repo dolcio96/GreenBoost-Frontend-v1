@@ -43,7 +43,7 @@ export default function Profile({userInfo}) {
 Profile.getLayout = function getLayout(page) {
   return <ProfileLayout>{page}</ProfileLayout>
 }
-
+/* 
 export async function getServerSideProps(context) {
   const session = await getSession(context);
 
@@ -58,4 +58,4 @@ export async function getServerSideProps(context) {
       userInfo
     }
   };
-}
+}*/
