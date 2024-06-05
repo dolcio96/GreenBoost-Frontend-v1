@@ -14,7 +14,7 @@ import {
 //import CardBody from "@components/card/CardBody.js";
 //import CardHeader from "@components/card/CardHeader.js";
 
-import TableRowProfileComponent from "@components/table/tablerow/tableRowProfile";
+//import TableRowProfileComponent from "@components/table/tablerow/tableRowProfile";
 import React from "react";
 
 
@@ -26,6 +26,7 @@ function Tables({ tablesData }) {
 
   return (
     <Flex direction="column" pt={{ base: "120px", md: "10px" }}>
+     { /* 
       <Card overflowX={{ sm: "scroll", xl: "hidden" }} pb="0px">
         <CardHeader p="6px 0px 22px 0px">
           <Center>
@@ -68,6 +69,7 @@ function Tables({ tablesData }) {
           </CardBody>
         </Center>
       </Card>
+      */}
     </Flex>
   );
 }

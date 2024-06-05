@@ -5,7 +5,7 @@ import {
 } from "@chakra-ui/react";
 import Layout from "@components/layout"
 import Head from "@components/head"
-//import TableComponet from "@components/table"
+
 import ProjectsComponent from "@components/projects"
 
 const color1 = "#70D6FF"
