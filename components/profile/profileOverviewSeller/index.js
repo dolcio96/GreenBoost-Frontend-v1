@@ -125,7 +125,7 @@ const Informations = () => {
 
 function ProfileOverviewSeller({ userInfo }) {
   console.log(userInfo)
-  const ApexCharts = dynamic(() => import('react-apexcharts'), { ssr: false });
+  // const ApexCharts = dynamic(() => import('react-apexcharts'), { ssr: false });
   const chartOptions = {
 
     series: [44, 55, 13],
@@ -193,7 +193,7 @@ function ProfileOverviewSeller({ userInfo }) {
             <Box w="80%">
               <Text fontWeight={'bold'} fontSize={"xl"}>% Sold</Text>
               <Center>
-                <ApexCharts options={chartOptions.options} series={chartOptions.series} type="pie" width={500} />
+                {/* <ApexCharts options={chartOptions.options} series={chartOptions.series} type="pie" width={500} /> */}
               </Center>
             </Box>
           </Center>

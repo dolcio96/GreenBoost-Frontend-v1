@@ -16,7 +16,7 @@ import React, { useState } from "react";
 import ProjectRowBuyerComponent from "@components/profile/profileProjects/projectRowBuyer"
 import dynamic from 'next/dynamic';
 
-const ApexCharts = dynamic(() => import('react-apexcharts'), { ssr: false });
+// const ApexCharts = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 function setChartOptions(projects) {
     console.log(projects)
@@ -103,7 +103,7 @@ function ProfileProjectsBuyer({ userInfo }) {
                             <Center>
                                 <Flex direction={"column"}>
                                     <Center>
-                                        <ApexCharts options={chartOptions.options} series={chartOptions.series} type="pie" width={500} />
+                                        {/* <ApexCharts options={chartOptions.options} series={chartOptions.series} type="pie" width={500} /> */}
                                     </Center>
                                 </Flex>
                             </Center>

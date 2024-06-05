@@ -17,7 +17,7 @@ import React, { useState } from "react";
 import ProjectRowSellerComponent from "@components/profile/profileProjects/projectRowSeller"
 import dynamic from 'next/dynamic';
 import Co2Icon from '@mui/icons-material/Co2';
-const ApexCharts = dynamic(() => import('react-apexcharts'), { ssr: false });
+// const ApexCharts = dynamic(() => import('react-apexcharts'), { ssr: false });
 import SpinnerCustom from "@lib/spinnerCustom";
 
 
@@ -132,7 +132,7 @@ function ProfileProjectsSeller({ userInfo }) {
                                 <Center><Heading>Sold CC</Heading></Center> 
                                     <Center>
                                       
-                                        <ApexCharts options={chartOptions.options} series={chartOptions.series} type="pie" width={500} />
+                                        {/* <ApexCharts options={chartOptions.options} series={chartOptions.series} type="pie" width={500} /> */}
                                     </Center>
                                     <Center>
                                         <BTNCertify />
