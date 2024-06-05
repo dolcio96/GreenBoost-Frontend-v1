@@ -21,6 +21,15 @@ import PopUpContactUs from '@components/home/hero/popUp'
 
 import { useTranslation } from "react-i18next";
 
+async function call_function() {
+    const response = await fetch("/api/backend/getCustomerData", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ userID: 75317, userType: 'buyer' }),
+    });
+    console.log(response)
+}
+
 const CreateProject = () => {
 
     /*const [files, setFiles] = useState([]);
@@ -76,6 +85,7 @@ const CreateProject = () => {
     };
     return (
         <>
+        {/* <Button onClick={call_function}>asd</Button> */}
         <Center minH={"90vh"}>
             <Box>
             <Box mb={1} >
