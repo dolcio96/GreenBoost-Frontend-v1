@@ -22,6 +22,7 @@ import PopUpContactUs from '@components/home/hero/popUp'
 import { useTranslation } from "react-i18next";
 
 async function call_function() {
+    console.log("callFuncion");
     const response = await fetch("/api/backend/getCustomerData", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -85,7 +86,7 @@ const CreateProject = () => {
     };
     return (
         <>
-        {/* <Button onClick={call_function}>asd</Button> */}
+     <Button onClick={call_function}>asd</Button> 
         <Center minH={"90vh"}>
             <Box>
             <Box mb={1} >
