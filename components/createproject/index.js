@@ -32,32 +32,6 @@ const CreateProject = () => {
     const { data: session } = useSession()
 
     async function onSubmit(project) {
-        //console.log(files)
-
-        // const pdf = await fetch(files[0].preview).then(async data => await data.blob() )
-        // console.log(pdf)
-     /*   if (session && session?.user.customer_type == "seller") {
-
-
-            project.sellerID = session?.user?.id
-            project.file = files[0]
-            const form_data = new FormData()
-            form_data.append('file', files[0])
-            console.log(project.file)
-            var response
-            try {
-                response = await axios.post('http://localhost:1234/api/project/upload', form_data, {
-                    headers: { 'Content-Type': 'application/json' },
-                });
-            } catch (error) {
-                console.error('Error uploading file:', error);
-            }
-
-            return response
-        }
-        else{
-            <Message isOpen={isOpen} onOpen={onOpen} onClose={onClose} header={"For Create a Project Login as Seller"} bgColor={"danger"}></Message>
-        }*/ 
     }
 
 
@@ -88,7 +62,7 @@ const CreateProject = () => {
                                     <UploadProjectForm files={files} setFiles={setFiles} />
                                     <Button
                                         //isLoading={isSubmitting} -->Capire dove prendere, se da methods
-                                        type='submit'
+                                        type="submit"
                                         loadingText="Submitting"
                                         bg={"#b7e4c7"}
                                         color={"#40916c"}>Create Project</Button>
