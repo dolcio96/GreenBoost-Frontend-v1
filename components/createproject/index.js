@@ -36,7 +36,7 @@ const CreateProject = () => {
 
         // const pdf = await fetch(files[0].preview).then(async data => await data.blob() )
         // console.log(pdf)
-        if (session && session?.user.customer_type == "seller") {
+     /*   if (session && session?.user.customer_type == "seller") {
 
 
             project.sellerID = session?.user?.id
@@ -57,7 +57,7 @@ const CreateProject = () => {
         }
         else{
             <Message isOpen={isOpen} onOpen={onOpen} onClose={onClose} header={"For Create a Project Login as Seller"} bgColor={"danger"}></Message>
-        }
+        }*/ 
     }
 
 
