@@ -31,7 +31,7 @@ async function call_function() {
     console.log(response)
 }
 
-const CreateProject = () => {
+const Sell = () => {
 
     /*const [files, setFiles] = useState([]);
     const { isOpen, onOpen, onClose } = useDisclosure()
@@ -151,4 +151,4 @@ const CreateProject = () => {
 
 }
 
-export default CreateProject
+export default Sell

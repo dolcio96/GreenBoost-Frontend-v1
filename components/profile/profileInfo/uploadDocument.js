@@ -25,7 +25,7 @@ import CardBody from "@components/card/CardBody";
 import CardHeader from "@components/card/CardHeader";
 import { VscFilePdf } from "react-icons/vsc";
 import { truncateStringLength } from "@lib/truncateStringLength"
-import DropzoneField from "@components/createproject/dropzonefield"
+//import DropzoneField from "@components/createproject/dropzonefield"
 
 
 
@@ -67,7 +67,7 @@ function UploadDocument() {
                                         <form onSubmit={methods.handleSubmit(onSubmit)}>
                                             <Stack spacing={3}>
                                                 <FormControl isRequired>
-                                                    <DropzoneField files={files} setFiles={setFiles} />
+                                                  {/*  <DropzoneField files={files} setFiles={setFiles} />*/} 
                                                 </FormControl >
                                                 <Center>{thumbs}</Center>
                                                 <Button
