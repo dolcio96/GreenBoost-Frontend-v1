@@ -21,7 +21,7 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 import { useForm, Controller } from 'react-hook-form'
-import { userService } from 'services';
+//import { userService } from 'services';
 import { signIn } from "next-auth/react"
 
 const Signup = () => {
@@ -37,15 +37,13 @@ const Signup = () => {
     formState: { errors, isSubmitting },
   } = useForm()
 
+
   function onSubmit(user) {
-    return userService.register(user).then((response) => {
-      if (response.ok) {
-        signIn('credentials', { username: user.email, password: user.password })
-        router.push('/')
-      } else {
-        alert(response.status)
-      }
-    })
+    return  fetch("/api/backend/user/userSignup", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ userID: 75317, userType: 'buyer' }),
+  });
   }
 
   function registerStripeAccount() {
