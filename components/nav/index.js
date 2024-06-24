@@ -115,7 +115,7 @@ const Nav = () => {
                     />
                     <HStack spacing={8.} alignItems={'center'}>
                         <Box w={"200px"} as={"a"} href={"/"}>
-                            <Image w={"100%"} src={LogoGB.src} />
+                            <Image alt={"Logo GB"} w={"100%"} src={LogoGB.src} />
                         </Box>
 
 

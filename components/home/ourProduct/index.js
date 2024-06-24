@@ -48,7 +48,7 @@ function OurProduct() {
             <Grid templateColumns={{ base: '1fr', lg: 'repeat(2, 1fr)' }} gap={20} my={10} mx={{base: 5, lg: 20 }}>
               <GridItem>
                 <Center h="full">
-                  <Image src={Pc.src} borderRadius={10} />
+                  <Image alt={"Our Product PC"} src={Pc.src} borderRadius={10} />
                 </Center>
               </GridItem>
     

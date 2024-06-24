@@ -45,7 +45,7 @@ const TypeCard = ({ info, animateComponents }) => {
             viewport={{ once: true }}
             transition={{ duration: 0.3, delay: 0.5, ease: [0, 0.71, 0.2, 1.01] }}>
             <Flex direction={"column"} h="100%">
-                <NextImage w="full" src={projectImage} alt="Descrizione dell'immagine" />
+                <NextImage w="full" src={projectImage} alt="Project image" />
                 <Flex direction="column" display={"flex"} h="70%" justifyContent={"space-between"} >
                     <Box p="4" >
                         <Text fontSize="2xl" fontWeight="bold">
@@ -92,7 +92,7 @@ const Projects = ({ projects }) => {
                     </Heading>
                 </Center>
                 <Center my={2} mx={10}>
-                    <Image maxW={"220px"} src={logoPuro.src} />
+                    <Image alt={"logo Puro"} maxW={"220px"} src={logoPuro.src} />
                 </Center>
                 <Center my="40px">
 

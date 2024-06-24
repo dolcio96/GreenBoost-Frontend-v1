@@ -6,7 +6,8 @@ export default function LanguageSelector() {
 
 
   const { language, changeLanguage  } = useLanguage();
-
+  const { i18n } = useTranslation();
+  
   useEffect(() => {
     // Set the language in i18n when it changess
     console.log('Language:', language); 
@@ -17,7 +18,7 @@ export default function LanguageSelector() {
 
 
 
-  const { i18n } = useTranslation();
+
 
   const handleChangeLanguage = (event) => {
     const selectedLanguage = event.target.value;

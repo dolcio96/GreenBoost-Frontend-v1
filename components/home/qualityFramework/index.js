@@ -35,7 +35,7 @@ function QualityFramework() {
                 <Grid templateColumns={{ base: '1fr', lg: 'repeat(2, 1fr)' }} gap={{ base: 20, lg: 40 }} my={10} mx={{base: 5, lg: 20 }} >
                     <GridItem order={{ base: 2, lg: 2 }} colSpan={{ base: 2, lg: 1 }}>
                         <Center h="full">
-                            <Image src={Img1.src} borderRadius={10} />
+                            <Image alt={"European Commission"} src={Img1.src} borderRadius={10} />
                         </Center>
                     </GridItem>
                     <GridItem order={{ base: 1, lg: 1 }} colSpan={{ base: 2, lg: 1 }}>

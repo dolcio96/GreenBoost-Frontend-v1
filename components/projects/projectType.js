@@ -78,7 +78,7 @@ const ProjectType = ({ project }) => {
             <Box m={{base:"0", lg:"10"}}>
                 <Box my={10}>
                     <Center>
-                        <Image src={LogoGB.src} textShadow='2px 2px #588157' w={"50%"} />
+                        <Image alt={"Logo GB"} src={LogoGB.src} textShadow='2px 2px #588157' w={"50%"} />
                     </Center>
                     <Center flexDirection={"column"}>
                         <Heading fontSize={"50px"} color={"primary"}>
