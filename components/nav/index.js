@@ -51,7 +51,9 @@ const NavLink = ({ listItem }) => (
 
 const Nav = () => {
     let { t } = useTranslation();
-    const session = false;
+    const { data: session } = useSession()
+    console.log(session)
+
     const { isOpen, onOpen, onClose } = useDisclosure();
     var defaultLang = "IT"
     const [lang, setLang] = useState(defaultLang);
