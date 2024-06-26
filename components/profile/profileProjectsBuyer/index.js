@@ -72,7 +72,34 @@ function ProfileProjectsBuyer({ userInfo }) {
     var { data: session, status } = useSession()
 
 
-    const chartOptions = setChartOptions(userInfo.projects)
+    //const chartOptions = setChartOptions(userInfo.projects)
+
+    userInfo = {"projects":[
+        {
+            "id": "Project1",
+            "project_type": { "type_name": "Tipo Progetto 1" },
+            "carbon_credits": [1, 2, 3, 4],
+            "expiration_date": "31/12/2022",
+            "status": "Valid"
+          },
+          {
+            "id": "Project2",
+            "project_type": { "type_name": "Tipo Progetto 2" },
+            "carbon_credits": [5, 6, 7, 8],
+            "expiration_date": "31/12/2023",
+            "status": "Valid"
+          },
+          {
+            "id": "Project3",
+            "project_type": { "type_name": "Tipo Progetto 3" },
+            "carbon_credits": [9, 10, 11, 12],
+            "expiration_date": "31/12/2024",
+            "status": "Pending"
+          }
+    ]
+      }
+
+
 
     return (
         <>

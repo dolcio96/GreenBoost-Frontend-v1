@@ -31,9 +31,9 @@ const { data: session, status } = useSession()
             color="#0B0E3F"
             size='xl' />
         </Center>
-        : session?.user.customer_type == "buyer" ?
-          <ProfileOverviewBuyerComponet userInfo={userInfo}/>
-          : <ProfileOverviewSellerComponet userInfo={userInfo}/>}
+        : session?.user.customer_type == "seller" ?
+        <ProfileOverviewSellerComponet userInfo={userInfo}/>
+          : <ProfileOverviewBuyerComponet userInfo={userInfo}/>}
 
     </>
   )

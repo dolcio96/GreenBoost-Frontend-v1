@@ -7,7 +7,16 @@ import { fetchWrapper } from 'helpers';
     return  res.send(await result.json());
  }
 */
- export default  function register(user) {
+ export default  async function  handler(req, res) {
 
-    return  fetchWrapper.post(`/backend/auth/signup`, user);
+    try{
+        const remoteResponse = await fetchWrapper.post(process.env.BACKEND_API_URL +`api/auth/signup`, req.body);
+        const remoteData = await remoteResponse.json();
+        res.status(remoteResponse.status).json(remoteData);
+
+    }catch (error) {
+        console.error('Errore nell\'inoltro della richiesta:', error);
+        res.status(500).json({ message: 'Errore nel server interno' });
+      }
+
 }

@@ -6,8 +6,8 @@ import {
 import { useForm, Controller, FormProvider, useFormContext } from 'react-hook-form'
 import { useSession } from "next-auth/react"
 
-import Documents from '@components/profile//profileInfo/documents';
-import UploadDocument from '@components/profile/profileInfo/uploadDocument'
+import Documents from '@components/profile/userDocumentation/documents';
+import UploadDocument from '@components/profile/userDocumentation/uploadDocument'
 
 
 function Documentations({pdfList}) {
@@ -21,7 +21,7 @@ function Documentations({pdfList}) {
         <>
             <Flex direction='column'  >
                 <Documents pdfList={pdfList}/>
-                <UploadDocument/>
+              {/*  <UploadDocument/>*/}
             </Flex>
 
 

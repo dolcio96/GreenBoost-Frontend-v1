@@ -26,11 +26,13 @@ export default NextAuth({
       },
       async authorize(credentials, req) {
         // Add logic here to look up the user from the credentials supplied
-        const response = await fetch(process.env.BACKEND_API_URL + "/api/auth/login", {
+        console.log(12345);
+        const response = await fetch(process.env.BACKEND_API_URL + "api/auth/login", {
           method: "POST",
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ username: credentials.username, password: credentials.password })
         })
+        
         var resp = await response.json()
         delete resp.projects
         delete resp.carbon_credits

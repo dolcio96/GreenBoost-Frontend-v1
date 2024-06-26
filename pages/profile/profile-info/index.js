@@ -23,15 +23,14 @@ export default function ProfileInfo() {
       {status == 'loading' ?
         <Center h='70vh'>
           <Spinner
-            thickness='4px'
             speed='0.65s'
             emptyColor="#b7e4c7"
             color="#0B0E3F"
             size='xl' />
         </Center>
-        : session?.user.customer_type == "buyer" ?
-          <ProfileInfoBuyerComponet />
-          : <ProfileInfoSellerComponet />}
+        : session?.user.customer_type == "seller" ?
+        <ProfileInfoSellerComponet />
+          : <ProfileInfoBuyerComponet />}
 
     </>
   )

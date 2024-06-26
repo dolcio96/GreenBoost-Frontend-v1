@@ -60,6 +60,7 @@ const Signin = (props) => {
                 <Button variant='normalButton' onClick={() => { signIn('credentials', { username: credentials.username, password: credentials.password }) }}>
                   Sign in
                 </Button>
+                {/*
                 <Center>
                   <Button onClick={() => signIn("github")}
                     w={'full'}
@@ -71,6 +72,7 @@ const Signin = (props) => {
                     </Center>
                   </Button>
                 </Center>
+                 */}
               </Stack>
             </Stack>
           </Box>

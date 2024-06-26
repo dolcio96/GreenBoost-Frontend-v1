@@ -39,11 +39,22 @@ const Signup = () => {
 
 
   function onSubmit(user) {
+    console.log(123);
+    console.log(user);
     return  fetch("/api/backend/user/userSignup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ userID: 75317, userType: 'buyer' }),
+      body: JSON.stringify( user),
+  }).then((response) => {
+    console.log(465);
+    if (response.ok) {
+      signIn('credentials', { username: user.email, password: user.password })
+      router.push('/')
+    } else {
+      alert(response.status)
+    }
   });
+
   }
 
   function registerStripeAccount() {
@@ -150,11 +161,13 @@ const Signup = () => {
           </Box>
         </Stack>
       </Flex>
+      {/* 
       <Button
         onClick={registerStripeAccount}
         size="lg"
         variant="normalButton">
-        Create Account      </Button>
+        Create Account     
+      </Button>*/}
 
     </>
   );

@@ -20,14 +20,8 @@ import {
 } from "@chakra-ui/react";
 import { useForm, Controller, FormProvider, useFormContext } from 'react-hook-form'
 import { useSession } from "next-auth/react"
-import Card from "@components/card/Card";
-import CardBody from "@components/card/CardBody";
-import CardHeader from "@components/card/CardHeader";
 import { VscFilePdf } from "react-icons/vsc";
 import { truncateStringLength } from "@lib/truncateStringLength"
-
-
-//const pdfList = [{ name: "Nome1", url: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" }, { name: "Nome2", url: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" }]
 
 
 const handleDownload = async (PDF_URL, PDF_Name) => {
@@ -87,24 +81,24 @@ const PDFComponent = ({ name, url }) => {
 function Documents({pdfList}) {
     return (
         <>
-                    <Card p='16px' my={{ sm: "24px", md: "0px" }} >
+                    <Box p='16px' my={{ sm: "24px", md: "0px" }} >
                         <Flex direction='column'  >
-                            <CardHeader p='12px 5px' mb={{ sm: '12px', md: '0px' }}>
+                            <Box p='12px 5px' mb={{ sm: '12px', md: '0px' }}>
                                 <Text fontSize='25px' fontWeight='bold'>
                                     Documentations
                                 </Text>
                                 {pdfList.length >0 ?<Text>Click on the PDF to download it</Text>:<Text>No documents available</Text>}
-                            </CardHeader>
-                            <CardBody>
+                            </Box>
+                            <Box>
                                
                                 <Grid templateColumns="repeat(3, 1fr)" gap={4}>
                                     {pdfList.map((pdfItem) => (
                                         <PDFComponent key={pdfItem.name} name={pdfItem.name} url={pdfItem.url} />
                                     ))}
                                 </Grid>
-                            </CardBody>
+                            </Box>
                         </Flex>
-                    </Card>
+                    </Box>
         </>
     );
 }

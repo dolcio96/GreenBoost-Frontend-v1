@@ -33,9 +33,9 @@ export default function Profile({userInfo}) {
             color="#0B0E3F"
             size='xl' />
         </Center>
-        : session?.user.customer_type == "buyer" ?
-          <ProfileProjectBuyerComponent userInfo={userInfo}/>
-          : <ProfileProjectSellerComponet userInfo={userInfo}/>}
+        : session?.user.customer_type == "seller" ?
+        <ProfileProjectSellerComponet userInfo={userInfo}/>
+          : <ProfileProjectBuyerComponent userInfo={userInfo}/>}
     </>
   )
 }

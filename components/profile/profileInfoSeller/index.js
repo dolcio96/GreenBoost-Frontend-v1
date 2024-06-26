@@ -27,7 +27,7 @@ import { VscFilePdf } from "react-icons/vsc";
 import { truncateStringLength } from "@lib/truncateStringLength"
 //import DropzoneField from "@components/createproject/dropzonefield"
 import UserInfo from '@components/profile/profileInfo/userInfo';
-import Documentations from "@components/profile/profileInfo/documentations"
+import Documentations from "@components/profile/userDocumentation/documentations"
 
 const pdfList = [{ name: "Nome1", url: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" }, { name: "Nome2", url: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" }]
 

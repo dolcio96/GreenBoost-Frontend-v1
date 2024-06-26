@@ -37,10 +37,10 @@ const TextValue = ({ children }) => {
     return <Text color="gray.400" mt={"9px"} mb='18px' >{children}</Text>;
 };
 
-function UserInfo() {
+function UserInfo({user}) {
     const methods = useForm();
     
-    var { data: session, status } = useSession()
+    //var { data: session, status } = useSession()
 
     return (
         <>
@@ -57,28 +57,28 @@ function UserInfo() {
                             <Grid templateColumns={{ base: "1fr", xl: "repeat(2, 1fr)" }} gap='10px'>
                                 <FlexContainerIB>
                                     <TextDesc>Company Name:</TextDesc>
-                                    <TextValue>{session?.user.company.company_name}</TextValue>
+                                    <TextValue>{user.company.company_name}</TextValue>
                                     {/* <Input align='center' mb='18px' mr='10px' variant='flushed' placeholder='Company Name' readonly="true" _focus={{ border: "none" }} border="none" />*/}
                                 </FlexContainerIB>
                                 <FlexContainerIB>
                                     <TextDesc>Email Address:</TextDesc>
-                                    <TextValue>{session?.user.company.customer.email}</TextValue>
+                                    <TextValue>{user.company.customer.email}</TextValue>
                                 </FlexContainerIB>
                                 <FlexContainerIB>
                                     <TextDesc>Street Address:</TextDesc>
-                                    <TextValue>{session?.user.company.customer.customer_address}</TextValue>
+                                    <TextValue>{user.company.customer.customer_address}</TextValue>
                                 </FlexContainerIB>
                                 <FlexContainerIB>
                                     <TextDesc>City:</TextDesc>
-                                    <TextValue>{session?.user.company.customer.city.country.country_name}</TextValue>
+                                    <TextValue>{user.company.customer.city.country.country_name}</TextValue>
                                 </FlexContainerIB>
                                 <FlexContainerIB>
                                     <TextDesc>Country:</TextDesc>
-                                    <TextValue>{session?.user.company.customer.city.city_name}</TextValue>
+                                    <TextValue>{user.company.customer.city.city_name}</TextValue>
                                 </FlexContainerIB>
                                 <FlexContainerIB>
                                     <TextDesc>TAX Number:</TextDesc>
-                                    <TextValue>{session?.user.company.tax_number}</TextValue>
+                                    <TextValue>{user.company.tax_number}</TextValue>
                                 </FlexContainerIB>
                                 <FlexContainerIB>
                                     <TextDesc>Identity Status:</TextDesc>

@@ -161,15 +161,18 @@ function ProfileOverviewBuyer({userInfo}) {
                 <Stack direction={{ base: 'column', md: 'row' }} w="100%" justifyContent={{ base: 'center', md: "space-between" }}  >
                     <Center w={{ base: '100%', md: '50%' }}>
                         <Box>
-                        {/* <ApexCharts options={chartOptions.options} series={chartOptions.series} type="pie" width={500} /> */}
+                        <KPINumber n={60} dly={200} lbl={"Total Active VCC"} fontSize={"5xl"} />
+                            <KPINumber n={30} dly={1200} lbl={"Forestry VCC"} fontSize={"3xl"} />
+                            <KPINumber n={30} dly={1200} lbl={"Other VCC"} fontSize={"3xl"} />
                         </Box>
                     </Center>
                     <Center w={{ base: '100%', md: '50%' }}>
                         <Flex direction='column'  >
-
-                            <KPINumber n={60} dly={200} lbl={"Total Active VCC"} fontSize={"5xl"} />
-                            <KPINumber n={30} dly={1200} lbl={"Forestry VCC"} fontSize={"3xl"} />
-                            <KPINumber n={30} dly={1200} lbl={"Other VCC"} fontSize={"3xl"} />
+                        <Heading>
+                               Last purchased projects
+                        </Heading>
+                        <ProjectRow />
+                        <ProjectRow /> 
 
 
                         </Flex>
@@ -177,24 +180,6 @@ function ProfileOverviewBuyer({userInfo}) {
 
                 </Stack>
             </Center>
-            <Flex direction='column'>
-                <Box p='16px' px="50px" my={{ sm: "24px", xl: "0px" }}>
-                    <Box p='12px 5px' mb='12px'>
-                        <Flex direction="row" justifyContent={"space-between"}>
-                            <Heading>
-                                Bought Projects
-                            </Heading>
-                            <Heading>
-                                Total VCC: 60
-                            </Heading>
-                        </Flex>
-                    </Box>
-                    {/* <ProjectRow />
-                    <ProjectRow /> */}
-                </Box>
-
-
-            </Flex>
         </>
     );
 }
