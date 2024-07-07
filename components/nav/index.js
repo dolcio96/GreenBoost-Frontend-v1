@@ -168,8 +168,8 @@ const Nav = () => {
                             </MenuButton>
                             <MenuList>
                                 {session ? <MenuItem onClick={() => signOut()}>Logout</MenuItem> : <MenuItem onClick={() => signIn()}>Login</MenuItem>}
-                                {!session && <MenuItem as="a" href="/auth/signup">Signup</MenuItem>}
-                                <MenuItem as="a" href="/profile/profile-overview">Profile</MenuItem>
+                               {/* {!session && <MenuItem as="a" href="/auth/signup">Signup</MenuItem>}*/}
+                               {/*  <MenuItem as="a" href="/profile/profile-overview">Profile</MenuItem>*/}
                             </MenuList>
                         </Menu> 
                     </Flex>

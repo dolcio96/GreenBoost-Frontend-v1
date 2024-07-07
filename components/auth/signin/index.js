@@ -30,9 +30,9 @@ const Signin = (props) => {
         bg={useColorModeValue('gray.50', 'gray.800')}>
         <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
           <Stack align={'center'}>
-            <Heading fontSize={'4xl'}>Sign in to your account</Heading>
+            <Heading fontSize={'4xl'}>Accedi al tuo account</Heading>
             <Text fontSize={'lg'} color={'gray.600'}>
-              to enjoy all of our features 🌲
+              per usufruire di tutte le nostre novità 🌲
             </Text>
           </Stack>
           <Box
@@ -42,23 +42,31 @@ const Signin = (props) => {
             p={8}>
             <Stack spacing={4}>
               <FormControl>
-                <FormLabel>Email address</FormLabel>
+                <FormLabel>Email </FormLabel>
                 <Input id="email" type="email" value={credentials.username} onChange={(e) => { setCredentials({ ...credentials, username: e.target.value }) }} />
               </FormControl>
               <FormControl>
                 <FormLabel>Password</FormLabel>
                 <Input id="password" type="password" value={credentials.password} onChange={(e) => { setCredentials({ ...credentials, password: e.target.value }) }} />
               </FormControl>
-              <Stack spacing={10}>
+              <Stack spacing={4}>
                 <Stack
                   direction={{ base: 'column', sm: 'row' }}
                   align={'start'}
                   justify={'space-between'}>
-                  <Checkbox >Remember me</Checkbox>
-                  <Link color={'primary'}>Forgot password?</Link>
+                  <Checkbox >Ricorda</Checkbox>
+                  <Link color={'primary'}>Password dimenticata?</Link>
                 </Stack>
                 <Button variant='normalButton' onClick={() => { signIn('credentials', { username: credentials.username, password: credentials.password }) }}>
                   Sign in
+                </Button>
+                <Center>
+                  <Text fontWeight={'bold'}>
+                    Vuoi registrarti al nostro sito?
+                  </Text>
+                </Center>
+                <Button variant='normalButton' onClick={() => window.open("https://docs.google.com/forms/d/e/1FAIpQLSeVoJ5wr8YC6xumFZZ8WSbxRR5Skf7Rwc0enn9mCBUrlgDf2A/viewform?usp=sf_link", "_blank")}>
+                  Contattaci
                 </Button>
                 {/*
                 <Center>
