@@ -26,7 +26,7 @@ export default NextAuth({
       },
       async authorize(credentials, req) {
         // Add logic here to look up the user from the credentials supplied
-        console.log("---------------------------------------------------12345---------------------------------");
+        console.log("---------------------------------------------------------------------------------------------");
         console.log(process.env.BACKEND_API_URL + "/api/auth/login");
         const response = await fetch(process.env.BACKEND_API_URL + "api/auth/login", {
           method: "POST",
@@ -39,7 +39,7 @@ export default NextAuth({
         delete resp.projects
         delete resp.carbon_credits
         delete resp.buyers
-        
+        console.log(resp);
         return resp
       }
     }),
