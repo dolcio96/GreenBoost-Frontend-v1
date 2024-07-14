@@ -26,7 +26,7 @@ export default NextAuth({
       },
       async authorize(credentials, req) {
         // Add logic here to look up the user from the credentials supplied
-        console.log(12345);
+        console.log("---------------------------------------------------12345---------------------------------");
         const response = await fetch(process.env.BACKEND_API_URL + "api/auth/login", {
           method: "POST",
           headers: { 'Content-Type': 'application/json' },
@@ -120,7 +120,7 @@ export default NextAuth({
   // Callbacks are asynchronous functions you can use to control what happens
   // when an action is performed.
   // https://next-auth.js.org/configuration/callbacks
-  callbacks: {
+  /*callbacks: {
     async session({ session, token }) {
       session.user = token.user;
       return session;
@@ -131,23 +131,13 @@ export default NextAuth({
       }
       return token;
     },
-    // async signIn({ user, account, profile, email, credentials }) { return true },
-   /* async redirect({ url, baseUrl }) {
-      // Allows relative callback URLs
-      if (url.startsWith("/")) return `${baseUrl}${url}`
-      // Allows callback URLs on the same origin
-      else if (new URL(url).origin === baseUrl) return url
-      return baseUrl
-    },
-     */
     async redirect({ url, baseUrl }) {
-      console.log(url);
-      console.log(baseUrl);
-      return baseUrl
+      // Ignora il parametro callbackUrl e reindirizza sempre alla home page o a una pagina specifica
+      return baseUrl;
     },
     // async session({ session, token, user }) { return session },
     // async jwt({ token, user, account, profile, isNewUser }) { return token }
-  },
+  },*/
 
   // Events are useful for logging
   // https://next-auth.js.org/configuration/events

@@ -17,9 +17,30 @@ import {
 import { FcGoogle } from 'react-icons/fc';
 import { useState } from "react"
 import { signIn } from "next-auth/react"
+import { useRouter } from "next/router";
 
 const Signin = (props) => {
   const [credentials, setCredentials] = useState({ username: "", password: "" })
+  const [error, setError] = useState(null);
+  const router = useRouter();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log(credentials.username);
+    
+    const result = await signIn("credentials", {
+      redirect: false,
+      username:credentials.username,
+      password:credentials.password,
+    });
+    console.log(result)
+    if (result.error || result === undefined) {
+      setError(result.error);
+    } else {
+      router.push("/profile/profile-overview");
+    }
+  };
+
+
 
   return (
     <>
@@ -32,7 +53,7 @@ const Signin = (props) => {
           <Stack align={'center'}>
             <Heading fontSize={'4xl'}>Accedi al tuo account</Heading>
             <Text fontSize={'lg'} color={'gray.600'}>
-              per usufruire di tutte le nostre novità 🌲
+              per usufruire di tutte le nostre novità
             </Text>
           </Stack>
           <Box
@@ -57,7 +78,7 @@ const Signin = (props) => {
                   <Checkbox >Ricorda</Checkbox>
                   <Link color={'primary'}>Password dimenticata?</Link>
                 </Stack>
-                <Button variant='normalButton' onClick={() => { signIn('credentials', { username: credentials.username, password: credentials.password }) }}>
+                <Button variant='normalButton' onClick={handleSubmit}>
                   Sign in
                 </Button>
                 <Center>
@@ -68,6 +89,7 @@ const Signin = (props) => {
                 <Button variant='normalButton' onClick={() => window.open("https://docs.google.com/forms/d/e/1FAIpQLSeVoJ5wr8YC6xumFZZ8WSbxRR5Skf7Rwc0enn9mCBUrlgDf2A/viewform?usp=sf_link", "_blank")}>
                   Contattaci
                 </Button>
+                {error && <p style={{ color: "red" }}>{error}</p>}
                 {/*
                 <Center>
                   <Button onClick={() => signIn("github")}
