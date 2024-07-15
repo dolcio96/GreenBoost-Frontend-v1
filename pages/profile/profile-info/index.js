@@ -9,7 +9,7 @@ import Head from "@components/head"
 import ProfileInfoSellerComponet from "@components/profile/profileInfoSeller"
 import ProfileInfoBuyerComponet from "@components/profile/profileInfoBuyer"
 import ProfileLayout from "@components/layout/profileLayout"
-import { useSession } from "next-auth/react"
+import { useSession , getSession} from "next-auth/react"
 
 export default function ProfileInfo({userInfo}) {
   const { data: session, status } = useSession()
