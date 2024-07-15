@@ -11,6 +11,8 @@ import ProfileInfoBuyerComponet from "@components/profile/profileInfoBuyer"
 import ProfileLayout from "@components/layout/profileLayout"
 import { useSession , getSession} from "next-auth/react"
 
+import handler from '@pages/api/backend/user/userGetData'
+
 export default function ProfileInfo({userInfo}) {
   const { data: session, status } = useSession()
   return (
