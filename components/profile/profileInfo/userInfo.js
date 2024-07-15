@@ -70,11 +70,11 @@ function UserInfo({user}) {
                                 </FlexContainerIB>
                                 <FlexContainerIB>
                                     <TextDesc>City:</TextDesc>
-                                    <TextValue>{user.company.customer.city.country.country_name}</TextValue>
+                                    <TextValue>{user.company.customer.city.city_name}</TextValue>
                                 </FlexContainerIB>
                                 <FlexContainerIB>
                                     <TextDesc>Country:</TextDesc>
-                                    <TextValue>{user.company.customer.city.city_name}</TextValue>
+                                    <TextValue>{user.company.customer.city.country.name}</TextValue>
                                 </FlexContainerIB>
                                 <FlexContainerIB>
                                     <TextDesc>TAX Number:</TextDesc>
