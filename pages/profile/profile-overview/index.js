@@ -67,8 +67,7 @@ export async function getServerSideProps(context) {
   const response = await handler(req, res);
 
   // Estrarre userInfo dal risultato di handler
-  console.log(response.json());
-  const userInfo = response.data;
+  const userInfo = response;
   return {
     props: {
       userInfo

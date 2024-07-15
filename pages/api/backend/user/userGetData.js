@@ -7,7 +7,8 @@ export default async function handler(req, res) {
   try {
     const remoteResponse = await fetchWrapper.get(process.env.BACKEND_API_URL + `/api/user/` + userType + '/' + userID);
     const remoteData = await remoteResponse.json();
-    res.status(remoteResponse.status).json(remoteData);
+    return remoteData
+    // res.status(remoteResponse.status).json(remoteData);
 
   } catch (error) {
     console.error('Errore nell\'inoltro della richiesta:', error);
