@@ -169,7 +169,7 @@ const Nav = () => {
                             <MenuList>
                                 {session ? <MenuItem onClick={() => signOut()}>Logout</MenuItem> : <MenuItem onClick={() => router.push("/auth/signin")}>Login</MenuItem>}
                                 <MenuItem onClick={() => signOut()}>Logout</MenuItem>
-                               {/* {!session && <MenuItem as="a" href="/auth/signup">Signup</MenuItem>}*/}
+                                {!session && <MenuItem as="a" href="/auth/signup">Signup</MenuItem>}
                                {/*  <MenuItem as="a" href="/profile/profile-overview">Profile</MenuItem>*/}
                             </MenuList>
                         </Menu> 
