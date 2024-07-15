@@ -10,7 +10,7 @@ import { fetchWrapper } from 'helpers';
  export default  async function  handler(req, res) {
 
     try{
-        const remoteResponse = await fetchWrapper.post(process.env.BACKEND_API_URL +`api/auth/signup`, req.body);
+        const remoteResponse = await fetchWrapper.post(process.env.BACKEND_API_URL +`/api/auth/signup`, req.body);
         const remoteData = await remoteResponse.json();
         res.status(remoteResponse.status).json(remoteData);
 
