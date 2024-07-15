@@ -161,8 +161,15 @@ function ProfileOverviewBuyer({userInfo}) {
                 <Stack direction={{ base: 'column', md: 'row' }} w="100%" justifyContent={{ base: 'center', md: "space-between" }}  >
                     <Center w={{ base: '100%', md: '50%' }}>
                         <Box>
-                        <KPINumber n={60} dly={200} lbl={"Total Active VCC"} fontSize={"5xl"} />
-                            <KPINumber n={30} dly={1200} lbl={"Forestry VCC"} fontSize={"3xl"} />
+                        <KPINumber n={userInfo.carbon_credits.length} dly={200} lbl={"Total Active VCC"} fontSize={"5xl"} />
+                            { userInfo.carbon_credits.forEach(credit => {
+                            const projectType = credit.project?.project_type?.name;
+                                if (projectType) {
+                                    <KPINumber n={30} dly={1200} lbl={"Forestry VCC"} fontSize={"3xl"} />
+                                    }})}
+                            
+                            
+                           
                             <KPINumber n={30} dly={1200} lbl={"Other VCC"} fontSize={"3xl"} />
                         </Box>
                     </Center>
