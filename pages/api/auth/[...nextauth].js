@@ -35,7 +35,6 @@ export default NextAuth({
         })
         
         var resp = await response.json()
-        console.log(resp);
         delete resp.projects
         delete resp.carbon_credits
         delete resp.buyers
@@ -121,7 +120,7 @@ export default NextAuth({
   // Callbacks are asynchronous functions you can use to control what happens
   // when an action is performed.
   // https://next-auth.js.org/configuration/callbacks
-  /*callbacks: {
+  callbacks: {
     async session({ session, token }) {
       session.user = token.user;
       return session;
@@ -138,7 +137,7 @@ export default NextAuth({
     },
     // async session({ session, token, user }) { return session },
     // async jwt({ token, user, account, profile, isNewUser }) { return token }
-  },*/
+  },
 
   // Events are useful for logging
   // https://next-auth.js.org/configuration/events

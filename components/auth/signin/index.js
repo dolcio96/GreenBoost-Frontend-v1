@@ -36,6 +36,7 @@ const Signin = (props) => {
     if (result.error || result === undefined) {
       setError(result.error);
     } else {
+      
       router.push("/profile/profile-overview");
     }
   };
@@ -81,6 +82,7 @@ const Signin = (props) => {
                 <Button variant='normalButton' onClick={handleSubmit}>
                   Sign in
                 </Button>
+                <Center>{error && <Text style={{ color: "red" }}>{error}</Text>}</Center>
                 <Center>
                   <Text fontWeight={'bold'}>
                     Vuoi registrarti al nostro sito?
@@ -89,7 +91,7 @@ const Signin = (props) => {
                 <Button variant='normalButton' onClick={() => window.open("https://docs.google.com/forms/d/e/1FAIpQLSeVoJ5wr8YC6xumFZZ8WSbxRR5Skf7Rwc0enn9mCBUrlgDf2A/viewform?usp=sf_link", "_blank")}>
                   Contattaci
                 </Button>
-                {error && <p style={{ color: "red" }}>{error}</p>}
+              
                 {/*
                 <Center>
                   <Button onClick={() => signIn("github")}
