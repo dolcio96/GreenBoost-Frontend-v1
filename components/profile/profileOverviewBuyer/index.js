@@ -185,10 +185,10 @@ function ProfileOverviewBuyer({userInfo}) {
                 <Stack direction={{ base: 'column', md: 'row' }} w="100%" justifyContent={{ base: 'center', md: "space-between" }}  >
                     <Center w={{ base: '100%', md: '50%' }}>
                         <Box>
-                        <KPINumber n={userInfo.carbon_credits.length} dly={200} lbl={"Total Active VCC"} fontSize={"5xl"} />
+                        <KPINumber key={"Total Active VCC"} n={userInfo.carbon_credits.length} dly={200} lbl={"Total Active VCC"} fontSize={"5xl"} />
                             { getProjectTypeArray(userInfo.carbon_credits).map(projectType => {
 
-                                    return <KPINumber n={getCCCountByProjectType(userInfo.carbon_credits,projectType)} dly={1200} lbl={projectType} fontSize={"3xl"} />
+                                    return <KPINumber key={projectType} n={getCCCountByProjectType(userInfo.carbon_credits,projectType)} dly={1200} lbl={projectType} fontSize={"3xl"} />
 
                             })}
                         </Box>
