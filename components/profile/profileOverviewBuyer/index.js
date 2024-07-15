@@ -156,7 +156,7 @@ function getCCCountByProjectType(CC, project_type){
 
     CC.forEach(credit => {
         const projectTypeCC = credit.project?.project_type?.name;
-        if (projectTypeCC &&  projectTypeCC === projectType) {
+        if (projectTypeCC &&  projectTypeCC === project_type) {
             count=count+1;
         }
     });
@@ -186,9 +186,9 @@ function ProfileOverviewBuyer({userInfo}) {
                     <Center w={{ base: '100%', md: '50%' }}>
                         <Box>
                         <KPINumber n={userInfo.carbon_credits.length} dly={200} lbl={"Total Active VCC"} fontSize={"5xl"} />
-                            { getProjectTypeArray(userInfo.carbon_credits).forEach(projectType => {
+                            { getProjectTypeArray(userInfo.carbon_credits).map(projectType => {
 
-                                    <KPINumber n={getCCCountByProjectType(userInfo.carbon_credits,projectType)} dly={1200} lbl={projectType} fontSize={"3xl"} />
+                                    return <KPINumber n={getCCCountByProjectType(userInfo.carbon_credits,projectType)} dly={1200} lbl={projectType} fontSize={"3xl"} />
 
                             })}
                         </Box>
