@@ -150,7 +150,22 @@ const ProjectRow = () => {
     </>)
 }
 
+function getCCCountByProjectType(){
+    
+return count;
+}
 
+function getProjectTypeArray(CC){
+    var projectTypeArray=[];
+    CC.forEach(credit => {
+        const projectType = credit.project?.project_type?.name;
+        if (projectType && !projectTypeArray.includes(projectType)) {
+          projectTypeArray.push(projectType);
+        }
+    });
+
+    return projectTypeArray
+}
 
 function ProfileOverviewBuyer({userInfo}) {
 
@@ -162,15 +177,11 @@ function ProfileOverviewBuyer({userInfo}) {
                     <Center w={{ base: '100%', md: '50%' }}>
                         <Box>
                         <KPINumber n={userInfo.carbon_credits.length} dly={200} lbl={"Total Active VCC"} fontSize={"5xl"} />
-                            { userInfo.carbon_credits.forEach(credit => {
-                            const projectType = credit.project?.project_type?.name;
-                                if (projectType) {
-                                    <KPINumber n={30} dly={1200} lbl={"Forestry VCC"} fontSize={"3xl"} />
-                                    }})}
-                            
-                            
-                           
-                            <KPINumber n={30} dly={1200} lbl={"Other VCC"} fontSize={"3xl"} />
+                            { getProjectTypeArray(userInfo.carbon_credits).forEach(projectType => {
+
+                                    <KPINumber n={30} dly={1200} lbl={projectType} fontSize={"3xl"} />
+
+                            })}
                         </Box>
                     </Center>
                     <Center w={{ base: '100%', md: '50%' }}>
