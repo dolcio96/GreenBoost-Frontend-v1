@@ -172,7 +172,6 @@ function ProfileOverviewBuyer({userInfo}) {
                                Last purchased projects
                         </Heading>
                         <ProjectRow />
-                        <ProjectRow /> 
 
 
                         </Flex>
