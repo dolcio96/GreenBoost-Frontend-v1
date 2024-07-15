@@ -12,9 +12,12 @@ import ProfileLayout from "@components/layout/profileLayout"
 import { useRouter } from 'next/router';
 import { useSession, getSession } from "next-auth/react"
 
+import handler from '@pages/api/backend/user/userGetData'
+
 export default function Profile( {userInfo} ) {
 const { data: session, status } = useSession()
 console.log(session);
+console.log(userInfo);
   return (
 
     <>
@@ -43,20 +46,31 @@ Profile.getLayout = function getLayout(page) {
   return <ProfileLayout>{page}</ProfileLayout>
 }
 
-/* 
+
 export async function getServerSideProps(context) {
   const session = await getSession(context);
 
-  const { getUserDataService } = require('services');
+  // Crea un oggetto fittizio req e res per la chiamata a handler
+  const req = {
+    query: {
+      userType: session?.user.customer_type,
+      userID: session?.user.id
+    }
+  };
 
-  const res = await getUserDataService.getData(session?.user.customer_type, session?.user.id);
+  const res = {
+    status: (statusCode) => ({
+      json: (data) => ({ statusCode, data })
+    })
+  };
 
-  const userInfo = await res.json()
+  const response = await handler(req, res);
 
-  //const userInfo = {"id":"id","name":"name"}
+  // Estrarre userInfo dal risultato di handler
+  const userInfo = response.data;
   return {
     props: {
       userInfo
     }
   };
-}*/
+}
