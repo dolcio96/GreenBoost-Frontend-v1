@@ -51,6 +51,17 @@ export async function getServerSideProps(context) {
   const session = await getSession(context);
 
   // Crea un oggetto fittizio req e res per la chiamata a handler
+
+  if (!session) {
+    return {
+      redirect: {
+        destination: '/auth/signin',
+        permanent: false,
+      },
+    };
+  }
+
+
   const req = {
     query: {
       userType: session?.user.customer_type,

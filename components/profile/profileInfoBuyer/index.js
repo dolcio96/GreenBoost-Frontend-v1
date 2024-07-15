@@ -37,7 +37,7 @@ const TextValue = ({ children }) => {
 
 const pdfList = [{ name: "Nome1", url: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" },
     { name: "Nome2", url: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" }]
-function ProfileInfoBuyer() {
+function ProfileInfoBuyer({userInfo}) {
 
     //var { data: session, status } = useSession()
 
@@ -67,7 +67,7 @@ function ProfileInfoBuyer() {
         <>
          <Flex direction='column'  >
                 <Grid templateColumns={{ sm: "1fr", xl: "repeat(2, 1fr)" }} gap='22px'>
-                <UserInfo user={session.user}/>
+                <UserInfo user={userInfo}/>
                 <Documentations pdfList={pdfList}/>
                 </Grid>
 

@@ -11,7 +11,7 @@ import ProfileInfoBuyerComponet from "@components/profile/profileInfoBuyer"
 import ProfileLayout from "@components/layout/profileLayout"
 import { useSession } from "next-auth/react"
 
-export default function ProfileInfo() {
+export default function ProfileInfo({userInfo}) {
   const { data: session, status } = useSession()
   return (
 
@@ -29,8 +29,8 @@ export default function ProfileInfo() {
             size='xl' />
         </Center>
         : session?.user.customer_type == "seller" ?
-        <ProfileInfoSellerComponet />
-          : <ProfileInfoBuyerComponet />}
+        <ProfileInfoSellerComponet userInfo={userInfo}/>
+          : <ProfileInfoBuyerComponet userInfo={userInfo}/>}
 
     </>
   )
@@ -42,3 +42,42 @@ ProfileInfo.getLayout = function getLayout(page) {
 
 
 //inserire funzione che fa il fetch per i PDF dell'utente
+
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+
+  // Crea un oggetto fittizio req e res per la chiamata a handler
+
+  if (!session) {
+    return {
+      redirect: {
+        destination: '/auth/signin',
+        permanent: false,
+      },
+    };
+  }
+
+
+  const req = {
+    query: {
+      userType: session?.user.customer_type,
+      userID: session?.user.id
+    }
+  };
+
+  const res = {
+    status: (statusCode) => ({
+      json: (data) => ({ statusCode, data })
+    })
+  };
+
+  const response = await handler(req, res);
+
+  // Estrarre userInfo dal risultato di handler
+  const userInfo = response;
+  return {
+    props: {
+      userInfo
+    }
+  };
+}
