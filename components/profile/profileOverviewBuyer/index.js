@@ -15,197 +15,176 @@ import {
     Stack,
     VStack,
 } from "@chakra-ui/react";
-import dynamic from 'next/dynamic';
-//const ApexCharts = dynamic(() => import('react-apexcharts'), { ssr: false });
-
-
-
-const chartOptions = {
-
-    series: [44, 55, 13],
-    options: {
-        chart: {
-            width: 380,
-            type: 'pie',
-        },
-        labels: ['Forestry', 'Heolic', 'Other'],
-        responsive: [{
-            breakpoint: 480,
-            options: {
-                chart: {
-                    width: 200
-                },
-                legend: {
-                    position: 'bottom'
-                }
-            }
-        }]
-    },
-
-
-};
-
-
-// public
-import avatar2 from "@public/Images/avatars/avatar2.png";
-import avatar3 from "@public/Images/avatars/avatar3.png";
-import avatar4 from "@public/Images/avatars/avatar4.png";
-
-import avatar6 from "@public/Images/avatars/avatar6.png";
+import PieChart from "./pieChart"
 
 // Custom components
 
 import React from "react";
-import {
-    FaPlus,
-} from "react-icons/fa";
-
 import KPINumber from "@lib/KPInumber"
 
 
-
-
-import { useSpring, animated } from "react-spring";
-
-const TitleComponent = ({ title }) => {
-    return (<>
-        <Heading my="10px" fontSize='lg'>{title}</Heading>
-    </>)
-}
-
-const ElementComponent = ({ children }) => {
-    return (<>
-
-        <Center h='50px' color='white'>
-            {children}
-        </Center>
-
-    </>)
-}
-
-const ProjectRow = () => {
+const ProjectRow = ({ project }) => {
     const textColor = useColorModeValue("gray.700", "white");
     const iconColor = useColorModeValue("blue.500", "white");
     return (<>
-        <Box my="20px" p='5px' bg="primary"
+        <Box my="20px" p='10px' bg="primary"
             borderRadius={"10px"}
         >
-            <Grid templateColumns={{ sm: "1fr", md: "repeat(3, 1fr)", xl: "repeat(6, 1fr)" }} gap='22px' justifyContent={"center"}>
-
-
-                <Box>
-                    <Flex direction='column' align='center'>
-                        <TitleComponent title="Project Name" />
-                        <ElementComponent><Text>Element3</Text></ElementComponent>
-                    </Flex>
+            <Grid templateColumns={{ sm: "1fr", md: "repeat(2, 1fr)", xl: "repeat(4, 1fr)" }} gap='30px' justifyContent={"space-between"}>
+                <Box flex="1">
+                    <Center flexDirection='column' align='center' my={2}>
+                        <Heading fontSize='lg' mb={4}>Project Name </Heading>
+                        <Text color={"tertiary"}>{project.name}</Text>
+                    </Center>
                 </Box>
 
-                <Box>
-                    <Flex direction='column' align='center'>
-                        <TitleComponent title="Project Type" />
-                        <ElementComponent>
-                            <Flex gap={3} >
-                                <Avatar name='Ryan Florence' src={avatar6} size={"sm"} />
-                                <Avatar name='Segun Adebayo' src={avatar2} size={"sm"} />
-                                <Avatar name='Kent Dodds' src={avatar3} size={"sm"} />
-                                <Avatar name='Prosper Otemuyiwa' src={avatar4} size={"sm"} />
-                            </Flex>
-                        </ElementComponent>
+                <Box flex="1">
 
-                    </Flex>
+                    <Center flexDirection='column' align='center' my={2}>
+                        <Heading fontSize='lg' mb={4}>Project Type</Heading>
+                        <Text color={"tertiary"}>{project.project_type.name}</Text>
+                    </Center>
                 </Box>
 
-                <Box>
-                    <Flex direction='column' align='center'>
-                        <TitleComponent title="Location" />
-                        <ElementComponent><Text>Location</Text></ElementComponent>
-                    </Flex>
-                </Box>
-                <Box>
-                    <Flex direction='column' align='center'>
-                        <TitleComponent title="Quantity" />
-                        <ElementComponent><Text>30 CC</Text></ElementComponent>
-                    </Flex>
+                <Box flex="1">
+                    <Center flexDirection='column' align='center' my={2}>
+                        <Heading fontSize='lg' mb={4}>Quantity</Heading>
+                        <Text color={"tertiary"}>{project.NCCAquistati} CC</Text>
+                    </Center>
                 </Box>
 
-                <Box>
-                    <Flex direction='column' align='center'>
-                        <TitleComponent title="Date" />
-                        <ElementComponent><Text>30/04/2022</Text></ElementComponent>
-                    </Flex>
+                <Box flex="1">
+                    <Center flexDirection='column' align='center' my={2}>
+                        <Heading fontSize='lg' mb={4}>Emission Date</Heading>
+                        <Text color={"tertiary"}>{"30/04/2022"}</Text>
+                    </Center>
                 </Box>
-
-                <Box>
-                    <Flex direction='column' align='center'>
-                        <TitleComponent title="Expiration Date" />
-                        <ElementComponent><Text>31/12/2022</Text></ElementComponent>
-                    </Flex>
-                </Box>
-
-
             </Grid>
-
-
         </Box>
     </>)
 }
 
-function getCCCountByProjectType(CC, project_type){
+function getCCCountByProjectType(CC, project_type) {
 
     var count = 0;
 
     CC.forEach(credit => {
         const projectTypeCC = credit.project?.project_type?.name;
-        if (projectTypeCC &&  projectTypeCC === project_type) {
-            count=count+1;
+        if (projectTypeCC && projectTypeCC === project_type) {
+            count = count + 1;
         }
     });
-    
-return count;
+
+    return count;
 }
 
-function getProjectTypeArray(CC){
-    var projectTypeArray=[];
+function getProjectTypeArray(CC) {
+    var projectTypeArray = [];
     CC.forEach(credit => {
         const projectType = credit.project?.project_type?.name;
         if (projectType && !projectTypeArray.includes(projectType)) {
-          projectTypeArray.push(projectType);
+            projectTypeArray.push(projectType);
         }
     });
 
     return projectTypeArray
 }
+function getUniqueAndLatestProjects(userInfo, n) {
+    const projectMap = new Map();
+    const projectTypeCountMap = new Map();
 
-function ProfileOverviewBuyer({userInfo}) {
+    // Populate the map with unique projects and count occurrences by project type
+    userInfo.carbon_credits.forEach(carbonCredit => {
+        const project = carbonCredit.project;
+        if (project) {
+            // Track unique projects
+            if (!projectMap.has(project.id)) {
+                projectMap.set(project.id, {
+                    ...project,
+                    count: 0 // Initialize the count
+                });
+            }
 
+            // Increment count for project type
+            const projectType = project.project_type?.name;
+            if (projectType) {
+                const currentCount = projectTypeCountMap.get(projectType) || 0;
+                projectTypeCountMap.set(projectType, currentCount + 1);
+            }
+        }
+    });
+
+    // Get unique projects
+    const uniqueProjects = Array.from(projectMap.values());
+
+    // Get the latest n projects
+    const latestProjects = userInfo.carbon_credits
+        .sort((a, b) => new Date(b.insert_timestamp) - new Date(a.insert_timestamp))
+        .slice(0, n)
+        .map(carbonCredit => carbonCredit.project)
+        .filter(project => project !== undefined); // Filter out undefined projects
+
+    // Add counts to the latest projects
+    latestProjects.forEach(project => {
+        if (project) {
+            const projectType = project.project_type?.name;
+            if (projectType && projectTypeCountMap.has(projectType)) {
+                project.NCCAquistati = projectTypeCountMap.get(projectType);
+            }
+        }
+    });
+
+    return latestProjects;
+}
+
+function getChartOptions(userInfo) {
+    const projectTypes = getProjectTypeArray(userInfo.carbon_credits);
+    const counts = projectTypes.map(type => getCCCountByProjectType(userInfo.carbon_credits, type));
+
+    return {
+
+        labels: projectTypes,
+        series: counts
+
+    };
+}
+
+function ProfileOverviewBuyer({ userInfo }) {
 
     return (
         <>
-            <Center h="80vh" >
-                <Stack direction={{ base: 'column', md: 'row' }} w="100%" justifyContent={{ base: 'center', md: "space-between" }}  >
+            <Center minH="80vh" >
+                <Stack m={"5px"} direction={{ base: 'column', md: 'row' }} w="100%" justifyContent={{ base: 'center', md: "space-between" }}  >
                     <Center w={{ base: '100%', md: '50%' }}>
                         <Box>
-                        <KPINumber key={"Total Active VCC"} n={userInfo.carbon_credits.length} dly={200} lbl={"Total Active VCC"} fontSize={"5xl"} />
-                            { getProjectTypeArray(userInfo.carbon_credits).map(projectType => {
+                            <KPINumber key={"Total Active VCC"} n={userInfo.carbon_credits.length} dly={200} lbl={"Total Active VCC"} fontSize={{ base: "2xl", md: "3xl", lg: "5xl" }} />
+                            <Center mt="20px">
+                                <Box>
+                                    <Heading fontSize="xl" mb="4">Portafoglio progetti</Heading>
+                                    <PieChart chartOpts={getChartOptions(userInfo)} />
+                                </Box>
+                            </Center>
 
-                                    return <KPINumber key={projectType} n={getCCCountByProjectType(userInfo.carbon_credits,projectType)} dly={1200} lbl={projectType} fontSize={"3xl"} />
+                            {/*getProjectTypeArray(userInfo.carbon_credits).map(projectType => {
 
-                            })}
+                                return <KPINumber key={projectType} n={getCCCountByProjectType(userInfo.carbon_credits, projectType)} dly={1200} lbl={projectType} fontSize={{ base: "xl", md: "2xl", lg: "3xl" }} />
+
+                            })*/}
                         </Box>
                     </Center>
                     <Center w={{ base: '100%', md: '50%' }}>
                         <Flex direction='column'  >
-                        <Heading>
-                               Last purchased projects
-                        </Heading>
-                        <ProjectRow />
-
+                            <Heading>
+                                Ultimi acquisti
+                            </Heading>
+                            {getUniqueAndLatestProjects(userInfo, 4).map(project => { return <ProjectRow key={project.id} project={project} /> })}
 
                         </Flex>
                     </Center>
 
                 </Stack>
             </Center>
+
         </>
     );
 }
