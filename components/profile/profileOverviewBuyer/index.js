@@ -115,14 +115,12 @@ function getUniqueAndLatestProjects(userInfo, n) {
     });
 
     // Get unique projects
-    const uniqueProjects = Array.from(projectMap.values());
+    const uniqueProjects = Array.from(projectMap.values()).sort((a, b) => {
+        return new Date(b.update_timestamp) - new Date(a.update_timestamp);
+    });
 
-    // Get the latest n projects
-    const latestProjects = userInfo.carbon_credits
-        .sort((a, b) => new Date(b.insert_timestamp) - new Date(a.insert_timestamp))
-        .slice(0, n)
-        .map(carbonCredit => carbonCredit.project)
-        .filter(project => project !== undefined); // Filter out undefined projects
+     // Ottenere gli ultimi n progetti
+     const latestProjects = uniqueProjects.slice(0, n);
 
     // Add counts to the latest projects
     latestProjects.forEach(project => {
