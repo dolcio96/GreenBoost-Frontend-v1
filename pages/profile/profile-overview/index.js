@@ -19,7 +19,7 @@ const { data: session, status } = useSession()
 console.log(session);
 console.log(userInfo);
 
-var userinfo = {
+/*var userinfo = {
   "id": "buyer_fd3322a8-c11e-4631-894d-b004074250c1",
   "company_id": "company_be93f1b5-fbc0-45da-aa11-0666f8c4dadc",
   "insert_timestamp": "2024-07-15T19:06:54.162Z",
@@ -135,7 +135,7 @@ var userinfo = {
     }
   ],
   "customer_type": "buyer"
-}
+}*/
 
   return (
 
@@ -154,8 +154,8 @@ var userinfo = {
             size='xl' />
         </Center>
         : session?.user.customer_type == "seller" ?
-        <ProfileOverviewSellerComponet userInfo={userinfo}/>
-          : <ProfileOverviewBuyerComponet userInfo={userinfo}/>}
+        <ProfileOverviewSellerComponet userInfo={userInfo}/>
+          : <ProfileOverviewBuyerComponet userInfo={userInfo}/>}
 
     </>
   )
@@ -165,7 +165,7 @@ Profile.getLayout = function getLayout(page) {
   return <ProfileLayout>{page}</ProfileLayout>
 }
 
-/*
+
 export async function getServerSideProps(context) {
   const session = await getSession(context);
 
@@ -203,4 +203,4 @@ export async function getServerSideProps(context) {
       userInfo
     }
   };
-}*/
+}
