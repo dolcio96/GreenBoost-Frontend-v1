@@ -28,31 +28,42 @@ const handleDownload = async (PDF_URL, PDF_Name) => {
     const pdfUrl = PDF_URL;
     const pdfName = PDF_Name;
     try {
-        //Fetch in the backend
+        // Fetch in the backend
         const response = await fetch("/api/download_pdf/download", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ pdfUrl }),
         });
-        if (response.ok) {
-            const pdfBlob = await response.blob();
 
-            // Crea un URL oggetto temporaneo per il file PDF
-            const url = window.URL.createObjectURL(pdfBlob);
-
-            // Crea un link "nascosto" per il download del PDF
-            const a = document.createElement("a");
-            a.style.display = "none";
-            a.href = url;
-            a.download = pdfName;
-            document.body.appendChild(a);
-            a.click();
-
-            // Rilascia l'URL oggetto temporaneo
-            window.URL.revokeObjectURL(url);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
         }
+
+        const pdfBlob = await response.blob();
+
+        // Check if the response is actually a PDF
+        const contentType = response.headers.get("content-type");
+        if (!contentType || !contentType.includes("application/pdf")) {
+            throw new Error("The fetched file is not a PDF");
+        }
+
+        // Crea un URL oggetto temporaneo per il file PDF
+        const url = window.URL.createObjectURL(pdfBlob);
+
+        // Crea un link "nascosto" per il download del PDF
+        const a = document.createElement("a");
+        a.style.display = "none";
+        a.href = url;
+        a.download = pdfName;
+        document.body.appendChild(a);
+        a.click();
+
+        // Rilascia l'URL oggetto temporaneo
+        window.URL.revokeObjectURL(url);
+        document.body.removeChild(a);
     } catch (error) {
         console.error("Si è verificato un errore durante il download del PDF:", error);
+        alert("Si è verificato un errore durante il download del PDF. Per favore, riprova.");
     }
 };
 

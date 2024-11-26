@@ -44,7 +44,7 @@ function ProfileInfoBuyer({userInfo}) {
      //console.log(status)
      //console.log(session)
 
-     var session = {
+    /* var session = {
           "user": {
             "company": {
               "company_name": "Nome Azienda",
@@ -61,7 +61,7 @@ function ProfileInfoBuyer({userInfo}) {
               "tax_number": "1234567890"
             }
           }
-        }
+        }*/
       
     return (
         <>
