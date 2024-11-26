@@ -1,4 +1,5 @@
 import { Box } from "@chakra-ui/react";
+import { Title } from "@mui/icons-material";
 import React, { useEffect, useState } from "react";
 
 // Componente DashboardEmbed per incorporare la dashboard Metabase
@@ -42,6 +43,7 @@ const Dashboard = () => {
     <>
       <Box>
         {/* Incorporare la dashboard Metabase */}
+        <Title>Dashboard</Title>
         <DashboardEmbed dashboardId={dashboardId} />
       </Box>
     </>

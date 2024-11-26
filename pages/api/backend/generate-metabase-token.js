@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 
-const METABASE_SITE_URL = "http://13.37.211.151:443";
+const METABASE_SITE_URL = "http://13.37.211.151:3000";
 const METABASE_SECRET_KEY = "d0cbf10e75669919611b6888acde95c27633283c18be3e00985fac38c2334375";
 
 export default function handler(req, res) {
