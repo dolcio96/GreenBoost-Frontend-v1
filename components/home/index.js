@@ -138,11 +138,13 @@ const WaveComp = ({ rotate, bg }) => {
 }
 
 const Home = () => {
+    
     let { t } = useTranslation();
     const partnerLogos = [{ img: logoPuro }, logoCSMT, logoGMAmbiente]
 
     return (
         <>
+        
             <Stack spacing={25}>
                 <Box>
                     <Hero />
