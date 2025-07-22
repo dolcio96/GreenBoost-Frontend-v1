@@ -12,12 +12,14 @@ import logoNet0 from "@public/Images/partner/logo_net0.png"
 import logoBiocarbon from "@public/Images/partner/logo_Biocarbon_1.png"
 import logoNovocarbo from "@public/Images/partner/logo_Novocarbo.png"
 import logoExomad from "@public/Images/partner/logo_Exomad_3.png"
+import logoConfindustria from "@public/Images/partner/logo_Confindustria.png"
 
 const ProjectPartner = () => {
 
     const partnerLogos = [
         { img: logoPuro, link: "https://puro.earth/" },
         { img: logoCSMT, link: "https://www.csmt.it/it/innovative-contamination-hub" },
+        { img: logoConfindustria, link: "https://www.confindustriabrescia.it/" },
         { img: logoGMAmbiente, link: "https://www.gmambiente.eu/" },
         { img: logoNet0, link: "https://www.goingnetzero.it" },
         { img: logoBiocarbon, link: "https://www.bcbiocarbon.com/" },
